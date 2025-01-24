@@ -1,0 +1,185 @@
+.tl1 {
+  //styleName: Desktop/Headline/lg;
+  font-family: Montserrat;
+  font-size: 6rem; /* 60px */
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2.6rem; /* 26px */
+  }
+
+}
+
+
+.tl2 {
+  //styleName: Desktop/Title/lg;
+  font-family: Montserrat;
+  font-size: 3rem; /* 30px */
+  font-weight: 600;
+  line-height: 110%;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2rem; /* 20px */
+  }
+
+}
+
+
+
+
+.tl3 {
+  //styleName: Desktop/Body/lg;
+  font-family: Montserrat;
+  font-size: 2.2rem; /* 22px */
+  font-weight: 600;
+  line-height: 120%;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 3.2rem;
+  }
+
+}
+
+
+.txt20 {
+  //styleName: Desktop/Body/md;
+  font-family: Inter;
+  font-size: 2rem; /* 20px */
+  font-weight: 400;
+  line-height: 120%;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2.8rem;
+  }
+
+}
+
+.txt16 {
+  //styleName: Desktop/Body/sm inter;
+  font-family: Inter;
+  font-size: 1.6rem; /* 16px */
+  font-weight: 400;
+  line-height: 120%;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2.4rem;
+  }
+
+  &._mon {
+    //styleName: Desktop/Body/sm montserrat 0%;
+    font-family: Montserrat;
+    font-size: 1.6rem; /* 16px */
+    font-weight: 600;
+    line-height: 120%;
+
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+
+  }
+
+  &._mon-0 {
+    //styleName: Desktop/Body/sm montserrat 12%;
+    font-family: Montserrat;
+    font-size: 1.6rem; /* 16px */
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: 0.12em;
+
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+}
+
+.txt13 {
+  //styleName: Desktop/Body/xs inter;
+  font-family: Inter;
+  font-size: 1.3rem; /* 13px */
+  font-weight: 400;
+  line-height: 120%;
+
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2rem;
+  }
+
+  &._mon {
+    //styleName: Desktop/Body/xs montserrat;
+    font-family: Montserrat;
+    font-size: 1.3rem; /* 13px */
+    font-weight: 600;
+    line-height: 110%;
+
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+  }
+
+  &._600 {
+    font-weight: 600;
+  }
+}
+
+.txt15 {
+  //styleName: Desktop/Label/lg;
+  font-family: Inter;
+  font-size: 1.5rem; /* 15px */
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: 0.12em;
+
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2.6rem;
+  }
+}
+
+.txt11 {
+  //styleName: Desktop/Label/sm;
+  font-family: Inter;
+  font-size: 1.1rem; /* 11px */
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: 0.12em;
+
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 2rem;
+  }
+
+}
+
+.txt40 {
+  //styleName: Desktop/Slider num/lg;
+  font-family: Montserrat;
+  font-size: 4rem; /* 40px */
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include mobile {
+    font-size: 4.8rem;
+  }
+}

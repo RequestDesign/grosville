@@ -1,0 +1,37 @@
+@mixin mobile {
+  @media (max-width: 48em) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 48em) {
+    @content;
+  }
+}
+
+
+
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+
+  }
+}
+
+@mixin wrap-text($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  line-clamp: $lines;
+  box-orient: vertical;
+  @content;
+}
+
