@@ -11,6 +11,12 @@
     &-bg{
         color: var(--col-bg);
     }
+    &-orange{
+        color: var(--col-orange);
+    }
+    &-grey200{
+        color: var(--col-grey200);
+    }
 
 }
 /*  */
@@ -52,7 +58,7 @@
 /*  */
 
 .desktop {
-    @include desktop {
+    @include mobile {
       display: none;
     }
   
@@ -61,7 +67,7 @@
   
   
   .mobile {
-    @include mobile {
+    @include desktop {
       display: none;
     }
   

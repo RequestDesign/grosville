@@ -1,0 +1,176 @@
+.header {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    background-color: white;
+    animation: headerOff .5s linear forwards;
+    &._showed {
+        background-color: var(--col-black);
+        animation: header .5s linear forwards;
+
+        & .header__c-logo {
+            filter: invert(1);
+        }
+
+        & .header__c-filter,
+        & .header__c-phone {
+            color: var(--col-white);
+        }
+    }
+
+    &._opened {
+        & .header__c-btn {
+            gap: 0;
+
+            & span:nth-child(1) {
+                transform: translateY(100%) rotate(45deg);
+            }
+
+            & span:nth-child(2) {
+                opacity: 0;
+            }
+
+            & span:nth-child(3) {
+                transform: translateY(-100%) rotate(-45deg);
+
+
+            }
+        }
+    }
+
+    &__c {
+        display: flex;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        @include mobile {
+            padding-top: 3.2rem;
+            padding-bottom: 3.2rem;
+        }
+
+        &-logo {
+            flex-shrink: 0;
+
+            & img {
+                height: 5rem;
+
+                @include mobile {
+                    height: 7rem;
+                }
+
+            }
+        }
+
+        &-filter {
+            margin-left: 18rem;
+        }
+
+        &-phone {
+            margin-left: auto;
+            margin-right: 18rem;
+
+            @include mobile {
+                margin-left: auto;
+                margin-right: 2rem;
+
+                &-img {
+                    width: 8rem;
+                    height: 8rem;
+                    border-radius: 50%;
+                    border: 1px solid var(--col-grey);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 4rem;
+                    background-image: url(../assets/images/icons/call.svg);
+                }
+            }
+        }
+
+        &-btn {
+            height: 6.4rem;
+            width: 6.4rem;
+            flex-shrink: 0;
+            border: 2px solid var(--col-grey);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            border-radius: 50%;
+            transition: gap .5s linear;
+
+            @include mobile {
+                border-color: var(--col-grey);
+                gap: 4px;
+                width: 8.8rem;
+                height: 8.8rem;
+                border: 1px solid var(--col-white);
+            }
+
+            & span {
+                width: 2rem;
+                height: 2px;
+                border-radius: 1px;
+                background-color: var(--col-orange);
+                display: block;
+
+                @include mobile {
+                    background-color: var(--col-black);
+                    width: 3.6rem;
+                    height: 2px
+                }
+
+                &:nth-child(1) {
+                    transition: transform .5s linear;
+                }
+
+                &:nth-child(2) {
+                    transition: opacity .5s linear;
+                }
+
+                &:nth-child(3) {
+                    transition: transform .5s linear;
+
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes header {
+    0%{
+        position: fixed;
+        top: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        position: fixed;
+        top: 0;
+        transform: translateY(0%);
+    }
+}
+@keyframes headerOff {
+    0%{
+        background-color: var(--col-black);
+        position: fixed;
+        top: 0;
+        transform: translateY(0%);
+    }
+    99%{
+        background-color: var(--col-black);
+
+        position: fixed;
+        top: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        background-color: transparent;
+       position: absolute;
+    }
+}

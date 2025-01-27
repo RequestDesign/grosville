@@ -1,0 +1,227 @@
+.dd-absolute {
+    width: fit-content;
+    min-width: 20rem;
+    position: relative;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 110%;
+    color: var(--col-black);
+
+    @include mobile {
+        font-size: 3rem;
+        min-width: 40rem;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 2px;
+        right: 2px;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid transparent;
+        border-top-color: var(--col-black);
+        border-right-color: var(--col-black);
+        transform: rotate(135deg);
+        border-radius: 2px;
+        transition: transform .5s linear;
+
+        @include mobile {
+            width: 2rem;
+            height: 2rem;
+        }
+
+    }
+
+    &._opened {
+        &::after {
+            transform: rotate(-45deg);
+        }
+
+        & .dd-absolute__wrp {
+            grid-template-rows: 1fr;
+        }
+    }
+
+
+    &__target {
+        width: 100%;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--col-orange);
+        position: relative;
+        z-index: 3;
+
+
+    }
+
+    &__wrp {
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid .5s linear;
+
+
+        &-list {
+            background-color: var(--col-white);
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+
+            &-el {
+                width: 100%;
+                padding: 1.2rem 0;
+                border-bottom: 1px solid var(--col-white);
+
+                &._checked {
+                    border-color: var(--col-orange);
+                }
+
+                @include hover {
+                    background-color: var(--col-grey);
+                }
+
+                &:active {
+                    background-color: var(--col-grey200);
+                }
+            }
+        }
+
+    }
+}
+
+
+
+.dd-filter {
+    width: fit-content;
+    min-width: 10rem;
+    position: relative;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 110%;
+    color: var(--col-black);
+
+
+    @include mobile {
+        font-size: 3rem;
+        min-width: 20rem;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 2px;
+        right: 2px;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid transparent;
+        border-top-color: var(--col-black);
+        border-right-color: var(--col-black);
+        transform: rotate(135deg);
+        border-radius: 2px;
+        transition: transform .5s linear;
+
+        @include mobile {
+            width: 2rem;
+            height: 2rem;
+        }
+
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background-image: url(../assets/images/icons/sorting.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        @include mobile{
+            width: 4rem;
+            height: 4rem;
+        }
+
+    }
+
+    &._opened {
+        &::after {
+            transform: rotate(-45deg);
+        }
+
+        & .dd-filter__wrp {
+            grid-template-rows: 1fr;
+        }
+    }
+
+
+    &__target {
+        width: 100%;
+        position: relative;
+        z-index: 3;
+        padding-left: 3rem;
+        height: 2rem;
+        @include mobile{
+            padding-left: 6rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+
+    }
+
+    &__wrp {
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid .5s linear;
+
+
+        &-list {
+            background-color: var(--col-white);
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+
+            &-el {
+                width: 100%;
+                padding: 1.2rem 0;
+                position: relative;
+              
+
+                &._checked {
+                    filter: grayscale(0);
+                }
+
+                @include hover {
+                    background-color: var(--col-grey);
+                }
+
+                &:active {
+                    background-color: var(--col-grey200);
+                }
+            }
+        }
+
+    }
+}

@@ -134,6 +134,7 @@ export default class Form {
 
     _onSubmit() {
         let whatsUp = true
+        console.log('hello');
         for (const inp of this._inputs()) {
             if(!this._inputHandler(inp)){
                 whatsUp = false

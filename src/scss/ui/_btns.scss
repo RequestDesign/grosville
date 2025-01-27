@@ -1,0 +1,240 @@
+.btn-circle {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    transform: translate(17rem, 17rem);
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        border: 2px solid var(--col-orange);
+        width: 34rem;
+        height: 34rem;
+        transform: translate(-50%, -50%);
+
+        @include mobile {
+            width: 36rem;
+            height: 36rem;
+        }
+
+    }
+
+    &__text {
+        position: relative;
+        white-space: nowrap;
+        color: var(--col-orange);
+        //styleName: Desktop/Label/sm;
+        font-family: Inter;
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+
+        @include mobile {
+            font-size: 2rem;
+
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -2.6rem;
+            left: 0;
+            width: 3.6rem;
+            height: 3.6rem;
+            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transform: translateY(100%);
+
+
+        }
+
+    }
+
+}
+
+.btn-link {
+    //styleName: Desktop/Label/md;
+    font-family: Inter;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    height: fit-content;
+    width: fit-content;
+    color: var(--col-orange);
+    flex-shrink: 0;
+    white-space: nowrap;
+    height: 2rem;
+    display: flex;
+    align-items: flex-end;
+
+    @include hover {
+        color: var(--col-black);
+
+        &._arrow::after {
+            background-image: url(../assets/images/icons/arrow-black-right.svg);
+
+        }
+    }
+
+    @include mobile {
+        font-size: 1.8rem;
+        height: 4rem;
+        align-items: center;
+    }
+
+    &._arrow {
+        position: relative;
+        padding-right: 2.8rem;
+
+        @include mobile {
+            padding-right: 5rem;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2rem;
+            height: 100%;
+            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            @include mobile {
+                height: 4rem;
+                width: 4rem;
+            }
+
+        }
+    }
+
+}
+
+
+.btn-primary {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    //styleName: Desktop/Label/lg;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+
+    @include mobile {
+
+        font-size: 2rem;
+    }
+
+    @include hover {
+        & .btn-primary__text:nth-child(2):after {
+            width: 100%;
+        }
+    }
+
+    &__text {
+        &+* {
+            padding-left: 8px;
+
+            @include mobile {
+                padding-left: 6px;
+            }
+        }
+
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-bottom: 2px solid var(--col-orange);
+            transition: width .2s ease-in-out;
+        }
+
+        &:nth-child(2)::after {
+            width: 0;
+        }
+
+    }
+
+    &__icon {
+        margin-left: 6px;
+        position: relative;
+        width: 6.4rem;
+        height: 2.4rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 2.4rem;
+
+        &._arrow {
+            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+          
+        }
+        &._filter {
+            background-image: url(../assets/images/icons/filter.svg);
+          
+        }
+        &._mail{
+            background-image: url(../assets/images/icons/mail.svg);
+
+        }
+
+        @include mobile {
+            width: 8rem;
+            height: 8rem;
+            background-size: 4rem;
+        }
+
+        & svg {
+            width: 2.4rem;
+            height: 2.4rem;
+
+            @include mobile {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            border-radius: 50%;
+            border: 2px solid var(--col-orange);
+            width: 6.4rem;
+            height: 6.4rem;
+            transform: translate(0, -2rem);
+
+            @include mobile {
+                width: 8rem;
+                height: 8rem;
+                transform: translate(0, 0);
+
+            }
+
+        }
+
+
+    }
+
+
+
+}

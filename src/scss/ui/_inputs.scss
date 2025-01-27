@@ -1,0 +1,79 @@
+.form-input-container {
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    //styleName: Desktop/Label/lg;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.12em;
+    margin-bottom: 2rem;
+
+
+    @include mobile {
+        font-size: 2.2rem;
+    }
+
+    &._error {
+        & .form-input-error {
+            opacity: 1;
+        }
+    }
+
+    @include hover {
+        & .form-input-container__text {
+            color: var(--col-orange);
+        }
+    }
+
+    & input[type='text'] {
+        padding-bottom: 6px;
+        border-bottom: 2px solid var(--col-grey200);
+        width: 100%;
+
+        &:focus {
+            border-color: var(--col-orange);
+        }
+    }
+
+    & input[type='checkbox'],
+    & input[type='radio'] {
+        display: none;
+
+
+        &:checked {
+            &+.form-input-container__text {
+                border-color: var(--col-orange);
+            }
+        }
+    }
+
+    &__text {
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+        cursor: pointer;
+    }
+
+    & .form-input-error {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        color: var(--col-grey200);
+        //styleName: Desktop/Body/xs inter;
+        font-family: Inter;
+        font-size: 1.3rem;
+        font-weight: 400;
+        line-height: 120%;
+        margin-top: 2px;
+        min-height: 1.6rem;
+        opacity: 0;
+
+        @include mobile {
+            font-size: 2rem;
+        }
+    }
+
+
+
+}

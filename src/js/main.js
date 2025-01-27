@@ -5,7 +5,7 @@ import $ from 'jquery'
 //import { Navigation, Pagination, Grid, Autoplay } from 'swiper/modules';
 import Inputmask from 'inputmask'
 //import { Fancybox } from "@fancyapps/ui";
-//import noUiSlider from 'nouislider'
+import noUiSlider from 'nouislider'
 //import WOW from 'wow.js';
 //import gsap from 'gsap';
 //import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
@@ -24,9 +24,9 @@ const HTML = document.querySelector('html'),
 
 $(function () {
     initForms()
-
+    nouislider()
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
-
+    header()
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
 
@@ -64,12 +64,23 @@ $(function () {
             if (!input || !ev.target.value) {
                 console.error('.select-input не найден, или нету значения')
             }
-            input.value = ev.target.value
+
+            input.value = ev.target.textContent.trim()
             input.dispatchEvent(EV_INPUT);
+
             setTimeout(() => {
                 input.dispatchEvent(EV_CLICK)
 
             }, 200);
+
+            const prev = ev.target.closest('.dd-container')
+                .querySelectorAll('._checked')
+            if (prev) {
+                prev.forEach((e) => {
+                    e.classList.remove('_checked')
+                })
+            }
+            ev.target.classList.add('_checked')
         }
     })
 
@@ -127,3 +138,56 @@ function modalsHandler() {
     })
 }
 
+function nouislider() {
+
+
+    const target = document.querySelector('.nouislider')
+    if (!target) return
+
+    //это инпуты
+    const min = target.querySelector('.nouislider__min'),
+        max = target.querySelector('.nouislider__max'),
+        place = target.querySelector('.nouislider__place')
+
+    if (!min || !max) return
+
+
+    noUiSlider.create(place, {
+        start: [Number(min.getAttribute('min')), Number(max.getAttribute('max'))],
+        connect: true,
+        step: 100,
+        range: {
+            'min': Number(min.getAttribute('min')),
+            'max': Number(max.getAttribute('max'))
+        },
+    });
+
+    place.noUiSlider.on('update', function (values, handle) {
+        min.setAttribute('value', Math.round(values[0]))
+        max.setAttribute('value', Math.round(values[1]))
+
+    });
+
+    /*  min.on('input', (e) => {
+         target.noUiSlider.set([e.target.value, max.val()])
+     })
+     max.on('input', (e) => {
+         target.noUiSlider.set([min.val(), e.target.value])
+     }) */
+
+}
+
+function header() {
+    let prevY = 0
+    const header = document.querySelector('.header')
+
+    document.addEventListener('scroll', (ev) => {
+        if(prevY > window.scrollY && window.scrollY > 100){
+            header.classList.add('_showed')
+        }else if( prevY < window.scrollY){
+            header.classList.remove('_showed')
+        }
+        
+        prevY = window.scrollY
+    })
+}
