@@ -4,7 +4,7 @@ import $ from 'jquery'
 //import Swiper from 'swiper';
 //import { Navigation, Pagination, Grid, Autoplay } from 'swiper/modules';
 import Inputmask from 'inputmask'
-//import { Fancybox } from "@fancyapps/ui";
+import { Fancybox } from "@fancyapps/ui";
 import noUiSlider from 'nouislider'
 //import WOW from 'wow.js';
 //import gsap from 'gsap';
@@ -27,6 +27,9 @@ $(function () {
     nouislider()
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
     header()
+    modalsHandler()
+    initFancybox()
+
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
 
@@ -86,7 +89,23 @@ $(function () {
 
 })
 
+function initFancybox() {
+    const anytarget = document.querySelector('[data-fancybox]')
+    if (!anytarget) return
 
+
+
+    Fancybox.bind('[data-fancybox]', {
+        Thumbs: false, //картинки снизу
+        Toolbar: {
+            display: {
+                left: ["zoom"],
+                middle: ["caption","infobar" ],
+                right: ["close", ],
+            },
+        },
+    })
+}
 
 
 function initForms() {
@@ -106,7 +125,7 @@ function initForms() {
 
 
 function modalsHandler() {
-    const modalOpeners = $('.modal-opener'),
+    const modalOpeners = $('[data-modal]'),
         modalClosers = $('.modal-closer'),
         html = $('html')
 
@@ -114,12 +133,14 @@ function modalsHandler() {
     if (!modalOpeners || !modalClosers) return
 
     modalOpeners.on('click', (ev) => {
-        const { modal } = ev.currentTarget.dataset
+        const { modal, submit_type } = ev.currentTarget.dataset
 
         $(`.modal-${modal}`)
             .fadeIn()
             .addClass('_opened')
+            .attr('data-submit_type', submit_type)
         html.addClass('_lock')
+
     })
 
 
@@ -179,15 +200,34 @@ function nouislider() {
 
 function header() {
     let prevY = 0
-    const header = document.querySelector('.header')
+    const header = document.querySelector('.header'),
+        modal = $('.header__modal')
+
+    if (!header) return
 
     document.addEventListener('scroll', (ev) => {
-        if(prevY > window.scrollY && window.scrollY > 100){
+        if (prevY > window.scrollY && window.scrollY > 100) {
             header.classList.add('_showed')
-        }else if( prevY < window.scrollY){
+        } else if (prevY < window.scrollY) {
             header.classList.remove('_showed')
         }
-        
+
         prevY = window.scrollY
     })
+    header.querySelectorAll('.header-modal-opener')
+        .forEach((el) => {
+            el.addEventListener('click', (ev) => {
+                if (!ev.target.classList.contains('header-modal-opener')) return
+                ev.stopPropagation()
+                if (!header.classList.contains('_opened')) {
+                    modal.fadeIn()
+                    header.classList.add('_opened')
+                    HTML.classList.add(HTML_LOCK_SELECTOR)
+                } else {
+                    modal.fadeOut()
+                    header.classList.remove('_opened')
+                    HTML.classList.remove(HTML_LOCK_SELECTOR)
+                }
+            })
+        })
 }

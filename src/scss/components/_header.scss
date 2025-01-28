@@ -9,6 +9,7 @@
     background-color: transparent;
     background-color: white;
     animation: headerOff .5s linear forwards;
+
     &._showed {
         background-color: var(--col-black);
         animation: header .5s linear forwards;
@@ -19,7 +20,15 @@
 
         & .header__c-filter,
         & .header__c-phone {
+          
             color: var(--col-white);
+        }
+        & .header__c-phone-img{
+            filter: invert(1);
+            border-color: var(--col-black);
+        }
+        & .header__c-btn span{
+            background-color: var(--col-white);
         }
     }
 
@@ -41,9 +50,27 @@
 
             }
         }
+        & .header__modal-nav{
+            transform: translateX(0);
+        }
+        & .header__c-logo {
+            filter: invert(0);
+        }
+
+        & .header__c-phone-img{
+            filter: invert(0);
+            border-color: var(--col-grey);
+
+        }
+        & .header__c-btn span{
+            background-color: var(--col-black);
+            border-color: var(--col-grey);
+        }
     }
 
     &__c {
+        position: relative;
+        z-index: 2;
         display: flex;
         padding-top: 4rem;
         padding-bottom: 4rem;
@@ -51,10 +78,12 @@
         @include mobile {
             padding-top: 3.2rem;
             padding-bottom: 3.2rem;
+            z-index: 4;
         }
 
         &-logo {
             flex-shrink: 0;
+            transition: filter .5s linear;
 
             & img {
                 height: 5rem;
@@ -68,19 +97,21 @@
 
         &-filter {
             margin-left: 18rem;
+            transition: filter .5s linear;
         }
 
         &-phone {
             margin-left: auto;
             margin-right: 18rem;
-
+         
             @include mobile {
                 margin-left: auto;
                 margin-right: 2rem;
 
                 &-img {
-                    width: 8rem;
-                    height: 8rem;
+                    transition: filter .5s linear, border-color .5s linear;
+                    width: 8.8rem;
+                    height: 8.8rem;
                     border-radius: 50%;
                     border: 1px solid var(--col-grey);
                     background-repeat: no-repeat;
@@ -92,6 +123,7 @@
         }
 
         &-btn {
+            transition: filter .5s linear, border-color .5s linear;
             height: 6.4rem;
             width: 6.4rem;
             flex-shrink: 0;
@@ -103,6 +135,20 @@
             gap: 5px;
             border-radius: 50%;
             transition: gap .5s linear;
+            position: relative;
+
+            &::after {
+                transition: background-color .5s linear;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                border-radius: 50%;
+            }
 
             @include mobile {
                 border-color: var(--col-grey);
@@ -141,36 +187,152 @@
 
         }
     }
+
+    &__modal {
+        background-color: rgba(26, 26, 26, 0.4);
+        backdrop-filter: blur(12px);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 100vw;
+        height: 100dvh;
+
+        display: none;
+
+        &-nav {
+            transition: transform .5s linear;
+            transform: translateX(100%);
+            width: 96rem;
+            margin-left: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            background-color: var(--col-white);
+            padding: 4.7rem 17rem;
+            box-sizing: border-box;
+
+            @include mobile {
+                padding: 20rem 3rem 0;
+                width: 100%;
+            }
+
+            &-closer {
+                width: 3.6rem;
+                height: 3.6rem;
+              
+                margin-left: auto;
+
+                @include hover {
+                    opacity: .7;
+                }
+
+                @include mobile {}
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+
+                &-el {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2.4rem;
+
+                    @for $i from 1 through 5 {
+                        &:nth-child(#{$i}) {
+                            & .header__modal-nav-list-el-link:not(._small)::after {
+                                content: '0#{$i}';
+                            }
+                        }
+
+
+                    }
+
+                    &-link {
+                        font-family: Montserrat;
+                        font-size: 4.5rem;
+                        font-weight: 600;
+                        line-height: 100%;
+                        letter-spacing: 0.01em;
+                        padding-bottom: 3rem;
+                        border-bottom: 2px solid var(--col-grey);
+                        display: flex;
+                        gap: 3rem;
+                        justify-content: space-between;
+
+
+
+                        @include hover {
+                            color: var(--col-orange);
+                            border-color: var(--col-orange);
+
+                            & .header__modal-nav-list-el-link::after {
+                                color: var(--col-orange);
+                            }
+                        }
+
+                        &._small {
+                            border: none;
+                            font-size: 3rem;
+                            color: var(--col-grey200);
+                        }
+                    }
+
+                }
+            }
+
+            &-contacts {
+                @include mobile {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin-top: 8rem;
+                    gap: 3rem;
+                }
+
+            }
+        }
+
+    }
 }
 
 @keyframes header {
-    0%{
+    0% {
         position: fixed;
         top: 0;
         transform: translateY(-100%);
     }
-    100%{
+
+    100% {
         position: fixed;
         top: 0;
         transform: translateY(0%);
     }
 }
+
 @keyframes headerOff {
-    0%{
+    0% {
         background-color: var(--col-black);
         position: fixed;
         top: 0;
         transform: translateY(0%);
     }
-    99%{
+
+    99% {
         background-color: var(--col-black);
 
         position: fixed;
         top: 0;
         transform: translateY(-100%);
     }
-    100%{
+
+    100% {
         background-color: transparent;
-       position: absolute;
+        position: absolute;
     }
 }

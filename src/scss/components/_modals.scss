@@ -1,0 +1,136 @@
+.modal {
+    background-color: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: none;
+    color: var(--col-black);
+
+    &._opened {
+        & .modal__c {
+            transform: translateY(0);
+
+        }
+
+    }
+
+    &[data-submit_type="call"] {
+        & [data-submit_type]:not([data-submit_type="call"]) {
+            display: none;
+        }
+    }
+
+    &[data-submit_type="offer"] {
+        & [data-submit_type]:not([data-submit_type="offer"]) {
+            display: none;
+        }
+    }
+
+    &[data-submit_type="help"] {
+        & [data-submit_type]:not([data-submit_type="help"]) {
+            display: none;
+        }
+    }
+
+    &[data-submit_type="reserve"] {
+        & [data-submit_type]:not([data-submit_type="reserve"]) {
+            display: none;
+        }
+    }
+
+    &[data-submit_type="download"] {
+        & [data-submit_type]:not([data-submit_type="download"]) {
+            display: none;
+        }
+    }
+
+    &[data-submit_type="excursion"] {
+        & [data-submit_type]:not([data-submit_type="excursion"]) {
+            display: none;
+        }
+    }
+
+    &__c {
+        transition: transform .5s linear;
+        transform: translateY(-100%);
+        width: fit-content;
+        height: fit-content;
+        background-color: var(--col-white);
+        padding: 11.4rem;
+        box-sizing: border-box;
+        margin: 10rem auto 0;
+        position: relative;
+
+        @include mobile {
+            width: calc(100% - 6rem);
+            margin: 24rem 3rem 0;
+            padding: 12rem 3rem;
+        }
+
+        &-closer {
+            width: 3rem;
+            height: 3rem;
+          
+            position: absolute;
+            top: 3rem;
+            right: 3rem;
+        }
+
+        &>.txt20 {
+            margin: 2.4rem 0 8rem;
+
+            @include mobile {
+                margin: 3.2rem 0 9.6rem;
+            }
+        }
+
+        &-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.2rem;
+
+            @include mobile {
+                grid-template-columns: 100%;
+                gap: 4.8rem;
+
+                & .form-submit {
+                    grid-row: 5;
+                    margin-top: 4.8rem;
+                }
+
+                & .modal__c-form-text {}
+            }
+
+            & .form-input-container:nth-child(3) {
+                @include desktop {
+                    grid-column: 1 / span 2;
+                    margin-bottom: 5rem;
+                }
+            }
+
+        }
+    }
+
+    &-success {
+        text-align: center;
+
+        &__img {
+            width: 55rem;
+            height: 27rem;
+            display: flex;
+            margin-top: 7rem;
+            @include mobile{
+                margin-top: 9.6rem;
+                height: 60rem;
+                width: 100%;
+            }
+            & img{
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+    }
+}

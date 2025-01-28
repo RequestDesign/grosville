@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            /*   font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+
+            /*     font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /*   @font-face {
+      font-family: 'Inter';
+      src: local('Inter'),
+        url('./assets/fonts/Inter.woff2') format('woff2');
+
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    } */
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="heading">
+                <div class="container heading__c">
+                    <div class="heading__c-gr">
+
+                    </div>
+                    <div class="heading__c-left">
+                        <h1 class="tl1">
+                            Наши <br class="desktop" />
+                            контакты
+                        </h1>
+                        <p class="txt20">
+                            Ответим на все вопросы <br />
+                            и поможем подобрать лучший <br />
+                            вариант недвижимости для вас
+                        </p>
+                        <button class="btn-circle desktop" data-modal="request" data-submit_type="call">
+                            <span class="btn-circle__text _arrow">связаться</span>
+                        </button>
+
+                        <button class="btn-primary mobile" data-modal="request" data-submit_type="call">
+                            <span class="btn-primary__text">
+                                оставить
+                            </span>
+                            <span class="btn-primary__text">
+                                заявку
+                            </span>
+                            <span class="btn-primary__icon _arrow">
+                            </span>
+                        </button>
+
+                    </div>
+                    <div class="heading__c-right">
+
+                        <div class="heading__c-right-img">
+                            <img src="./assets/images/contacts.webp" alt="">
+                        </div>
+                        <p class="heading__c-right-text txt-up txt20 col-white">
+                            МЫ ИСКЛЮЧАЕМ ПОТРЕБИТЕЛЬСКУЮ УСТУПКУ, <br />
+                            ПРЕДЛАГАЯ КЛИЕНТАМ <span class="col-orange"> ИМЕННО ТО, ЧТО ИМ <br />
+                                ДЕЙСТВИТЕЛЬНО НУЖНО </span>, А НЕ ТО, НА ЧТО <br />
+                            ОНИ ГОТОВЫ СОГЛАСИТЬСЯ
+                        </p>
+                    </div>
+                </div>
+                <div class="heading__black desktop"></div>
+            </section>
+            <!--  -->
+            <section class="contacts-info">
+                <div class="container contacts-info__c">
+                    <div class="contacts-info__c-left">
+                        <img src="./assets/images/contacts-info.webp" alt="">
+                    </div>
+                    <div class="contacts-info__c-right">
+                        <p class="tl2">Главный офис</p>
+                        <ul class=" contacts-info__c-right-list">
+                            <li class="contacts-info__c-right-list-el">
+                                <p class="txt-up txt15 col-grey200">адрес</p>
+                                <p class="tl3">adres suda</p>
+                            </li>
+                            <li class="contacts-info__c-right-list-el">
+                                <p class="txt-up txt15 col-grey200">Время работы</p>
+                                <p class="tl3">adres suda</p>
+                            </li>
+                            <li class="contacts-info__c-right-list-el">
+                                <p class="txt-up txt15 col-grey200">Телефон</p>
+                                <p class="tl3">adres suda</p>
+                            </li>
+                            <li class="contacts-info__c-right-list-el">
+                                <p class="txt-up txt15 col-grey200">Email</p>
+                                <p class="tl3">adres suda</p>
+                            </li>
+                            <li>
+
+                                <button class="btn-primary ">
+                                    <span class="btn-primary__text">
+                                        Оставить
+                                    </span>
+                                    <span class="btn-primary__text">
+                                        заявку
+                                    </span>
+                                    <span class="btn-primary__icon _mail">
+                                    </span>
+                                </button>
+
+                            </li>
+                            <li class="contacts-info__c-right-list-el _social">
+                                <a href="#" class="ui-social _tg"></a>
+                                <a href="#" class="ui-social _wa"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="contacts-map">
+                <div class="container">
+                    <div class="contacts-map__top">
+                        <p class="tl1">Как до нас добраться</p>
+                        <p class="txt20">
+                            Офис расположен в БЦ Дом Немецкой Экономики. <br />
+                            В шаговой доступности станции метро «Купчино» <br />
+                            и «Звездная».
+                        </p>
+                    </div>
+                    <div id="map">
+
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+    <!-- m -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [47.204572074287015, 39.67028549999995],
+                zoom: 16,
+                controls: ['fullscreenControl']
+            });
+            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                hintContent: 'there is no palce for narkomany 😎'
+            }, {
+                iconLayout: 'default#image',
+                iconImageHref: './assets/images/map-marker-contacts.webp',
+                iconImageSize: [210, 70],
+
+            }),
+                myMap.geoObjects
+                    .add(myPlacemark)
+        }
+    </script>
+</body>
+
+</html>

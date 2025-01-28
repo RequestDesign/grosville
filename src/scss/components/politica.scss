@@ -1,0 +1,71 @@
+.politica {
+    &__img {
+        width: 100%;
+        height: 66rem;
+        display: flex;
+        position: relative;
+        z-index: 2;
+
+        & img {
+            object-fit: cover;
+            object-position: center;
+        }
+
+    }
+
+    &__c {
+        position: relative;
+        z-index: 3;
+        background-image: url(../assets/images/pepper.webp);
+        background-size: contain;
+        padding: 16rem;
+        box-sizing: border-box;
+        transform: translateY(-20rem);
+        @include mobile{
+            width: calc(100% - 6rem);
+            margin-left: 3rem;
+            margin-right: 3rem;
+            transform: translateY(-10rem);
+
+        }
+
+        & .txt40 {
+            margin: 6.8rem 0;
+            padding-bottom: 6.8rem;
+            border-bottom: 1px solid var(--col-orange);
+        }
+
+        &-data {
+            //styleName: Desktop/Body/md;
+            font-family: Inter;
+            font-weight: 400;
+            line-height: 130%;
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            @include mobile{
+                font-size: 3rem;
+            }
+
+            & h2 {
+                font-size: 3rem;
+                @include mobile{
+                    font-size: 4rem;
+                }
+            }
+
+            & h3 {
+                font-size: 3.5rem;
+                @include mobile{
+                    font-size: 4.5rem;
+                }
+            }
+            & ul li{
+                list-style: disc;
+                list-style-position: inside
+            }
+
+        }
+    }
+}

@@ -35,3 +35,7 @@
   @content;
 }
 
+@mixin mobPad(){
+  padding-left: 3rem;
+  padding-right: 3rem;
+}

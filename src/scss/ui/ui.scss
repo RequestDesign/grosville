@@ -6,3 +6,57 @@
 @import './dd';
 
 
+.ui-link {
+    @include hover {
+        text-decoration: underline;
+    }
+}
+
+.ui-x {
+    background-image: url(../assets/images/icons/x.svg);
+    filter: grayscale(1);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+
+    @include hover {
+        filter: grayscale(0);
+    }
+
+    &:active {
+        filter: grayscale(0);
+
+    }
+
+    @include mobile {
+        width: 4rem;
+        height: 4rem;
+        background-size: 4rem;
+    }
+}
+
+.ui-social {
+    display: block;
+    width: 6.4rem;
+    height: 6.4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.4rem;
+    box-sizing: border-box;
+    border: 1px solid var(--col-orange);
+    flex-shrink: 0;
+    border-radius: 50%;
+    @include mobile{
+        width: 8rem;
+        height: 8rem;
+        background-size: 3.2rem;
+    }
+    &._tg{
+        background-image: url(../assets/images/icons/tg.svg);
+    }
+    &._wa{
+        background-image: url(../assets/images/icons/wa.svg);
+    }
+}

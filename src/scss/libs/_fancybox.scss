@@ -1,0 +1,15 @@
+
+.f-button{
+    color: var(--col-orange);
+}
+.fancybox__container{
+    --fancybox-bg: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(10px);
+}
+.fancybox__toolbar{
+    --f-button-bg: transparent;
+
+}
+[data-fancybox]{
+    cursor: zoom-in;
+}

@@ -1,0 +1,47 @@
+.not-found {
+    height: 49rem;
+    @include mobile{
+        height: 100dvh;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    &__c {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        @include mobile{
+            gap: 3.5rem;
+        }
+
+        &-text {
+            font-family: Montserrat;
+            font-size: 35rem;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: 0.01em;
+            display: flex;
+            gap: 0;
+            transform: translateY(6rem);
+
+            @include mobile {
+                font-size: 24rem;
+                transform: translateY(14rem);
+                gap: 4rem;
+            }
+
+            & img {
+                width: 21rem;
+                height: 40rem;
+                transform: translateY(-6rem);
+                @include mobile{
+                    transform: translateY(-14rem);
+                }
+            }
+
+        }
+    }
+}

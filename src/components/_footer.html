@@ -1,3 +1,78 @@
+<div class="modal modal-request modal-closer" data-submit_type="call">
+    <!-- ВНИМАНИЕ -->
+    <!-- при вызове модалки через кнопку data-modal=request -->
+    <!-- ее data-submit_type передается в этот же атр на форме -->
+    <!-- одна форма на все случаи жызны палучаеца В) -->
+    <!-- умом? умом! -->
+    <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+    <div class="modal__c">
+        <button class="modal-closer modal__c-closer ui-x"></button>
+
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="call">Обратный зовонок</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="offer">Получить предложение</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="help">Заказать консультацию</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="reserve">Забронировать</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="download">Скачать буклет</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="excursion">Заказать экскурсию</p>
+
+        <p class="txt20">Оставьте контакты, и эксперт свяжется с вами в течение часа</p>
+
+        <form class="form modal__c-form">
+
+            <label class="form-input-container">
+                <input type="text" name="name" required placeholder="Ваше имя">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="phone" required placeholder="+7 (___) ___-__-__">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="comment" placeholder="Комментарий">
+                <span class="form-input-error">error</span>
+            </label>
+
+
+            <button class="btn-primary form-submit">
+                <span class="btn-primary__text">
+                    отправить
+                </span>
+                <span class="btn-primary__text">
+                    заявку
+                </span>
+                <span class="btn-primary__icon _mail">
+                </span>
+            </button>
+
+            <p class=" txt13 col-grey200">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<div class="modal modal-success modal-closer">
+
+    <div class="modal__c">
+        <!-- ВНИМАНИЕ -->
+        <!-- для вызова триггерни клик на ней -->
+        <button class="mobile desktop" data-modal="success"></button>
+        <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+        <button class="modal-closer modal__c-closer ui-x"></button>
+        <p class="tl1">Спасибо!</p>
+        <p class="txt20">Эксперт свяжется с вами в течение часа</p>
+
+        <div class="modal-success__img">
+            <img src="./assets/images/modal-success.webp" alt="">
+        </div>
+
+
+    </div>
+</div>
+
 <footer class="footer">
     <div class="container footer__c">
         <div class="footer__c-logo">
@@ -44,7 +119,7 @@
             <p class="txt13">
                 Отправляя форму, вы принимаете пользовательское соглашение
             </p>
-            <a href="#" class="txt13 col-orange">
+            <a href="#" class="txt13 col-orange ui-link">
                 Политика конфеденциальности
             </a>
         </div>

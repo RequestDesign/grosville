@@ -1,7 +1,9 @@
 $sectionGap: 20rem;
 $sectionGapMobile: 16rem;
 $contentWidth: 148rem;
-
+$headerMargin: 13rem;
+$headerMarginMob: 14rem;
+$mobPadding: 3rem;
 
 html {
   font-family: 'Open Sans'; // шрифт по умолчанию по сайту
@@ -30,6 +32,11 @@ html {
     overflow: auto;
   }
 
+  &._lock {
+    overflow: hidden;
+    touch-action: none;
+  }
+
   @media (min-width: 1920px) {
     font-size: 10px;
   }
@@ -50,6 +57,8 @@ body {
   line-height: 1.2;
   margin: 0;
   padding: 0;
+  /*   background-image: url(../assets/images/pepper.webp); */
+
 
   @include mobile {
     -webkit-text-size-adjust: none;
@@ -77,8 +86,8 @@ body {
 
   @include mobile {
     width: 100%;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: $mobPadding;
+    padding-right: $mobPadding;
   }
 }
 
@@ -92,6 +101,14 @@ main {
 
     @include mobile {
       margin-top: $sectionGapMobile;
+    }
+
+    &:first-of-type {
+      margin-top: $headerMargin ;
+
+      @include mobile {
+        margin-top: $headerMarginMob ;
+      }
     }
   }
 }

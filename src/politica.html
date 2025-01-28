@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            /*   font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+
+            /*     font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /*   @font-face {
+      font-family: 'Inter';
+      src: local('Inter'),
+        url('./assets/fonts/Inter.woff2') format('woff2');
+
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    } */
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="politica">
+                <div class="politica__img">
+                    <img src="./assets/images/politica.webp" alt="">
+                </div>
+                <div class="container politica__c">
+                    <p class="txt15 txt-up col-grey200">
+                        редакция от 01.07.2024
+                    </p>
+                    <h1 class="txt40">Политика обработки персональных данных </h1>
+                    <div class="politica__c-data">
+                        <h2>h2</h2>
+                        <h3>h3</h3>
+                        <p>p</p>
+                        <ul>
+                            <li>li</li>
+                            <li>li</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+</body>
+
+</html>

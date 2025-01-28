@@ -10,7 +10,7 @@
         top: 0;
         left: 0;
         border-radius: 50%;
-        border: 2px solid var(--col-orange);
+        border: 1px solid var(--col-orange);
         width: 34rem;
         height: 34rem;
         transform: translate(-50%, -50%);
@@ -133,6 +133,10 @@
     line-height: 120%;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    @include desktop{
+       margin-top: 2rem;
+       margin-bottom:2rem ;
+    }
 
 
     @include mobile {
@@ -144,6 +148,9 @@
         & .btn-primary__text:nth-child(2):after {
             width: 100%;
         }
+    }
+    &:active{
+        color: var(--col-orange);
     }
 
     &__text {
@@ -164,7 +171,7 @@
             left: 0;
             height: 100%;
             width: 100%;
-            border-bottom: 2px solid var(--col-orange);
+            border-bottom: 1px solid var(--col-orange);
             transition: width .2s ease-in-out;
         }
 
@@ -218,7 +225,7 @@
             left: 0;
             content: '';
             border-radius: 50%;
-            border: 2px solid var(--col-orange);
+            border: 1px solid var(--col-orange);
             width: 6.4rem;
             height: 6.4rem;
             transform: translate(0, -2rem);
