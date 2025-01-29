@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main.html</title>
+<script defer src="js/604.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
+
+<body>
+  <div class="wrapper">
+    <header class="header ">
+    <div class="container header__c"><h1 class="tl1">header</h1></div>
+    <div class="header__modal  header-modal-opener">
+        <nav class="header__modal-nav">
+            <button class="header__modal-nav-closer ui-x  desktop header-modal-opener"></button>
+            <ul class="header__modal-nav-list">
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">недвижимость</a>
+                    <ul>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">Первичная</a>
+                        </li>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">Вторичная</a>
+                        </li>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">загородная</a>
+                        </li>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">коммерческая</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">О нас</a>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">новости</a>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">сми о нас</a>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">контакты</a>
+                </li>
+            </ul>
+            <div class="mobile header__modal-nav-contacts">
+                <a href="tel:+228" class="btn-primary ">
+                    <span class="btn-primary__text ">
+                        +7 812
+                    </span>
+                    <span class="btn-primary__text ">
+                        270 7652
+                    </span>
+                </a>
+                <button class="btn-primary " data-modal="request" data-submit_type="call">
+                    <span class="btn-primary__text ">
+                        заказать
+                    </span>
+                    <span class="btn-primary__text ">
+                        звонок
+                    </span>
+                    <span class="btn-primary__icon _mail">
+
+                    </span>
+
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+<!-- 
+ <nav>
+            <ul itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+                <meta itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" href="#">новинки</a>
+                    <meta itemprop="name" content="новинки">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" href="#">каталог</a>
+                    <meta itemprop="name" content="каталог">
+                </li>
+            </ul>
+        </nav>
+-->
+   
+    <main>
+
+
+    </main>
+  
+    <div class="modal modal-request modal-closer" data-submit_type="call">
+    <!-- ВНИМАНИЕ -->
+    <!-- при вызове модалки через кнопку data-modal=request -->
+    <!-- ее data-submit_type передается в этот же атр на форме -->
+    <!-- одна форма на все случаи жызны палучаеца В) -->
+    <!-- умом? умом! -->
+    <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+    <div class="modal__c">
+        <button class="modal-closer modal__c-closer ui-x"></button>
+
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="call">Обратный зовонок</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="offer">Получить предложение</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="help">Заказать консультацию</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="reserve">Забронировать</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="download">Скачать буклет</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="excursion">Заказать экскурсию</p>
+
+        <p class="txt20">Оставьте контакты, и эксперт свяжется с вами в течение часа</p>
+
+        <form class="form modal__c-form">
+
+            <label class="form-input-container">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="phone" required="" placeholder="+7 (___) ___-__-__">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="comment" placeholder="Комментарий">
+                <span class="form-input-error">error</span>
+            </label>
+
+
+            <button class="btn-primary form-submit">
+                <span class="btn-primary__text">
+                    отправить
+                </span>
+                <span class="btn-primary__text">
+                    заявку
+                </span>
+                <span class="btn-primary__icon _mail">
+                </span>
+            </button>
+
+            <p class=" txt13 col-grey200">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<div class="modal modal-success modal-closer">
+
+    <div class="modal__c">
+        <!-- ВНИМАНИЕ -->
+        <!-- для вызова триггерни клик на ней -->
+        <button class="mobile desktop" data-modal="success"></button>
+        <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+        <button class="modal-closer modal__c-closer ui-x"></button>
+        <p class="tl1">Спасибо!</p>
+        <p class="txt20">Эксперт свяжется с вами в течение часа</p>
+
+        <div class="modal-success__img">
+            <img src="./assets/images/modal-success.webp" alt="">
+        </div>
+
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer__c">
+        <div class="footer__c-logo">
+            <img src="../assets/images/icons/logo.svg" alt="">
+        </div>
+        <a href="tel:+288" class="btn-primary header__c-phone mobile">
+            <span class=" header__c-phone-img">
+            </span>
+        </a>
+        <nav class="txt15 txt-up footer__c-links">
+            <a href="#">Подбор недвижимости</a>
+            <a class="footer__c-links-el" href="#">Первичная</a>
+            <a class="footer__c-links-el" href="#">вторичная</a>
+            <a class="footer__c-links-el" href="#">загородная</a>
+            <a class="footer__c-links-el" href="#">коммерческая</a>
+        </nav>
+
+        <nav class="footer__c-links txt15 txt-up">
+            <a href="#">Компания</a>
+            <a class="footer__c-links-el" href="#">Компания</a>
+            <a class="footer__c-links-el" href="#">о нас</a>
+            <a class="footer__c-links-el" href="#">сми о нас</a>
+            <a class="footer__c-links-el" href="#">Контакты</a>
+        </nav>
+
+        <div class=" footer__c-form">
+            <p class="txt-up txt13">
+                Подпишитесь на нашу рассылку и получайте
+                первыми эксклюзивные предложения
+            </p>
+            <form class="form">
+
+                <label class="form-input-container">
+                    <input type="text" name="email" required="" placeholder="ВАШ EMAIL">
+                    <span class="form-input-error">error</span>
+                </label>
+
+
+                <button class="btn-primary form-submit">
+                    <span class="btn-primary__icon _mail">
+                    </span>
+                </button>
+            </form>
+            <p class="txt13">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+            <a href="#" class="txt13 col-orange ui-link">
+                Политика конфеденциальности
+            </a>
+        </div>
+
+        <div class="footer__c-org txt13 col-grey200">
+            <p>ООО «Гросвиль»</p>
+            <p>ИНН 7842225551 I КПП 784201001</p>
+            <p>ОГРН 1247800102769</p>
+        </div>
+
+        <p class="txt16 txt-up col-grey200 footer__c-info">
+            Любая информация, предоставленная на данном сайте, носит исключительно информационный характер и ни при
+            каких условиях не является публичной офертой, определяемой положением статьи 437 ГК РФ
+        </p>
+    </div>
+</footer>
+  </div>
+
+  <!--  <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU" type="text/javascript"></script>
+  <script type="text/javascript">
+    ymaps.ready(init);
+    function init() {
+      var myMap = new ymaps.Map("map", {
+        center: [47.204572074287015, 39.67028549999995],
+        zoom: 16,
+        controls: ['fullscreenControl']
+      });
+      myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+        hintContent: 'there is no palce for narkomany 😎'
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: './assets/images/icons/map-marker.svg',
+        iconImageSize: [50, 50],
+
+      }),
+        myMap.geoObjects
+          .add(myPlacemark)
+    }
+  </script> -->
+</body>
+
+</html>

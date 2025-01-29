@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>index.html</title>
+<script defer src="js/604.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
+
+<body class="bg-black col-wh ">
+  <div class="wrapper">
+  
+
+    <main>
+
+      <ol class="marked-list tl2">
+        <li>
+          <a class=" txt-line-hover" target="_blank" href="https://www.figma.com/design/s6q82mmeovemscYE424QI7/Grosville-(Copy)?node-id=480-940&p=f&t=JtgWfqacaPLfWrLw-0">figma</a>
+        </li>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <li>
+          <a class=" txt-line-hover" target="_blank" href="./main.html">Главная</a>
+        </li>
+      
+        <li>
+          <a class=" txt-line-hover" target="_blank" href="./404.html">404</a>
+        </li>
+        <li>
+          <a class=" txt-line-hover" target="_blank" href="./politica.html">politica</a>
+        </li>
+        <li>
+          <a class=" txt-line-hover" target="_blank" href="./contacts.html">contacts</a>
+        </li>
+
+        <br/>
+        <br/>
+        <br/>
+        <li>
+          <a class=" txt-line-hover" target="_blank" href="./ui.html">ui</a>
+        </li>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <li data-modal="request" data-submit_type="call">звонок</li>
+        <li data-modal="request" data-submit_type="offer">предложение </li>
+        <li data-modal="request" data-submit_type="help">аа памагити </li>
+        <li data-modal="request" data-submit_type="reserve">забронировать </li>
+        <li data-modal="request" data-submit_type="download">скачать </li>
+        <li data-modal="request" data-submit_type="excursion">экскурсия </li>
+        <li data-modal="success" >спасибо пожалуйста </li>
+      </ol>
+    </main>
+    <div class="modal modal-request modal-closer" data-submit_type="call">
+    <!-- ВНИМАНИЕ -->
+    <!-- при вызове модалки через кнопку data-modal=request -->
+    <!-- ее data-submit_type передается в этот же атр на форме -->
+    <!-- одна форма на все случаи жызны палучаеца В) -->
+    <!-- умом? умом! -->
+    <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+    <div class="modal__c">
+        <button class="modal-closer modal__c-closer ui-x"></button>
+
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="call">Обратный зовонок</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="offer">Получить предложение</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="help">Заказать консультацию</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="reserve">Забронировать</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="download">Скачать буклет</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="excursion">Заказать экскурсию</p>
+
+        <p class="txt20">Оставьте контакты, и эксперт свяжется с вами в течение часа</p>
+
+        <form class="form modal__c-form">
+
+            <label class="form-input-container">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="phone" required="" placeholder="+7 (___) ___-__-__">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="comment" placeholder="Комментарий">
+                <span class="form-input-error">error</span>
+            </label>
+
+
+            <button class="btn-primary form-submit">
+                <span class="btn-primary__text">
+                    отправить
+                </span>
+                <span class="btn-primary__text">
+                    заявку
+                </span>
+                <span class="btn-primary__icon _mail">
+                </span>
+            </button>
+
+            <p class=" txt13 col-grey200">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<div class="modal modal-success modal-closer">
+
+    <div class="modal__c">
+        <!-- ВНИМАНИЕ -->
+        <!-- для вызова триггерни клик на ней -->
+        <button class="mobile desktop" data-modal="success"></button>
+        <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+        <button class="modal-closer modal__c-closer ui-x"></button>
+        <p class="tl1">Спасибо!</p>
+        <p class="txt20">Эксперт свяжется с вами в течение часа</p>
+
+        <div class="modal-success__img">
+            <img src="./assets/images/modal-success.webp" alt="">
+        </div>
+
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer__c">
+        <div class="footer__c-logo">
+            <img src="../assets/images/icons/logo.svg" alt="">
+        </div>
+        <a href="tel:+288" class="btn-primary header__c-phone mobile">
+            <span class=" header__c-phone-img">
+            </span>
+        </a>
+        <nav class="txt15 txt-up footer__c-links">
+            <a href="#">Подбор недвижимости</a>
+            <a class="footer__c-links-el" href="#">Первичная</a>
+            <a class="footer__c-links-el" href="#">вторичная</a>
+            <a class="footer__c-links-el" href="#">загородная</a>
+            <a class="footer__c-links-el" href="#">коммерческая</a>
+        </nav>
+
+        <nav class="footer__c-links txt15 txt-up">
+            <a href="#">Компания</a>
+            <a class="footer__c-links-el" href="#">Компания</a>
+            <a class="footer__c-links-el" href="#">о нас</a>
+            <a class="footer__c-links-el" href="#">сми о нас</a>
+            <a class="footer__c-links-el" href="#">Контакты</a>
+        </nav>
+
+        <div class=" footer__c-form">
+            <p class="txt-up txt13">
+                Подпишитесь на нашу рассылку и получайте
+                первыми эксклюзивные предложения
+            </p>
+            <form class="form">
+
+                <label class="form-input-container">
+                    <input type="text" name="email" required="" placeholder="ВАШ EMAIL">
+                    <span class="form-input-error">error</span>
+                </label>
+
+
+                <button class="btn-primary form-submit">
+                    <span class="btn-primary__icon _mail">
+                    </span>
+                </button>
+            </form>
+            <p class="txt13">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+            <a href="#" class="txt13 col-orange ui-link">
+                Политика конфеденциальности
+            </a>
+        </div>
+
+        <div class="footer__c-org txt13 col-grey200">
+            <p>ООО «Гросвиль»</p>
+            <p>ИНН 7842225551 I КПП 784201001</p>
+            <p>ОГРН 1247800102769</p>
+        </div>
+
+        <p class="txt16 txt-up col-grey200 footer__c-info">
+            Любая информация, предоставленная на данном сайте, носит исключительно информационный характер и ни при
+            каких условиях не является публичной офертой, определяемой положением статьи 437 ГК РФ
+        </p>
+    </div>
+</footer>
+
+  </div>
+
+</body>
+
+</html>
