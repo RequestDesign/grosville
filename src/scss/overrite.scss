@@ -59,7 +59,7 @@
 
 .desktop {
     @include mobile {
-      display: none;
+      display: none !important;
     }
   
   }
@@ -68,7 +68,7 @@
   
   .mobile {
     @include desktop {
-      display: none;
+      display: none !important;
     }
   
   }

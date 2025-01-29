@@ -169,10 +169,10 @@ module.exports = {
           name(module) {
             // получает имя, то есть node_modules/packageName/not/this/part.js
             // или node_modules/packageName
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+          /*   const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
             if (packageName.length){
               return `${packageName[1].replace('@', '')}`;
-            }
+            } */
               // имена npm-пакетов можно, не опасаясь проблем, использовать
               // в URL, но некоторые серверы не любят символы наподобие @
            

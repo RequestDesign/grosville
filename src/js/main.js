@@ -1,8 +1,8 @@
 
 /* node_modules */
 import $ from 'jquery'
-//import Swiper from 'swiper';
-//import { Navigation, Pagination, Grid, Autoplay } from 'swiper/modules';
+import Swiper from 'swiper';
+import { Navigation, Pagination, Grid, Autoplay, Thumbs, EffectFade } from 'swiper/modules';
 import Inputmask from 'inputmask'
 import { Fancybox } from "@fancyapps/ui";
 import noUiSlider from 'nouislider'
@@ -14,6 +14,7 @@ import noUiSlider from 'nouislider'
 
 /* local */
 import Form from './utils/Form';
+import { rem } from './utils/constants'
 
 const HTML = document.querySelector('html'),
     HTML_LOCK_SELECTOR = '_lock',
@@ -25,10 +26,12 @@ const HTML = document.querySelector('html'),
 $(function () {
     initForms()
     nouislider()
-    HTML.classList.add(HTML_PAGELOAD_SELECTOR)
     header()
     modalsHandler()
     initFancybox()
+    initSwipers()
+
+    HTML.classList.add(HTML_PAGELOAD_SELECTOR)
 
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
@@ -89,6 +92,98 @@ $(function () {
 
 })
 
+function initSwipers() {
+    const catalogDetailTop = document.querySelector('.catalogDetailTop')
+    if (catalogDetailTop) {
+        const thumbs = new Swiper(catalogDetailTop.querySelector('.catalogDetailTop__thumbs'), {
+            slidesPerView: 3.5,
+            spaceBetween: rem(2.4),
+            watchSlidesProgress: true,
+            slideToClickedSlide: true,
+            breakpoints: {
+                768: {
+                    slidesPerView: 4.5
+                }
+            }
+        })
+        const top = new Swiper(catalogDetailTop.querySelector('.catalogDetailTop__big'), {
+            modules: [Thumbs],
+            slidesPerView: 1,
+            simulateTouch: false,
+            followFinger: false,
+            thumbs: {
+                swiper: thumbs
+
+            },
+
+        })
+    }
+
+    const catalogDetailImg = document.querySelectorAll('.catalogDetailBody__c-img-swiper')
+    if (catalogDetailImg) {
+        catalogDetailImg.forEach((el) => {
+            new Swiper(el, {
+                modules: [EffectFade, Navigation, Pagination],
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                slidesPerView: 1,
+                simulateTouch: false,
+                followFinger: false,
+                pagination: {
+                    el: el.querySelector('.swiper-pag'),
+                    type: 'bullets',
+                    clickable: true
+                },
+                navigation: {
+                    prevEl: el.querySelector('.swiper-btn-prev'),
+                    nextEl: el.querySelector('.swiper-btn-next')
+                }
+            })
+        })
+    }
+
+    const catalogDetailImgSecond = document.querySelector('.catalogDetailBody__c-img.swiper._second')
+    if (catalogDetailImgSecond) {
+        const s = new Swiper(catalogDetailImgSecond, {
+            modules: [EffectFade],
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            slidesPerView: 1,
+            followFinger: false,
+            simulateTouch: false,
+            allowTouchMove: false,
+
+        })
+        const one = catalogDetailImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._1')
+       
+        const two = catalogDetailImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._2')
+        two.addEventListener('click', () => {
+            s.slideTo(1)
+            two.classList.add('_active')
+            one.classList.remove('_active')
+        })
+        one.addEventListener('click', () => {
+            s.slideTo(0)
+            one.classList.add('_active')
+            two.classList.remove('_active')
+        })
+    }
+
+    const recomendation = document.querySelector('.recomendation')
+    if(recomendation && window.innerWidth < 768){
+        new Swiper(recomendation.querySelector('.swiper'),{
+            slidesPerView: 1.2,
+            centeredSlides: true,
+            spaceBetween: 15
+        })
+    }
+}
+
+
 function initFancybox() {
     const anytarget = document.querySelector('[data-fancybox]')
     if (!anytarget) return
@@ -100,13 +195,12 @@ function initFancybox() {
         Toolbar: {
             display: {
                 left: ["zoom"],
-                middle: ["caption","infobar" ],
-                right: ["close", ],
+                middle: ["caption", "infobar"],
+                right: ["close",],
             },
         },
     })
 }
-
 
 function initForms() {
 
@@ -122,7 +216,6 @@ function initForms() {
         })
     }
 }
-
 
 function modalsHandler() {
     const modalOpeners = $('[data-modal]'),
