@@ -93,9 +93,9 @@ $(function () {
 })
 
 function initSwipers() {
-    const catalogDetailTop = document.querySelector('.catalogDetailTop')
-    if (catalogDetailTop) {
-        const thumbs = new Swiper(catalogDetailTop.querySelector('.catalogDetailTop__thumbs'), {
+    const catalogDetail_Top = document.querySelector('.catalogDetailTop')
+    if (catalogDetail_Top) {
+        const thumbs = new Swiper(catalogDetail_Top.querySelector('.catalogDetailTop__thumbs.swiper'), {
             slidesPerView: 3.5,
             spaceBetween: rem(2.4),
             watchSlidesProgress: true,
@@ -106,7 +106,7 @@ function initSwipers() {
                 }
             }
         })
-        const top = new Swiper(catalogDetailTop.querySelector('.catalogDetailTop__big'), {
+        const top = new Swiper(catalogDetail_Top.querySelector('.catalogDetailTop__big.swiper'), {
             modules: [Thumbs],
             slidesPerView: 1,
             simulateTouch: false,
@@ -119,9 +119,9 @@ function initSwipers() {
         })
     }
 
-    const catalogDetailImg = document.querySelectorAll('.catalogDetailBody__c-img-swiper')
-    if (catalogDetailImg) {
-        catalogDetailImg.forEach((el) => {
+    const catalogDetail_Img = document.querySelectorAll('.catalogDetailBody__c-img-swiper')
+    if (catalogDetail_Img) {
+        catalogDetail_Img.forEach((el) => {
             new Swiper(el, {
                 modules: [EffectFade, Navigation, Pagination],
                 effect: 'fade',
@@ -144,9 +144,9 @@ function initSwipers() {
         })
     }
 
-    const catalogDetailImgSecond = document.querySelector('.catalogDetailBody__c-img.swiper._second')
-    if (catalogDetailImgSecond) {
-        const s = new Swiper(catalogDetailImgSecond, {
+    const catalogDetail_ImgSecond = document.querySelector('.catalogDetailBody__c-img.swiper._second')
+    if (catalogDetail_ImgSecond) {
+        const s = new Swiper(catalogDetail_ImgSecond, {
             modules: [EffectFade],
             effect: 'fade',
             fadeEffect: {
@@ -158,9 +158,9 @@ function initSwipers() {
             allowTouchMove: false,
 
         })
-        const one = catalogDetailImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._1')
-       
-        const two = catalogDetailImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._2')
+        const one = catalogDetail_ImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._1')
+
+        const two = catalogDetail_ImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._2')
         two.addEventListener('click', () => {
             s.slideTo(1)
             two.classList.add('_active')
@@ -173,14 +173,99 @@ function initSwipers() {
         })
     }
 
+    const catalogDetailTop_Newbuild = document.querySelector('.catalogDetailTop__newbuild')
+    if (catalogDetailTop_Newbuild) {
+        const thumbs = catalogDetailTop_Newbuild.querySelectorAll('.catalogDetailTop__newbuild-links-el')
+        const s = new Swiper(catalogDetailTop_Newbuild.querySelector('.swiper'), {
+            modules: [EffectFade],
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            slidesPerView: 1,
+            simulateTouch: false,
+            followFinger: false,
+            on: {
+                init: (s) => {
+                    thumbs[0].classList.add('_active')
+                },
+                slideChange: (s) => {
+                    thumbs.forEach((e, i) => {
+                        if (i == s.activeIndex) {
+                            e.classList.add('_active')
+                        } else {
+                            e.classList.remove('_active')
+
+                        }
+                    })
+                }
+            }
+        })
+        thumbs.forEach((el, i) => {
+            el.addEventListener('click', () => {
+                s.slideTo(i)
+            })
+        });
+    }
+
+    const catalogDetail_Adv = document.querySelector('.catalogDetailAdv')
+    if (catalogDetail_Adv) {
+        const thumbs = new Swiper(catalogDetail_Adv.querySelector('.catalogDetailAdv__thumbs.swiper'), {
+            slidesPerView: 'auto',
+            direction: 'horizontal',
+            spaceBetween: rem(8),
+            watchSlidesProgress: true,
+            slideToClickedSlide: true,
+         
+            breakpoints: {
+                768: {
+                    spaceBetween: rem(1.8),
+                    direction: 'vertical',
+                    centeredSlides: false,
+
+                }
+            }
+        })
+        const s = new Swiper('.catalogDetailAdv__main', {
+            modules: [EffectFade, Thumbs],
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            slidesPerView: 1,
+            simulateTouch: false,
+            followFinger: false,
+            autoHeight: true,
+            breakpoints: {
+                768: {
+                    autoHeight: false
+
+                }
+            },
+            thumbs: {
+                swiper: thumbs
+            },
+            on: {
+                init: (s) => {
+                    s.slides.forEach((el, i) => [
+                        el.querySelector('.catalogDetailAdv__main-slide-text-num')
+                            .textContent = (i + 1).toString().padStart(2, '0')
+                    ])
+                }
+            }
+        })
+    }
+
+
     const recomendation = document.querySelector('.recomendation')
-    if(recomendation && window.innerWidth < 768){
-        new Swiper(recomendation.querySelector('.swiper'),{
+    if (recomendation && window.innerWidth < 768) {
+        new Swiper(recomendation.querySelector('.swiper'), {
             slidesPerView: 1.2,
             centeredSlides: true,
             spaceBetween: 15
         })
     }
+
 }
 
 

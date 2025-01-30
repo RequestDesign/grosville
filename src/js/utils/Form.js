@@ -15,10 +15,12 @@ export default class Form {
         this._inputContainerSelector = 'form-input-container'
         this._inputErrorMsgSelector = 'form-input-error'
         this._inputErrorSelector = '_error'
-        this._inputs = () => { console.log(this._form.querySelectorAll('input, textarea')); return this._form.querySelectorAll('input, textarea')}
-        this._btnSubmit = this._form.querySelector('.form-submit')
-        this._btnSubmit.setAttribute('disabled', true)
-        this._btnSubmit.setAttribute('type', 'button')
+        this._inputs = () => { console.log(this._form.querySelectorAll('input, textarea')); return this._form.querySelectorAll('input, textarea') }
+        this._btnSubmit = this._form.querySelectorAll('.form-submit')
+        this._btnSubmit.forEach(e => {
+            e.setAttribute('disabled', true)
+            e.setAttribute('type', 'button')
+        })
         this._cfg = {
             default: {
                 name: {
@@ -44,10 +46,13 @@ export default class Form {
     _inputHandler(input) {
         /**
          * @param {input} inputDom
-         * возвращает булевое
+         * возвращает пулевое
          */
-      
-        this._btnSubmit.removeAttribute('disabled')
+
+        this._btnSubmit.forEach(e => {
+            e.removeAttribute('disabled')
+
+        })
         return this._validation(input);
     }
 
@@ -136,11 +141,11 @@ export default class Form {
         let whatsUp = true
         console.log('hello');
         for (const inp of this._inputs()) {
-            if(!this._inputHandler(inp)){
+            if (!this._inputHandler(inp)) {
                 whatsUp = false
                 return
             }
-            
+
         }
 
         if (!whatsUp) return
@@ -181,11 +186,14 @@ export default class Form {
 
     initForm() {
         this._form.noValidate = true
-        this._btnSubmit.addEventListener('click', (e) => { this._onSubmit(e) })
-        this._form.addEventListener('input', (ev)=>{this._inputHandler(ev.target)})
-        this._form.addEventListener('blur', (ev)=>{this._inputHandler(ev.target)})
-        this._form.addEventListener('change', (ev)=>{this._inputHandler(ev.target)})
-      
+        this._btnSubmit.forEach(el => {
+            el.addEventListener('click', (e) => { this._onSubmit(e) })
+
+        })
+        this._form.addEventListener('input', (ev) => { this._inputHandler(ev.target) })
+        this._form.addEventListener('blur', (ev) => { this._inputHandler(ev.target) })
+        this._form.addEventListener('change', (ev) => { this._inputHandler(ev.target) })
+
 
     }
 

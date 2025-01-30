@@ -1,0 +1,130 @@
+.requestForm {
+    &__c {
+        padding-top: 23rem;
+        padding-bottom: 23rem;
+        display: flex;
+        flex-direction: column;
+        gap: 16rem;
+        @include mobile{
+            gap: 8rem;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        }
+
+        &-top {
+            display: grid;
+            grid-template-columns: min-content auto;
+            grid-template-rows: min-content auto;
+            gap: 4.4rem 10rem;
+
+            @include mobile {
+                grid-template-columns: 100%;
+                gap: 4rem;
+
+            }
+
+            &-imgs {
+                position: relative;
+                width: fit-content;
+                grid-column: 1;
+                grid-row: 1 / span 2;
+
+                @include mobile {
+                    grid-column: 1;
+                    grid-row: 3;
+                    margin: 6rem auto 0;
+                }
+
+                &-el {
+                    width: 33rem;
+                    height: 22rem;
+                    padding: 1rem 1rem 3rem;
+                    background-color: var(--col-white);
+                    position: relative;
+                    z-index: 3;
+
+                    @include mobile {
+                        width: 44rem;
+                        height: 28rem;
+                        padding: 1.2rem 1.2rem 3.2rem;
+                    }
+
+                    &:nth-child(2) {
+                        position: absolute;
+                        z-index: 2;
+                        top: -7rem;
+                        right: -7rem;
+                        @include mobile{
+                            top: -8rem;
+                            right: -13rem;
+
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        position: absolute;
+                        z-index: 1;
+                        top: -5rem;
+                        left: -5rem;
+                        @include mobile{
+                            top: -5rem;
+                            left: -13rem;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        &-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: min-content min-content;
+            grid-template-areas:
+                'text name phone btn'
+                'text msg msg  btn';
+            gap: 0 4.4rem;
+
+            @include mobile {
+                grid-template-columns: 100%;
+                grid-template-areas:
+                    'text'
+                    'name'
+                    'phone'
+                    'msg'
+                    'btn';
+            }
+
+            &-text {
+                grid-area: text;
+
+                @include mobile {
+                    margin-bottom: 8rem;
+                }
+            }
+
+            & label:first-of-type {
+                grid-area: name;
+            }
+
+            & label:last-of-type {
+                grid-area: phone;
+            }
+
+            &-btns {
+                grid-area: btn;
+                @include mobile {
+                    margin-top: 8rem;
+                }
+
+                & .btn-circle {
+                    transform: translate(17rem, 3rem);
+                }
+            }
+
+            &-msg {
+                grid-area: msg;
+            }
+        }
+    }
+}

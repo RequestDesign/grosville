@@ -38,6 +38,11 @@
             font-size: 2rem;
 
         }
+        &._download{
+            &:after{
+                background-image: url(../assets/images/icons/download.svg);
+            }
+        }
 
         &:after {
             content: '';
@@ -207,6 +212,9 @@
         }
         &._down{
             background-image: url(../assets/images/icons/arrow-orange-down.svg);
+        }
+        &._download{
+            background-image: url(../assets/images/icons/download.svg);
         }
 
         @include mobile {

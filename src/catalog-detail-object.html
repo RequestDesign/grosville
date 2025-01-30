@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            /*   font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+
+            /*     font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /*   @font-face {
+      font-family: 'Inter';
+      src: local('Inter'),
+        url('./assets/fonts/Inter.woff2') format('woff2');
+
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    } */
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="catalogDetailObject">
+                <div class="container">
+                    <div class="catalogDetailObject__main">
+                        <p class="tl1">
+                            Жилой комплекс «Куинджи»
+                        </p>
+                        <div class="txt20">
+                            Дом строится во Фрунзенском районе и имеет подтвержденный статус "зеленого" проекта по ГОСТУ
+                            зеленого строительства, разработанного дом.рф.
+                            <br />
+                            Проект состоит из восьми секций: шести с квартирами и двух с инфраструктурными объектами —
+                            лобби и муниципальным детским садом.
+                        </div>
+
+                        <div class="catalogDetailObject__main-btns">
+                            <button class="btn-circle desktop" data-modal="request" data-submit_type="download">
+                                <span class="btn-circle__text _arrow">
+                                    скачать <br />
+                                    буклет</span>
+                            </button>
+
+                            <button class="btn-primary mobile" data-modal="request" data-submit_type="download">
+                                <span class="btn-primary__text">
+                                    скачать
+                                </span>
+                                <span class="btn-primary__text">
+                                    буклет
+                                </span>
+                                <span class="btn-primary__icon _arrow">
+                                </span>
+                            </button>
+
+                        </div>
+
+                        <ul class="ui-tags">
+                            <li class="ui-tag">
+                                <span class="col-grey200">от </span> 300 тыс ₽ <span class="col-grey200">
+                                    /m<sup>2</sup></span>
+                            </li>
+                            <li class="ui-tag">
+                                <span class="col-grey200">от </span> 300 тыс ₽ <span class="col-grey200">
+                                    /m<sup>2</sup></span>
+                            </li>
+                            <li class="ui-tag">
+                                <span class="col-grey200">от </span> 300 тыс ₽ <span class="col-grey200">
+                                    /m<sup>2</sup></span>
+                            </li>
+                        </ul>
+                        <div class="catalogDetailObject__img">
+                            <img src="./assets/images/catalog-detail-1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--  -->
+            <include src="./components/_catalogDetailMap.html"></include>
+            <!--  -->
+            <section class="catalogDetailBanner">
+                <div class="container ">
+                    <p class="tl1">
+                        Погрузитесь в атмосферу <br class="desktop" />
+                        <span class="col-orange">вашего</span>
+                        <span class="col-orange">будущего</span>
+                        <span class="col-orange">дома</span>
+                    </p>
+                    <div class="catalogDetailBanner__c">
+                        <div class="desktop catalogDetailBanner__c-img">
+                            <img src="./assets/images/catalog-detail-banner.png" alt="">
+                        </div>
+                        <div class="catalogDetailBanner__c-main">
+                            <div class="catalogDetailBanner__c-main-img">
+                                <img src="./assets/images/catalog-detail-banner-main.png" alt="">
+                            </div>
+                            <p class="txt15 txt-up">
+                                Экскурсия по жилому комплексу
+                                позволит вам прочувствовать
+                                удобство и красоту каждого уголка
+                            </p>
+                        </div>
+                        <div class="catalogDetailBanner__c-btns">
+
+                            <button data-modal="request" data-submit_type="excursion" class="btn-circle desktop">
+                                <span class="btn-circle__text _arrow">записаться <br />
+                                    на экскурсию</span>
+                            </button>
+
+                            <button data-modal="request" data-submit_type="excursion" class="btn-primary mobile">
+                                <span class="btn-primary__text">
+                                    записаться
+                                </span>
+                                <span class="btn-primary__text">
+                                    на экскурсию
+                                </span>
+                                <span class="btn-primary__icon _arrow">
+                                </span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <include src="./components/_catalogDetailAdv.html"></include>
+            <!--  -->
+            <section class="catalogDetailExpert">
+                <div class="container">
+                    <p class="tl1">Мнение нашего <span class="col-orange">эксперта</span></p>
+                    <div class="catalogDetailExpert__main">
+
+
+                        <div class="catalogDetailExpert__main-img">
+                            <img src="./assets/images/tajik.png" alt="">
+                        </div>
+
+                        <div class="catalogDetailExpert__main-info">
+                            <p class="txt15 col-orange">мужик</p>
+                            <p class="tl3">фамилия таджик</p>
+                            <ul class="catalogDetailExpert__main-info-tags">
+                                <li class="catalogDetailExpert__main-info-tags-el">
+                                    <span class="tl3">15 let</span>
+                                    <span class="txt16 col-grey200">опыт работы</span>
+                                </li>
+                                <li class="catalogDetailExpert__main-info-tags-el">
+                                    <span class="tl3">15 let</span>
+                                    <span class="txt16 col-grey200">опыт работы</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="catalogDetailExpert__main-list">
+                            <div class="dd-container catalogDetailExpert__main-list-dd">
+                                <button class="dd-target catalogDetailExpert__main-list-dd-target txt15  txt-up">
+                                    мое мнение
+                                </button>
+                                <div class="catalogDetailExpert__main-list-dd-wrp">
+                                    <div class="catalogDetailExpert__main-list-dd-wrp-item tl3">
+                                        вас не касается
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            тут фильтры сделать
+            <!--  -->
+            <include src="./components/_requestForm.html"></include>
+            <include src="./components/_recomendation.html"></include>
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [47.204572074287015, 39.67028549999995],
+                zoom: 16,
+                controls: ['fullscreenControl']
+            });
+            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                hintContent: 'there is no palce for narkomany 😎'
+            }, {
+                iconLayout: 'default#image',
+                iconImageHref: './assets/images/map-marker-contacts.webp',
+                iconImageSize: [210, 70],
+
+            }),
+                myMap.geoObjects
+                    .add(myPlacemark)
+        }
+    </script>
+</body>
+
+</html>
