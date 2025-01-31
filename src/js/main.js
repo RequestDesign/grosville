@@ -57,6 +57,7 @@ $(function () {
                     HTML.classList.add(HTML_LOCK_SELECTOR)
                 }
             }
+          
         } else if (classList.contains('select-value')) {
             /**
              * записывает value в инут в дропдауне который select
@@ -75,7 +76,7 @@ $(function () {
             input.dispatchEvent(EV_INPUT);
 
             setTimeout(() => {
-                input.dispatchEvent(EV_CLICK)
+                input.closest('.dd-target').dispatchEvent(EV_CLICK)
 
             }, 200);
 
@@ -87,6 +88,9 @@ $(function () {
                 })
             }
             ev.target.classList.add('_checked')
+        } else if(classList.contains('filter-opener')){
+            document.querySelector('.filters').classList.toggle('_opened')
+            
         }
     })
 
@@ -216,7 +220,7 @@ function initSwipers() {
             spaceBetween: rem(8),
             watchSlidesProgress: true,
             slideToClickedSlide: true,
-         
+
             breakpoints: {
                 768: {
                     spaceBetween: rem(1.8),
@@ -257,7 +261,7 @@ function initSwipers() {
     }
 
 
-    const recomendation = document.querySelector('.recomendation')
+   /*  const recomendation = document.querySelector('.recomendation')
     if (recomendation && window.innerWidth < 768) {
         new Swiper(recomendation.querySelector('.swiper'), {
             slidesPerView: 1.2,
@@ -265,7 +269,7 @@ function initSwipers() {
             spaceBetween: 15
         })
     }
-
+ */
 }
 
 
@@ -340,13 +344,13 @@ function modalsHandler() {
 function nouislider() {
 
 
-    const target = document.querySelector('.nouislider')
-    if (!target) return
+    const target = document.querySelectorAll('.nouislider')
+    if (!target.length || target.length < 1) return
 
-    //это инпуты
-    const min = target.querySelector('.nouislider__min'),
-        max = target.querySelector('.nouislider__max'),
-        place = target.querySelector('.nouislider__place')
+    target.forEach((t)=>{
+        const min = t.querySelector('.nouislider__min'),
+        max = t.querySelector('.nouislider__max'),
+        place = t.querySelector('.nouislider__place')
 
     if (!min || !max) return
 
@@ -366,6 +370,8 @@ function nouislider() {
         max.setAttribute('value', Math.round(values[1]))
 
     });
+    })
+    
 
     /*  min.on('input', (e) => {
          target.noUiSlider.set([e.target.value, max.val()])
@@ -409,3 +415,4 @@ function header() {
             })
         })
 }
+

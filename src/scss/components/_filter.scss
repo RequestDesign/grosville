@@ -1,0 +1,162 @@
+.filters {
+    @include mobile {
+        position: fixed;
+        width: 100vw;
+        height: 100dvh;
+        left: -100vw;
+        top: 0;
+        z-index: 1111;
+        background-color: var(--col-bg);
+        transition: transform .5s ease-in-out;
+
+        &._opened {
+            transform: translateX(100vw);
+        }
+
+        & .container {
+            overflow: auto;
+            max-height: 100%;
+            position: relative;
+            padding-left: 6rem;
+            padding-right: 6rem;
+
+
+        }
+    }
+
+    &__top {
+        @include mobile {
+            position: sticky;
+            top: 0;
+            left: 0;
+            transform: translateX(-3rem);
+            width: calc(100% + 6rem);
+            z-index: 5;
+            background-color: var(--col-bg);
+            justify-content: center;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 3rem 3rem;
+            border-bottom: 1px solid var(--col-grey200);
+        }
+
+        &-close {
+            padding-left: 12px;
+
+            position: relative;
+
+            &::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                display: block;
+                border-top: 1px solid var(--col-black);
+                border-left: 1px solid var(--col-black);
+                position: absolute;
+                top: 9px;
+                left: 0;
+                transform: rotate(314deg);
+            }
+        }
+
+    }
+
+    &__c {
+        padding: 5.8rem 0;
+        box-sizing: border-box;
+        border-top: 1px solid var(--col-grey200);
+        border-bottom: 1px solid var(--col-grey200);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 4.4rem;
+        margin: 7rem 0 5.8rem;
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 10rem;
+            padding-bottom: 10rem;
+            border: none;
+
+        }
+
+        &-el {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @include mobile {
+
+                & .dd-absolute {
+                    width: 100%;
+                }
+            }
+
+            &-name {
+                margin-bottom: 2rem;
+            }
+
+            &-list {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+
+                &-radio {
+                    flex-shrink: 0;
+
+                    & input {
+                        display: none;
+
+                    }
+
+                    & input:checked+&-btn {
+                        border-color: var(--col-orange);
+                        color: var(--col-orange);
+                        opacity: 1;
+                    }
+
+                    &-btn {
+                        border-radius: 50%;
+                        border: 1px solid var(--col-grey200);
+                        color: var(--col-grey200);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 40px;
+                        height: 40px;
+                        cursor: pointer;
+                        opacity: .7;
+
+                        @include hover {
+                            opacity: 1;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+
+        @include mobile {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-3rem);
+            width: calc(100% + 6rem);
+            z-index: 5;
+            background-color: var(--col-bg);
+            justify-content: center;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--col-grey200);
+        }
+    }
+
+}

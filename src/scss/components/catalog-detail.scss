@@ -968,3 +968,16 @@
 
     }
 }
+
+.catalogDetailFilter{
+    &__top{
+        display: flex;
+        @include mobile{
+            flex-direction: column;
+            gap: 3rem;
+        }
+    }
+    & .recomendation__c{
+        margin-top: 5rem;
+    }
+}

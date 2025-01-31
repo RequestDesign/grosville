@@ -64,18 +64,13 @@
 }
 
 .noUi-handle {
-    width: 1.3rem !important;
-    height: 1.3rem !important;
-    top: -.75rem !important;
+    width: 13px !important;
+    height: 13px !important;
+    top: -6.5px !important;
     border: none;
     border-radius: 50%;
     cursor: pointer;
 
-    @include mobile {
-        width: 4.8rem !important;
-        height: 4.8rem !important;
-        top: -2.4rem !important;
-    }
 
     &::after,
     &::before {
