@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            /*   font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+
+            /*     font-weight: 400; */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /*   @font-face {
+      font-family: 'Inter';
+      src: local('Inter'),
+        url('./assets/fonts/Inter.woff2') format('woff2');
+
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    } */
+    </style>
+    <title>catalog-detail-object.html</title>
+<script defer src="js/994.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
+
+<body>
+    <div class="wrapper">
+        <header class="header ">
+    <div class="container header__c">
+        <div class="header__c-logo">
+            <img src="./assets/images/icons/logo.svg" alt="">
+        </div>
+
+        <a href="#" class="header__c-filter btn-primary desktop">
+            <span class="btn-primary__text">
+                выбрать
+            </span>
+            <span class="btn-primary__text">
+                недвижимость
+            </span>
+            <span class="btn-primary__icon _filter">
+            </span>
+        </a>
+
+        <a href="tel:+228" class="btn-primary header__c-phone">
+            <span class="btn-primary__text desktop">
+                +7 812
+            </span>
+            <span class="btn-primary__text desktop">
+                270 7652
+            </span>
+            <span class="mobile header__c-phone-img">
+
+            </span>
+
+        </a>
+
+        <button class="header__c-btn header-modal-opener">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+    <div class="header__modal  header-modal-opener">
+        <nav class="header__modal-nav">
+            <button class="header__modal-nav-closer ui-x  desktop header-modal-opener"></button>
+            <ul class="header__modal-nav-list">
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">недвижимость</a>
+                    <ul>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">Первичная</a>
+                        </li>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">Вторичная</a>
+                        </li>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">загородная</a>
+                        </li>
+                        <li>
+                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">коммерческая</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">О нас</a>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">новости</a>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">сми о нас</a>
+                </li>
+                <li class="header__modal-nav-list-el txt-up">
+                    <a class="header__modal-nav-list-el-link " href="#">контакты</a>
+                </li>
+            </ul>
+            <div class="mobile header__modal-nav-contacts">
+                <a href="tel:+228" class="btn-primary ">
+                    <span class="btn-primary__text ">
+                        +7 812
+                    </span>
+                    <span class="btn-primary__text ">
+                        270 7652
+                    </span>
+                </a>
+                <button class="btn-primary " data-modal="request" data-submit_type="call">
+                    <span class="btn-primary__text ">
+                        заказать
+                    </span>
+                    <span class="btn-primary__text ">
+                        звонок
+                    </span>
+                    <span class="btn-primary__icon _mail">
+
+                    </span>
+
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+<!-- 
+ <nav>
+            <ul itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+                <meta itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" href="#">новинки</a>
+                    <meta itemprop="name" content="новинки">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" href="#">каталог</a>
+                    <meta itemprop="name" content="каталог">
+                </li>
+            </ul>
+        </nav>
+-->
+        <main>
+            <section class="catalogDetailObject">
+                <div class="container">
+                    <div class="catalogDetailObject__main">
+                        <p class="tl1">
+                            Жилой комплекс «Куинджи»
+                        </p>
+                        <div class="txt20">
+                            Дом строится во Фрунзенском районе и имеет подтвержденный статус "зеленого" проекта по ГОСТУ
+                            зеленого строительства, разработанного дом.рф.
+                            <br />
+                            Проект состоит из восьми секций: шести с квартирами и двух с инфраструктурными объектами —
+                            лобби и муниципальным детским садом.
+                        </div>
+
+                        <div class="catalogDetailObject__main-btns">
+                            <button class="btn-circle desktop" data-modal="request" data-submit_type="download">
+                                <span class="btn-circle__text _arrow">
+                                    скачать <br />
+                                    буклет</span>
+                            </button>
+
+                            <button class="btn-primary mobile" data-modal="request" data-submit_type="download">
+                                <span class="btn-primary__text">
+                                    скачать
+                                </span>
+                                <span class="btn-primary__text">
+                                    буклет
+                                </span>
+                                <span class="btn-primary__icon _arrow">
+                                </span>
+                            </button>
+
+                        </div>
+
+                        <ul class="ui-tags">
+                            <li class="ui-tag">
+                                <span class="col-grey200">от </span> 300 тыс ₽ <span class="col-grey200">
+                                    /m<sup>2</sup></span>
+                            </li>
+                            <li class="ui-tag">
+                                <span class="col-grey200">от </span> 300 тыс ₽ <span class="col-grey200">
+                                    /m<sup>2</sup></span>
+                            </li>
+                            <li class="ui-tag">
+                                <span class="col-grey200">от </span> 300 тыс ₽ <span class="col-grey200">
+                                    /m<sup>2</sup></span>
+                            </li>
+                        </ul>
+                        <div class="catalogDetailObject__img">
+                            <img src="./assets/images/catalog-detail-1.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--  -->
+            <section class="catalogDetailMap">
+    <div class=" catalogDetailMap__c">
+
+        <div class="catalogDetailMap__c-top container">
+            <p class="tl1 catalogDetailMap__c-top-heading">Расположение</p>
+            <p class=" txt15 col-orange txt-up catalogDetailMap__c-top-location">Большой Смоленский пр, 6
+            </p>
+            <p class="txt20">
+                Локация имеет богатую инфраструктуру, в пешей доступности Петропавловская крепость,
+                Ленинградский зоопарк, Планетарий
+                и другие достопримечательности
+            </p>
+            <p class="txt20">
+                Такое расположение обеспечивает современную социальную
+                и транспортную инфраструктуру
+                в шаге от дома и неразрывную связь
+                с историей города
+            </p>
+        </div>
+
+        <div class="catalogDetailMap__c-map">
+            <ul class="catalogDetailMap__c-map-info">
+                <li class="catalogDetailMap__c-map-info-el">
+                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/person.svg" alt="">
+                    <p class="txt40"> 10 <span class="tl3"> min</span></p>
+                    <p class="txt16 col-grey200">до ст. Спортивная</p>
+                </li>
+                <li class="catalogDetailMap__c-map-info-el">
+                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
+                    <p class="txt40"> 10 <span class="tl3"> min</span></p>
+                    <p class="txt16 col-grey200">до центра города</p>
+                </li>
+                <li class="catalogDetailMap__c-map-info-el">
+                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
+                    <p class="txt40"> 10 <span class="tl3"> min</span></p>
+                    <p class="txt16 col-grey200">до аэропорта Пулково</p>
+                </li>
+                <li class="catalogDetailMap__c-map-info-el">
+                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
+                    <p class="txt40"> 10 <span class="tl3"> min</span></p>
+                    <p class="txt16 col-grey200">до Витебского вокзала</p>
+                </li>
+            </ul>
+            <div class="ui-map-grey catalogDetailMap__c-map-self" id="map"></div>
+        </div>
+    </div>
+</section>
+            <!--  -->
+            <section class="catalogDetailBanner">
+                <div class="container ">
+                    <p class="tl1">
+                        Погрузитесь в атмосферу <br class="desktop" />
+                        <span class="col-orange">вашего</span>
+                        <span class="col-orange">будущего</span>
+                        <span class="col-orange">дома</span>
+                    </p>
+                    <div class="catalogDetailBanner__c">
+                        <div class="desktop catalogDetailBanner__c-img">
+                            <img src="./assets/images/catalog-detail-banner.webp" alt="">
+                        </div>
+                        <div class="catalogDetailBanner__c-main">
+                            <div class="catalogDetailBanner__c-main-img">
+                                <img src="./assets/images/catalog-detail-banner-main.webp" alt="">
+                            </div>
+                            <p class="txt15 txt-up">
+                                Экскурсия по жилому комплексу
+                                позволит вам прочувствовать
+                                удобство и красоту каждого уголка
+                            </p>
+                        </div>
+                        <div class="catalogDetailBanner__c-btns">
+
+                            <button data-modal="request" data-submit_type="excursion" class="btn-circle desktop">
+                                <span class="btn-circle__text _arrow">записаться <br />
+                                    на экскурсию</span>
+                            </button>
+
+                            <button data-modal="request" data-submit_type="excursion" class="btn-primary mobile">
+                                <span class="btn-primary__text">
+                                    записаться
+                                </span>
+                                <span class="btn-primary__text">
+                                    на экскурсию
+                                </span>
+                                <span class="btn-primary__icon _arrow">
+                                </span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="catalogDetailAdv">
+    <div class="container">
+        <p class="tl1 catalogDetailAdv__ttl">
+           <span class="col-grey200"> Недвижимость <br> </span>
+            в ЖК Куинджи —
+        </p>
+
+        <div class="swiper catalogDetailAdv__thumbs txt40">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide catalogDetailAdv__thumbs-el">
+                    slide one
+                </li>
+                <li class="swiper-slide catalogDetailAdv__thumbs-el">
+                    slide two
+                </li>
+                <li class="swiper-slide catalogDetailAdv__thumbs-el">
+                    slide three
+                </li>
+            </ul>
+        </div>
+        <div class="swiper catalogDetailAdv__main">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide catalogDetailAdv__main-slide">
+
+                    <div class="catalogDetailAdv__main-slide-text txt16">
+                        <span class="catalogDetailAdv__main-slide-text-num">само напишется</span>
+                        <div class="catalogDetailAdv__main-slide-text-data">
+                            text suda
+                        </div>
+                    </div>
+                    <div class="catalogDetailAdv__main-slide-img">
+                        <img data-fancybox="" href="./assets/images/catalog-detail-1.png" src="./assets/images/catalog-detail-1.webp" alt="">
+                    </div>
+                </li>
+
+                <li class="swiper-slide catalogDetailAdv__main-slide">
+
+                    <div class="catalogDetailAdv__main-slide-text txt16">
+                        <span class="catalogDetailAdv__main-slide-text-num">само напишется</span>
+                        <div class="catalogDetailAdv__main-slide-text-data">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate,
+                            accusantium a, voluptatum labore tempore, omnis quibusdam animi asperiores rem
+                            laborum sapiente quos. Placeat laboriosam porro enim facilis nulla assumenda
+                            animi modi quibusdam nobis, repudiandae alias rem eaque eius officia debitis
+                            dolor minus eos soluta deserunt consequuntur earum, quae culpa! Ipsam eveniet
+                            quis dicta labore, ipsum magni quam explicabo eius culpa fugiat distinctio amet
+                            magnam a perspiciatis omnis consequatur earum odio laudantium quia, et facere
+                            deleniti neque blanditiis accusamus! Dolore delectus recusandae explicabo error
+                            totam incidunt, nihil sequi nulla suscipit, alias saepe, officiis provident
+                            molestiae dolores. Nisi laudantium provident doloremque placeat.
+                        </div>
+                    </div>
+                    <div class="catalogDetailAdv__main-slide-img">
+                        <img data-fancybox="" href="./assets/images/catalog-detail-2.png" src="./assets/images/catalog-detail-2.webp" alt="">
+                    </div>
+                </li>
+
+                <li class="swiper-slide catalogDetailAdv__main-slide">
+
+                    <div class="catalogDetailAdv__main-slide-text txt16">
+                        <span class="catalogDetailAdv__main-slide-text-num">само напишется</span>
+                        <div class="catalogDetailAdv__main-slide-text-data">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error odit doloremque
+                            illum dicta sapiente distinctio? Sapiente quae cumque, corrupti facilis adipisci
+                            sint mollitia ex molestias cum quo omnis, pariatur enim asperiores iure maiores
+                            tempora, temporibus nobis iusto. Neque, ad? Soluta necessitatibus eaque
+                            recusandae asperiores tempore atque quo rem. Voluptatibus, sapiente. <br>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dolores
+                            pariatur nam. Iste, dolore similique! Ratione minima iure incidunt beatae itaque
+                            fugiat? Vero magnam dignissimos commodi amet animi dolores ipsa hic voluptas
+                            unde quo blanditiis numquam porro, sit, rerum, quam voluptates alias ratione
+                            sequi? Omnis, perspiciatis? Quasi harum ut eos.
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, incidunt ad. Laudantium quo debitis porro dolor aliquid, dolorem blanditiis at odio temporibus, perferendis earum rem omnis aspernatur incidunt, eos animi tenetur inventore doloremque ad dolorum. Excepturi repudiandae, impedit quo repellat consequuntur at porro aspernatur tenetur illum unde dolor fuga blanditiis perspiciatis rem eveniet ad a atque vel deleniti ut aliquid explicabo modi! Dicta, nostrum, ducimus repellendus eaque necessitatibus beatae labore hic quaerat cupiditate sit consectetur obcaecati? Accusamus necessitatibus deserunt soluta magnam, molestias sit odit obcaecati vero optio adipisci minus in dolorem nobis cumque repellat tempore itaque voluptates exercitationem modi quam amet. Enim quam odit laborum possimus non maiores veritatis animi, nam ab tempore a. Ipsam quo recusandae, quas consequatur dolorem ea esse provident alias? Cumque, officiis modi optio velit saepe officia fuga est dicta sed dolorem magnam deserunt laborum suscipit voluptatum laudantium dolor ea. Ex ea repudiandae error sapiente quis, sunt expedita culpa eligendi velit numquam aperiam molestiae, illo in eaque modi eos labore laborum quae cum, ipsam suscipit unde. Ex placeat in molestiae, impedit eveniet animi alias? Nam dolorum quo tenetur neque laborum dolore architecto earum optio voluptatem, ipsum cumque, nobis et cupiditate incidunt molestias repudiandae ducimus itaque. Animi ipsa quo, provident quisquam aliquid quis repudiandae minus facilis omnis obcaecati voluptates non dolores doloremque molestiae reprehenderit, repellendus repellat perferendis molestias voluptatem voluptate cum quia iusto veniam corrupti. Nesciunt in commodi delectus maiores distinctio, inventore quasi necessitatibus sed id veritatis earum expedita dolore magnam, voluptatem debitis doloremque facere alias ipsa aspernatur dignissimos! Accusantium voluptatem aperiam natus! Alias odio itaque, doloremque aut doloribus obcaecati suscipit non quia magni, minima at. Libero enim officia consequatur, odio blanditiis eveniet ex aut eos laudantium ipsa sed, molestias ut maxime, obcaecati officiis ad expedita voluptatum porro. Aperiam sit itaque consequuntur obcaecati similique optio nesciunt quaerat!
+                        </div>
+                    </div>
+                    <div class="catalogDetailAdv__main-slide-img">
+                        <img data-fancybox="" href="./assets/images/catalog-detail-1.png" src="./assets/images/catalog-detail-1.webp" alt="">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+            <!--  -->
+            <section class="catalogDetailExpert">
+                <div class="container">
+                    <p class="tl1">Мнение нашего <span class="col-orange">эксперта</span></p>
+                    <div class="catalogDetailExpert__main">
+
+
+                        <div class="catalogDetailExpert__main-img">
+                            <img src="./assets/images/tajik.webp" alt="">
+                        </div>
+
+                        <div class="catalogDetailExpert__main-info">
+                            <p class="txt15 col-orange">мужик</p>
+                            <p class="tl3">фамилия таджик</p>
+                            <ul class="catalogDetailExpert__main-info-tags">
+                                <li class="catalogDetailExpert__main-info-tags-el">
+                                    <span class="tl3">15 let</span>
+                                    <span class="txt16 col-grey200">опыт работы</span>
+                                </li>
+                                <li class="catalogDetailExpert__main-info-tags-el">
+                                    <span class="tl3">15 let</span>
+                                    <span class="txt16 col-grey200">опыт работы</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="catalogDetailExpert__main-list">
+                            <div class="dd-container catalogDetailExpert__main-list-dd">
+                                <button class="dd-target catalogDetailExpert__main-list-dd-target txt15  txt-up">
+                                    мое мнение
+                                </button>
+                                <div class="catalogDetailExpert__main-list-dd-wrp">
+                                    <div class="catalogDetailExpert__main-list-dd-wrp-item tl3">
+                                        вас не касается
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="catalogDetailFilter">
+                <div class="container catalogDetailFilter__top">
+                    <p class="tl1">Выбрать недвижимость</p>
+
+                    <button class="btn-primary mobile filter-opener">
+                        <span class="btn-primary__text">
+                            открыть
+                        </span>
+                        <span class="btn-primary__text">
+                            фильтр
+                        </span>
+                        <span class="btn-primary__icon _filter">
+                        </span>
+                    </button>
+
+                </div>
+                <div class="filters">
+    <div class="container">
+        <div class="filters__top">
+
+            <button class="filters__top-close mobile tl2 filter-opener">
+                    закрыть
+            </button>
+        </div>
+        <ul class="filters__c">
+            <li class="filters__c-el">
+                <span class="txt13 col-grey200 txt-up filters__c-el-name">название</span>
+                <div class="dd-container dd-absolute">
+                  
+                        <label class="dd-absolute__target dd-target">
+                            <input class=" select-input dd-absolute__target" type="text" readonly="" value="default value">
+                        </label>
+
+                        <div class="dd-absolute__wrp">
+                            <div class="dd-absolute__wrp-list">
+                                <button class="dd-absolute__wrp-list-el select-value _checked">
+                                    val-1
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-3
+                                </button>
+                            </div>
+                        </div>
+                   
+                </div>
+            </li>
+            <li class="filters__c-el">
+                <span class="txt13 col-grey200 txt-up filters__c-el-name">название</span>
+                <div class="dd-container dd-absolute">
+                  
+                        <label class="dd-absolute__target dd-target">
+                            <input class=" select-input dd-absolute__target" type="text" readonly="" value="default value">
+                        </label>
+
+                        <div class="dd-absolute__wrp">
+                            <div class="dd-absolute__wrp-list">
+                                <button class="dd-absolute__wrp-list-el select-value _checked">
+                                    val-1
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-3
+                                </button>
+                            </div>
+                        </div>
+                   
+                </div>
+            </li>
+
+            <li class="filters__c-el">
+                <div class="nouislider _black">
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">от</p>
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">до</p>
+                    <input class="nouislider__min" type="text" min="200" value="200" readonly="">
+                    <input class="nouislider__max" type="text" max="200000" value="200000" readonly="">
+                    <div class="nouislider__place">
+
+                    </div>
+                </div>
+            </li>
+            <li class="filters__c-el">
+                <div class="nouislider ">
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">такой же</p>
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">но не черный</p>
+                    <input class="nouislider__min" type="text" min="200" value="200" readonly="">
+                    <input class="nouislider__max" type="text" max="200000" value="200000" readonly="">
+                    <div class="nouislider__place">
+
+                    </div>
+                </div>
+            </li>
+            <li class="filters__c-el">
+                <span class="txt13 col-grey200 txt-up filters__c-el-name">количество комнат</span>
+                <div class="filters__c-el-list txt-up txt16">
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">c</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">1</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" checked="" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">2</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">3</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">4+</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        <div class="filters__footer">
+
+            <button class="btn-primary ">
+                <span class="btn-primary__text">
+                    показать
+                </span>
+                <span class="btn-primary__text">
+                    варианты
+                </span>
+                <span class="btn-primary__icon _down">
+                </span>
+            </button>
+
+        </div>
+    </div>
+</div>
+                
+                <div class="container recomendation__c">
+                    
+                    <ul class="recomendation__c-swiper">
+                        <li class=" recomendation__c-swiper-slide">
+            
+                            <div class="recomendation__c-swiper-slide-img">
+                                <img src="../assets/images/catalog-detail-1.webp" alt="">
+                            </div>
+            
+                            <div class="recomendation__c-swiper-slide-top">
+                                <div class="recomendation__c-swiper-slide-top-el">
+                                    <p class="tl3">name name</p>
+                                    <p class="txt16 col-grey200">text</p>
+                                </div>
+                                <div class="recomendation__c-swiper-slide-top-el">
+                                    <p class="tl3">999 999 999 <sup>₽</sup></p>
+                                    <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
+                                </div>
+                            </div>
+            
+                            <ul class="recomendation__c-swiper-slide-stats">
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/area.svg" alt="">
+                                    <span class="txt16"> 1488 m<sup>2</sup></span>
+                                </li>
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/bed.svg" alt="">
+                                    <span class="txt16"> 2 спальни</span>
+                                </li>
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/bath.svg" alt="">
+                                    <span class="txt16"> 3 санузла</span>
+                                </li>
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                                    <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
+                                </li>
+                            </ul>
+            
+                            <ul class="ui-tags">
+                                <li class="ui-tag">
+                                    tag name
+                                </li>
+                            </ul>
+            
+                            <a href="#" class="btn-link _arrow">
+                                <span>
+                                    Подробнее
+                                </span>
+                            </a>
+            
+                        </li>
+                        <li class=" recomendation__c-swiper-slide">
+            
+                            <div class="recomendation__c-swiper-slide-img">
+                                <img src="../assets/images/catalog-detail-1.webp" alt="">
+                            </div>
+            
+                            <div class="recomendation__c-swiper-slide-top">
+                                <div class="recomendation__c-swiper-slide-top-el">
+                                    <p class="tl3">name name</p>
+                                    <p class="txt16 col-grey200">text</p>
+                                </div>
+                                <div class="recomendation__c-swiper-slide-top-el">
+                                    <p class="tl3">999 999 999 <sup>₽</sup></p>
+                                    <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
+                                </div>
+                            </div>
+            
+                            <ul class="recomendation__c-swiper-slide-stats">
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/area.svg" alt="">
+                                    <span class="txt16"> 1488 m<sup>2</sup></span>
+                                </li>
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/bed.svg" alt="">
+                                    <span class="txt16"> 2 спальни</span>
+                                </li>
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/bath.svg" alt="">
+                                    <span class="txt16"> 3 санузла</span>
+                                </li>
+                                <li class="recomendation__c-swiper-slide-stats-el">
+                                    <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                                    <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
+                                </li>
+                            </ul>
+            
+                            <ul class="ui-tags">
+                                <li class="ui-tag">
+                                    tag name
+                                </li>
+                            </ul>
+            
+                            <a href="#" class="btn-link _arrow">
+                                <span>
+                                    Подробнее
+                                </span>
+                            </a>
+            
+                        </li>
+                    </ul>
+            
+                    <div class="recomendation__c-footer">
+            
+                        <button class="btn-primary ">
+                            <span class="btn-primary__text">
+                                показать
+                            </span>
+                            <span class="btn-primary__text">
+                                больше
+                            </span>
+                            <span class="btn-primary__icon _down">
+                            </span>
+                        </button>
+                    </div>
+            
+                </div>
+            </section>
+
+            <!--  -->
+            <section class="requestForm">
+    <div class="container requestForm__c">
+        <div class="requestForm__c-top">
+            <ul class="requestForm__c-top-imgs">
+                <li class="requestForm__c-top-imgs-el">
+                    <img src="./assets/images/requestForm-1.webp" alt="">
+                </li>
+                <li class="requestForm__c-top-imgs-el">
+                    <img src="./assets/images/requestForm-2.webp" alt="">
+                </li>
+                <li class="requestForm__c-top-imgs-el">
+                    <img src="./assets/images/requestForm-3.webp" alt="">
+                </li>
+            </ul>
+            <p class="col-orange txt11 txt-up">Расположение, фотографии, планировка и цена в нашем буклете</p>
+            <p class="tl1">
+                Скачайте материалы проекта <br class="desktop">
+                жилого комплекса Куинджи
+            </p>
+        </div>
+        <form class="form requestForm__c-form">
+            <p class="txt20 requestForm__c-form-text">
+                Укажите свои контакты <br>
+                и скачайте буклет <br>
+                <span class="col-orange">
+                    в 1 клик
+                </span>
+            </p>
+
+            <label class="form-input-container">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="phone" required="" placeholder="+7 (___) ___-__-__">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <p class="txt13 col-grey200 requestForm__c-form-msg">Отправляя форму, вы принимаете <a class="ui-link col-orange" href="#">пользовательское соглашение</a></p>
+
+            <div class="requestForm__c-form-btns">
+                <button class="btn-circle desktop form-submit">
+                    <span class="btn-circle__text _download">
+                        скачать <br>
+                        буклет
+                    </span>
+                </button>
+
+                <button class="btn-primary mobile form-submit">
+                    <span class="btn-primary__text">
+                        Скачать
+                    </span>
+                    <span class="btn-primary__text">
+                        буклет
+                    </span>
+                    <span class="btn-primary__icon _download">
+                    </span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>
+            <section class="recomendation">
+    <div class="container recomendation__c">
+        <div class=" recomendation__c-top">
+            <p class="tl1 ">Вам может понравиться</p>
+        </div>
+        <ul class="recomendation__c-swiper">
+            <li class=" recomendation__c-swiper-slide">
+
+                <div class="recomendation__c-swiper-slide-img">
+                    <img src="../assets/images/catalog-detail-1.webp" alt="">
+                </div>
+
+                <div class="recomendation__c-swiper-slide-top">
+                    <div class="recomendation__c-swiper-slide-top-el">
+                        <p class="tl3">name name</p>
+                        <p class="txt16 col-grey200">text</p>
+                    </div>
+                    <div class="recomendation__c-swiper-slide-top-el">
+                        <p class="tl3">999 999 999 <sup>₽</sup></p>
+                        <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
+                    </div>
+                </div>
+
+                <ul class="recomendation__c-swiper-slide-stats">
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/area.svg" alt="">
+                        <span class="txt16"> 1488 m<sup>2</sup></span>
+                    </li>
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/bed.svg" alt="">
+                        <span class="txt16"> 2 спальни</span>
+                    </li>
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/bath.svg" alt="">
+                        <span class="txt16"> 3 санузла</span>
+                    </li>
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                        <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
+                    </li>
+                </ul>
+
+                <ul class="ui-tags">
+                    <li class="ui-tag">
+                        tag name
+                    </li>
+                </ul>
+
+                <a href="#" class="btn-link _arrow">
+                    <span>
+                        Подробнее
+                    </span>
+                </a>
+
+            </li>
+            <li class=" recomendation__c-swiper-slide">
+
+                <div class="recomendation__c-swiper-slide-img">
+                    <img src="../assets/images/catalog-detail-1.webp" alt="">
+                </div>
+
+                <div class="recomendation__c-swiper-slide-top">
+                    <div class="recomendation__c-swiper-slide-top-el">
+                        <p class="tl3">name name</p>
+                        <p class="txt16 col-grey200">text</p>
+                    </div>
+                    <div class="recomendation__c-swiper-slide-top-el">
+                        <p class="tl3">999 999 999 <sup>₽</sup></p>
+                        <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
+                    </div>
+                </div>
+
+                <ul class="recomendation__c-swiper-slide-stats">
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/area.svg" alt="">
+                        <span class="txt16"> 1488 m<sup>2</sup></span>
+                    </li>
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/bed.svg" alt="">
+                        <span class="txt16"> 2 спальни</span>
+                    </li>
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/bath.svg" alt="">
+                        <span class="txt16"> 3 санузла</span>
+                    </li>
+                    <li class="recomendation__c-swiper-slide-stats-el">
+                        <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                        <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
+                    </li>
+                </ul>
+
+                <ul class="ui-tags">
+                    <li class="ui-tag">
+                        tag name
+                    </li>
+                </ul>
+
+                <a href="#" class="btn-link _arrow">
+                    <span>
+                        Подробнее
+                    </span>
+                </a>
+
+            </li>
+        </ul>
+
+        <div class="recomendation__c-footer">
+
+            <button class="btn-primary ">
+                <span class="btn-primary__text">
+                    показать
+                </span>
+                <span class="btn-primary__text">
+                    больше
+                </span>
+                <span class="btn-primary__icon _down">
+                </span>
+            </button>
+        </div>
+
+    </div>
+</section>
+        </main>
+        <div class="modal modal-request modal-closer" data-submit_type="call">
+    <!-- ВНИМАНИЕ -->
+    <!-- при вызове модалки через кнопку data-modal=request -->
+    <!-- ее data-submit_type передается в этот же атр на форме -->
+    <!-- одна форма на все случаи жызны палучаеца В) -->
+    <!-- умом? умом! -->
+    <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+    <div class="modal__c">
+        <button class="modal-closer modal__c-closer ui-x"></button>
+
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="call">Обратный зовонок</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="offer">Получить предложение</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="help">Заказать консультацию</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="reserve">Забронировать</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="download">Скачать буклет</p>
+        <p class="tl1 txt-up modal__c-heading" data-submit_type="excursion">Заказать экскурсию</p>
+
+        <p class="txt20">Оставьте контакты, и эксперт свяжется с вами в течение часа</p>
+
+        <form class="form modal__c-form">
+
+            <label class="form-input-container">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="phone" required="" placeholder="+7 (___) ___-__-__">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="comment" placeholder="Комментарий">
+                <span class="form-input-error">error</span>
+            </label>
+
+
+            <button class="btn-primary form-submit">
+                <span class="btn-primary__text">
+                    отправить
+                </span>
+                <span class="btn-primary__text">
+                    заявку
+                </span>
+                <span class="btn-primary__icon _mail">
+                </span>
+            </button>
+
+            <p class=" txt13 col-grey200">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<div class="modal modal-success modal-closer">
+
+    <div class="modal__c">
+        <!-- ВНИМАНИЕ -->
+        <!-- для вызова триггерни клик на ней -->
+        <button class="mobile desktop" data-modal="success"></button>
+        <!-- СПАСИБО ЗА ВАНИМАНИЕ -->
+        <button class="modal-closer modal__c-closer ui-x"></button>
+        <p class="tl1">Спасибо!</p>
+        <p class="txt20">Эксперт свяжется с вами в течение часа</p>
+
+        <div class="modal-success__img">
+            <img src="./assets/images/modal-success.webp" alt="">
+        </div>
+
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer__c">
+        <div class="footer__c-logo">
+            <img src="../assets/images/icons/logo.svg" alt="">
+        </div>
+        <a href="tel:+288" class="btn-primary header__c-phone mobile">
+            <span class=" header__c-phone-img">
+            </span>
+        </a>
+        <nav class="txt15 txt-up footer__c-links">
+            <a href="#">Подбор недвижимости</a>
+            <a class="footer__c-links-el" href="#">Первичная</a>
+            <a class="footer__c-links-el" href="#">вторичная</a>
+            <a class="footer__c-links-el" href="#">загородная</a>
+            <a class="footer__c-links-el" href="#">коммерческая</a>
+        </nav>
+
+        <nav class="footer__c-links txt15 txt-up">
+            <a href="#">Компания</a>
+            <a class="footer__c-links-el" href="#">Компания</a>
+            <a class="footer__c-links-el" href="#">о нас</a>
+            <a class="footer__c-links-el" href="#">сми о нас</a>
+            <a class="footer__c-links-el" href="#">Контакты</a>
+        </nav>
+
+        <div class=" footer__c-form">
+            <p class="txt-up txt13">
+                Подпишитесь на нашу рассылку и получайте
+                первыми эксклюзивные предложения
+            </p>
+            <form class="form">
+
+                <label class="form-input-container">
+                    <input type="text" name="email" required="" placeholder="ВАШ EMAIL">
+                    <span class="form-input-error">error</span>
+                </label>
+
+
+                <button class="btn-primary form-submit">
+                    <span class="btn-primary__icon _mail">
+                    </span>
+                </button>
+            </form>
+            <p class="txt13">
+                Отправляя форму, вы принимаете пользовательское соглашение
+            </p>
+            <a href="#" class="txt13 col-orange ui-link">
+                Политика конфеденциальности
+            </a>
+        </div>
+
+        <div class="footer__c-org txt13 col-grey200">
+            <p>ООО «Гросвиль»</p>
+            <p>ИНН 7842225551 I КПП 784201001</p>
+            <p>ОГРН 1247800102769</p>
+        </div>
+
+        <p class="txt16 txt-up col-grey200 footer__c-info">
+            Любая информация, предоставленная на данном сайте, носит исключительно информационный характер и ни при
+            каких условиях не является публичной офертой, определяемой положением статьи 437 ГК РФ
+        </p>
+    </div>
+</footer>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [47.204572074287015, 39.67028549999995],
+                zoom: 16,
+                controls: ['fullscreenControl']
+            });
+            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                hintContent: 'there is no palce for narkomany 😎'
+            }, {
+                iconLayout: 'default#image',
+                iconImageHref: './assets/images/map-marker-contacts.webp',
+                iconImageSize: [210, 70],
+
+            }),
+                myMap.geoObjects
+                    .add(myPlacemark)
+        }
+    </script>
+</body>
+
+</html>
