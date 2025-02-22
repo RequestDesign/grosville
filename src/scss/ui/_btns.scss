@@ -38,8 +38,9 @@
             font-size: 2rem;
 
         }
-        &._download{
-            &:after{
+
+        &._download {
+            &:after {
                 background-image: url(../assets/images/icons/download.svg);
             }
         }
@@ -126,7 +127,197 @@
 
 }
 
+.btn-trans {
 
+
+    &._arrow {
+        --btn-icon: url(../assets/images/icons/arrow-orange-right.svg)
+    }
+
+    &._filter {
+        --btn-icon: url(../assets/images/icons/filter.svg);
+    }
+
+    &._mail {
+        --btn-icon: url(../assets/images/icons/mail.svg);
+    }
+
+    &._call {
+        --btn-icon: url(../assets/images/icons/call-orange.svg);
+    }
+
+    &._down {
+        --btn-icon: url(../assets/images/icons/arrow-orange-down.svg);
+    }
+
+    &._download {
+        --btn-icon: url(../assets/images/icons/download.svg)
+    }
+
+
+    & svg {
+        width: 4rem;
+        height: 4rem;
+    }
+    width: fit-content;
+    color: var(--col-orange);
+    //styleName: Desktop/Label/sm;
+    font-family: Inter;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    position: relative;
+
+    @include desktop {
+        position: relative;
+        width: 1px;
+        height: 1px;
+        transform: translate(17rem, 17rem);
+
+        @include hover {
+            &::after {
+                width: 30rem;
+                height: 30rem;
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 1px solid var(--col-orange);
+            width: 34rem;
+            height: 34rem;
+            transform: translate(-50%, -50%);
+            transition: width .2s linear, height .2s linear;
+
+        }
+
+        &__top,
+        &__bottom {
+            position: relative;
+            white-space: nowrap;
+           
+        }
+
+        &__bottom {
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -2.6rem;
+                left: 0;
+                width: 3.6rem;
+                height: 3.6rem;
+                background-image: var(--btn-icon);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                transform: translateY(100%);
+
+
+            }
+
+        }
+    }
+
+    @include mobile {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: 500;
+        white-space: nowrap;
+        color: var(--col-black);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 8rem;
+            height: 8rem;
+            border: 1px solid var(--col-orange);
+            border-radius: 50%;
+            top: 50%;
+            right: -6px;
+            transform: translate(8rem, -4rem);
+
+            background-image: var(--btn-icon);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 4rem;
+
+        }
+
+        @include hover {
+            & .btn-trans__bottom:after {
+                width: 100%;
+            }
+        }
+
+        &:active {
+            color: var(--col-orange);
+        }
+
+        &__top {
+            position: relative;
+
+            &+.btn-trans__bottom {
+                padding-left: 6px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                border-bottom: 1px solid var(--col-orange);
+                transition: width .2s ease-in-out;
+            }
+
+        }
+
+        &__bottom {
+ 
+            &::after {
+                width: 0;
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 0;
+                height: 100%;
+                border-bottom: 1px solid var(--col-orange);
+                transition: width .2s ease-in-out;
+            }
+
+        }
+
+
+    }
+}
+
+._hoverBtn{
+
+    @include hover{
+        & .btn-primary__text:nth-child(2):after {
+            width: 100%;
+        }
+    }
+}
 .btn-primary {
     display: flex;
     flex-shrink: 0;
@@ -139,7 +330,10 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     position: relative;
-    &::after{
+    width: fit-content;
+    transition: color .5s linear;
+
+    &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -147,9 +341,10 @@
         width: 100%;
         height: 100%;
     }
-    @include desktop{
-       margin-top: 2rem;
-       margin-bottom:2rem ;
+
+    @include desktop {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
 
@@ -163,7 +358,8 @@
             width: 100%;
         }
     }
-    &:active{
+
+    &:active {
         color: var(--col-orange);
     }
 
@@ -206,23 +402,28 @@
 
         &._arrow {
             background-image: url(../assets/images/icons/arrow-orange-right.svg);
-          
+
         }
+
         &._filter {
             background-image: url(../assets/images/icons/filter.svg);
-          
+
         }
-        &._mail{
+
+        &._mail {
             background-image: url(../assets/images/icons/mail.svg);
 
         }
-        &._call{
+
+        &._call {
             background-image: url(../assets/images/icons/call-orange.svg);
         }
-        &._down{
+
+        &._down {
             background-image: url(../assets/images/icons/arrow-orange-down.svg);
         }
-        &._download{
+
+        &._download {
             background-image: url(../assets/images/icons/download.svg);
         }
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="newsHeading">
+                <div class="container newsHeading__c swiper headingSlider">
+                    <div class="swiper-nav _square">
+                        <button class="swiper-btn swiper-btn-prev"></button>
+                        <button class="swiper-btn swiper-btn-next"></button>
+                    </div>
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide newsHeading__c-slide">
+                            <div class="newsHeading__c-slide-img">
+                                <img src="./assets/images/catalog-detail-1.png" alt="">
+                            </div>
+                            <div class="newsHeading__c-slide-right">
+
+                                <p class="tl1">Старт продаж</p>
+                                <p class="tl3">Новый элитный проект ГК «Еврострой» в центре Санкт-Петербурга</p>
+                                <p class="col-grey200 txt11">набережная реки Фонтанки, 130А</p>
+
+                                <button class="btn-primary ">
+                                    <span class="btn-primary__text">
+                                        Узнать
+                                    </span>
+                                    <span class="btn-primary__text">
+                                        подробнее
+                                    </span>
+                                    <span class="btn-primary__icon _arrow">
+                                    </span>
+                                </button>
+                            </div>
+
+                        </li>
+                        <li class="swiper-slide newsHeading__c-slide">
+                            <div class="newsHeading__c-slide-img">
+                                <img src="./assets/images/catalog-detail-1.png" alt="">
+                            </div>
+                            <div class="newsHeading__c-slide-right">
+
+                                <p class="tl1">Lorem ipsum dolor sit amet, </p>
+                                <p class="tl3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium odio
+                                    saepe quisquam eveniet nemo, pariatur eius velit consequuntur facere nostrum sequi
+                                    numquam, nam quae vitae, sunt natus alias. Tenetur, ipsum.</p>
+                                <p class="col-grey200 txt11">Lorem ipsum dolor sit amet consectetur adipisicing eli</p>
+
+                                <button class="btn-primary ">
+                                    <span class="btn-primary__text">
+                                        Узнать
+                                    </span>
+                                    <span class="btn-primary__text">
+                                        подробнее
+                                    </span>
+                                    <span class="btn-primary__icon _arrow">
+                                    </span>
+                                </button>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+            <section class="newsMain">
+                <div class="container">
+                    <div class="newsMain__top">
+                        <p class="txt15 col-orange txt-up">новости</p>
+                        <h1 class="tl1">Мир недвижимости: <br /> что происходит сейчас</h1>
+                        <p class="tl3">Будьте в курсе ключевых событий и актуальных трендов элитного жилья. Узнавайте
+                            первыми о достижениях компании и перспективах рынка недвижимости</p>
+                    </div>
+                    <div class="newsMain__filter txt16">
+                        <ul class="newsMain__filter-list">
+                            <li class="newsMain__filter-list-el _active">я фильтр</li>
+                            <li class="newsMain__filter-list-el">и я фильтр</li>
+                            <li class="newsMain__filter-list-el">и я фильтр</li>
+                            <li class="newsMain__filter-list-el">и я фильтр</li>
+                            <li class="newsMain__filter-list-el">и я фильтр</li>
+                        </ul>
+                    </div>
+                    <div class="newsMain__list">
+                        <div class="newsMain__list-el _hoverBtn">
+                            <a href="#"></a>
+                            <div class="newsMain__list-el-img">
+                                <img src="./assets/images/catalog-detail-1.png" alt="">
+                            </div>
+                            <div class="newsMain__list-el-right">
+                                <p class="tl2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+                                    tempore
+                                    labore culpa necessitatibus at velit officia error sit voluptatem expedita!</p>
+                                <p class="txt20">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem atque molestias dolorum suscipit harum eveniet quod ratione veritatis, optio illum soluta cupiditate voluptates nesciunt nemo error hic nostrum. Nobis consectetur accusamus ipsum et voluptatum quae architecto, expedita ex repellat totam illum! Tempore vero impedit dignissimos tenetur repellat fugit quibusdam fugiat?
+                                </p>
+                                <div class="newsMain__list-el-right-footer">
+                                    <p class="col-grey200 txt15">12.12.1212</p>
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            читать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            статью
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button class="btn-primary ">
+                            <span class="btn-primary__text">
+                                показать
+                            </span>
+                            <span class="btn-primary__text">
+                                больше
+                            </span>
+                            <span class="btn-primary__icon _down">
+                            </span>
+                        </button>
+
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+
+</body>
+
+</html>

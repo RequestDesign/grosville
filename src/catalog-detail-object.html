@@ -11,7 +11,6 @@
             font-family: 'Montserrat';
             src: local('Montserrat'),
                 url('./assets/fonts/Montserrat.woff2') format('woff2');
-            /*   font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
@@ -21,21 +20,10 @@
             font-family: 'Inter';
             src: local('Inter'),
                 url('./assets/fonts/Inter.woff2') format('woff2');
-
-            /*     font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
 
-        /*   @font-face {
-      font-family: 'Inter';
-      src: local('Inter'),
-        url('./assets/fonts/Inter.woff2') format('woff2');
-
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    } */
     </style>
     <title>само напишется</title>
 </head>
@@ -59,22 +47,12 @@
                         </div>
 
                         <div class="catalogDetailObject__main-btns">
-                            <button class="btn-circle desktop" data-modal="request" data-submit_type="download">
-                                <span class="btn-circle__text _arrow">
-                                    скачать <br />
-                                    буклет</span>
+
+                            <button class="btn-trans _arrow" data-modal="request" data-submit_type="download">
+                                <span class="btn-trans__top">скачать</span>
+                                <span class="btn-trans__bottom">буклет</span>
                             </button>
 
-                            <button class="btn-primary mobile" data-modal="request" data-submit_type="download">
-                                <span class="btn-primary__text">
-                                    скачать
-                                </span>
-                                <span class="btn-primary__text">
-                                    буклет
-                                </span>
-                                <span class="btn-primary__icon _arrow">
-                                </span>
-                            </button>
 
                         </div>
 
@@ -125,23 +103,10 @@
                             </p>
                         </div>
                         <div class="catalogDetailBanner__c-btns">
-
-                            <button data-modal="request" data-submit_type="excursion" class="btn-circle desktop">
-                                <span class="btn-circle__text _arrow">записаться <br />
-                                    на экскурсию</span>
+                            <button class="btn-trans _call" data-modal="request" data-submit_type="excursion">
+                                <span class="btn-trans__top">записаться</span>
+                                <span class="btn-trans__bottom">на экскурсию</span>
                             </button>
-
-                            <button data-modal="request" data-submit_type="excursion" class="btn-primary mobile">
-                                <span class="btn-primary__text">
-                                    записаться
-                                </span>
-                                <span class="btn-primary__text">
-                                    на экскурсию
-                                </span>
-                                <span class="btn-primary__icon _arrow">
-                                </span>
-                            </button>
-
                         </div>
                     </div>
                 </div>
@@ -207,16 +172,16 @@
 
                 </div>
                 <include src="./components/_filters.html"></include>
-                
+
                 <div class="container recomendation__c">
-                    
+
                     <ul class="recomendation__c-swiper">
                         <li class=" recomendation__c-swiper-slide">
-            
+
                             <div class="recomendation__c-swiper-slide-img">
                                 <img src="../assets/images/catalog-detail-1.png" alt="">
                             </div>
-            
+
                             <div class="recomendation__c-swiper-slide-top">
                                 <div class="recomendation__c-swiper-slide-top-el">
                                     <p class="tl3">name name</p>
@@ -227,7 +192,7 @@
                                     <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
                                 </div>
                             </div>
-            
+
                             <ul class="recomendation__c-swiper-slide-stats">
                                 <li class="recomendation__c-swiper-slide-stats-el">
                                     <img src="./assets/images/icons/area.svg" alt="">
@@ -246,26 +211,26 @@
                                     <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
                                 </li>
                             </ul>
-            
+
                             <ul class="ui-tags">
                                 <li class="ui-tag">
                                     tag name
                                 </li>
                             </ul>
-            
+
                             <a href="#" class="btn-link _arrow">
                                 <span>
                                     Подробнее
                                 </span>
                             </a>
-            
+
                         </li>
                         <li class=" recomendation__c-swiper-slide">
-            
+
                             <div class="recomendation__c-swiper-slide-img">
                                 <img src="../assets/images/catalog-detail-1.png" alt="">
                             </div>
-            
+
                             <div class="recomendation__c-swiper-slide-top">
                                 <div class="recomendation__c-swiper-slide-top-el">
                                     <p class="tl3">name name</p>
@@ -276,7 +241,7 @@
                                     <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
                                 </div>
                             </div>
-            
+
                             <ul class="recomendation__c-swiper-slide-stats">
                                 <li class="recomendation__c-swiper-slide-stats-el">
                                     <img src="./assets/images/icons/area.svg" alt="">
@@ -295,24 +260,24 @@
                                     <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
                                 </li>
                             </ul>
-            
+
                             <ul class="ui-tags">
                                 <li class="ui-tag">
                                     tag name
                                 </li>
                             </ul>
-            
+
                             <a href="#" class="btn-link _arrow">
                                 <span>
                                     Подробнее
                                 </span>
                             </a>
-            
+
                         </li>
                     </ul>
-            
+
                     <div class="recomendation__c-footer">
-            
+
                         <button class="btn-primary ">
                             <span class="btn-primary__text">
                                 показать
@@ -324,7 +289,7 @@
                             </span>
                         </button>
                     </div>
-            
+
                 </div>
             </section>
 
@@ -343,7 +308,8 @@
             var myMap = new ymaps.Map("map", {
                 center: [47.204572074287015, 39.67028549999995],
                 zoom: 16,
-                controls: ['fullscreenControl']
+                behaviors: ['drag', 'dblClickZoom'],
+                controls: ['fullscreenControl', 'zoomControl']
             });
             myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
                 hintContent: 'there is no palce for narkomany 😎'

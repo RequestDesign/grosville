@@ -9,7 +9,8 @@
     grid-template-columns: 50% 50%;
     gap: 1rem 0;
     --col-nouislider: var(--col-orange);
-    @include mobile{
+
+    @include mobile {
         gap: 2rem 0;
     }
 
@@ -66,7 +67,7 @@
 .noUi-handle {
     width: 13px !important;
     height: 13px !important;
-    top: -6.5px !important;
+    top: -8px !important;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -89,8 +90,19 @@
 }
 
 .noUi-horizontal .noUi-handle {
-    right: -.75rem;
-    @include mobile{
-        right: -2.4rem;
+    &.noUi-handle-upper {
+        right: -.75rem;
+
+        @include mobile {
+            right: 0;
+        }
+    }
+
+    &.noUi-handle-lower {
+        right: -.75rem;
+
+        @include mobile {
+            right: -2.5rem;
+        }
     }
 }

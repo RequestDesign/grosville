@@ -15,6 +15,9 @@
             background-position: center;
             background-size: 3rem;
             background-repeat: no-repeat;
+            @include mobile{
+            background-size: 6rem;
+            }
 
             &-next {
                 background-image: url(../assets/images/icons/arrow-orange-right.svg);

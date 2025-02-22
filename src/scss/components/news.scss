@@ -1,0 +1,360 @@
+.newsDetail {
+    &__img {
+        width: 100%;
+        height: 60rem;
+        display: flex;
+        object-fit: cover;
+        object-position: center;
+
+        @include mobile {
+            height: 73rem;
+        }
+    }
+
+    &__c {
+        transform: translateY(-7rem);
+        background-color: var(--col-white);
+        padding: 16rem 20rem;
+
+        @include mobile {
+            padding: 6.4rem 4.2rem;
+        }
+    }
+}
+
+.newsRecomend {
+    & .tl1 {
+        margin-bottom: 10rem;
+        @include mobPad;
+    }
+
+    & .container {
+        @include mobile {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &__slide {
+        background-image: url(../assets/images/newsRecomend.webp);
+        background-size: cover;
+
+        min-height: 100%;
+        height: unset;
+        margin-top: 3.2rem;
+        padding: 0 3.2rem 3.2rem;
+        user-select: none;
+        position: relative;
+
+        &>a {
+            position: absolute;
+            width: calc(100% + 3.2rem);
+            height: 100%;
+            z-index: 5;
+            top: -3.2rem;
+            left: 0;
+        }
+
+        &-img {
+            width: 100%;
+            height: 45rem;
+            transform: translateY(-3.2rem);
+            display: flex;
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        & .tl3 {
+            width: 100%;
+            height: 8rem;
+            @include wrap-text(3);
+
+            @include mobile {
+                height: 12rem;
+            }
+        }
+
+        &-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3.2rem;
+
+        }
+    }
+}
+
+.newsHeading {
+    &__c {
+
+
+        height: 50rem;
+        position: relative;
+
+        @include mobile {
+            height: 92rem;
+        }
+
+
+
+        & .swiper-nav {
+            position: absolute;
+            z-index: 5;
+            bottom: 0;
+            right: 0;
+
+            @include mobile {
+                bottom: 2rem;
+                right: 4rem;
+            }
+        }
+
+        & .swiper-wrapper {
+            position: relative;
+            z-index: 4;
+            mask-image: url(../assets/images/newsHeadingMask.svg);
+            mask-size: 100%;
+            mask-position: bottom right;
+            mask-repeat: no-repeat;
+            background-color: var(--col-white);
+
+            @include mobile {
+                mask-image: url(../assets/images/newsHeadingMask-mob.svg);
+            }
+
+            @include desktop {
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 8rem;
+                    right: 8rem;
+                    width: 56rem;
+                    height: 36.7rem;
+                    z-index: 3;
+                    mask-image: url(../assets/images/gr.svg);
+                    mask-size: cover;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    background-color: #333333;
+                }
+            }
+        }
+
+        &-slide {
+
+            display: flex;
+            gap: 6.8rem;
+            padding: 4.4rem;
+            box-sizing: border-box;
+            min-height: 100%;
+            height: unset;
+
+            @include mobile {
+                flex-direction: column;
+                gap: 4rem;
+                padding: 4rem;
+
+                & .tl1 {
+                    @include wrap-text(1)
+                }
+
+                & .tl3 {
+                    @include wrap-text(2)
+                }
+
+                & .txt11 {
+                    @include wrap-text(1)
+                }
+            }
+
+            &-img {
+                height: 41rem;
+                width: 62.7rem;
+                display: flex;
+
+                @include mobile {
+                    width: 100%;
+                    height: 46rem;
+                }
+
+                & img {
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            &-right {
+                display: flex;
+                flex-direction: column;
+                gap: 3.2rem;
+                max-width: 72rem;
+
+                @include mobile {
+                    max-width: 100%;
+
+                }
+
+                & .btn-primary {
+                    margin-top: auto;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+.newsMain {
+    &__top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.6rem;
+        padding-bottom: 6.8rem;
+        border-bottom: 1px solid var(--col-grey200);
+
+        & .txt15 {
+            grid-column: 1 / span 2;
+        }
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+    }
+
+    &__filter {
+        margin: 4.4rem 0 12rem;
+
+        @include mobile {
+            margin: 4rem 0 6.4rem;
+            overflow: auto;
+            padding: 0 2rem 2rem;
+        }
+
+        &-list {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 4.4rem;
+
+            &-el {
+                white-space: nowrap;
+                padding-bottom: 1rem;
+                border-bottom: 2px solid transparent;
+                cursor: pointer;
+
+                @include hover {
+                    color: var(--col-orange);
+                }
+
+                &._active {
+                    border-color: var(--col-orange);
+                }
+            }
+        }
+
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10rem;
+        align-items: center;
+        justify-content: center;
+
+
+        &-el {
+            width: 100%;
+            height: 45.6rem;
+            background-color: var(--col-white);
+            padding: 4.4rem;
+            padding-left: 0;
+            display: flex;
+            gap: 7.6rem;
+            justify-content: space-between;
+            position: relative;
+
+            @include mobile {
+                height: 76rem;
+                width: 100%;
+                flex-direction: column;
+                padding: 22rem 2.4rem 4.8rem;
+                margin-top: 18rem;
+                gap: 1.2rem;
+            }
+
+            & a {
+                position: absolute;
+                z-index: 5;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            &-img {
+                flex-shrink: 0;
+                width: 63rem;
+                height: 45rem;
+                border: 3.2rem solid var(--col-white);
+                border-bottom: none;
+                transform: translateY(-10.4rem);
+                display: flex;
+                box-sizing: content-box;
+
+                @include mobile {
+                    width: 52rem;
+                    height: 36rem;
+                    border-width: 2.4rem;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+
+                & img {
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+            }
+
+            &-right {
+                display: flex;
+                flex-direction: column;
+                gap: 3.2rem;
+                @include mobile{
+                    height: 100%;
+
+                    & .txt20{
+                        @include wrap-text(5);
+                    }
+                }
+
+                & .tl2 {
+                    @include wrap-text(2);
+                    @include mobile{
+                        @include wrap-text(4);
+                    }
+                }
+                
+
+
+                &-footer {
+                    margin-top: auto;
+                    display: flex;
+                    margin-top: auto;
+                    justify-content: space-between;
+                    align-items: center;
+
+                }
+            }
+        }
+    }
+}

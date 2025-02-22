@@ -1,6 +1,6 @@
 .header {
     position: absolute;
-    z-index: 10;
+    z-index: 100;
     top: 0;
     left: 0;
     width: 100%;
@@ -97,19 +97,19 @@
 
         &-filter {
             margin-left: 18rem;
-            transition: filter .5s linear;
+            transition: filter .5s linear, color .5s linear ;
         }
 
         &-phone {
             margin-left: auto;
             margin-right: 18rem;
-         
+            transition: color .5s linear ;
             @include mobile {
                 margin-left: auto;
                 margin-right: 2rem;
 
                 &-img {
-                    transition: filter .5s linear, border-color .5s linear;
+                    transition: filter .5s linear, border-color .5s linear, color .5s linear;
                     width: 8.8rem;
                     height: 8.8rem;
                     border-radius: 50%;
@@ -172,15 +172,15 @@
                 }
 
                 &:nth-child(1) {
-                    transition: transform .5s linear;
+                    transition: transform .5s linear, background-color .5s linear;
                 }
 
                 &:nth-child(2) {
-                    transition: opacity .5s linear;
+                    transition: opacity .5s linear, background-color .5s linear;
                 }
 
                 &:nth-child(3) {
-                    transition: transform .5s linear;
+                    transition: transform .5s linear, background-color .5s linear;
 
                 }
             }

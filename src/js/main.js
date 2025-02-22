@@ -43,8 +43,11 @@ $(function () {
              * если есть data-dd_html_lock='y' то еще и залочит html
              */
             ev.preventDefault()
-
+            const prev = document.querySelector('.dd-container._opened')
             const parent = ev.target.closest('.dd-container')
+            if (prev && prev !== parent) {
+                prev.classList.remove('_opened')
+            }
 
             if (parent.classList.contains('_opened')) {
                 parent.classList.remove('_opened')
@@ -57,7 +60,7 @@ $(function () {
                     HTML.classList.add(HTML_LOCK_SELECTOR)
                 }
             }
-          
+
         } else if (classList.contains('select-value')) {
             /**
              * записывает value в инут в дропдауне который select
@@ -88,9 +91,9 @@ $(function () {
                 })
             }
             ev.target.classList.add('_checked')
-        } else if(classList.contains('filter-opener')){
+        } else if (classList.contains('filter-opener')) {
             document.querySelector('.filters').classList.toggle('_opened')
-            
+
         }
     })
 
@@ -260,16 +263,47 @@ function initSwipers() {
         })
     }
 
-
-   /*  const recomendation = document.querySelector('.recomendation')
-    if (recomendation && window.innerWidth < 768) {
-        new Swiper(recomendation.querySelector('.swiper'), {
+    const newsRecomend = document.querySelector('.newsRecomend .swiper')
+    if (newsRecomend) {
+        new Swiper(newsRecomend, {
             slidesPerView: 1.2,
             centeredSlides: true,
-            spaceBetween: 15
+            spaceBetween: 15,
+            breakpoints: {
+                768: {
+                    centeredSlides: false,
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+
+                }
+            }
+
         })
     }
- */
+
+    const headingSlider = document.querySelector('.headingSlider.swiper')
+    if (headingSlider) {
+        new Swiper(headingSlider, {
+            modules: [Navigation, EffectFade],
+            slidesPerView: 1,
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            navigation: {
+                prevEl: headingSlider.querySelector('.swiper-btn-prev'),
+                nextEl: headingSlider.querySelector('.swiper-btn-next')
+            }
+        })
+    }
+
+    /*  const recomendation = document.querySelector('.recomendation')
+     if (recomendation && window.innerWidth < 768) {
+         new Swiper(recomendation.querySelector('.swiper'), {
+             slidesPerView: 1.2,
+             centeredSlides: true,
+             spaceBetween: 15
+         })
+     }
+  */
 }
 
 
@@ -347,31 +381,31 @@ function nouislider() {
     const target = document.querySelectorAll('.nouislider')
     if (!target.length || target.length < 1) return
 
-    target.forEach((t)=>{
+    target.forEach((t) => {
         const min = t.querySelector('.nouislider__min'),
-        max = t.querySelector('.nouislider__max'),
-        place = t.querySelector('.nouislider__place')
+            max = t.querySelector('.nouislider__max'),
+            place = t.querySelector('.nouislider__place')
 
-    if (!min || !max) return
+        if (!min || !max) return
 
 
-    noUiSlider.create(place, {
-        start: [Number(min.getAttribute('min')), Number(max.getAttribute('max'))],
-        connect: true,
-        step: 100,
-        range: {
-            'min': Number(min.getAttribute('min')),
-            'max': Number(max.getAttribute('max'))
-        },
-    });
+        noUiSlider.create(place, {
+            start: [Number(min.getAttribute('min')), Number(max.getAttribute('max'))],
+            connect: true,
+            step: 100,
+            range: {
+                'min': Number(min.getAttribute('min')),
+                'max': Number(max.getAttribute('max'))
+            },
+        });
 
-    place.noUiSlider.on('update', function (values, handle) {
-        min.setAttribute('value', Math.round(values[0]))
-        max.setAttribute('value', Math.round(values[1]))
+        place.noUiSlider.on('update', function (values, handle) {
+            min.setAttribute('value', Math.round(values[0]))
+            max.setAttribute('value', Math.round(values[1]))
 
-    });
+        });
     })
-    
+
 
     /*  min.on('input', (e) => {
          target.noUiSlider.set([e.target.value, max.val()])
@@ -390,9 +424,9 @@ function header() {
     if (!header) return
 
     document.addEventListener('scroll', (ev) => {
-        if (prevY > window.scrollY && window.scrollY > 100) {
+        if (prevY > window.scrollY && window.scrollY > 500) {
             header.classList.add('_showed')
-        } else if (prevY < window.scrollY) {
+        } else  {
             header.classList.remove('_showed')
         }
 

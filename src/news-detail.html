@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="newsDetail">
+                <div class="newsDetail__img">
+                    <img src="./assets/images/catalog-detail-banner-main.png" alt="">
+                </div>
+                <div class="container newsDetail__c ui-seoBlock">
+                    <span>12.12.12</span>
+                    <h1>news tittle</h1>
+                    <h2>h2</h2>
+                    <h3>h3</h3>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <p>default text</p>
+                    <p class="col-orange">orange</p>
+                    <a href="#">link</a>
+                    <ul>
+                        <li>list</li>
+                        <li>list</li>
+                        <li>list</li>
+                    </ul>
+
+                </div>
+            </section>
+
+            <section class="newsRecomend">
+                <div class="container">
+                    <p class="tl1">Похожие новости</p>
+                    <div class="swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide newsRecomend__slide _hoverBtn">
+                                <a href="#"></a>
+                                <div class="newsRecomend__slide-img">
+                                    <img src="./assets/images/catalog-detail-1.png" alt="">
+                                </div>
+                                <p class="tl3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quos
+                                    repellendus deleniti dolor quidem autem tempora placeat dignissimos facere soluta.
+                                </p>
+                                <div class="newsRecomend__slide-footer">
+                                    <span class="txt15 col-grey200">12.1.2.12</span>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            читать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            статью
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+
+                                </div>
+                            </li>
+                            <li class="swiper-slide newsRecomend__slide _hoverBtn">
+                                <a href="#"></a>
+                                <div class="newsRecomend__slide-img">
+                                    <img src="./assets/images/catalog-detail-1.png" alt="">
+                                </div>
+                                <p class="tl3">Lorem 
+                                </p>
+                                <div class="newsRecomend__slide-footer">
+                                    <span class="txt15 col-grey200">12.1.2.12</span>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            читать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            статью
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+
+                                </div>
+                            </li>
+                            <li class="swiper-slide newsRecomend__slide _hoverBtn">
+                                <a href="#"></a>
+                                <div class="newsRecomend__slide-img">
+                                    <img src="./assets/images/catalog-detail-1.png" alt="">
+                                </div>
+                                <p class="tl3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quos
+                                    repellendus deleniti dolor quidem autem tempora placeat dignissimos facere soluta.
+                                </p>
+                                <div class="newsRecomend__slide-footer">
+                                    <span class="txt15 col-grey200">12.1.2.12</span>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            читать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            статью
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+
+</body>
+
+</html>

@@ -1,4 +1,8 @@
 .footer {
+    margin-top: 16rem;
+    @include mobile{
+        margin-top: 20rem;
+    }
     &__c {
         display: grid;
         grid-template-columns: repeat(3, auto) 55rem;

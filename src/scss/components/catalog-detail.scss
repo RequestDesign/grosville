@@ -694,8 +694,10 @@
                 justify-content: flex-start;
             }
 
-            & .btn-circle {
-                transform: translate(7rem, -3rem);
+            @include desktop {
+                & .btn-trans {
+                    transform: translate(7rem, -3rem);
+                }
             }
         }
 
@@ -758,8 +760,10 @@
                 margin-top: 4.8rem;
             }
 
-            & .btn-circle {
-                transform: translate(1rem, -3rem);
+            @include desktop {
+                & .btn-trans {
+                    transform: translate(1rem, -3rem);
+                }
             }
 
         }
@@ -812,7 +816,7 @@
         grid-template-columns: .5fr 1fr 1.2fr;
         gap: 4.4rem;
         grid-template-areas:
-        'info img list' ;
+            'info img list';
 
         @include mobile {
             display: flex;
@@ -861,7 +865,8 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    @include mobile{
+
+                    @include mobile {
                         background-color: transparent;
                         height: auto;
                     }
@@ -875,8 +880,8 @@
             display: flex;
             width: 100%;
             height: 60rem;
-           
-            @include mobile{
+
+            @include mobile {
                 height: 74rem;
                 position: relative;
                 z-index: 2;
@@ -894,7 +899,8 @@
             display: flex;
             flex-direction: column;
             gap: 5rem;
-            @include mobile{
+
+            @include mobile {
                 transform: translateY(-10rem);
             }
 
@@ -969,15 +975,22 @@
     }
 }
 
-.catalogDetailFilter{
-    &__top{
+.catalogDetailFilter {
+    &__top {
         display: flex;
-        @include mobile{
+
+        @include mobile {
             flex-direction: column;
             gap: 3rem;
         }
     }
-    & .recomendation__c{
+
+    & .recomendation__c {
         margin-top: 5rem;
     }
+}
+
+.test {
+    filter: grayscale(1);
+    backdrop-filter: blur(10px);
 }

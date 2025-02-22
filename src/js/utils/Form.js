@@ -53,6 +53,7 @@ export default class Form {
             e.removeAttribute('disabled')
 
         })
+
         return this._validation(input);
     }
 
@@ -139,7 +140,6 @@ export default class Form {
 
     _onSubmit() {
         let whatsUp = true
-        console.log('hello');
         for (const inp of this._inputs()) {
             if (!this._inputHandler(inp)) {
                 whatsUp = false
@@ -191,8 +191,10 @@ export default class Form {
 
         })
         this._form.addEventListener('input', (ev) => { this._inputHandler(ev.target) })
-        this._form.addEventListener('blur', (ev) => { this._inputHandler(ev.target) })
         this._form.addEventListener('change', (ev) => { this._inputHandler(ev.target) })
+        this._form.querySelectorAll('input').forEach(el => {
+            el.addEventListener('blur', (ev) => { this._inputHandler(ev.target) })
+        });
 
 
     }

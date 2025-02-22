@@ -5,10 +5,11 @@
         display: flex;
         flex-direction: column;
         gap: 16rem;
-        @include mobile{
+
+        @include mobile {
             gap: 8rem;
-        padding-top: 8rem;
-        padding-bottom: 8rem;
+            padding-top: 8rem;
+            padding-bottom: 8rem;
         }
 
         &-top {
@@ -54,7 +55,8 @@
                         z-index: 2;
                         top: -7rem;
                         right: -7rem;
-                        @include mobile{
+
+                        @include mobile {
                             top: -8rem;
                             right: -13rem;
 
@@ -66,7 +68,8 @@
                         z-index: 1;
                         top: -5rem;
                         left: -5rem;
-                        @include mobile{
+
+                        @include mobile {
                             top: -5rem;
                             left: -13rem;
                         }
@@ -113,12 +116,15 @@
 
             &-btns {
                 grid-area: btn;
+
                 @include mobile {
                     margin-top: 8rem;
                 }
 
-                & .btn-circle {
-                    transform: translate(17rem, 3rem);
+                @include desktop {
+                    & .btn-trans {
+                        transform: translate(17rem, 3rem);
+                    }
                 }
             }
 
