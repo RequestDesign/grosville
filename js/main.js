@@ -1,9 +1,9 @@
-/******/ (function() { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 906:
-/***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 
 // EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
@@ -11,8 +11,8 @@ var jquery = __webpack_require__(755);
 var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 // EXTERNAL MODULE: ./node_modules/swiper/swiper.mjs + 1 modules
 var swiper = __webpack_require__(652);
-// EXTERNAL MODULE: ./node_modules/swiper/modules/index.mjs + 27 modules
-var modules = __webpack_require__(80);
+// EXTERNAL MODULE: ./node_modules/swiper/modules/index.mjs + 28 modules
+var modules = __webpack_require__(952);
 // EXTERNAL MODULE: ./node_modules/inputmask/dist/inputmask.js
 var inputmask = __webpack_require__(382);
 var inputmask_default = /*#__PURE__*/__webpack_require__.n(inputmask);
@@ -136,7 +136,6 @@ class Form {
   }
   _onSubmit() {
     let whatsUp = true;
-    console.log('hello');
     for (const inp of this._inputs()) {
       if (!this._inputHandler(inp)) {
         whatsUp = false;
@@ -178,11 +177,13 @@ class Form {
     this._form.addEventListener('input', ev => {
       this._inputHandler(ev.target);
     });
-    this._form.addEventListener('blur', ev => {
-      this._inputHandler(ev.target);
-    });
     this._form.addEventListener('change', ev => {
       this._inputHandler(ev.target);
+    });
+    this._form.querySelectorAll('input').forEach(el => {
+      el.addEventListener('blur', ev => {
+        this._inputHandler(ev.target);
+      });
     });
   }
 }
@@ -228,6 +229,7 @@ jquery_default()(function () {
   modalsHandler();
   initFancybox();
   initSwipers();
+  initAboutVidos();
   HTML.classList.add(HTML_PAGELOAD_SELECTOR);
   document.addEventListener('click', ev => {
     const {
@@ -240,7 +242,11 @@ jquery_default()(function () {
        * если есть data-dd_html_lock='y' то еще и залочит html
        */
       ev.preventDefault();
+      const prev = document.querySelector('.dd-container._opened');
       const parent = ev.target.closest('.dd-container');
+      if (prev && prev !== parent) {
+        prev.classList.remove('_opened');
+      }
       if (parent.classList.contains('_opened')) {
         parent.classList.remove('_opened');
         if (ev.target.dataset.dd_html_lock) {
@@ -427,6 +433,130 @@ function initSwipers() {
       }
     });
   }
+  const newsRecomend = document.querySelector('.newsRecomend .swiper');
+  if (newsRecomend) {
+    new swiper/* default */.Z(newsRecomend, {
+      slidesPerView: 1.2,
+      centeredSlides: true,
+      spaceBetween: 15,
+      breakpoints: {
+        768: {
+          centeredSlides: false,
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
+      }
+    });
+  }
+  const headingSlider = document.querySelector('.headingSlider.swiper');
+  if (headingSlider) {
+    new swiper/* default */.Z(headingSlider, {
+      modules: [modules/* Navigation */.W_, modules/* EffectFade */.xW],
+      slidesPerView: 1,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      navigation: {
+        prevEl: headingSlider.querySelector('.swiper-btn-prev'),
+        nextEl: headingSlider.querySelector('.swiper-btn-next')
+      }
+    });
+  }
+  const aboutGrid = document.querySelector('.aboutGrid .swiper');
+  if (aboutGrid) {
+    new swiper/* default */.Z(aboutGrid, {
+      modules: [modules/* Pagination */.tl, modules/* EffectFade */.xW, modules/* Grid */.rj],
+      loop: false,
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: rem(3),
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      grid: {
+        rows: 1
+      },
+      breakpoints: {
+        768: {
+          effect: 'slide',
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: rem(7),
+          grid: {
+            rows: 2,
+            fill: 'row'
+          }
+        }
+      },
+      pagination: {
+        el: aboutGrid.querySelector('.swiper-pag'),
+        type: 'bullets'
+      }
+    });
+  }
+  const aboutSpec = document.querySelector('.aboutSpec');
+  if (aboutSpec) {
+    new swiper/* default */.Z(aboutSpec.querySelector('.swiper'), {
+      modules: [modules/* Navigation */.W_, modules/* Pagination */.tl],
+      speed: 500,
+      slidesPerView: 1.4,
+      spaceBetween: 14,
+      centeredSlides: true,
+      loop: true,
+      followFinger: true,
+      simulateTouch: false,
+      on: {
+        /*   init:(s)=>{
+              s.slides.forEach((e, i)=>{
+                  e.addEventListener('click', (e)=>{
+                      console.log(e.currentTarget.dataset.swiperSlideIndex, s.activeIndex);
+                    s.slideToLoop(e.currentTarget.dataset.swiperSlideIndex)
+                  })
+              })
+          } */
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 'auto',
+          spaceBetween: 44
+        }
+      },
+      pagination: {
+        el: aboutSpec.querySelector('.swiper-pag'),
+        type: 'fraction',
+        formatFractionCurrent: n => {
+          return String(n).padStart(2, '0');
+        },
+        formatFractionTotal: n => {
+          return String(n).padStart(2, '0');
+        }
+      },
+      navigation: {
+        prevEl: aboutSpec.querySelector('.swiper-btn-prev'),
+        nextEl: aboutSpec.querySelector('.swiper-btn-next')
+      }
+    });
+  }
+  const catalogItem = document.querySelectorAll('.catalogItem .swiper');
+  if (catalogItem) {
+    catalogItem.forEach(e => {
+      new swiper/* default */.Z(e, {
+        modules: [modules/* EffectFade */.xW, modules/* Pagination */.tl],
+        slidesPerView: 1,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        pagination: {
+          el: e.querySelector('.swiper-pag'),
+          type: 'bullets',
+          clickable: true
+        }
+      });
+    });
+  }
 
   /*  const recomendation = document.querySelector('.recomendation')
    if (recomendation && window.innerWidth < 768) {
@@ -439,6 +569,18 @@ function initSwipers() {
   */
 }
 
+function initAboutVidos() {
+  const c = document.querySelector('.aboutVidos__main');
+  if (!c) return;
+  const v = c.querySelector('video'),
+    b = c.querySelector('.btn-trans._play');
+  v.addEventListener('play', () => {
+    c.classList.add('_active');
+  });
+  b.addEventListener('click', () => {
+    v.play();
+  });
+}
 function initFancybox() {
   const anytarget = document.querySelector('[data-fancybox]');
   if (!anytarget) return;
@@ -529,9 +671,9 @@ function header() {
     modal = jquery_default()('.header__modal');
   if (!header) return;
   document.addEventListener('scroll', ev => {
-    if (prevY > window.scrollY && window.scrollY > 100) {
+    if (prevY > window.scrollY && window.scrollY > 500) {
       header.classList.add('_showed');
-    } else if (prevY < window.scrollY) {
+    } else {
       header.classList.remove('_showed');
     }
     prevY = window.scrollY;
@@ -589,9 +731,9 @@ function header() {
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = function(result, chunkIds, fn, priority) {
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
 /******/ 			if(chunkIds) {
 /******/ 				priority = priority || 0;
 /******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
@@ -605,7 +747,7 @@ function header() {
 /******/ 				var priority = deferred[i][2];
 /******/ 				var fulfilled = true;
 /******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every(function(key) { return __webpack_require__.O[key](chunkIds[j]); })) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
 /******/ 						chunkIds.splice(j--, 1);
 /******/ 					} else {
 /******/ 						fulfilled = false;
@@ -620,39 +762,39 @@ function header() {
 /******/ 			}
 /******/ 			return result;
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
+/******/ 		__webpack_require__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// no baseURI
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
@@ -673,17 +815,17 @@ function header() {
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		__webpack_require__.O.j = function(chunkId) { return installedChunks[chunkId] === 0; };
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = function(parentChunkLoadingFunction, data) {
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var chunkIds = data[0];
 /******/ 			var moreModules = data[1];
 /******/ 			var runtime = data[2];
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some(function(id) { return installedChunks[id] !== 0; })) {
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
 /******/ 				for(moduleId in moreModules) {
 /******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
 /******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
@@ -705,14 +847,14 @@ function header() {
 /******/ 		var chunkLoadingGlobal = self["webpackChunkwebpack_example"] = self["webpackChunkwebpack_example"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [390,90,371,729,522,877], function() { return __webpack_require__(906); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [390,90,371,729,522,877], () => (__webpack_require__(906)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -11,7 +11,6 @@
             font-family: 'Montserrat';
             src: local('Montserrat'),
                 url('./assets/fonts/Montserrat.woff2') format('woff2');
-            /*   font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
@@ -21,21 +20,10 @@
             font-family: 'Inter';
             src: local('Inter'),
                 url('./assets/fonts/Inter.woff2') format('woff2');
-
-            /*     font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
 
-        /*   @font-face {
-      font-family: 'Inter';
-      src: local('Inter'),
-        url('./assets/fonts/Inter.woff2') format('woff2');
-
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    } */
     </style>
     <title>catalog-detail-object.html</title>
 <script defer src="js/swiper.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/jquery.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
@@ -45,7 +33,7 @@
         <header class="header ">
     <div class="container header__c">
         <div class="header__c-logo">
-            <img src="./assets/images/icons/logo.svg" alt="">
+            <img loading='lazy' src="./assets/images/icons/logo.svg" alt="">
         </div>
 
         <a href="#" class="header__c-filter btn-primary desktop">
@@ -172,22 +160,12 @@
                         </div>
 
                         <div class="catalogDetailObject__main-btns">
-                            <button class="btn-circle desktop" data-modal="request" data-submit_type="download">
-                                <span class="btn-circle__text _arrow">
-                                    скачать <br />
-                                    буклет</span>
+
+                            <button class="btn-trans _arrow" data-modal="request" data-submit_type="download">
+                                <span class="btn-trans__top">скачать</span>
+                                <span class="btn-trans__bottom">буклет</span>
                             </button>
 
-                            <button class="btn-primary mobile" data-modal="request" data-submit_type="download">
-                                <span class="btn-primary__text">
-                                    скачать
-                                </span>
-                                <span class="btn-primary__text">
-                                    буклет
-                                </span>
-                                <span class="btn-primary__icon _arrow">
-                                </span>
-                            </button>
 
                         </div>
 
@@ -206,7 +184,7 @@
                             </li>
                         </ul>
                         <div class="catalogDetailObject__img">
-                            <img src="./assets/images/catalog-detail-1.webp" alt="">
+                            <img loading='lazy' src="./assets/images/catalog-detail-1.webp" alt="">
                         </div>
                     </div>
                 </div>
@@ -236,22 +214,22 @@
         <div class="catalogDetailMap__c-map">
             <ul class="catalogDetailMap__c-map-info">
                 <li class="catalogDetailMap__c-map-info-el">
-                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/person.svg" alt="">
+                    <img loading='lazy' class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/person.svg" alt="">
                     <p class="txt40"> 10 <span class="tl3"> min</span></p>
                     <p class="txt16 col-grey200">до ст. Спортивная</p>
                 </li>
                 <li class="catalogDetailMap__c-map-info-el">
-                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
+                    <img loading='lazy' class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
                     <p class="txt40"> 10 <span class="tl3"> min</span></p>
                     <p class="txt16 col-grey200">до центра города</p>
                 </li>
                 <li class="catalogDetailMap__c-map-info-el">
-                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
+                    <img loading='lazy' class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
                     <p class="txt40"> 10 <span class="tl3"> min</span></p>
                     <p class="txt16 col-grey200">до аэропорта Пулково</p>
                 </li>
                 <li class="catalogDetailMap__c-map-info-el">
-                    <img class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
+                    <img loading='lazy' class="catalogDetailMap__c-map-info-el-img" src="./assets/images/icons/auto.svg" alt="">
                     <p class="txt40"> 10 <span class="tl3"> min</span></p>
                     <p class="txt16 col-grey200">до Витебского вокзала</p>
                 </li>
@@ -271,11 +249,11 @@
                     </p>
                     <div class="catalogDetailBanner__c">
                         <div class="desktop catalogDetailBanner__c-img">
-                            <img src="./assets/images/catalog-detail-banner.webp" alt="">
+                            <img loading='lazy' src="./assets/images/catalog-detail-banner.webp" alt="">
                         </div>
                         <div class="catalogDetailBanner__c-main">
                             <div class="catalogDetailBanner__c-main-img">
-                                <img src="./assets/images/catalog-detail-banner-main.webp" alt="">
+                                <img loading='lazy' src="./assets/images/catalog-detail-banner-main.webp" alt="">
                             </div>
                             <p class="txt15 txt-up">
                                 Экскурсия по жилому комплексу
@@ -284,23 +262,10 @@
                             </p>
                         </div>
                         <div class="catalogDetailBanner__c-btns">
-
-                            <button data-modal="request" data-submit_type="excursion" class="btn-circle desktop">
-                                <span class="btn-circle__text _arrow">записаться <br />
-                                    на экскурсию</span>
+                            <button class="btn-trans _call" data-modal="request" data-submit_type="excursion">
+                                <span class="btn-trans__top">записаться</span>
+                                <span class="btn-trans__bottom">на экскурсию</span>
                             </button>
-
-                            <button data-modal="request" data-submit_type="excursion" class="btn-primary mobile">
-                                <span class="btn-primary__text">
-                                    записаться
-                                </span>
-                                <span class="btn-primary__text">
-                                    на экскурсию
-                                </span>
-                                <span class="btn-primary__icon _arrow">
-                                </span>
-                            </button>
-
                         </div>
                     </div>
                 </div>
@@ -337,7 +302,7 @@
                         </div>
                     </div>
                     <div class="catalogDetailAdv__main-slide-img">
-                        <img data-fancybox="" href="./assets/images/catalog-detail-1.png" src="./assets/images/catalog-detail-1.webp" alt="">
+                        <img loading='lazy' data-fancybox="" href="./assets/images/catalog-detail-1.png" src="./assets/images/catalog-detail-1.webp" alt="">
                     </div>
                 </li>
 
@@ -359,7 +324,7 @@
                         </div>
                     </div>
                     <div class="catalogDetailAdv__main-slide-img">
-                        <img data-fancybox="" href="./assets/images/catalog-detail-2.png" src="./assets/images/catalog-detail-2.webp" alt="">
+                        <img loading='lazy' data-fancybox="" href="./assets/images/catalog-detail-2.png" src="./assets/images/catalog-detail-2.webp" alt="">
                     </div>
                 </li>
 
@@ -382,7 +347,7 @@
                         </div>
                     </div>
                     <div class="catalogDetailAdv__main-slide-img">
-                        <img data-fancybox="" href="./assets/images/catalog-detail-1.png" src="./assets/images/catalog-detail-1.webp" alt="">
+                        <img loading='lazy' data-fancybox="" href="./assets/images/catalog-detail-1.png" src="./assets/images/catalog-detail-1.webp" alt="">
                     </div>
                 </li>
             </ul>
@@ -397,7 +362,7 @@
 
 
                         <div class="catalogDetailExpert__main-img">
-                            <img src="./assets/images/tajik.webp" alt="">
+                            <img loading='lazy' src="./assets/images/tajik.webp" alt="">
                         </div>
 
                         <div class="catalogDetailExpert__main-info">
@@ -470,7 +435,7 @@
                                     val-1
                                 </button>
                                 <button class="dd-absolute__wrp-list-el select-value">
-                                    val-2
+                                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 </button>
                                 <button class="dd-absolute__wrp-list-el select-value">
                                     val-2
@@ -561,7 +526,7 @@
         </ul>
         <div class="filters__footer">
 
-            <button class="btn-primary ">
+            <button class="btn-primary  filter-opener">
                 <span class="btn-primary__text">
                     показать
                 </span>
@@ -575,16 +540,16 @@
         </div>
     </div>
 </div>
-                
+
                 <div class="container recomendation__c">
-                    
+
                     <ul class="recomendation__c-swiper">
                         <li class=" recomendation__c-swiper-slide">
-            
+
                             <div class="recomendation__c-swiper-slide-img">
-                                <img src="../assets/images/catalog-detail-1.webp" alt="">
+                                <img loading='lazy' src="../assets/images/catalog-detail-1.webp" alt="">
                             </div>
-            
+
                             <div class="recomendation__c-swiper-slide-top">
                                 <div class="recomendation__c-swiper-slide-top-el">
                                     <p class="tl3">name name</p>
@@ -595,45 +560,45 @@
                                     <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
                                 </div>
                             </div>
-            
+
                             <ul class="recomendation__c-swiper-slide-stats">
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/area.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/area.svg" alt="">
                                     <span class="txt16"> 1488 m<sup>2</sup></span>
                                 </li>
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/bed.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/bed.svg" alt="">
                                     <span class="txt16"> 2 спальни</span>
                                 </li>
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/bath.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
                                     <span class="txt16"> 3 санузла</span>
                                 </li>
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/floor-rounded.svg" alt="">
                                     <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
                                 </li>
                             </ul>
-            
+
                             <ul class="ui-tags">
                                 <li class="ui-tag">
                                     tag name
                                 </li>
                             </ul>
-            
+
                             <a href="#" class="btn-link _arrow">
                                 <span>
                                     Подробнее
                                 </span>
                             </a>
-            
+
                         </li>
                         <li class=" recomendation__c-swiper-slide">
-            
+
                             <div class="recomendation__c-swiper-slide-img">
-                                <img src="../assets/images/catalog-detail-1.webp" alt="">
+                                <img loading='lazy' src="../assets/images/catalog-detail-1.webp" alt="">
                             </div>
-            
+
                             <div class="recomendation__c-swiper-slide-top">
                                 <div class="recomendation__c-swiper-slide-top-el">
                                     <p class="tl3">name name</p>
@@ -644,43 +609,43 @@
                                     <p class="txt16 col-grey200">423 тыс ₽ /m<sup>2</sup></p>
                                 </div>
                             </div>
-            
+
                             <ul class="recomendation__c-swiper-slide-stats">
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/area.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/area.svg" alt="">
                                     <span class="txt16"> 1488 m<sup>2</sup></span>
                                 </li>
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/bed.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/bed.svg" alt="">
                                     <span class="txt16"> 2 спальни</span>
                                 </li>
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/bath.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
                                     <span class="txt16"> 3 санузла</span>
                                 </li>
                                 <li class="recomendation__c-swiper-slide-stats-el">
-                                    <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                                    <img loading='lazy' src="./assets/images/icons/floor-rounded.svg" alt="">
                                     <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
                                 </li>
                             </ul>
-            
+
                             <ul class="ui-tags">
                                 <li class="ui-tag">
                                     tag name
                                 </li>
                             </ul>
-            
+
                             <a href="#" class="btn-link _arrow">
                                 <span>
                                     Подробнее
                                 </span>
                             </a>
-            
+
                         </li>
                     </ul>
-            
+
                     <div class="recomendation__c-footer">
-            
+
                         <button class="btn-primary ">
                             <span class="btn-primary__text">
                                 показать
@@ -692,7 +657,7 @@
                             </span>
                         </button>
                     </div>
-            
+
                 </div>
             </section>
 
@@ -702,13 +667,13 @@
         <div class="requestForm__c-top">
             <ul class="requestForm__c-top-imgs">
                 <li class="requestForm__c-top-imgs-el">
-                    <img src="./assets/images/requestForm-1.webp" alt="">
+                    <img loading='lazy' src="./assets/images/requestForm-1.webp" alt="">
                 </li>
                 <li class="requestForm__c-top-imgs-el">
-                    <img src="./assets/images/requestForm-2.webp" alt="">
+                    <img loading='lazy' src="./assets/images/requestForm-2.webp" alt="">
                 </li>
                 <li class="requestForm__c-top-imgs-el">
-                    <img src="./assets/images/requestForm-3.webp" alt="">
+                    <img loading='lazy' src="./assets/images/requestForm-3.webp" alt="">
                 </li>
             </ul>
             <p class="col-orange txt11 txt-up">Расположение, фотографии, планировка и цена в нашем буклете</p>
@@ -739,23 +704,12 @@
             <p class="txt13 col-grey200 requestForm__c-form-msg">Отправляя форму, вы принимаете <a class="ui-link col-orange" href="#">пользовательское соглашение</a></p>
 
             <div class="requestForm__c-form-btns">
-                <button class="btn-circle desktop form-submit">
-                    <span class="btn-circle__text _download">
-                        скачать <br>
-                        буклет
-                    </span>
+
+                <button class="btn-trans form-submit _download">
+                    <span class="btn-trans__top">скачать</span>
+                    <span class="btn-trans__bottom">буклет</span>
                 </button>
 
-                <button class="btn-primary mobile form-submit">
-                    <span class="btn-primary__text">
-                        Скачать
-                    </span>
-                    <span class="btn-primary__text">
-                        буклет
-                    </span>
-                    <span class="btn-primary__icon _download">
-                    </span>
-                </button>
             </div>
 
         </form>
@@ -770,7 +724,7 @@
             <li class=" recomendation__c-swiper-slide">
 
                 <div class="recomendation__c-swiper-slide-img">
-                    <img src="../assets/images/catalog-detail-1.webp" alt="">
+                    <img loading='lazy' src="./assets/images/catalog-detail-1.webp" alt="">
                 </div>
 
                 <div class="recomendation__c-swiper-slide-top">
@@ -786,19 +740,19 @@
 
                 <ul class="recomendation__c-swiper-slide-stats">
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/area.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/area.svg" alt="">
                         <span class="txt16"> 1488 m<sup>2</sup></span>
                     </li>
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/bed.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/bed.svg" alt="">
                         <span class="txt16"> 2 спальни</span>
                     </li>
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/bath.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
                         <span class="txt16"> 3 санузла</span>
                     </li>
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/floor-rounded.svg" alt="">
                         <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
                     </li>
                 </ul>
@@ -819,7 +773,7 @@
             <li class=" recomendation__c-swiper-slide">
 
                 <div class="recomendation__c-swiper-slide-img">
-                    <img src="../assets/images/catalog-detail-1.webp" alt="">
+                    <img loading='lazy' src="./assets/images/catalog-detail-1.webp" alt="">
                 </div>
 
                 <div class="recomendation__c-swiper-slide-top">
@@ -835,19 +789,19 @@
 
                 <ul class="recomendation__c-swiper-slide-stats">
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/area.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/area.svg" alt="">
                         <span class="txt16"> 1488 m<sup>2</sup></span>
                     </li>
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/bed.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/bed.svg" alt="">
                         <span class="txt16"> 2 спальни</span>
                     </li>
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/bath.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
                         <span class="txt16"> 3 санузла</span>
                     </li>
                     <li class="recomendation__c-swiper-slide-stats-el">
-                        <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                        <img loading='lazy' src="./assets/images/icons/floor-rounded.svg" alt="">
                         <span class="txt16"> 11 <span class="col-grey200">/ 24</span> этаж</span>
                     </li>
                 </ul>
@@ -952,7 +906,7 @@
         <p class="txt20">Эксперт свяжется с вами в течение часа</p>
 
         <div class="modal-success__img">
-            <img src="./assets/images/modal-success.webp" alt="">
+            <img loading='lazy' src="./assets/images/modal-success.webp" alt="">
         </div>
 
 
@@ -962,7 +916,7 @@
 <footer class="footer">
     <div class="container footer__c">
         <div class="footer__c-logo">
-            <img src="../assets/images/icons/logo.svg" alt="">
+            <img loading='lazy' src="../assets/images/icons/logo.svg" alt="">
         </div>
         <a href="tel:+288" class="btn-primary header__c-phone mobile">
             <span class=" header__c-phone-img">
@@ -1032,7 +986,8 @@
             var myMap = new ymaps.Map("map", {
                 center: [47.204572074287015, 39.67028549999995],
                 zoom: 16,
-                controls: ['fullscreenControl']
+                behaviors: ['drag', 'dblClickZoom'],
+                controls: ['fullscreenControl', 'zoomControl']
             });
             myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
                 hintContent: 'there is no palce for narkomany 😎'

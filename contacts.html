@@ -45,7 +45,7 @@
         <header class="header ">
     <div class="container header__c">
         <div class="header__c-logo">
-            <img src="./assets/images/icons/logo.svg" alt="">
+            <img loading='lazy' src="./assets/images/icons/logo.svg" alt="">
         </div>
 
         <a href="#" class="header__c-filter btn-primary desktop">
@@ -172,26 +172,16 @@
                             и поможем подобрать лучший <br />
                             вариант недвижимости для вас
                         </p>
-                        <button class="btn-circle desktop" data-modal="request" data-submit_type="call">
-                            <span class="btn-circle__text _arrow">связаться</span>
-                        </button>
-
-                        <button class="btn-primary mobile" data-modal="request" data-submit_type="call">
-                            <span class="btn-primary__text">
-                                оставить
-                            </span>
-                            <span class="btn-primary__text">
-                                заявку
-                            </span>
-                            <span class="btn-primary__icon _arrow">
-                            </span>
+                        <button class="btn-trans _download" data-modal="request" data-submit_type="call">
+                            <span class="btn-trans__top">оставить</span>
+                            <span class="btn-trans__bottom">заявку</span>
                         </button>
 
                     </div>
                     <div class="heading__c-right">
 
                         <div class="heading__c-right-img">
-                            <img src="./assets/images/contacts.webp" alt="">
+                            <img loading='lazy' src="./assets/images/contacts.webp" alt="">
                         </div>
                         <p class="heading__c-right-text txt-up txt20 col-white">
                             МЫ ИСКЛЮЧАЕМ ПОТРЕБИТЕЛЬСКУЮ УСТУПКУ, <br />
@@ -207,7 +197,7 @@
             <section class="contacts-info">
                 <div class="container contacts-info__c">
                     <div class="contacts-info__c-left">
-                        <img src="./assets/images/contacts-info.webp" alt="">
+                        <img loading='lazy' src="./assets/images/contacts-info.webp" alt="">
                     </div>
                     <div class="contacts-info__c-right">
                         <p class="tl2">Главный офис</p>
@@ -336,7 +326,7 @@
         <p class="txt20">Эксперт свяжется с вами в течение часа</p>
 
         <div class="modal-success__img">
-            <img src="./assets/images/modal-success.webp" alt="">
+            <img loading='lazy' src="./assets/images/modal-success.webp" alt="">
         </div>
 
 
@@ -346,7 +336,7 @@
 <footer class="footer">
     <div class="container footer__c">
         <div class="footer__c-logo">
-            <img src="../assets/images/icons/logo.svg" alt="">
+            <img loading='lazy' src="../assets/images/icons/logo.svg" alt="">
         </div>
         <a href="tel:+288" class="btn-primary header__c-phone mobile">
             <span class=" header__c-phone-img">
@@ -416,7 +406,8 @@
             var myMap = new ymaps.Map("map", {
                 center: [47.204572074287015, 39.67028549999995],
                 zoom: 16,
-                controls: ['fullscreenControl']
+                behaviors: ['drag', 'dblClickZoom'],
+                controls: ['fullscreenControl', 'zoomControl']
             });
             myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
                 hintContent: 'there is no palce for narkomany 😎'
