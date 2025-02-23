@@ -154,11 +154,16 @@
         --btn-icon: url(../assets/images/icons/download.svg)
     }
 
+    &._play {
+        --btn-icon: url(../assets/images/icons/play.svg)
+    }
+
 
     & svg {
         width: 4rem;
         height: 4rem;
     }
+
     width: fit-content;
     color: var(--col-orange);
     //styleName: Desktop/Label/sm;
@@ -202,7 +207,7 @@
         &__bottom {
             position: relative;
             white-space: nowrap;
-           
+
         }
 
         &__bottom {
@@ -239,7 +244,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: calc(100% + 8rem + 6px);
             height: 100%;
         }
 
@@ -273,6 +278,7 @@
 
         &__top {
             position: relative;
+            margin: 2.85rem 0;
 
             &+.btn-trans__bottom {
                 padding-left: 6px;
@@ -292,7 +298,8 @@
         }
 
         &__bottom {
- 
+            margin: 2.85rem 0;
+
             &::after {
                 width: 0;
                 content: '';
@@ -310,14 +317,15 @@
     }
 }
 
-._hoverBtn{
+._hoverBtn {
 
-    @include hover{
+    @include hover {
         & .btn-primary__text:nth-child(2):after {
             width: 100%;
         }
     }
 }
+
 .btn-primary {
     display: flex;
     flex-shrink: 0;

@@ -1,0 +1,153 @@
+.catalogItem {
+    display: grid;
+    grid-template-columns: 42.7rem auto;
+    grid-template-rows: 100%;
+
+    @include mobile {
+        grid-template-columns: 100%;
+        grid-template-rows: 46rem auto;
+        gap: 3.2rem;
+        padding: 3.2rem;
+        background-color: var(--col-white);
+    }
+
+    &__img {
+        height: 35rem;
+        width: 100%;
+        border: 1.6rem solid var(--col-white);
+
+        @include mobile {
+            height: 100%;
+            border: none;
+        }
+
+        & .swiper-pag {
+            position: absolute;
+            z-index: 5;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        & .swiper-slide {
+            display: flex;
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+    }
+
+    &__data {
+        background-color: var(--col-white);
+        padding: 3.2rem;
+        align-self: flex-end;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 4.6rem 3rem;
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            padding: 0;
+        }
+
+        &-name {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-self: flex-start;
+
+            @include mobile {
+                gap: 3.2rem;
+            }
+        }
+
+        &-price {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-self: flex-start;
+            justify-self: flex-end;
+
+            @include mobile {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            @include mobile{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 5px;
+            }
+
+            @include desktop {
+                grid-column: 1 / span 2;
+            }
+
+            &-el {
+                display: flex;
+                flex-shrink: 0;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                align-items: center;
+                @include mobile{
+                    background-color: var(--col-grey);
+                   padding: 8px;
+                    
+                }
+
+
+                & img {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    margin-right: 8px;
+
+                    @include mobile {
+                        width: 4.8rem;
+                        height: 4.8rem;
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+
+        &-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            @include mobile{
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap:3rem;
+            }
+
+            @include desktop {
+                grid-column: 1 / span 2;
+            }
+
+            &-tag {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+
+                &-el {
+                    padding: 1.25rem 1.6rem 1.35rem;
+                    border: 1px solid var(--col-grey200);
+                    border-radius: 3rem;
+                }
+            }
+        }
+
+    }
+}

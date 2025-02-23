@@ -1,0 +1,587 @@
+.aboutHeading {
+    position: relative;
+
+
+    @include desktop {
+        margin-top: 0 !important;
+        padding-top: 14.5rem;
+        height: 97rem;
+    }
+
+
+    & .container {
+        height: 100%;
+
+        @include mobile {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40vw;
+        z-index: 4;
+        height: 100%;
+        display: flex;
+
+        @include mobile {
+            position: relative;
+            width: 100%;
+            height: 90rem;
+        }
+    }
+
+    &__c {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding-top: 8rem;
+        padding-bottom: 5.6rem;
+
+        @include mobile {
+            @include mobPad;
+            gap: 6.4rem;
+            padding-top: 6.4rem;
+            padding-bottom: 6.4rem;
+        }
+
+        @include desktop {
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 40%;
+                left: 17%;
+                width: 62rem;
+                height: 40rem;
+                mask-image: url(../assets/images/gr.svg);
+                mask-size: 100%;
+                mask-position: center;
+                mask-repeat: no-repeat;
+                background-color: rgb(104, 104, 104);
+            }
+        }
+
+        & .tl1 {
+            @include desktop {
+                margin-bottom: 5.8rem;
+            }
+        }
+
+        &-adv {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 47rem;
+            grid-template-rows: 100%;
+            justify-content: space-between;
+
+            @include mobile {
+                width: 100%;
+                grid-template-columns: repeat(3, min-content);
+            }
+
+            &-el {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.6rem;
+
+                @include mobile {
+                    padding-bottom: 1.6rem;
+                    border-bottom: 1px solid var(--col-grey200);
+                }
+
+                @include desktop {
+                    &+* {
+                        border-left: 1px solid var(--col-grey200);
+                    }
+                }
+
+            }
+
+
+        }
+
+        & .txt11 {
+            @include desktop {
+                margin-top: 8.2rem;
+            }
+
+            border-left: 1px solid var(--col-orange);
+            padding-left: 12px;
+        }
+
+        & .btn-trans {
+            position: absolute;
+            top: 22rem;
+            left: 45%;
+
+            @include mobile {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+        }
+
+    }
+}
+
+.aboutBanner {
+    & .container {
+        display: block;
+
+        @include mobile {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        & .tl1 {
+            @include desktop {
+                text-align: center;
+                width: 100%;
+            }
+
+            @include mobile {
+
+                @include mobPad;
+            }
+        }
+    }
+
+    &__c {
+        margin-top: 7rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto min-content;
+        grid-template-areas:
+            'top img btn'
+            'adv img footer';
+        gap: 5rem;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(5, auto);
+            grid-template-areas:
+                'top'
+                'btn'
+                'img'
+                'adv'
+                'footer';
+            gap: 4rem;
+        }
+
+        &-top {
+            grid-area: top;
+            display: flex;
+            flex-direction: column;
+            gap: 2.7rem;
+
+            @include mobile {
+
+                @include mobPad;
+            }
+        }
+
+        &-img {
+            grid-area: img;
+            display: flex;
+            height: 71rem;
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-btn {
+            grid-area: btn;
+
+            @include mobile {
+                @include mobPad;
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 15rem;
+            }
+
+            &>* {
+                transform: translate(0rem, 32rem);
+
+                @include mobile {
+                    transform: translate(0rem, 0);
+                }
+            }
+        }
+
+        &-adv {
+            grid-area: adv;
+            display: flex;
+            gap: 8.2rem;
+            align-self: flex-end;
+
+            @include mobile {
+
+                @include mobPad;
+            }
+
+            &-el {
+                display: flex;
+                flex-direction: column;
+                gap: .8rem;
+
+            }
+        }
+
+        &-footer {
+            grid-area: footer;
+            align-self: flex-end;
+
+            @include mobile {
+
+                @include mobPad;
+            }
+        }
+    }
+
+}
+
+.aboutGrid {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10rem;
+
+        @include mobile {
+            flex-direction: column;
+            gap: 6.4;
+            margin-bottom: 7.6rem;
+        }
+
+        & .tl3 {
+            max-width: 40rem;
+            border-top: 1px solid var(--col-orange);
+            padding-top: 2.1rem;
+
+            @include mobile {
+                max-width: 100%;
+                padding-top: 0;
+                padding-left: 2rem;
+                border-top: none;
+                border-left: 1px solid var(--col-orange);
+            }
+        }
+    }
+
+    & .swiper {
+        position: relative;
+
+        @include mobile {
+            overflow: visible;
+
+            & .swiper-pag {
+                position: absolute;
+                z-index: 5;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+    }
+
+    &__slide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4.4rem;
+        padding-top: 5rem;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: 50% 50%;
+            gap: 0;
+            height: 104rem;
+        }
+
+        &-img {
+            width: 100%;
+            height: 50rem;
+            display: flex;
+            position: relative;
+
+            @include mobile {
+                height: 100%;
+                grid-row: 1;
+
+            }
+
+            & .txt15 {
+                position: absolute;
+                top: -5rem;
+                left: 0;
+            }
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-text {
+            border: 1px solid var(--col-grey200);
+            padding: 3.2rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @include mobile {
+                grid-row: 2;
+                border-top: none;
+            }
+
+            &-count {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 50%;
+                border: 1px solid var(--col-orange);
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.aboutVidos {
+    & .container {
+        padding-left: 0;
+        padding-right: 0;
+
+        &>.tl1 {
+            @include mobPad;
+        }
+    }
+
+    &__main {
+        margin-top: 6.8rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        @include mobile {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto;
+            gap: 3.2rem;
+        }
+
+        &:not(._active) {
+            & video::-webkit-media-controls {
+                display: none !important;
+            }
+        }
+
+        &._active {
+            & .aboutVidos__main-text {
+                opacity: 0;
+                transform: translateX(-50%);
+            }
+
+            @include desktop {
+                & .btn-trans {
+                    opacity: 0;
+                }
+            }
+        }
+
+        & .btn-trans {
+            @include desktop {
+                position: absolute;
+                top: 30%;
+                right: 20%;
+                z-index: 5;
+                transition: opacity .5s ease-in-out;
+            }
+
+        }
+
+        &-text {
+            position: absolute;
+            z-index: 5;
+            top: 15%;
+            left: 0;
+            background-color: var(--col-white);
+            width: 49rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3.2rem;
+            padding: 3.2rem;
+            transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+            height: fit-content;
+
+            @include mobile {
+                top: 80%;
+                left: 10%;
+            }
+
+            & .txt15 {
+                padding-bottom: 1.6rem;
+                border-bottom: 1px solid var(--col-orange);
+                width: 100%;
+            }
+        }
+
+        &-content {
+            width: 122.6rem;
+            height: 75rem;
+            display: flex;
+            position: relative;
+
+            @include mobile {
+                width: 100%;
+                height: 46rem;
+                aspect-ratio: 16 / 9;
+            }
+
+
+        }
+    }
+
+}
+
+.aboutSpec {
+    &__top {
+        display: grid;
+        grid-template-columns: auto min-content;
+        grid-template-rows: auto auto;
+        gap: 6.8rem;
+        margin-bottom: 6.8rem;
+        @include mobile{
+            display: flex;
+            flex-direction: column;
+            margin-top: 30rem;
+            margin-bottom: 4rem;
+        }
+
+        &-ctrls {
+            @include desktop {
+                grid-column: 2;
+                grid-row: 1 / span 2;
+            }
+
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-self: flex-end;
+            align-items: center;
+            @include mobile{
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+
+            }
+        }
+
+        @include desktop {
+            & .tl3 {
+                max-width: 84rem;
+            }
+
+        }
+
+    }
+    & .swiper{
+        height: 80rem;
+        &-wrapper{
+            transition-timing-function: ease-in-out;
+            @include mobile{
+                align-items: flex-end;
+            }
+        }
+        @include mobile{
+            height: 84rem;
+        }
+    }
+
+    &__slide {
+        width: 40rem;
+        height: 60rem;
+        filter: grayscale(1);
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 46rem min-content min-content 0fr;
+        transition:
+            filter .5s ease-in-out,
+            grid .5s ease-in-out,
+            width .5s ease-in-out,
+            height .5s ease-in-out;
+        position: relative;
+        padding: 0 3.2rem 3.2rem;
+        box-sizing: border-box;
+        gap: 1rem;
+        @include mobile{
+            width: unset;
+            height: 70rem;
+        }
+
+        &.swiper-slide-active {
+            filter: grayscale(0);
+            grid-template-rows: 46rem min-content min-content 1fr;
+            width: 55rem;
+            height: 70rem;
+            @include mobile{
+                height: 82rem;
+                grid-template-rows: 50rem min-content min-content 1fr;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: 4;
+            top: 3.2rem;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 3.2rem);
+            background-color: var(--col-white);
+
+        }
+
+        &-img {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            width: 100%;
+       
+
+            & img {
+                object-fit: cover;
+                object-position:top;
+            }
+
+        }
+
+        & .tl2 {
+            margin-top: 2.2rem;
+        }
+
+        & p {
+
+            position: relative;
+            z-index: 5;
+            overflow: hidden;
+            height: 100%;
+        }
+
+       
+    }
+
+}

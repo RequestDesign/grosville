@@ -156,7 +156,8 @@
             var myMap = new ymaps.Map("map", {
                 center: [47.204572074287015, 39.67028549999995],
                 zoom: 16,
-                controls: ['fullscreenControl']
+                behaviors: ['drag', 'dblClickZoom'],
+                controls: ['fullscreenControl', 'zoomControl']
             });
             myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
                 hintContent: 'there is no palce for narkomany 😎'

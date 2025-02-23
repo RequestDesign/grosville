@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="aboutHeading">
+
+                <div class="container ">
+                    <div class="aboutHeading__c">
+
+                        <h1 class="tl1">
+                            Бутик-агенство
+                            <br />
+                            GROSVILLE
+                        </h1>
+                        <p class="txt20">
+                            Специализируемся на элитной жилой <br />
+                            недвижимости, предлагая индивидуальный <br />
+                            подход к каждому клиенту и поиск лучших <br />
+                            объектов на рынке
+                        </p>
+                        <ul class="aboutHeading__c-adv txt-up">
+                            <li class="aboutHeading__c-adv-el">
+                                <p class="txt40 ">100+</p>
+                                <p class="txt13 col-grey200">проектов</p>
+                            </li>
+                            <li class="aboutHeading__c-adv-el">
+                                <p class="txt40 ">40+</p>
+                                <p class="txt13 col-grey200">наград</p>
+                            </li>
+                            <li class="aboutHeading__c-adv-el">
+                                <p class="txt40 ">20+</p>
+                                <p class="txt13 col-grey200">объектов</p>
+                            </li>
+                        </ul>
+
+                        <p class="txt11 col-grey200 txt-up">
+                            Мы готовы предложить нашим клиентам не просто услуги, <br class="desktop" />
+                            а истинное партнерство на пути к успешным сделкам
+                        </p>
+
+                        <button class="btn-trans _arrow" data-modal="request" data-submit_type="call">
+                            <span class="btn-trans__top">связаться</span>
+                            <span class="btn-trans__bottom"></span>
+                        </button>
+                    </div>
+                    <div class="aboutHeading__img">
+                        <img src="./assets/images/aboutHeading.webp" alt="">
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="aboutBanner">
+                <dev class="container ">
+                    <p class="tl1">
+                        Создаем пространство, <br />
+                        где можно рассчитывать на <span class="col-orange">экспертную</span> <br />
+                        рекомендацию и <span class="col-orange">качественные</span> решения <br />
+                    </p>
+                    <ul class="aboutBanner__c">
+                        <li class="aboutBanner__c-top">
+                            <p class="col-orange txt15 txt-up">
+                                «Найди себя в большом городе»
+                            </p>
+                            <p class="tl3">
+                                Компания предлагает уникальный подход к выбору недвижимости, который основан на глубоком
+                                понимании жизненных потребностей клиента
+                            </p>
+                        </li>
+
+                        <li class="aboutBanner__c-img">
+                            <img src="./assets/images/aboutBanner.png" alt="">
+                        </li>
+
+                        <li class="aboutBanner__c-btn">
+
+                            <button class="btn-trans _arrow" data-modal="request" data-submit_type="call">
+                                <span class="btn-trans__top">связаться</span>
+                                <span class="btn-trans__bottom"></span>
+                            </button>
+
+                        </li>
+
+                        <li class="aboutBanner__c-adv">
+                            <div class="aboutBanner__c-adv-el">
+                                <p class="tl1">20+</p>
+                                <p class="txt13 col-grey200 txt-up">объектов</p>
+                            </div>
+                            <div class="aboutBanner__c-adv-el">
+                                <p class="tl1">100+</p>
+                                <p class="txt13 col-grey200 txt-up">проектов</p>
+                            </div>
+                        </li>
+
+                        <li class="aboutBanner__c-footer tl3">
+                            Наши предложения основаны
+                            на анализе рынка
+                            и юридическом сопровождении, обеспечивая безопасность
+                            и прозрачность сделок
+                        </li>
+                    </ul>
+
+                </dev>
+            </section>
+            <!--  -->
+            <section class="aboutGrid">
+                <div class="container">
+                    <div class="aboutGrid__top">
+                        <p class="tl1">
+                            Почему <span class="col-orange">Grosvill —</span><br />
+                            ваш лучший выбор
+                        </p>
+                        <p class="tl3">
+                            Агентство недвижимости Grosville выделяется на фоне конкурентов благодаря высокому уровню
+                            экспертности и многолетнему опыту
+                        </p>
+                    </div>
+                    <div class="swiper">
+                        <div class="swiper-pag _bullets mobile"></div>
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide aboutGrid__slide">
+                                <div class="aboutGrid__slide-img">
+                                    <p class="txt15 col-orange txt-up">Честность и открытость</p>
+                                    <img src="./assets/images/aboutGrid-1.png" alt="">
+                                </div>
+                                <div class="aboutGrid__slide-text">
+                                    <span class="aboutGrid__slide-text-count tl3">1</span>
+                                    <p class="txt20">Мы откровенны в своих рекомендациях и готовы сказать «нет», если на
+                                        данный момент идеальное предложение для клиента отсутствует</p>
+                                </div>
+                            </li>
+                            <li class="swiper-slide aboutGrid__slide">
+                                <div class="aboutGrid__slide-img">
+                                    <p class="txt15 col-orange txt-up">профессионализм</p>
+                                    <img src="./assets/images/aboutGrid-2.png" alt="">
+                                </div>
+                                <div class="aboutGrid__slide-text">
+                                    <span class="aboutGrid__slide-text-count tl3">2</span>
+                                    <p class="txt20">
+                                        Наша команда демонстрирует высокий уровень рыночной экспертизы, где каждый
+                                        брокер обладает всесторонним пониманием как общего контекста, так и нюансов
+                                        отдельных объектов
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="swiper-slide aboutGrid__slide">
+                                <div class="aboutGrid__slide-text">
+                                    <span class="aboutGrid__slide-text-count tl3">3</span>
+                                    <p class="txt20">
+                                        Мы продумываем сценарий жизнь клиента, учитывая все аспекты, начиная от его
+                                        текущих потребностей и заканчивая долгосрочными планами
+                                    </p>
+                                </div>
+                                <div class="aboutGrid__slide-img">
+                                    <p class="txt15 col-orange txt-up">комплексный подход</p>
+                                    <img src="./assets/images/aboutGrid-3.png" alt="">
+                                </div>
+                            </li>
+                            <li class="swiper-slide aboutGrid__slide">
+                                <div class="aboutGrid__slide-text">
+                                    <span class="aboutGrid__slide-text-count tl3">4</span>
+                                    <p class="txt20">
+                                        Мы оказываем сопровождение
+                                        на всех этапах приобретения
+                                        и обустройства нового жилья
+                                    </p>
+                                </div>
+                                <div class="aboutGrid__slide-img">
+                                    <p class="txt15 col-orange txt-up">высокий уровень сервиса</p>
+                                    <img src="./assets/images/aboutGrid-4.png" alt="">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="aboutVidos">
+                <div class="container">
+                    <p class="tl1">
+                        GROSVILLE — <span class="col-orange"> надежный партнер</span>
+                        для тех, кто готов позволить себе большее <br />
+                        в реализации дерзких амбиций
+                    </p>
+                    <div class="aboutVidos__main">
+
+                        <button class="btn-trans _play">
+                            <span class="btn-trans__top"></span>
+                            <span class="btn-trans__bottom"> <span class="desktop">&shy; &shy; </span> смотреть
+                                видео</span>
+                        </button>
+
+                        <div class="aboutVidos__main-text">
+                            <p class="col-orange txt15 txt-up">Мы знаем, что важно для вас</p>
+                            <p class="txt20">
+                                Каждое наше решение основано <br class="desktop" />
+                                на глубоких знаниях и внимании к деталям
+                            </p>
+                        </div>
+                        <div class="aboutVidos__main-content">
+                            <video preload="none" controls poster="./assets/images/aboutVidos.webp">
+                                <source src="./assets/videos/vidos.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="aboutSpec">
+
+                <div class="aboutSpec__top container">
+                    <p class="tl1">
+                        Ваши эксперты <br />
+                        в мире исключительного комфорта
+                    </p>
+                    <p class="tl3">
+                        Наша команда демонстрирует индивидуальный подход к каждому клиенту, тщательно отбирая лучшие
+                        лоты на рынке, которые идеально соответствуют его образу жизни и повседневным потребностям
+                    </p>
+                    <div class="aboutSpec__top-ctrls">
+                        <div class="swiper-pag _fraction">
+
+                        </div>
+                        <div class="swiper-nav">
+                            <button class="swiper-btn swiper-btn-prev"></button>
+                            <button class="swiper-btn swiper-btn-next"></button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name <br />
+                                submname
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job <br />
+                                job
+                            </p>
+                            <p class="txt16">
+                                1 <br/>
+                                1 <br/>
+                                1 <br/>
+                                1 <br/>
+                            </p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                                
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                                
+                            </p>
+                            <p class="txt16">
+                                1 <br/>
+                                1 <br/>
+                            </p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                                
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                                
+                            </p>
+                            <p class="txt16">
+                                1 <br/>
+                                1 <br/>
+                                1 <br/>
+                            </p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                                
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                                
+                            </p>
+                            <p class="txt16">Lorem ipsum dolor sit amet.</p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                                
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                                
+                            </p>
+                            <p class="txt16">Lorem ipsum dolor sit amet.</p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                                
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                                
+                            </p>
+                            <p class="txt16">Lorem ipsum dolor sit amet.</p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                            </p>
+                            <p class="txt16">Lorem ipsum dolor sit amet.</p>
+                        </li>
+                        <li class="swiper-slide aboutSpec__slide">
+                            <div class="aboutSpec__slide-img">
+                                <img src="./assets/images/tajik.png" alt="">
+                            </div>
+                            <p class="tl2">
+                                name  submname
+                            </p>
+                            <p class="txt15 txt-up col-orange">
+                                job 
+                            </p>
+                            <p class="txt16">Lorem ipsum dolor sit amet.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+
+</body>
+
+</html>

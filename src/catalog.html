@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="catalogBanner">
+                <div class="container catalogBanner__c">
+                    <div class="catalogBanner__c-left">
+                        <div class="catalogBanner__c-left-top">
+                            <p class="tl2">20+</p>
+                            <p class="txt13 txt-up col-grey200">объектов</p>
+                        </div>
+                        <ul class="catalogBanner__c-left-circle">
+                            <li class="catalogBanner__c-left-circle-el">
+                                <img src="./assets/images/catalogBanner-circle-1.png" alt="">
+                            </li>
+                            <li class="catalogBanner__c-left-circle-el">
+                                <img src="./assets/images/catalogBanner-circle-2.png" alt="">
+                            </li>
+                            <li class="catalogBanner__c-left-circle-el">
+                                <img src="./assets/images/catalogBanner-circle-3.png" alt="">
+                            </li>
+                        </ul>
+                        <p class="tl3">
+                            Лучшие возможности <br />
+                            и эксклюзивные предложения <br />
+                            в своем классе
+                        </p>
+                    </div>
+
+                    <div class=" catalogBanner__c-right swiper headingSlider">
+                        <div class="swiper-nav _square">
+                            <button class="swiper-btn swiper-btn-prev"></button>
+                            <button class="swiper-btn swiper-btn-next"></button>
+                        </div>
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide catalogBanner__c-right-slide">
+                                <div class="catalogBanner__c-right-slide-img">
+                                    <img src="./assets/images/catalog-detail-1.png" alt="">
+                                </div>
+                                <div class="catalogBanner__c-right-slide-right">
+
+                                    <p class="tl1">Старт продаж</p>
+                                    <p class="tl3">Новый элитный проект ГК «Еврострой» в центре Санкт-Петербурга</p>
+                                    <p class="col-grey200 txt11">набережная реки Фонтанки, 130А</p>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            Узнать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            подробнее
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </li>
+                            <li class="swiper-slide catalogBanner__c-right-slide">
+                                <div class="catalogBanner__c-right-slide-img">
+                                    <img src="./assets/images/aboutBanner.png" alt="">
+                                </div>
+                                <div class="catalogBanner__c-right-slide-right">
+
+                                    <p class="tl1">Lorem ipsum dolor sit amet, </p>
+                                    <p class="tl3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+                                        odio
+                                        saepe quisquam eveniet nemo, pariatur eius velit consequuntur facere nostrum
+                                        sequi
+                                        numquam, nam quae vitae, sunt natus alias. Tenetur, ipsum.</p>
+                                    <p class="col-grey200 txt11">Lorem ipsum dolor sit amet consectetur adipisicing eli
+                                    </p>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            Узнать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            подробнее
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="catalogFilter">
+                <div class="container">
+                    <p class="tl1">filter</p>
+                </div>
+            </section>
+            <!--  -->
+            <section class="catalogItems">
+                <div class="container catalogItems__c">
+                    <ul class="catalogItems__c-list">
+                        <li class="catalogItem">
+                            <div class="catalogItem__img swiper">
+                                <div class="swiper-pag _bullets">
+
+                                </div>
+
+                                <ul class="swiper-wrapper">
+                                    <li class="swiper-slide" data-fancybox="someItemName_1488"
+                                        href="./assets/images/aboutGrid-1.png">
+                                        <img src="./assets/images/aboutGrid-1.png" alt="">
+                                    </li>
+                                    <li class="swiper-slide" data-fancybox="someItemName_1488"
+                                        href="./assets/images/aboutGrid-1.png">
+                                        <img src="./assets/images/aboutGrid-2.png" alt="">
+                                    </li>
+                                    <li class="swiper-slide" data-fancybox="someItemName_1488"
+                                        href="./assets/images/aboutGrid-1.png">
+                                        <img src="./assets/images/aboutGrid-3.png" alt="">
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="catalogItem__data">
+                                <div class="catalogItem__data-name">
+                                    <a href="#" class="tl3">ttl</a>
+                                    <p class="txt16">place</p>
+                                </div>
+                                <div class="catalogItem__data-price">
+                                    <p class="tl3">1 111 111 111 <sub>₽</sub></p>
+                                    <p class="txt16 col-grey200">12345 тыс ₽ / м<sup>2</sup> </p>
+                                </div>
+                                <ul class="catalogItem__data-stats txt16">
+                                    <li class="catalogItem__data-stats-el">
+                                        <img src="./assets/images/icons/bath.svg" alt="">
+                                        <span> 322m<sup>2</sup></span>
+                                    </li>
+                                    <li class="catalogItem__data-stats-el">
+                                        <img src="./assets/images/icons/bed.svg" alt="">
+                                        <span> 322m<sup>2</sup></span>
+                                    </li>
+                                    <li class="catalogItem__data-stats-el">
+                                        <img src="./assets/images/icons/power.svg" alt="">
+                                        <span> 322m<sup>2</sup></span>
+                                    </li>
+                                    <li class="catalogItem__data-stats-el">
+                                        <img src="./assets/images/icons/floor-rounded.svg" alt="">
+                                        <span> 1 <span class="col-grey200">/ 43 </span> этаж</span>
+                                    </li>
+                                </ul>
+                                <div class="catalogItem__data-footer">
+                                    <ul class="catalogItem__data-footer-tag txt13">
+                                        <li class="catalogItem__data-footer-tag-el">
+                                            открытая планировка
+                                        </li>
+                                        <li class="catalogItem__data-footer-tag-el">
+                                            открытая планировка
+                                        </li>
+
+                                    </ul>
+
+                                    <a href="#" class="btn-link _arrow">
+                                        <span>
+                                            Подробнее
+                                        </span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="catalogItems__c-map desktop">
+
+                    </div>
+                    <div class="catalogItems__c-loadMore">
+                        <button class="btn-primary ">
+                            <span class="btn-primary__text">
+                                кнопка
+                            </span>
+                            <span class="btn-primary__text">
+                                если нужна будет
+                            </span>
+                            <span class="btn-primary__icon _arrow">
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+
+</body>
+
+</html>

@@ -1,12 +1,14 @@
 .swiper-nav {
     display: flex;
     gap: 0;
+    flex-shrink: 0;
 
     &._square {
         height: 10rem;
         width: 16.6rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 0;
 
         & .swiper-btn {
             width: 100%;
@@ -15,8 +17,9 @@
             background-position: center;
             background-size: 3rem;
             background-repeat: no-repeat;
-            @include mobile{
-            background-size: 6rem;
+
+            @include mobile {
+                background-size: 6rem;
             }
 
             &-next {
@@ -33,6 +36,39 @@
         }
     }
 
+    height: 5rem;
+    width: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @include mobile{
+        width: 20rem;
+        height: 8rem;
+    }
+
+    & .swiper-btn {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background-position: center;
+        background-size: 3rem;
+        background-repeat: no-repeat;
+
+        @include mobile {
+            background-size: 6rem;
+        }
+
+        &-next {
+            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+        }
+
+        &-prev {
+            background-image: url(../assets/images/icons/arrow-orange-left.svg);
+        }
+
+       
+    }
+
+
 }
 
 .swiper-pag {
@@ -41,6 +77,7 @@
         height: fit-content;
         display: flex;
         align-items: center;
+        z-index: 5;
 
         @include mobile {
             gap: 3px;
@@ -52,9 +89,9 @@
                 border-radius: 50%;
                 flex-shrink: 0;
                 transition:
-                 width .5s linear,
-                 height .5s linear,
-                 background-color .5s linear,
+                    width .5s linear,
+                    height .5s linear,
+                    background-color .5s linear,
                 ;
 
                 &.swiper-pagination-bullet-active {
@@ -65,5 +102,36 @@
 
             }
         }
+    }
+
+    &._fraction {
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 110%;
+        letter-spacing: 0%;
+        color: var(--col-grey200);
+        width: fit-content;
+
+        @include mobile {
+            font-size: 2.4rem;
+        }
+
+        & .swiper-pagination-current {
+            font-family: Montserrat;
+            font-weight: 400;
+            font-size: 4rem;
+            line-height: 100%;
+            letter-spacing: 1%;
+            color: var(--col-black);
+
+            @include mobile {
+                font-size: 4.8rem;
+            }
+
+        }
+
+
+
     }
 }

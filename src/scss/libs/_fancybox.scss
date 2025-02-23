@@ -12,4 +12,10 @@
 }
 [data-fancybox]{
     cursor: zoom-in;
+    & img{
+        transition: transform .5s ease-in-out;
+        @include hover{
+            transform: scale(1.1);
+        }
+    }
 }

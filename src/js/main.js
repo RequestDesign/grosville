@@ -30,6 +30,7 @@ $(function () {
     modalsHandler()
     initFancybox()
     initSwipers()
+    initAboutVidos()
 
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
 
@@ -295,6 +296,107 @@ function initSwipers() {
         })
     }
 
+    const aboutGrid = document.querySelector('.aboutGrid .swiper')
+    if (aboutGrid) {
+        new Swiper(aboutGrid, {
+            modules: [Pagination, EffectFade, Grid],
+            loop: false,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: rem(3),
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            grid: {
+                rows: 1
+            },
+
+            breakpoints: {
+                768: {
+                    effect: 'slide',
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: rem(7),
+                    grid: {
+                        rows: 2,
+                        fill: 'row'
+
+                    },
+
+                }
+            },
+            pagination: {
+                el: aboutGrid.querySelector('.swiper-pag'),
+                type: 'bullets'
+            }
+        })
+    }
+
+    const aboutSpec = document.querySelector('.aboutSpec')
+    if (aboutSpec) {
+        new Swiper(aboutSpec.querySelector('.swiper'), {
+            modules: [Navigation, Pagination],
+            speed: 500,
+            slidesPerView: 1.4,
+            spaceBetween: 14,
+            centeredSlides: true,
+            loop: true,
+            followFinger: true,
+            simulateTouch: false,
+            on:{
+              /*   init:(s)=>{
+                    s.slides.forEach((e, i)=>{
+                        e.addEventListener('click', (e)=>{
+                            console.log(e.currentTarget.dataset.swiperSlideIndex, s.activeIndex);
+                          s.slideToLoop(e.currentTarget.dataset.swiperSlideIndex)
+                        })
+                    })
+                } */
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 44,
+                }
+            },
+            pagination: {
+                el: aboutSpec.querySelector('.swiper-pag'),
+                type: 'fraction',
+                formatFractionCurrent: (n) => {
+                    return String(n).padStart(2, '0');
+                },
+                formatFractionTotal: (n) => {
+                    return String(n).padStart(2, '0');
+                }
+            },
+            navigation: {
+                prevEl: aboutSpec.querySelector('.swiper-btn-prev'),
+                nextEl: aboutSpec.querySelector('.swiper-btn-next'),
+            }
+        })
+    }
+
+    const catalogItem = document.querySelectorAll('.catalogItem .swiper')
+    if(catalogItem){
+        catalogItem.forEach((e)=>{
+            new Swiper(e, {
+                modules:[ EffectFade, Pagination],
+                slidesPerView: 1,
+                effect: 'fade',
+                fadeEffect:{
+                    crossFade: true
+                },
+                pagination:{
+                    el: e.querySelector('.swiper-pag'),
+                    type: 'bullets',
+                    clickable: true
+                }
+
+            })
+        })
+    }
+
     /*  const recomendation = document.querySelector('.recomendation')
      if (recomendation && window.innerWidth < 768) {
          new Swiper(recomendation.querySelector('.swiper'), {
@@ -306,6 +408,21 @@ function initSwipers() {
   */
 }
 
+function initAboutVidos() {
+    const c = document.querySelector('.aboutVidos__main')
+    if (!c) return
+    const v = c.querySelector('video'),
+        b = c.querySelector('.btn-trans._play')
+
+    v.addEventListener('play', () => {
+        c.classList.add('_active')
+    })
+    b.addEventListener('click', () => {
+        v.play()
+    })
+
+
+}
 
 function initFancybox() {
     const anytarget = document.querySelector('[data-fancybox]')
@@ -426,7 +543,7 @@ function header() {
     document.addEventListener('scroll', (ev) => {
         if (prevY > window.scrollY && window.scrollY > 500) {
             header.classList.add('_showed')
-        } else  {
+        } else {
             header.classList.remove('_showed')
         }
 
