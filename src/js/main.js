@@ -344,15 +344,15 @@ function initSwipers() {
             loop: true,
             followFinger: true,
             simulateTouch: false,
-            on:{
-              /*   init:(s)=>{
-                    s.slides.forEach((e, i)=>{
-                        e.addEventListener('click', (e)=>{
-                            console.log(e.currentTarget.dataset.swiperSlideIndex, s.activeIndex);
-                          s.slideToLoop(e.currentTarget.dataset.swiperSlideIndex)
-                        })
-                    })
-                } */
+            on: {
+                /*   init:(s)=>{
+                      s.slides.forEach((e, i)=>{
+                          e.addEventListener('click', (e)=>{
+                              console.log(e.currentTarget.dataset.swiperSlideIndex, s.activeIndex);
+                            s.slideToLoop(e.currentTarget.dataset.swiperSlideIndex)
+                          })
+                      })
+                  } */
             },
             breakpoints: {
                 768: {
@@ -377,17 +377,17 @@ function initSwipers() {
         })
     }
 
-    const catalogItem = document.querySelectorAll('.catalogItem .swiper')
-    if(catalogItem){
-        catalogItem.forEach((e)=>{
+    const catalogItem = document.querySelectorAll('.catalogItemSwiper')
+    if (catalogItem) {
+        catalogItem.forEach((e) => {
             new Swiper(e, {
-                modules:[ EffectFade, Pagination],
+                modules: [EffectFade, Pagination],
                 slidesPerView: 1,
                 effect: 'fade',
-                fadeEffect:{
+                fadeEffect: {
                     crossFade: true
                 },
-                pagination:{
+                pagination: {
                     el: e.querySelector('.swiper-pag'),
                     type: 'bullets',
                     clickable: true
@@ -397,6 +397,104 @@ function initSwipers() {
         })
     }
 
+    const headingMain = document.querySelector('.mainHeading__c-slider')
+    if (headingMain) {
+        new Swiper(headingMain, {
+            modules: [Navigation, EffectFade, Autoplay],
+            effect: 'fade',
+            autoplay: {
+                delay: 2000
+            },
+            fadeEffect: {
+                crossFade: true
+            },
+            loop: true,
+            navigation: {
+                nextEl: headingMain.querySelector('.swiper-btn-next')
+            },
+            on: {
+                init: (s) => {
+                    s.slides.forEach((e, i) => {
+                        e.querySelector('.mainHeading__c-slider-el-count').textContent = String(i + 1).padStart(2, '0')
+                    })
+                }
+            }
+
+        })
+    }
+    const mainSlider = document.querySelector('.mainSlider')
+    if (mainSlider) {
+        const small = new Swiper(mainSlider.querySelector('.mainSlider__c-data-img'), {
+            slidesPerView: 1,
+            followFinger: false,
+            simulateTouch: false,
+            allowTouchMove: false,
+            initialSlide: 1,
+            loop: true
+        })
+        const big = new Swiper(mainSlider.querySelector('.mainSlider__c-middle'), {
+            modules: [Navigation, Pagination],
+            slidesPerView: 1,
+            followFinger: false,
+            simulateTouch: false,
+            loop: true,
+            /*  navigation: {
+                 prevEl: mainSlider.querySelector('.swiper-btn-prev'),
+                 nextEl: mainSlider.querySelector('.swiper-btn-next'),
+             }, */
+            pagination: {
+                el: mainSlider.querySelector('.swiper-pag'),
+                type: 'fraction',
+                formatFractionCurrent: (n) => {
+                    return String(n).padStart(2, '0');
+                },
+                formatFractionTotal: (n) => {
+                    return String(n).padStart(2, '0');
+                }
+            },
+
+
+        })
+        mainSlider.querySelector('.swiper-btn-next')
+            .addEventListener('click', () => {
+                big.slideNext()
+                small.slideNext()
+            })
+        mainSlider.querySelector('.swiper-btn-prev')
+            .addEventListener('click', () => {
+                big.slidePrev()
+                small.slidePrev()
+            })
+
+
+    }
+
+    const mainSpecial = document.querySelector('.mainSpecial .swiper')
+    if (mainSpecial) {
+        new Swiper(mainSpecial, {
+            modules: [Navigation, Pagination, EffectFade],
+            effect: 'fade',
+            fadeEffect:{
+                crossFade: false
+            },
+            followFinger: false,
+            simulateTouch: false,
+            navigation:{
+                prevEl: mainSpecial.querySelector('.swiper-btn-prev'),
+                nextEl: mainSpecial.querySelector('.swiper-btn-next'),
+            },
+            pagination:{
+                el: mainSpecial.querySelector('.swiper-pag'),
+                type: 'fraction',
+                formatFractionCurrent: (n) => {
+                    return String(n).padStart(2, '0');
+                },
+                formatFractionTotal: (n) => {
+                    return String(n).padStart(2, '0');
+                }
+            }
+        })
+    }
     /*  const recomendation = document.querySelector('.recomendation')
      if (recomendation && window.innerWidth < 768) {
          new Swiper(recomendation.querySelector('.swiper'), {
