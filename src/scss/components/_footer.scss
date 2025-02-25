@@ -87,8 +87,7 @@
 
         &-form {
             grid-area: form;
-            background-image: url('../assets/images/pepper.webp');
-            background-size: cover;
+            background-image:  $bg;
             padding: 4.4rem 3.2rem;
             display: flex;
             flex-direction: column;

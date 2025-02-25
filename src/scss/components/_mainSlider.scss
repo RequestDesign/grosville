@@ -1,0 +1,189 @@
+.mainSlider {
+    &._artStudio {
+        & .mainSlider__c-left-map {
+            background-image: url(../assets/images/mainSlider-2.png);
+
+            &::after {
+                top: 38%;
+                left: 48%;
+
+            }
+
+            @include hover {
+                background-position: 62% 90%;
+                background-size: 120%;
+
+                &::after {
+                    transform: translate(0rem, -2rem) scale(.9);
+                }
+            }
+        }
+    }
+
+    &__c {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 100%;
+        gap: 4.4rem;
+        height: 90rem;
+        position: relative;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto 70rem auto;
+            height: unset;
+            gap: 4rem;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        & .swiper-slide {
+            display: flex;
+
+            & img {
+                object-fit: cover;
+            }
+        }
+
+        &-left {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 5;
+            position: relative;
+
+            @include mobile {
+                @include mobPad;
+            }
+
+
+            &-map {
+                width: 100%;
+                height: 21rem;
+                border: 1.2rem solid var(--col-white);
+                border-bottom: 3.2rem solid var(--col-white);
+                background-image: url(../assets/images/mainSlider-1.png);
+                background-size: 100%;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                position: relative;
+                cursor: pointer;
+                transition: border .5s ease-in-out, background-size .5s ease-in-out, background-position .5s ease-in-out;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 20%;
+                    left: 30%;
+                    width: 5.7rem;
+                    height: 6.9rem;
+                    background-image: url(../assets/images/icons/mapMarkerSmall.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transition: transform .5s ease-in-out;
+                }
+
+                @include hover {
+                    background-position: 0% 92%;
+                    background-size: 120%;
+                    border-color: var(--col-grey);
+
+                    &::after {
+                        transform: translate(3rem, 0rem) scale(.9);
+                    }
+                }
+            }
+
+            & .btn-circle {
+                transform: translate(35rem, 3rem);
+            }
+        }
+
+        &-middle {
+            width: 100%;
+            height: 100%;
+        }
+
+        &-ctrls {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            @include mobile {
+                @include mobPad;
+                grid-row: 2;
+                flex-direction: row;
+                height: fit-content;
+            }
+        }
+
+        &-data {
+            position: absolute;
+            z-index: 5;
+            top: 33%;
+            left: 55.5%;
+            width: 70rem;
+            height: 38rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100%;
+            gap: 3.2rem;
+            padding: 3.2rem;
+            box-sizing: border-box;
+            background-color: var(--col-white);
+
+            @include mobile {
+                position: relative;
+                width: calc(100% - 6rem);
+                margin: 0 3rem;
+                transform: translateY(-13rem);
+                top: 0;
+                left: 0;
+                height: unset;
+                gap: 6.4rem;
+                grid-template-columns: 100%;
+                grid-template-rows: 100%;
+            }
+
+            &-img {
+                width: 100%;
+                height: 100%;
+                filter: grayscale(1);
+            }
+
+            &-text {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                @include mobile {
+                    gap: 4rem;
+                }
+
+                &-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+
+                    @include mobile {
+                        justify-content: space-between;
+
+                    }
+
+                    &-el {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                    }
+                }
+            }
+
+
+        }
+    }
+}

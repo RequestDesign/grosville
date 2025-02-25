@@ -20,14 +20,16 @@
 
         & .header__c-filter,
         & .header__c-phone {
-          
+
             color: var(--col-white);
         }
-        & .header__c-phone-img{
+
+        & .header__c-phone-img {
             filter: invert(1);
             border-color: var(--col-black);
         }
-        & .header__c-btn span{
+
+        & .header__c-btn span {
             background-color: var(--col-white);
         }
     }
@@ -50,19 +52,22 @@
 
             }
         }
-        & .header__modal-nav{
+
+        & .header__modal-nav {
             transform: translateX(0);
         }
+
         & .header__c-logo {
             filter: invert(0);
         }
 
-        & .header__c-phone-img{
+        & .header__c-phone-img {
             filter: invert(0);
             border-color: var(--col-grey);
 
         }
-        & .header__c-btn span{
+
+        & .header__c-btn span {
             background-color: var(--col-black);
             border-color: var(--col-grey);
         }
@@ -84,6 +89,10 @@
         &-logo {
             flex-shrink: 0;
             transition: filter .5s linear;
+            @include mobile{
+                display: flex;
+                align-items: center;
+            }
 
             & img {
                 height: 5rem;
@@ -97,13 +106,14 @@
 
         &-filter {
             margin-left: 18rem;
-            transition: filter .5s linear, color .5s linear ;
+            transition: filter .5s linear, color .5s linear;
         }
 
         &-phone {
             margin-left: auto;
             margin-right: 18rem;
-            transition: color .5s linear ;
+            transition: color .5s linear;
+
             @include mobile {
                 margin-left: auto;
                 margin-right: 2rem;
@@ -222,7 +232,7 @@
             &-closer {
                 width: 3.6rem;
                 height: 3.6rem;
-              
+
                 margin-left: auto;
 
                 @include hover {
@@ -274,31 +284,36 @@
                                 color: var(--col-orange);
                             }
                         }
+                   
 
-                        &._small {
-                            border: none;
-                            font-size: 3rem;
-                            color: var(--col-grey200);
+
+                    &._small {
+                        border: none;
+                        font-size: 3rem;
+                        color: var(--col-grey200);
+                        @include hover {
+                            color: var(--col-orange);
                         }
                     }
-
-                }
-            }
-
-            &-contacts {
-                @include mobile {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    margin-top: 8rem;
-                    gap: 3rem;
                 }
 
             }
         }
 
+        &-contacts {
+            @include mobile {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-top: 8rem;
+                gap: 3rem;
+            }
+
+        }
     }
+
+}
 }
 
 @keyframes header {

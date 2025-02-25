@@ -40,7 +40,8 @@
     width: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    @include mobile{
+
+    @include mobile {
         width: 20rem;
         height: 8rem;
     }
@@ -65,43 +66,65 @@
             background-image: url(../assets/images/icons/arrow-orange-left.svg);
         }
 
-       
+
     }
 
 
 }
 
 .swiper-pag {
-    &._bullets {
+
+    &._bullets,
+    &.swiper-pagination-bullets {
         width: fit-content;
-        height: fit-content;
+        height: 12px;
         display: flex;
         align-items: center;
         z-index: 5;
+        gap: 10px;
 
         @include mobile {
+            height: 8px;
             gap: 3px;
+        }
 
+        &._white {
             & .swiper-pagination-bullet {
-                width: 5px;
-                height: 5px;
-                background-color: var(--col-grey200);
-                border-radius: 50%;
-                flex-shrink: 0;
-                transition:
-                    width .5s linear,
-                    height .5s linear,
-                    background-color .5s linear,
-                ;
-
-                &.swiper-pagination-bullet-active {
-                    width: 8px;
-                    height: 8px;
-                    background-color: var(--col-orange);
-                }
-
+                background-color: var(--col-white);
             }
         }
+
+        & .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: var(--col-grey200);
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition:
+                width .5s ease-in-out,
+                height .5s ease-in-out,
+                background-color .5s ease-in-out,
+            ;
+            cursor: pointer;
+
+            @include mobile {
+                width: 5px;
+                height: 5px;
+            }
+
+            &.swiper-pagination-bullet-active {
+                width: 12px;
+                height: 12px;
+                background-color: var(--col-orange);
+
+                @include mobile {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+
+        }
+
     }
 
     &._fraction {

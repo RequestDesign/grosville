@@ -34,6 +34,7 @@ $(function () {
 
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
 
+
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
 
@@ -130,7 +131,7 @@ function initSwipers() {
     const catalogDetail_Img = document.querySelectorAll('.catalogDetailBody__c-img-swiper')
     if (catalogDetail_Img) {
         catalogDetail_Img.forEach((el) => {
-            new Swiper(el, {
+            const s = new Swiper(el, {
                 modules: [EffectFade, Navigation, Pagination],
                 effect: 'fade',
                 fadeEffect: {
@@ -147,39 +148,51 @@ function initSwipers() {
                 navigation: {
                     prevEl: el.querySelector('.swiper-btn-prev'),
                     nextEl: el.querySelector('.swiper-btn-next')
+                },
+                on: {
+                    init: (s) => {
+                        if (window.innerWidth < 768 && el.classList.contains('_second')) {
+                     
+                            const slide = s.slides[1];  // Берём второй слайд
+                            const newHome = el.closest('.catalogDetailBody__c')
+                            const img = slide.querySelector('img') // Новый родительский контейнер
+                            // Переносим слайд в новый контейнер
+                            newHome.querySelector('.catalogDetailBody__c-subheading-img').appendChild(img);
+                            slide.remove()
+                            // Обновляем структуру Swiper
+                            s.update();  
+                        }
+                    }
                 }
             })
+            const one = el.querySelector('.catalogDetailBody__c-img-second-btn._1')
+            const two = el.querySelector('.catalogDetailBody__c-img-second-btn._2')
+            if (one && two) {
+                s.on('slideChange', (s) => {
+                    if (s.activeIndex == true) {
+                        two.classList.add('_active')
+                        one.classList.remove('_active')
+                    } else {
+                        one.classList.add('_active')
+                        two.classList.remove('_active')
+                    }
+
+                })
+                two.addEventListener('click', () => {
+                    s.slideTo(1)
+                    two.classList.add('_active')
+                    one.classList.remove('_active')
+                })
+                one.addEventListener('click', () => {
+                    s.slideTo(0)
+                    one.classList.add('_active')
+                    two.classList.remove('_active')
+                })
+            }
         })
     }
 
-    const catalogDetail_ImgSecond = document.querySelector('.catalogDetailBody__c-img.swiper._second')
-    if (catalogDetail_ImgSecond) {
-        const s = new Swiper(catalogDetail_ImgSecond, {
-            modules: [EffectFade],
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            slidesPerView: 1,
-            followFinger: false,
-            simulateTouch: false,
-            allowTouchMove: false,
 
-        })
-        const one = catalogDetail_ImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._1')
-
-        const two = catalogDetail_ImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._2')
-        two.addEventListener('click', () => {
-            s.slideTo(1)
-            two.classList.add('_active')
-            one.classList.remove('_active')
-        })
-        one.addEventListener('click', () => {
-            s.slideTo(0)
-            one.classList.add('_active')
-            two.classList.remove('_active')
-        })
-    }
 
     const catalogDetailTop_Newbuild = document.querySelector('.catalogDetailTop__newbuild')
     if (catalogDetailTop_Newbuild) {
@@ -341,18 +354,19 @@ function initSwipers() {
             slidesPerView: 1.4,
             spaceBetween: 14,
             centeredSlides: true,
-            loop: true,
+            initialSlide: window.innerWidth > 768 ? 3 : 0,
+          /*   loop: true, */
             followFinger: true,
             simulateTouch: false,
+            slideToClickedSlide: true,
             on: {
-                /*   init:(s)=>{
+                  init:(s)=>{
                       s.slides.forEach((e, i)=>{
                           e.addEventListener('click', (e)=>{
-                              console.log(e.currentTarget.dataset.swiperSlideIndex, s.activeIndex);
-                            s.slideToLoop(e.currentTarget.dataset.swiperSlideIndex)
+                            s.slideTo(i)
                           })
                       })
-                  } */
+                  }
             },
             breakpoints: {
                 768: {
@@ -422,51 +436,51 @@ function initSwipers() {
 
         })
     }
-    const mainSlider = document.querySelector('.mainSlider')
-    if (mainSlider) {
-        const small = new Swiper(mainSlider.querySelector('.mainSlider__c-data-img'), {
-            slidesPerView: 1,
-            followFinger: false,
-            simulateTouch: false,
-            allowTouchMove: false,
-            initialSlide: 1,
-            loop: true
-        })
-        const big = new Swiper(mainSlider.querySelector('.mainSlider__c-middle'), {
-            modules: [Navigation, Pagination],
-            slidesPerView: 1,
-            followFinger: false,
-            simulateTouch: false,
-            loop: true,
-            /*  navigation: {
-                 prevEl: mainSlider.querySelector('.swiper-btn-prev'),
-                 nextEl: mainSlider.querySelector('.swiper-btn-next'),
-             }, */
-            pagination: {
-                el: mainSlider.querySelector('.swiper-pag'),
-                type: 'fraction',
-                formatFractionCurrent: (n) => {
-                    return String(n).padStart(2, '0');
+    const mainSlider = document.querySelectorAll('.mainSlider')
+    if (mainSlider && mainSlider.length) {
+        mainSlider.forEach((m) => {
+
+            const small = new Swiper(m.querySelector('.mainSlider__c-data-img'), {
+                slidesPerView: 1,
+                followFinger: false,
+                simulateTouch: false,
+                allowTouchMove: false,
+                initialSlide: 1,
+                loop: true
+            })
+            const big = new Swiper(m.querySelector('.mainSlider__c-middle'), {
+                modules: [Navigation, Pagination],
+                slidesPerView: 1,
+                followFinger: false,
+                simulateTouch: false,
+                loop: true,
+
+                pagination: {
+                    el: m.querySelector('.swiper-pag'),
+                    type: 'fraction',
+                    formatFractionCurrent: (n) => {
+                        return String(n).padStart(2, '0');
+                    },
+                    formatFractionTotal: (n) => {
+                        return String(n).padStart(2, '0');
+                    }
                 },
-                formatFractionTotal: (n) => {
-                    return String(n).padStart(2, '0');
-                }
-            },
+
+
+            })
+            m.querySelector('.swiper-btn-next')
+                .addEventListener('click', () => {
+                    big.slideNext()
+                    small.slideNext()
+                })
+            m.querySelector('.swiper-btn-prev')
+                .addEventListener('click', () => {
+                    big.slidePrev()
+                    small.slidePrev()
+                })
 
 
         })
-        mainSlider.querySelector('.swiper-btn-next')
-            .addEventListener('click', () => {
-                big.slideNext()
-                small.slideNext()
-            })
-        mainSlider.querySelector('.swiper-btn-prev')
-            .addEventListener('click', () => {
-                big.slidePrev()
-                small.slidePrev()
-            })
-
-
     }
 
     const mainSpecial = document.querySelector('.mainSpecial .swiper')
@@ -474,16 +488,16 @@ function initSwipers() {
         new Swiper(mainSpecial, {
             modules: [Navigation, Pagination, EffectFade],
             effect: 'fade',
-            fadeEffect:{
+            fadeEffect: {
                 crossFade: false
             },
             followFinger: false,
             simulateTouch: false,
-            navigation:{
+            navigation: {
                 prevEl: mainSpecial.querySelector('.swiper-btn-prev'),
                 nextEl: mainSpecial.querySelector('.swiper-btn-next'),
             },
-            pagination:{
+            pagination: {
                 el: mainSpecial.querySelector('.swiper-pag'),
                 type: 'fraction',
                 formatFractionCurrent: (n) => {
@@ -571,6 +585,28 @@ function modalsHandler() {
             .addClass('_opened')
             .attr('data-submit_type', submit_type)
         html.addClass('_lock')
+        if (modal == 'map') {
+            ymaps.ready(init);
+            function init() {
+                var myMap = new ymaps.Map("modalMap", {
+                    center: [ev.currentTarget.dataset.mapx, ev.currentTarget.dataset.mapy],
+                    zoom: 16,
+                    controls: ['fullscreenControl',]
+                });
+
+                myMap.geoObjects
+                    .add(new ymaps.Placemark(myMap.getCenter(), {
+                        hintContent: 'q'
+                    }, {
+                        iconLayout: 'default#image',
+                        iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
+                        iconImageSize: [111, 135],
+
+                    }))
+            }
+            $(`.modal-${modal}`).find('.modal-map__ttl').text(ev.currentTarget.dataset.mapTtl)
+            $(`.modal-${modal}`).find('.modal-map__adr').text(ev.currentTarget.dataset.mapAdr)
+        }
 
     })
 

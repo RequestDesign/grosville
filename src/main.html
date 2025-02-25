@@ -1,49 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: local('Montserrat'),
+        url('./assets/fonts/Montserrat.woff2') format('woff2');
+      font-style: normal;
+      font-display: swap;
+    }
+
+
+    @font-face {
+      font-family: 'Inter';
+      src: local('Inter'),
+        url('./assets/fonts/Inter.woff2') format('woff2');
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
+  type="text/javascript"></script>
   <title>само напишется</title>
 </head>
 
 <body>
   <div class="wrapper">
-    <include src="./components/_header.html" data-props='{
-      ".container": {
-        "html":  "<h1 class=tl1>header</h1>"
-          }
-       }'></include>
-   
+    <include src="./components/_header.html"></include>
     <main>
+      <section class="mainHeading">
+        <div class="container mainHeading__c">
+          <div class="mainHeading__c-main">
+            <h1 class="tl1">
+              Бутик-агентство <br />
+              премиальной <br />
+              недвижимости
+            </h1>
+            <p class="txt20 desktop">
+              Мы предоставляем лучшие <br />
+              возможности и эксклюзивные <br />
+              предложения в своем классе
+            </p>
+
+            <a href="" class="btn-trans _arrow">
+              <span class="btn-trans__top">выбрать</span>
+              <span class="btn-trans__bottom">недвижимость</span>
+            </a>
+
+          </div>
+          <div class="desktop swiper mainHeading__c-slider">
+            <div class="swiper-nav">
+              <span></span>
+              <button class="swiper-btn swiper-btn-next"></button>
+            </div>
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>Реализация дерзких
+                  амбиций, отражающих смелый характер
+                  и стиль</p>
+              </li>
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>asdas</p>
+              </li>
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>qweqwe</p>
+              </li>
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nesciunt eaque natus recusandae
+                  neque? Iste, est. Assumenda quae natus eaque.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="mainHeading__c-img">
+
+            <img src="./assets/images/headingMain.png" alt="">
+          </div>
+        </div>
+      </section>
+      <section class="mainSlider ">
+        <include src="./components/_mainSlider.html"></include>
+      </section>
+      <section class="mainSlider _artStudio">
+        <include src="./components/_mainSlider.html"></include>
+      </section>
+      <section class="mainSlider ">
+        <include src="./components/_mainSlider.html"></include>
+      </section>
+     
+      <section class="mainProjects">
+        <div class="container mainProjects__c">
+          <div class="mainProjects__c-img">
+            <img src="./assets/images/main-projects.png" alt="">
+          </div>
+          <div class="mainProjects__c-main">
+            <p class="tl1">
+              Ознакомьтесь <br />
+              со всеми <span class="col-orange">нашими <br />
+                проектами</span>
+            </p>
+
+            <div class="mainProjects__c-main-text">
+              <img class="desktop" src="./assets/images/mainProjectsSmall.png" alt="">
+              <span class="tl1">20+ <span class="col-grey200 txt11">объектов</span></span>
+              <p class="txt11 txt-up desktop">
+                абсолютный комфорт <br />
+                и неповторимый стиль
+              </p>
+            </div>
+
+            <a href="#" class="btn-trans _arrow">
+              <span class="btn-trans__top">смотреть</span>
+              <span class="btn-trans__bottom">все проекты</span>
+            </a>
 
 
+
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="mainBanner">
+        <div class="container mainBanner__c">
+          <div class="mainBanner__c-img">
+            <img src="./assets/images/contacts.png" alt="">
+          </div>
+          <div class="mainBanner__c-text">
+            <p class="tl1 col-grey200">Мы создаем</p>
+            <p class="tl1 col-grey200">ценность через</p>
+            <p class="tl1">индивидуальность</p>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="mainSpecial">
+        <div class="container">
+          <p class="tl1">Уникальное предложение</p>
+          <div class="swiper">
+
+            <div class="mainSpecial__ctrl">
+              <div class="swiper-pag _fraction"></div>
+              <div class="swiper-nav">
+                <button class="swiper-btn swiper-btn-prev"></button>
+                <button class="swiper-btn swiper-btn-next"></button>
+              </div>
+            </div>
+
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide mainSpecial__slide">
+                <div class="mainSpecial__slide-left">
+                  <div class="mainSpecial__slide-left-img" data-fancybox href="./assets/images/aboutHeading.png">
+                    <img src="./assets/images/aboutHeading.png" alt="">
+                  </div>
+                  <ul class="mainSpecial__slide-left-adv ">
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+                  </ul>
+
+                  <button class="btn-trans _arrow mobile">
+                    <span class="btn-trans__top">получить</span>
+                    <span class="btn-trans__bottom">предложение</span>
+                  </button>
+
+                </div>
+                <div class="mainSpecial__slide-middle" data-fancybox href="./assets/images/aboutBanner.png">
+                  <img src="./assets/images/aboutBanner.png" alt="">
+                </div>]
+                <div class="mainSpecial__slide-right">
+                  <p class="tl3 col-orange">ЖК Литера</p>
+                  <p class="txt20 ">Большой Смоленский пр, 6</p>
+                  <span class="mainSpecial__slide-right-adv tl2">
+                    one <br />
+                    one <br />
+                    one <br />
+                    one <br />
+                  </span>
+
+                  <button class="btn-trans _arrow desktop">
+                    <span class="btn-trans__top">получить</span>
+                    <span class="btn-trans__bottom">предложение</span>
+                  </button>
+
+                </div>
+              </li>
+              <li class="swiper-slide mainSpecial__slide">
+                <div class="mainSpecial__slide-left">
+                  <div class="mainSpecial__slide-left-img" data-fancybox href="./assets/images/aboutHeading.png">
+                    <img src="./assets/images/aboutHeading.png" alt="">
+                  </div>
+                  <ul class="mainSpecial__slide-left-adv ">
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mainSpecial__slide-middle" data-fancybox href="./assets/images/aboutBanner.png">
+                  <img src="./assets/images/aboutBanner.png" alt="">
+                </div>]
+                <div class="mainSpecial__slide-right">
+                  <p class="tl3 col-orange">ЖК Литера</p>
+                  <p class="txt20 ">Большой Смоленский пр, 6</p>
+                  <span class="mainSpecial__slide-right-adv tl2">
+                    one <br />
+                    one <br />
+                    one <br />
+                    one <br />
+                  </span>
+
+                  <button class="btn-trans _arrow">
+                    <span class="btn-trans__top">получить</span>
+                    <span class="btn-trans__bottom">предложение</span>
+                  </button>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="mainMsg">
+        <div class="container mainMsg__c">
+          <p class="txt11 txt-up col-orange mainMsg__c-h">слово руководителей</p>
+          <p class="tl1 mainMsg__c-h1">
+            Мы предоставляем <span class="col-orange">уникальные</span> возможности и <span
+              class="col-orange">эксклюзивные предложения</span> в северной столице
+          </p>
+          <p class="tl3 mainMsg__c-h2">
+            Меняем привычное представление о повседневном комфорте и создавая уникальные сценарии жизни
+          </p>
+          <div class="mainMsg__c-line">
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mainMsg__c-text-one">
+            <p class="tl2 desktop">
+              Эффективность <br />
+              инвестиций
+            </p>
+            <p class="tl3">
+              Мы выстраиваем
+              дальновидную инвестиционную стратегию каждого проекта, обеспечивающую эффективность вложений как на этапе
+              приобретения, так и при продаже недвижимости.
+            </p>
+            <p class="txt15 col-grey200 desktop">
+              Алексей Тюлькин
+            </p>
+          </div>
+
+          <div class="desktop mainMsg__c-img">
+            <img src="./assets/images/msg-1.png" alt="">
+          </div>
+
+          <div class="mainMsg__c-text-two">
+            <p class="tl2 desktop">
+              Бескомпромиссный <br />
+              подход
+            </p>
+            <p class="tl3">
+              Честность и бескомпромиссный подход — наши главные принципы, мы готовы сказать «нет», если не можем
+              предложить идеальный вариант. Grosville создает пространство, где можно рассчитывать на искренние
+              рекомендации и качественные решения.
+            </p>
+            <p class="txt15 col-grey200 desktop">
+              Сергей Кошелев
+            </p>
+            <p class="txt15 col-grey200 mobile">
+              Алексей Тюлькин и Cергей Кошелев
+            </p>
+          </div>
+
+
+          <picture class="mainMsg__c-img">
+            <source media="(min-width: 768px)" srcset="./assets/images/msg-2.png">
+            <img src="./assets/images/msg-3.png" alt="">
+          </picture>
+
+
+        </div>
+      </section>
+      <!--  -->
+      <include src="./components/_requestForm.html"></include>
     </main>
-  
     <include src="./components/_footer.html"></include>
   </div>
 
-  <!--  <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU" type="text/javascript"></script>
-  <script type="text/javascript">
-    ymaps.ready(init);
-    function init() {
-      var myMap = new ymaps.Map("map", {
-        center: [47.204572074287015, 39.67028549999995],
-        zoom: 16,
-        controls: ['fullscreenControl']
-      });
-      myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-        hintContent: 'there is no palce for narkomany 😎'
-      }, {
-        iconLayout: 'default#image',
-        iconImageHref: './assets/images/icons/map-marker.svg',
-        iconImageSize: [50, 50],
-
-      }),
-        myMap.geoObjects
-          .add(myPlacemark)
-    }
-  </script> -->
 </body>
 
 </html>

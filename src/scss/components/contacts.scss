@@ -28,15 +28,16 @@
 
         &-right {
             flex-shrink: 0;
-
             transform: translateX(-10rem);
             margin: auto 0;
             background-color: var(--col-white);
+            background-image: $bg;
             padding: 9.6rem 15rem;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             gap: 9.2rem;
+            width: 99rem;
 
             @include mobile {
                 width: 100%;
@@ -48,6 +49,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 6.8rem 10rem;
+               
 
                 @include mobile {}
 

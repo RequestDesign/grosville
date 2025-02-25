@@ -61,6 +61,13 @@
             gap: 8px;
             align-self: flex-start;
 
+            &>a {
+                @include hover {
+                    cursor: pointer;
+                    color: var(--col-orange);
+                }
+            }
+
             @include mobile {
                 gap: 3.2rem;
             }
@@ -83,7 +90,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 4rem;
-            @include mobile{
+
+            @include mobile {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
@@ -100,10 +108,11 @@
                 flex-wrap: nowrap;
                 white-space: nowrap;
                 align-items: center;
-                @include mobile{
+
+                @include mobile {
                     background-color: var(--col-grey);
-                   padding: 8px;
-                    
+                    padding: 8px;
+
                 }
 
 
@@ -125,11 +134,12 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            @include mobile{
+
+            @include mobile {
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
-                gap:3rem;
+                gap: 3rem;
             }
 
             @include desktop {
@@ -150,4 +160,293 @@
         }
 
     }
+}
+
+.catalogItemFirst {
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+  
+
+
+    @include mobile {
+        background-color: var(--col-white);
+        grid-template-rows: min-content 8rem 0fr;
+        transition: grid .5s ease-in-out;
+        padding-bottom: 4rem;
+        &._opened {
+            grid-template-rows: min-content 0rem 1fr;
+        }
+    }
+
+
+    &__top {
+        display: grid;
+        grid-template-columns: 23.2rem auto;
+        grid-template-rows: 100%;
+        gap: 0;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: 46rem auto;
+            gap: 3.2rem;
+            padding: 4.8rem 3.2rem 4.8rem;
+        }
+
+        &-img {
+            border: 1.6rem solid var(--col-white);
+            height: 25rem;
+            width: 100%;
+            position: relative;
+
+            @include mobile {
+                height: 100%;
+                border: none;
+            }
+
+            & .swiper-pag {
+                position: absolute;
+                z-index: 5;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &-data {
+            background-color: var(--col-white);
+            align-self: flex-end;
+            min-height: 20rem;
+            display: flex;
+            flex-direction: column;
+            padding: 3.2rem 3.2rem 0 1.6rem;
+            gap: 1rem;
+
+            @include mobile {
+                padding: 0;
+                gap: 12px;
+            }
+
+            &-footer {
+                margin-top: auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4.4rem;
+                align-items: center;
+                border-top: 1px solid var(--col-grey200);
+                border-bottom: 1px solid var(--col-grey200);
+                padding: 1.5rem 0;
+
+                @include mobile {
+                    padding: 0;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 4rem;
+                    margin-top: 2rem;
+                    border: none;
+                }
+
+                & .btn-link {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+
+    &__opener {
+        @include mobile {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+
+    &__list {
+        background-color: var(--col-white);
+        overflow: hidden;
+        @include desktop{
+            padding-top: 6.8rem;
+        }
+
+        &-sort {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 20rem auto;
+            gap: 3.2rem;
+            align-items: center;
+            padding: 0 1.6rem;
+            position: relative;
+            z-index: 5;
+
+
+            &-list {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 2rem;
+                justify-content: space-between;
+                padding: 1.5rem 0;
+                border-top: 1px solid var(--col-grey200);
+                border-bottom: 1px solid var(--col-grey200);
+
+                @include mobile {
+                    border: none;
+                    justify-content: flex-end;
+                    justify-self: flex-end;
+                    display: flex;
+                    width: 24rem;
+                }
+
+                @include desktop {
+                    & .dd-filter::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &-items {
+            margin-top: 2rem;
+        }
+
+        &-ctrls {
+          
+                padding: 2rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                @include mobile{
+                    padding: 4rem 2.4rem;
+                }
+
+                &-loadmore {
+                    padding-left: 2.5rem;
+                    position: relative;
+                    @include mobile{
+                    padding-left: 5rem;
+
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: calc(50% - 1px);
+                        left: 0;
+                        width: 1.5rem;
+                        height: 1px;
+                        background-color: var(--col-orange);
+                        transform: rotate(90deg);
+                        @include mobile{
+                            width: 3rem;  
+                        }
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: calc(50% - 1px);
+                        left: 0;
+                        width: 1.5rem;
+                        height: 1px;
+                        background-color: var(--col-orange);
+                        @include mobile{
+                            width: 3rem;  
+                        }
+                    }
+                }
+            
+        }
+    }
+}
+
+.catalogItemFirstCurrent {
+
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 20rem auto min-content;
+    gap: 3.2rem;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        'img top price'
+        'img stats price'
+        'img tags link';
+    position: relative;
+
+    @include mobile {
+        grid-template-columns: 26rem auto;
+        grid-template-rows: unset;
+        grid-auto-rows: auto;
+        gap: 16px 0;
+        grid-template-areas:
+            'img top'
+            'img price'
+            'stats stats'
+            'tags tags'
+            'link link';
+
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 1px;
+        left: 2rem;
+        width: calc(100% - 4rem);
+        height: 1px;
+        background-color: var(--col-grey200);
+    }
+
+    &__img {
+        grid-area: img;
+        display: flex;
+        width: 100%;
+        height: 20rem;
+
+        @include mobile {
+            height: 26rem;
+        }
+
+        & img {
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    &__top {
+        grid-area: top;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+
+    &__price {
+        grid-area: price;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-self: flex-end;
+        align-self: flex-start;
+    }
+
+    & .catalogItem__data-stats {
+        grid-area: stats;
+    }
+
+    & .catalogItem__data-footer-tag {
+        grid-area: tags;
+    }
+
+    & .btn-link {
+        grid-area: link;
+    }
+
+
 }

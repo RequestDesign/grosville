@@ -1,0 +1,607 @@
+.mainHeading {
+    position: relative;
+
+
+    @include desktop {
+        padding-top: $headerMargin;
+        margin-top: 0 !important;
+        height: 102rem;
+
+    }
+
+
+    &__c {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &-main {
+            padding-top: 11rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5.6rem;
+            position: relative;
+            z-index: 5;
+            height: 100%;
+
+            @include mobile {
+                @include mobPad;
+                height: unset;
+                gap: 0;
+                padding-top: 5rem;
+                padding-bottom: 3.2rem;
+            }
+
+            @include desktop {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 62rem;
+                    left: -19rem;
+                    mask-image: url(../assets/images/gr.svg);
+                    mask-size: contain;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    width: 66rem;
+                    height: 42.6rem;
+                    background-color: black;
+                }
+            }
+
+            & .btn-trans {
+                position: absolute;
+                top: 36rem;
+                right: 31rem;
+
+                @include mobile {
+                    top: 91rem;
+                    right: 28rem;
+                    background-color: var(--col-white);
+                    border: 5px solid var(--col-white);
+                }
+            }
+        }
+
+        &-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50vw;
+            height: 100%;
+            z-index: 4;
+            display: flex;
+
+            @include mobile {
+                position: relative;
+                width: 100%;
+                height: 80rem;
+            }
+        }
+
+        &-slider {
+            position: relative;
+            z-index: 6;
+            width: 40rem;
+            height: 27rem;
+            padding: 3.2rem;
+            background-color: var(--col-white);
+            margin-left: 42rem;
+            margin-top: 73rem;
+
+            & .swiper-nav {
+                position: absolute;
+                z-index: 5;
+                top: 3.2rem;
+                right: 3.2rem;
+            }
+
+            &-el {
+                display: flex;
+                min-height: 100%;
+                height: unset;
+                flex-direction: column;
+                justify-content: space-between;
+
+                &-count {
+                    width: 6.4rem;
+                    height: 6.4rem;
+                    border: 1px solid var(--col-grey200);
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+            }
+        }
+    }
+}
+
+.mainProjects {
+    &__c {
+        display: grid;
+        grid-template-columns: 85rem 1fr;
+        grid-template-rows: 100%;
+        padding-right: 0;
+        padding-left: 0;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: auto 56rem;
+            gap: 32px;
+        }
+
+
+        &-img {
+            padding: 10rem 0;
+            width: 90rem;
+            display: flex;
+            z-index: 4;
+            position: relative;
+
+            @include mobile {
+                width: 100%;
+                grid-row: 2;
+                height: 100%;
+                padding: 0;
+            }
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+
+            }
+        }
+
+        &-main {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            z-index: 5;
+            position: relative;
+
+            @include mobile {
+                gap: 32px;
+                @include mobPad;
+            }
+
+            & .btn-trans {
+                transform: translate(9rem, -17rem);
+            }
+
+            &-text {
+                margin-left: auto;
+                border-bottom: 1px solid var(--col-grey200);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 11.2rem 0;
+                padding-bottom: 4rem;
+                box-sizing: border-box;
+                width: 40rem;
+
+                @include mobile {
+                    display: flex;
+                    width: 100%;
+                    margin: 0;
+                    border: none;
+                    padding: 0;
+                }
+
+                & img {
+                    width: 100%;
+                    grid-column: 1 / span 2;
+                    height: 19rem;
+                    object-fit: cover;
+                }
+
+                & .tl1 {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
+                & .txt11 {
+                    margin-top: auto;
+                }
+
+
+
+            }
+        }
+    }
+}
+
+.mainBanner {
+    position: relative;
+    height: 112rem;
+
+    &__c {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 100%;
+        height: 100%;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: auto 80rem;
+            gap: 24px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50vw;
+            height: 100%;
+            display: flex;
+
+            @include mobile {
+                grid-row: 2;
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            padding: 0 9.6rem 10rem 0;
+            justify-content: flex-end;
+            align-items: flex-start;
+            grid-column: 2;
+            box-sizing: border-box;
+            width: 70rem;
+            margin-left: auto;
+
+            @include mobile {
+                padding: 0;
+                @include mobPad;
+                width: 100%;
+                grid-column: 1;
+            }
+
+            & p:last-of-type {
+                padding-bottom: 10px;
+                border-bottom: 1px solid var(--col-orange);
+            }
+        }
+    }
+}
+
+.mainSpecial {
+    & .swiper {
+        height: 80rem;
+        position: relative;
+        width: 100%;
+
+        @include mobile {
+            height: unset;
+        }
+    }
+
+    & .container {
+        &>.tl1 {
+            margin-bottom: 5.6rem;
+        }
+
+        @include mobile {
+            padding-left: 0;
+            padding-right: 0;
+
+            &>.tl1 {
+                @include mobPad;
+            }
+        }
+    }
+
+    &__ctrl {
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        width: 54.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include desktop {
+            bottom: 0;
+
+        }
+
+        @include mobile {
+            width: 100%;
+            top: 31rem;
+            @include mobPad;
+        }
+    }
+
+    &__slide {
+        display: grid;
+        grid-template-columns: 1.3fr 1.5fr .9fr;
+        grid-template-rows: 100%;
+        gap: 4.4rem;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            grid-template-rows: 40rem 72rem auto;
+            gap: 0;
+            position: relative;
+        }
+
+        &-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+
+            @include mobile {
+                grid-row: 3;
+                position: relative;
+                z-index: 4;
+                gap: 1.6rem;
+                transform: translateY(-10rem);
+                @include mobPad;
+            }
+
+            &-img {
+                background-color: var(--col-white);
+                box-sizing: border-box;
+                padding: 3.2rem 4.4rem;
+                display: flex;
+                width: 100%;
+                height: 40rem;
+
+                @include mobile {
+                    width: 46rem;
+                    height: 36rem;
+                    padding: 4rem 4rem 4.8rem;
+                    margin: 0 auto;
+
+                }
+
+                & img {
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+
+            &-adv {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                width: 100%;
+                grid-auto-rows: auto;
+                gap: 1.6rem;
+
+                @include mobile {
+                    justify-content: space-between;
+                    margin-top: 0;
+                    margin-bottom: 2rem;
+                }
+
+                &-e {
+                    background-color: var(--col-white);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 3.3rem 0;
+
+                    @include mobile {
+                        gap: 0;
+                        flex-wrap: nowrap;
+                    }
+
+                    & img {
+                        width: 6rem;
+                        height: 6rem;
+                        object-fit: contain;
+                        margin-bottom: 2.4rem;
+
+                        @include mobile {
+                            width: 4rem;
+                            height: 4rem;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    & .tl3 {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+
+        &-middle {
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            @include mobile {
+                grid-row: 2;
+                position: relative;
+                z-index: 3;
+            }
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            grid-column: 3;
+            grid-row: 1;
+
+            @include mobile {
+                grid-column: 1;
+                grid-row: 1;
+                @include mobPad;
+
+            }
+
+            &-adv {
+                margin-top: 6rem;
+                padding: 1rem 2rem;
+                border-left: 1px solid var(--col-orange);
+
+                @include mobile {
+
+                    margin-top: 0;
+                }
+            }
+
+            & .btn-trans {
+                margin: 13rem 0 0 -16rem;
+
+            }
+        }
+    }
+}
+
+.mainMsg {
+    &__c {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-rows: auto;
+        grid-template-areas:
+            'h h h h'
+            'h1 h1 h1 .'
+            '. . h2 .'
+            'line line line line'
+            'text1 img1 text2 img2';
+        gap: 0 4.2rem;
+
+        @include mobile {
+            gap: 4rem;
+            grid-template-columns: 100%;
+            grid-template-areas:
+                'h'
+                'h1'
+                'h2'
+                'line'
+                'img2'
+                'text1'
+                'text2';
+        }
+
+        &-line {
+            grid-area: line;
+            width: 100%;
+            height: 1px;
+            margin: 8rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: var(--col-grey200);
+
+            @include mobile {
+                background-color: var(--col-orange);
+                margin: 4rem 0 2rem;
+            }
+
+            & span {
+                width: 100%;
+                height: 100%;
+                background-color: var(--col-orange);
+                grid-column: 2;
+
+                &:last-of-type {
+                    grid-column: 4;
+                }
+            }
+        }
+
+        &-h {
+            grid-area: h;
+
+        }
+
+        &-h1 {
+            grid-area: h1;
+
+            @include desktop {
+                margin: 4rem 0 2rem;
+
+            }
+        }
+
+        &-h2 {
+            grid-area: h2;
+        }
+
+        &-text-one {
+            grid-area: text1;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            height: 100%;
+
+            & .txt15 {
+                margin-top: auto;
+                text-align: right;
+            }
+        }
+
+        &-img.desktop {
+            grid-area: img1;
+            display: flex;
+            height: 53rem;
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-text-two {
+            grid-area: text2;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            height: 100%;
+
+            & .txt15 {
+                margin-top: auto;
+                text-align: right;
+
+                @include mobile {
+                    margin-top: 15px;
+                }
+            }
+        }
+
+        &-img:not(.desktop) {
+            grid-area: img2;
+            display: flex;
+            height: 53rem;
+
+            @include mobile {
+                height: 68rem;
+            }
+
+            & img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+    }
+}

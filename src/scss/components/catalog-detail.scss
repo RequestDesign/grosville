@@ -17,6 +17,7 @@
         padding: 5.6rem;
         box-sizing: border-box;
         background-color: var(--col-white);
+        background-image: $bg;
         display: flex;
         flex-direction: column;
         gap: 1.6rem;
@@ -137,8 +138,11 @@
 
     &__thumbs {
 
-        cursor: grab;
+        cursor: pointer;
         height: 24rem;
+        &:active{
+            cursor: grabbing;
+        }
 
         @include mobile {
             height: 12rem;
@@ -253,12 +257,19 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: right bottom;
-                padding: 4rem;
+                padding: 4rem 8rem;
                 width: 100%;
+                height: 100%;
 
                 @include mobile {
                     background-image: none;
                     background-color: var(--col-white);
+                    padding: 4rem;
+                    &._second{
+                        padding: 0;
+                        width: 100%;
+                        height: 51rem;
+                    }
                 }
 
 
@@ -281,7 +292,9 @@
                 & .swiper-slide {
                     position: relative;
                     display: flex;
-                    border: 1px solid red;
+                  
+                    min-height: 100%;
+                    height: unset;
 
                     & img {
                         object-fit: contain;
@@ -333,9 +346,21 @@
 
         &-subheading {
             margin-bottom: 1.2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--col-orange);
             width: fit-content;
+            & .txt40{
+                padding-bottom: 1rem;
+                border-bottom: 1px solid var(--col-orange);
+                margin-bottom: 3rem;
+            }
+            &-img{
+                display: flex;
+                margin-bottom: 2rem;
+                background-color: var(--col-white);
+                height: 51rem;
+                & img{
+                    object-fit: contain;
+                }
+            }
         }
 
         & .catalogDetailTop__info-tags {
@@ -349,7 +374,7 @@
     &__c {
         &-top {
             display: grid;
-            grid-template-columns: 1fr .9fr 1fr 1fr;
+            grid-template-columns: 1fr .7fr 1fr 1fr;
             grid-template-rows: auto auto;
             gap: 4.4rem;
 

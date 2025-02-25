@@ -67,6 +67,9 @@
         height: 8rem;
         background-size: 3.2rem;
     }
+    @include hover{
+        
+    }
 
     &._tg {
         background-image: url(../assets/images/icons/tg.svg);

@@ -15,6 +15,7 @@
         }
 
     }
+  
 
     &[data-submit_type="call"] {
         & [data-submit_type]:not([data-submit_type="call"]) {
@@ -58,6 +59,7 @@
         width: fit-content;
         height: fit-content;
         background-color: var(--col-white);
+        background-image: $bg;
         padding: 11.4rem;
         box-sizing: border-box;
         margin: 10rem auto 0;
@@ -72,7 +74,7 @@
         &-closer {
             width: 3rem;
             height: 3rem;
-          
+
             position: absolute;
             top: 3rem;
             right: 3rem;
@@ -109,6 +111,9 @@
                     margin-bottom: 5rem;
                 }
             }
+            & .txt13.col-grey200{
+                align-self: center;
+            }
 
         }
     }
@@ -121,16 +126,35 @@
             height: 27rem;
             display: flex;
             margin-top: 7rem;
-            @include mobile{
+
+            @include mobile {
                 margin-top: 9.6rem;
                 height: 60rem;
                 width: 100%;
             }
-            & img{
+
+            & img {
                 object-fit: cover;
                 object-position: center;
             }
         }
 
+    }
+
+    &-map{
+        & .modal__c{
+            padding: 3.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & .txt15{
+                margin: 1rem 0 3.2rem;
+            }
+        }
+        &__map{
+           width: 113rem;
+           height: 50rem; 
+        }
     }
 }

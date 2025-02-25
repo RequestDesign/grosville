@@ -59,7 +59,7 @@
                             и поможем подобрать лучший <br />
                             вариант недвижимости для вас
                         </p>
-                        <button class="btn-trans _download" data-modal="request" data-submit_type="call">
+                        <button class="btn-trans _call" data-modal="request" data-submit_type="call">
                             <span class="btn-trans__top">оставить</span>
                             <span class="btn-trans__bottom">заявку</span>
                         </button>
@@ -95,7 +95,7 @@
                             </li>
                             <li class="contacts-info__c-right-list-el">
                                 <p class="txt-up txt15 col-grey200">Время работы</p>
-                                <p class="tl3">adres suda</p>
+                                <p class="tl3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium, commodi? Voluptate illo ducimus eligendi cumque.</p>
                             </li>
                             <li class="contacts-info__c-right-list-el">
                                 <p class="txt-up txt15 col-grey200">Телефон</p>
@@ -153,22 +153,40 @@
     <script type="text/javascript">
         ymaps.ready(init);
         function init() {
+            ymaps.ready(init);
+        function init() {
             var myMap = new ymaps.Map("map", {
                 center: [47.204572074287015, 39.67028549999995],
                 zoom: 16,
                 behaviors: ['drag', 'dblClickZoom'],
-                controls: ['fullscreenControl', 'zoomControl']
+                controls: []
             });
-            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                hintContent: 'there is no palce for narkomany 😎'
-            }, {
-                iconLayout: 'default#image',
-                iconImageHref: './assets/images/map-marker-contacts.webp',
-                iconImageSize: [210, 70],
 
-            }),
-                myMap.geoObjects
-                    .add(myPlacemark)
+            myMap.geoObjects
+                .add(new ymaps.Placemark(myMap.getCenter(), {
+                    hintContent: 'напиши сюда название товара со страницы'
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: './assets/images/map-marker-contacts.webp',
+                    iconImageSize: [220, 70],
+
+                }))
+
+           
+            myMap.controls.add('zoomControl', {
+                // Расположим поисковую строку справа.
+                float: 'right',
+                position: { right: 10, top: 100 }
+            });
+            myMap.options.set({
+                suppressMapOpenBlock: true, // Убираем панель "Как добраться"
+                suppressZoomOnDoubleClick: true, // Отключаем масштабирование двойным кликом
+                suppressPinchToZoom: true, // Отключаем увеличение жестом
+                taxiButtonShown: false, // Скрываем кнопку вызова такси
+                routePanelEnabled: false, // Отключаем панель маршрутов
+                geolocationControlSize: 'small' // Можно также уменьшить размер геолокационного контроля
+            });
+        }
         }
     </script>
 </body>

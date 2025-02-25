@@ -4,6 +4,7 @@ $contentWidth: 173rem;
 $headerMargin: 14.5rem;
 $headerMarginMob: 14rem;
 $mobPadding: 3rem;
+$bg: url(../assets/images/paper-texture.webp);
 
 html {
   font-family: 'Open Sans'; // шрифт по умолчанию по сайту
@@ -20,7 +21,7 @@ html {
   --col-grey200: #8D8E95;
   --col-grey300: #32373D;
   --col-orange: #E73D1E;
-  --col-bg: #ffffff;
+  --col-bg: rgba(220, 220, 220, 1);
   --col-red: rgba(217, 56, 56, 1);
   --col-green: rgb(94, 217, 56);
 
@@ -57,6 +58,8 @@ body {
   line-height: 1.2;
   margin: 0;
   padding: 0;
+  
+  background-image: $bg;
   /*   background-image: url(../assets/images/pepper.webp); */
 
 
