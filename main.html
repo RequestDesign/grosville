@@ -1,16 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: local('Montserrat'),
+        url('./assets/fonts/Montserrat.woff2') format('woff2');
+      font-style: normal;
+      font-display: swap;
+    }
+
+
+    @font-face {
+      font-family: 'Inter';
+      src: local('Inter'),
+        url('./assets/fonts/Inter.woff2') format('woff2');
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
+  type="text/javascript"></script>
   <title>main.html</title>
 <script defer src="js/swiper.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/jquery.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
 
 <body>
   <div class="wrapper">
     <header class="header ">
-    <div class="container header__c"><h1 class="tl1">header</h1></div>
+    <div class="container header__c">
+        <div class="header__c-logo">
+            <img loading='lazy' src="./assets/images/icons/logo.svg" alt="">
+        </div>
+
+        <a href="#" class="header__c-filter btn-primary desktop">
+            <span class="btn-primary__text">
+                выбрать
+            </span>
+            <span class="btn-primary__text">
+                недвижимость
+            </span>
+            <span class="btn-primary__icon _filter">
+            </span>
+        </a>
+
+        <a href="tel:+228" class="btn-primary header__c-phone">
+            <span class="btn-primary__text desktop">
+                +7 812
+            </span>
+            <span class="btn-primary__text desktop">
+                270 7652
+            </span>
+            <span class="mobile header__c-phone-img">
+
+            </span>
+
+        </a>
+
+        <button class="header__c-btn header-modal-opener">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
     <div class="header__modal  header-modal-opener">
         <nav class="header__modal-nav">
             <button class="header__modal-nav-closer ui-x  desktop header-modal-opener"></button>
@@ -88,12 +145,613 @@
             </ul>
         </nav>
 -->
-   
     <main>
+      <section class="mainHeading">
+        <div class="container mainHeading__c">
+          <div class="mainHeading__c-main">
+            <h1 class="tl1">
+              Бутик-агентство <br />
+              премиальной <br />
+              недвижимости
+            </h1>
+            <p class="txt20 desktop">
+              Мы предоставляем лучшие <br />
+              возможности и эксклюзивные <br />
+              предложения в своем классе
+            </p>
+
+            <a href="" class="btn-trans _arrow">
+              <span class="btn-trans__top">выбрать</span>
+              <span class="btn-trans__bottom">недвижимость</span>
+            </a>
+
+          </div>
+          <div class="desktop swiper mainHeading__c-slider">
+            <div class="swiper-nav">
+              <span></span>
+              <button class="swiper-btn swiper-btn-next"></button>
+            </div>
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>Реализация дерзких
+                  амбиций, отражающих смелый характер
+                  и стиль</p>
+              </li>
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>asdas</p>
+              </li>
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>qweqwe</p>
+              </li>
+              <li class="swiper-slide mainHeading__c-slider-el txt16">
+                <span class="mainHeading__c-slider-el-count">само напишется</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nesciunt eaque natus recusandae
+                  neque? Iste, est. Assumenda quae natus eaque.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="mainHeading__c-img">
+
+            <img loading='lazy' src="./assets/images/headingMain.webp" alt="">
+          </div>
+        </div>
+      </section>
+      <section class="mainSlider ">
+        <div class="container mainSlider__c">
+    <div class="mainSlider__c-left">
+        <div>
+            <p class="tl1">ttl</p>
+            <p class="txt20">place</p>
+        </div>
+        <button class="btn-circle desktop">
+            <span class="btn-circle__text _arrow">о проекте</span>
+        </button>
+
+        <button class="mainSlider__c-left-map desktop" data-modal="map" data-mapx="47.204572074287015" data-mapy="39.67028549999995" data-map-ttl="это тайтл для модалки" data-map-adr="а это адрес">
+        </button>
+    </div>
+    <div class="swiper mainSlider__c-middle">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-1.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-2.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-3.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-4.webp" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="mainSlider__c-ctrls">
+        <div class="swiper-pag _fraction"></div>
+        <div class="swiper-nav">
+            <button class="swiper-btn swiper-btn-prev"></button>
+            <button class="swiper-btn swiper-btn-next"></button>
+        </div>
+    </div>
+    <div class="mainSlider__c-data">
+        <div class="swiper mainSlider__c-data-img desktop">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-1.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-2.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-3.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-4.webp" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="mainSlider__c-data-text">
+            <ul class="mainSlider__c-data-text-tags txt11 col-grey200">
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+            </ul>
+            <p class="tl3">Lorem ipsum dolor sit amet.</p>
+
+            <a class="btn-link _arrow mobile">
+                <span>
+                    btn-link
+                </span>
+            </a>
+
+            <a href="" class="btn-primary ">
+                <span class="btn-primary__text">
+                    выбрать
+                </span>
+                <span class="btn-primary__text">
+                    недвижимость
+                </span>
+                <span class="btn-primary__icon _arrow">
+                </span>
+            </a>
+
+        </div>
+    </div>
+</div>
+      </section>
+      <section class="mainSlider _artStudio">
+        <div class="container mainSlider__c">
+    <div class="mainSlider__c-left">
+        <div>
+            <p class="tl1">ttl</p>
+            <p class="txt20">place</p>
+        </div>
+        <button class="btn-circle desktop">
+            <span class="btn-circle__text _arrow">о проекте</span>
+        </button>
+
+        <button class="mainSlider__c-left-map desktop" data-modal="map" data-mapx="47.204572074287015" data-mapy="39.67028549999995" data-map-ttl="это тайтл для модалки" data-map-adr="а это адрес">
+        </button>
+    </div>
+    <div class="swiper mainSlider__c-middle">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-1.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-2.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-3.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-4.webp" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="mainSlider__c-ctrls">
+        <div class="swiper-pag _fraction"></div>
+        <div class="swiper-nav">
+            <button class="swiper-btn swiper-btn-prev"></button>
+            <button class="swiper-btn swiper-btn-next"></button>
+        </div>
+    </div>
+    <div class="mainSlider__c-data">
+        <div class="swiper mainSlider__c-data-img desktop">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-1.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-2.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-3.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-4.webp" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="mainSlider__c-data-text">
+            <ul class="mainSlider__c-data-text-tags txt11 col-grey200">
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+            </ul>
+            <p class="tl3">Lorem ipsum dolor sit amet.</p>
+
+            <a class="btn-link _arrow mobile">
+                <span>
+                    btn-link
+                </span>
+            </a>
+
+            <a href="" class="btn-primary ">
+                <span class="btn-primary__text">
+                    выбрать
+                </span>
+                <span class="btn-primary__text">
+                    недвижимость
+                </span>
+                <span class="btn-primary__icon _arrow">
+                </span>
+            </a>
+
+        </div>
+    </div>
+</div>
+      </section>
+      <section class="mainSlider ">
+        <div class="container mainSlider__c">
+    <div class="mainSlider__c-left">
+        <div>
+            <p class="tl1">ttl</p>
+            <p class="txt20">place</p>
+        </div>
+        <button class="btn-circle desktop">
+            <span class="btn-circle__text _arrow">о проекте</span>
+        </button>
+
+        <button class="mainSlider__c-left-map desktop" data-modal="map" data-mapx="47.204572074287015" data-mapy="39.67028549999995" data-map-ttl="это тайтл для модалки" data-map-adr="а это адрес">
+        </button>
+    </div>
+    <div class="swiper mainSlider__c-middle">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-1.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-2.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-3.webp" alt="">
+            </li>
+            <li class="swiper-slide">
+                <img loading='lazy' src="./assets/images/aboutGrid-4.webp" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="mainSlider__c-ctrls">
+        <div class="swiper-pag _fraction"></div>
+        <div class="swiper-nav">
+            <button class="swiper-btn swiper-btn-prev"></button>
+            <button class="swiper-btn swiper-btn-next"></button>
+        </div>
+    </div>
+    <div class="mainSlider__c-data">
+        <div class="swiper mainSlider__c-data-img desktop">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-1.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-2.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-3.webp" alt="">
+                </li>
+                <li class="swiper-slide">
+                    <img loading='lazy' src="./assets/images/aboutGrid-4.webp" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="mainSlider__c-data-text">
+            <ul class="mainSlider__c-data-text-tags txt11 col-grey200">
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+                <li class="mainSlider__c-data-text-tags-el">
+                    <span>1000</span>
+                    <span>квартир</span>
+                </li>
+            </ul>
+            <p class="tl3">Lorem ipsum dolor sit amet.</p>
+
+            <a class="btn-link _arrow mobile">
+                <span>
+                    btn-link
+                </span>
+            </a>
+
+            <a href="" class="btn-primary ">
+                <span class="btn-primary__text">
+                    выбрать
+                </span>
+                <span class="btn-primary__text">
+                    недвижимость
+                </span>
+                <span class="btn-primary__icon _arrow">
+                </span>
+            </a>
+
+        </div>
+    </div>
+</div>
+      </section>
+     
+      <section class="mainProjects">
+        <div class="container mainProjects__c">
+          <div class="mainProjects__c-img">
+            <img loading='lazy' src="./assets/images/main-projects.webp" alt="">
+          </div>
+          <div class="mainProjects__c-main">
+            <p class="tl1">
+              Ознакомьтесь <br />
+              со всеми <span class="col-orange">нашими <br />
+                проектами</span>
+            </p>
+
+            <div class="mainProjects__c-main-text">
+              <img loading='lazy' class="desktop" src="./assets/images/mainProjectsSmall.webp" alt="">
+              <span class="tl1">20+ <span class="col-grey200 txt11">объектов</span></span>
+              <p class="txt11 txt-up desktop">
+                абсолютный комфорт <br />
+                и неповторимый стиль
+              </p>
+            </div>
+
+            <a href="#" class="btn-trans _arrow">
+              <span class="btn-trans__top">смотреть</span>
+              <span class="btn-trans__bottom">все проекты</span>
+            </a>
 
 
+
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="mainBanner">
+        <div class="container mainBanner__c">
+          <div class="mainBanner__c-img">
+            <img loading='lazy' src="./assets/images/contacts.webp" alt="">
+          </div>
+          <div class="mainBanner__c-text">
+            <p class="tl1 col-grey200">Мы создаем</p>
+            <p class="tl1 col-grey200">ценность через</p>
+            <p class="tl1">индивидуальность</p>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="mainSpecial">
+        <div class="container">
+          <p class="tl1">Уникальное предложение</p>
+          <div class="swiper">
+
+            <div class="mainSpecial__ctrl">
+              <div class="swiper-pag _fraction"></div>
+              <div class="swiper-nav">
+                <button class="swiper-btn swiper-btn-prev"></button>
+                <button class="swiper-btn swiper-btn-next"></button>
+              </div>
+            </div>
+
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide mainSpecial__slide">
+                <div class="mainSpecial__slide-left">
+                  <div class="mainSpecial__slide-left-img" data-fancybox href="./assets/images/aboutHeading.png">
+                    <img loading='lazy' src="./assets/images/aboutHeading.webp" alt="">
+                  </div>
+                  <ul class="mainSpecial__slide-left-adv ">
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+                  </ul>
+
+                  <button class="btn-trans _arrow mobile">
+                    <span class="btn-trans__top">получить</span>
+                    <span class="btn-trans__bottom">предложение</span>
+                  </button>
+
+                </div>
+                <div class="mainSpecial__slide-middle" data-fancybox href="./assets/images/aboutBanner.png">
+                  <img loading='lazy' src="./assets/images/aboutBanner.webp" alt="">
+                </div>]
+                <div class="mainSpecial__slide-right">
+                  <p class="tl3 col-orange">ЖК Литера</p>
+                  <p class="txt20 ">Большой Смоленский пр, 6</p>
+                  <span class="mainSpecial__slide-right-adv tl2">
+                    one <br />
+                    one <br />
+                    one <br />
+                    one <br />
+                  </span>
+
+                  <button class="btn-trans _arrow desktop">
+                    <span class="btn-trans__top">получить</span>
+                    <span class="btn-trans__bottom">предложение</span>
+                  </button>
+
+                </div>
+              </li>
+              <li class="swiper-slide mainSpecial__slide">
+                <div class="mainSpecial__slide-left">
+                  <div class="mainSpecial__slide-left-img" data-fancybox href="./assets/images/aboutHeading.png">
+                    <img loading='lazy' src="./assets/images/aboutHeading.webp" alt="">
+                  </div>
+                  <ul class="mainSpecial__slide-left-adv ">
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+
+                    <li class="mainSpecial__slide-left-adv-e ">
+                      <img loading='lazy' src="./assets/images/icons/bath.svg" alt="">
+                      <span class="tl3">top text</span>
+                      <span class="txt11 col-grey200">bottom text</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mainSpecial__slide-middle" data-fancybox href="./assets/images/aboutBanner.png">
+                  <img loading='lazy' src="./assets/images/aboutBanner.webp" alt="">
+                </div>]
+                <div class="mainSpecial__slide-right">
+                  <p class="tl3 col-orange">ЖК Литера</p>
+                  <p class="txt20 ">Большой Смоленский пр, 6</p>
+                  <span class="mainSpecial__slide-right-adv tl2">
+                    one <br />
+                    one <br />
+                    one <br />
+                    one <br />
+                  </span>
+
+                  <button class="btn-trans _arrow">
+                    <span class="btn-trans__top">получить</span>
+                    <span class="btn-trans__bottom">предложение</span>
+                  </button>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="mainMsg">
+        <div class="container mainMsg__c">
+          <p class="txt11 txt-up col-orange mainMsg__c-h">слово руководителей</p>
+          <p class="tl1 mainMsg__c-h1">
+            Мы предоставляем <span class="col-orange">уникальные</span> возможности и <span
+              class="col-orange">эксклюзивные предложения</span> в северной столице
+          </p>
+          <p class="tl3 mainMsg__c-h2">
+            Меняем привычное представление о повседневном комфорте и создавая уникальные сценарии жизни
+          </p>
+          <div class="mainMsg__c-line">
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mainMsg__c-text-one">
+            <p class="tl2 desktop">
+              Эффективность <br />
+              инвестиций
+            </p>
+            <p class="tl3">
+              Мы выстраиваем
+              дальновидную инвестиционную стратегию каждого проекта, обеспечивающую эффективность вложений как на этапе
+              приобретения, так и при продаже недвижимости.
+            </p>
+            <p class="txt15 col-grey200 desktop">
+              Алексей Тюлькин
+            </p>
+          </div>
+
+          <div class="desktop mainMsg__c-img">
+            <img loading='lazy' src="./assets/images/msg-1.webp" alt="">
+          </div>
+
+          <div class="mainMsg__c-text-two">
+            <p class="tl2 desktop">
+              Бескомпромиссный <br />
+              подход
+            </p>
+            <p class="tl3">
+              Честность и бескомпромиссный подход — наши главные принципы, мы готовы сказать «нет», если не можем
+              предложить идеальный вариант. Grosville создает пространство, где можно рассчитывать на искренние
+              рекомендации и качественные решения.
+            </p>
+            <p class="txt15 col-grey200 desktop">
+              Сергей Кошелев
+            </p>
+            <p class="txt15 col-grey200 mobile">
+              Алексей Тюлькин и Cергей Кошелев
+            </p>
+          </div>
+
+
+          <picture class="mainMsg__c-img">
+            <source media="(min-width: 768px)" srcset="./assets/images/msg-2.webp">
+            <img loading='lazy' src="./assets/images/msg-3.webp" alt="">
+          </picture>
+
+
+        </div>
+      </section>
+      <!--  -->
+      <section class="requestForm">
+    <div class="container requestForm__c">
+        <div class="requestForm__c-top">
+            <ul class="requestForm__c-top-imgs">
+                <li class="requestForm__c-top-imgs-el">
+                    <img loading='lazy' src="./assets/images/requestForm-1.webp" alt="">
+                </li>
+                <li class="requestForm__c-top-imgs-el">
+                    <img loading='lazy' src="./assets/images/requestForm-2.webp" alt="">
+                </li>
+                <li class="requestForm__c-top-imgs-el">
+                    <img loading='lazy' src="./assets/images/requestForm-3.webp" alt="">
+                </li>
+            </ul>
+            <p class="col-orange txt11 txt-up">Расположение, фотографии, планировка и цена в нашем буклете</p>
+            <p class="tl1">
+                Скачайте материалы проекта <br class="desktop">
+                жилого комплекса Куинджи
+            </p>
+        </div>
+        <form class="form requestForm__c-form">
+            <p class="txt20 requestForm__c-form-text">
+                Укажите свои контакты <br>
+                и скачайте буклет <br>
+                <span class="col-orange">
+                    в 1 клик
+                </span>
+            </p>
+
+            <label class="form-input-container">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <label class="form-input-container">
+                <input type="text" name="phone" required="" placeholder="+7 (___) ___-__-__">
+                <span class="form-input-error">error</span>
+            </label>
+
+            <p class="txt13 col-grey200 requestForm__c-form-msg">Отправляя форму, вы принимаете <a class="ui-link col-orange" href="#">пользовательское соглашение</a></p>
+
+            <div class="requestForm__c-form-btns">
+
+                <button class="btn-trans form-submit _download">
+                    <span class="btn-trans__top">скачать</span>
+                    <span class="btn-trans__bottom">буклет</span>
+                </button>
+
+            </div>
+
+        </form>
+    </div>
+</section>
     </main>
-  
     <div class="modal modal-request modal-closer" data-submit_type="call">
     <!-- ВНИМАНИЕ -->
     <!-- при вызове модалки через кнопку data-modal=request -->
@@ -169,6 +827,19 @@
     </div>
 </div>
 
+<div class="modal modal-map modal-closer">
+
+    <div class="modal__c">
+        <button class="modal-closer modal__c-closer ui-x"></button>
+        <p class="txt40 modal-map__ttl">название</p>
+        <p class="txt15 col-orange modal-map__adr">адрес</p>
+
+        <div class="modal-map__map" id="modalMap">
+
+        </div>
+    </div>
+</div>
+
 <footer class="footer">
     <div class="container footer__c">
         <div class="footer__c-logo">
@@ -234,27 +905,6 @@
 </footer>
   </div>
 
-  <!--  <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU" type="text/javascript"></script>
-  <script type="text/javascript">
-    ymaps.ready(init);
-    function init() {
-      var myMap = new ymaps.Map("map", {
-        center: [47.204572074287015, 39.67028549999995],
-        zoom: 16,
-        controls: ['fullscreenControl']
-      });
-      myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-        hintContent: 'there is no palce for narkomany 😎'
-      }, {
-        iconLayout: 'default#image',
-        iconImageHref: './assets/images/icons/map-marker.svg',
-        iconImageSize: [50, 50],
-
-      }),
-        myMap.geoObjects
-          .add(myPlacemark)
-    }
-  </script> -->
 </body>
 
 </html>

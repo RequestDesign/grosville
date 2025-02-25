@@ -312,7 +312,7 @@ function initSwipers() {
   const catalogDetail_Img = document.querySelectorAll('.catalogDetailBody__c-img-swiper');
   if (catalogDetail_Img) {
     catalogDetail_Img.forEach(el => {
-      new swiper/* default */.Z(el, {
+      const s = new swiper/* default */.Z(el, {
         modules: [modules/* EffectFade */.xW, modules/* Navigation */.W_, modules/* Pagination */.tl],
         effect: 'fade',
         fadeEffect: {
@@ -329,34 +329,45 @@ function initSwipers() {
         navigation: {
           prevEl: el.querySelector('.swiper-btn-prev'),
           nextEl: el.querySelector('.swiper-btn-next')
+        },
+        on: {
+          init: s => {
+            if (window.innerWidth < 768 && el.classList.contains('_second')) {
+              const slide = s.slides[1]; // Берём второй слайд
+              const newHome = el.closest('.catalogDetailBody__c');
+              const img = slide.querySelector('img'); // Новый родительский контейнер
+              // Переносим слайд в новый контейнер
+              newHome.querySelector('.catalogDetailBody__c-subheading-img').appendChild(img);
+              slide.remove();
+              // Обновляем структуру Swiper
+              s.update();
+            }
+          }
         }
       });
-    });
-  }
-  const catalogDetail_ImgSecond = document.querySelector('.catalogDetailBody__c-img.swiper._second');
-  if (catalogDetail_ImgSecond) {
-    const s = new swiper/* default */.Z(catalogDetail_ImgSecond, {
-      modules: [modules/* EffectFade */.xW],
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true
-      },
-      slidesPerView: 1,
-      followFinger: false,
-      simulateTouch: false,
-      allowTouchMove: false
-    });
-    const one = catalogDetail_ImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._1');
-    const two = catalogDetail_ImgSecond.querySelector('.catalogDetailBody__c-img-second-btn._2');
-    two.addEventListener('click', () => {
-      s.slideTo(1);
-      two.classList.add('_active');
-      one.classList.remove('_active');
-    });
-    one.addEventListener('click', () => {
-      s.slideTo(0);
-      one.classList.add('_active');
-      two.classList.remove('_active');
+      const one = el.querySelector('.catalogDetailBody__c-img-second-btn._1');
+      const two = el.querySelector('.catalogDetailBody__c-img-second-btn._2');
+      if (one && two) {
+        s.on('slideChange', s => {
+          if (s.activeIndex == true) {
+            two.classList.add('_active');
+            one.classList.remove('_active');
+          } else {
+            one.classList.add('_active');
+            two.classList.remove('_active');
+          }
+        });
+        two.addEventListener('click', () => {
+          s.slideTo(1);
+          two.classList.add('_active');
+          one.classList.remove('_active');
+        });
+        one.addEventListener('click', () => {
+          s.slideTo(0);
+          one.classList.add('_active');
+          two.classList.remove('_active');
+        });
+      }
     });
   }
   const catalogDetailTop_Newbuild = document.querySelector('.catalogDetailTop__newbuild');
@@ -504,18 +515,19 @@ function initSwipers() {
       slidesPerView: 1.4,
       spaceBetween: 14,
       centeredSlides: true,
-      loop: true,
+      initialSlide: window.innerWidth > 768 ? 3 : 0,
+      /*   loop: true, */
       followFinger: true,
       simulateTouch: false,
+      slideToClickedSlide: true,
       on: {
-        /*   init:(s)=>{
-              s.slides.forEach((e, i)=>{
-                  e.addEventListener('click', (e)=>{
-                      console.log(e.currentTarget.dataset.swiperSlideIndex, s.activeIndex);
-                    s.slideToLoop(e.currentTarget.dataset.swiperSlideIndex)
-                  })
-              })
-          } */
+        init: s => {
+          s.slides.forEach((e, i) => {
+            e.addEventListener('click', e => {
+              s.slideTo(i);
+            });
+          });
+        }
       },
       breakpoints: {
         768: {
@@ -539,7 +551,7 @@ function initSwipers() {
       }
     });
   }
-  const catalogItem = document.querySelectorAll('.catalogItem .swiper');
+  const catalogItem = document.querySelectorAll('.catalogItemSwiper');
   if (catalogItem) {
     catalogItem.forEach(e => {
       new swiper/* default */.Z(e, {
@@ -557,7 +569,94 @@ function initSwipers() {
       });
     });
   }
-
+  const headingMain = document.querySelector('.mainHeading__c-slider');
+  if (headingMain) {
+    new swiper/* default */.Z(headingMain, {
+      modules: [modules/* Navigation */.W_, modules/* EffectFade */.xW, modules/* Autoplay */.pt],
+      effect: 'fade',
+      autoplay: {
+        delay: 2000
+      },
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      navigation: {
+        nextEl: headingMain.querySelector('.swiper-btn-next')
+      },
+      on: {
+        init: s => {
+          s.slides.forEach((e, i) => {
+            e.querySelector('.mainHeading__c-slider-el-count').textContent = String(i + 1).padStart(2, '0');
+          });
+        }
+      }
+    });
+  }
+  const mainSlider = document.querySelectorAll('.mainSlider');
+  if (mainSlider && mainSlider.length) {
+    mainSlider.forEach(m => {
+      const small = new swiper/* default */.Z(m.querySelector('.mainSlider__c-data-img'), {
+        slidesPerView: 1,
+        followFinger: false,
+        simulateTouch: false,
+        allowTouchMove: false,
+        initialSlide: 1,
+        loop: true
+      });
+      const big = new swiper/* default */.Z(m.querySelector('.mainSlider__c-middle'), {
+        modules: [modules/* Navigation */.W_, modules/* Pagination */.tl],
+        slidesPerView: 1,
+        followFinger: false,
+        simulateTouch: false,
+        loop: true,
+        pagination: {
+          el: m.querySelector('.swiper-pag'),
+          type: 'fraction',
+          formatFractionCurrent: n => {
+            return String(n).padStart(2, '0');
+          },
+          formatFractionTotal: n => {
+            return String(n).padStart(2, '0');
+          }
+        }
+      });
+      m.querySelector('.swiper-btn-next').addEventListener('click', () => {
+        big.slideNext();
+        small.slideNext();
+      });
+      m.querySelector('.swiper-btn-prev').addEventListener('click', () => {
+        big.slidePrev();
+        small.slidePrev();
+      });
+    });
+  }
+  const mainSpecial = document.querySelector('.mainSpecial .swiper');
+  if (mainSpecial) {
+    new swiper/* default */.Z(mainSpecial, {
+      modules: [modules/* Navigation */.W_, modules/* Pagination */.tl, modules/* EffectFade */.xW],
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: false
+      },
+      followFinger: false,
+      simulateTouch: false,
+      navigation: {
+        prevEl: mainSpecial.querySelector('.swiper-btn-prev'),
+        nextEl: mainSpecial.querySelector('.swiper-btn-next')
+      },
+      pagination: {
+        el: mainSpecial.querySelector('.swiper-pag'),
+        type: 'fraction',
+        formatFractionCurrent: n => {
+          return String(n).padStart(2, '0');
+        },
+        formatFractionTotal: n => {
+          return String(n).padStart(2, '0');
+        }
+      }
+    });
+  }
   /*  const recomendation = document.querySelector('.recomendation')
    if (recomendation && window.innerWidth < 768) {
        new Swiper(recomendation.querySelector('.swiper'), {
@@ -620,6 +719,25 @@ function modalsHandler() {
     } = ev.currentTarget.dataset;
     jquery_default()(`.modal-${modal}`).fadeIn().addClass('_opened').attr('data-submit_type', submit_type);
     html.addClass('_lock');
+    if (modal == 'map') {
+      ymaps.ready(init);
+      function init() {
+        var myMap = new ymaps.Map("modalMap", {
+          center: [ev.currentTarget.dataset.mapx, ev.currentTarget.dataset.mapy],
+          zoom: 16,
+          controls: ['fullscreenControl']
+        });
+        myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
+          hintContent: 'q'
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
+          iconImageSize: [111, 135]
+        }));
+      }
+      jquery_default()(`.modal-${modal}`).find('.modal-map__ttl').text(ev.currentTarget.dataset.mapTtl);
+      jquery_default()(`.modal-${modal}`).find('.modal-map__adr').text(ev.currentTarget.dataset.mapAdr);
+    }
   });
   modalClosers.on('click', ev => {
     const {
