@@ -403,7 +403,7 @@
             <section class="catalogItems">
                 <div class="container catalogItems__c">
                     <ul class="catalogItems__c-list">
-                        <li class="catalogItem">
+                        <li class="catalogItem" data-map_target="0">
     <div class="catalogItem__img catalogItemSwiper swiper">
         <div class="swiper-pag _bullets _white">
 
@@ -469,7 +469,7 @@
         </div>
     </div>
 </li>
-                        <li class="catalogItem">
+                        <li class="catalogItem" data-map_target="1">
     <div class="catalogItem__img catalogItemSwiper swiper">
         <div class="swiper-pag _bullets _white">
 
@@ -535,7 +535,7 @@
         </div>
     </div>
 </li>
-                        <li class="catalogItem">
+                        <li class="catalogItem" data-map_target="2">
     <div class="catalogItem__img catalogItemSwiper swiper">
         <div class="swiper-pag _bullets _white">
 
@@ -601,7 +601,7 @@
         </div>
     </div>
 </li>
-                        <li class="catalogItemFirst dd-container">
+                        <li class="catalogItemFirst dd-container" data-map_target="0">
     <div class="catalogItemFirst__top">
         <div class="catalogItemFirst__top-img catalogItemSwiper swiper">
             <div class="swiper-pag _bullets _white">
@@ -738,7 +738,7 @@
                 </div>
 
                 <div class="catalogItemFirstCurrent__top">
-                    <p class="tl2">ttqw eqwe qw eqwe l</p>
+                    <a href="#" class="tl2">ttqw eqwe qw eqwe l</a>
                     <span class="txt13 col-grey200 catalogItemFirstCurrent__top-list"><span>1
                             очередь</span> <span>Корпус 2</span>
                         <span>lll КВ 2026</span></span>
@@ -792,11 +792,8 @@
         </div>
     </div>
 </li>
-
-
-
                     </ul>
-                    <div class="catalogItems__c-map desktop " id="map">
+                    <div class="catalogItems__c-map desktop ui-map-grey" id="map">
 
                     </div>
 
@@ -974,29 +971,67 @@
         type="text/javascript"></script>
     <script type="text/javascript">
         if (window.innerWidth > 768) {
-            ymaps.ready(init);
-            function init() {
-                var myMap = new ymaps.Map("map", {
-                    center: [47.204572074287015, 39.67028549999995],
+            const points = [
+                // Создаем карту
+                { lat: 59.940360, lng: 30.312540, image: './assets/images/map-artStudio.webp', url: '/' },
+                { lat: 59.934460, lng: 30.304690, image: './assets/images/map-kuiji.webp', url: '/' },
+                { lat: 59.950300, lng: 30.315020, image: './assets/images/map-liter.webp', url: '/' }
+            ];
+
+            ymaps.ready(function () {
+                // Создаем карту
+                const myMap = new ymaps.Map('map', {
+                    center: [59.939095, 30.315868], // Центр карты - центр Санкт-Петербурга
                     zoom: 16,
-                    behaviors: ['drag'],
-                    controls: ['fullscreenControl']
+                    controls: []
                 });
-                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                    hintContent: 'there is no palce for narkomany 😎'
-                }, {
-                    iconLayout: 'default#image',
-                    iconImageHref: './assets/images/map-marker-contacts.webp',
-                    iconImageSize: [210, 70],
+                myMap.options.set({
+                suppressMapOpenBlock: true, // Убираем панель "Как добраться"
+                suppressZoomOnDoubleClick: true, // Отключаем масштабирование двойным кликом
+                suppressPinchToZoom: true, // Отключаем увеличение жестом
+                taxiButtonShown: false, // Скрываем кнопку вызова такси
+                routePanelEnabled: false, // Отключаем панель маршрутов
+                geolocationControlSize: 'small' // Можно также уменьшить размер геолокационного контроля
+            });
+                // Функция для добавления маркера
+                function addMarker(point) {
+                    const marker = new ymaps.Placemark([point.lat, point.lng], {}, {
+                        iconLayout: 'default#image',
+                        iconImageHref: point.image,
+                        iconImageSize: [204, 70]
+                    });
 
-                }),
-                    myMap.geoObjects
-                        .add(myPlacemark)
-            }
+                    // Добавляем событие клика на маркер
+                    marker.events.add('click', function (event) {
+                        window.open(point.url, '_blank'); // Открываем ссылку в новой вкладке
+                    });
+                    return marker;
+                }
 
-            window.addEventListener('scroll', (e) => {
-                console.log(1);
-            })
+                // Добавляем маркеры на карту
+                const markers = points.map(addMarker);
+                points.forEach((p)=>{
+                    myMap.geoObjects.add(addMarker(p));
+                })
+                
+
+                // Функция для центрирования карты на маркере
+                function centerOnMarker(markerIndex) {
+                    if (markerIndex >= 0 && markerIndex < markers.length) {
+                        const targetPoint = markers[markerIndex].geometry.getCoordinates();
+                        myMap.panTo(targetPoint);
+                    }
+                }
+
+                centerOnMarker(0);
+
+                document.querySelectorAll('.catalogItem, .catalogItemFirst')
+                .forEach((e)=>{
+                    e.addEventListener('mouseenter', (ev)=>{
+                        centerOnMarker(ev.currentTarget.dataset.map_target)
+                    })
+                })
+            });
         }
     </script>
 </body>
