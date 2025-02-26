@@ -20,6 +20,10 @@ var inputmask_default = /*#__PURE__*/__webpack_require__.n(inputmask);
 var index_esm = __webpack_require__(252);
 // EXTERNAL MODULE: ./node_modules/nouislider/dist/nouislider.mjs
 var nouislider = __webpack_require__(122);
+// EXTERNAL MODULE: ./node_modules/gsap/index.js + 2 modules
+var gsap = __webpack_require__(358);
+// EXTERNAL MODULE: ./node_modules/gsap/src/ScrollTrigger.js + 1 modules
+var ScrollTrigger = __webpack_require__(58);
 ;// CONCATENATED MODULE: ./src/js/utils/Form.js
 class Form {
   /**
@@ -205,8 +209,8 @@ const rem = function (rem) {
 
 
 //import WOW from 'wow.js';
-//import gsap from 'gsap';
-//import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
+
+
 //import CSSRulePlugin from 'gsap/all';
 /* node_modules */
 
@@ -230,6 +234,7 @@ jquery_default()(function () {
   initFancybox();
   initSwipers();
   initAboutVidos();
+  initScroll();
   HTML.classList.add(HTML_PAGELOAD_SELECTOR);
   document.addEventListener('click', ev => {
     const {
@@ -281,10 +286,159 @@ jquery_default()(function () {
       }
       ev.target.classList.add('_checked');
     } else if (classList.contains('filter-opener')) {
-      document.querySelector('.filters').classList.toggle('_opened');
+      const t = document.querySelector('.filters');
+      if (t.classList.contains('_opened')) {
+        t.classList.remove('_opened');
+        HTML.classList.remove(HTML_LOCK_SELECTOR);
+      } else {
+        t.classList.add('_opened');
+        HTML.classList.add(HTML_LOCK_SELECTOR);
+      }
     }
   });
 });
+function initScroll() {
+  if (!document.querySelector('.mainBanner__big-img')) return;
+  const scrollCfg = {
+    start: 'top 90%',
+    end: 'bottom 10%',
+    toggleActions: 'play none none reverse',
+    once: false
+  };
+  gsap/* default */.ZP.defaults({
+    duration: .5,
+    ease: 'none'
+  });
+  gsap/* default */.ZP.registerPlugin(ScrollTrigger/* ScrollTrigger */.i);
+  document.querySelectorAll('.mainBanner__big-img').forEach(e => {
+    const scrollCfg = {
+      trigger: e,
+      start: 'top 95%',
+      // Начинаем анимацию, когда элемент появляется сверху
+      end: 'bottom -30%',
+      // Заканчиваем анимацию, когда элемент уходит вниз
+      scrub: true,
+      // Для плавной синхронизации с прокруткой
+      markers: true // Показываем маркеры для отладки (можно убрать)
+    };
+
+    // Анимация, которая двигает элемент снизу вверх и делает его видимым
+    gsap/* default */.ZP.to(e, {
+      yPercent: -80,
+      // Передвигаем элемент на 80% вверх относительно контейнера
+      opacity: 1,
+      // Делаем элемент полностью видимым
+      scale: 1.2,
+      // Увеличиваем масштаб элемента на 20%
+      scrollTrigger: scrollCfg
+    });
+  });
+  document.querySelectorAll('.mainBanner__small-img').forEach(e => {
+    const scrollCfg = {
+      trigger: e,
+      start: 'top 95%',
+      // Начинаем анимацию, когда элемент появляется сверху
+      end: 'bottom -30%',
+      // Заканчиваем анимацию, когда элемент уходит вниз
+      scrub: true,
+      // Для плавной синхронизации с прокруткой
+      markers: true // Показываем маркеры для отладки (можно убрать)
+    };
+
+    // Анимация, которая двигает элемент снизу вверх и делает его видимым
+    gsap/* default */.ZP.to(e, {
+      yPercent: -5,
+      // Передвигаем элемент на 80% вверх относительно контейнера
+      opacity: 1,
+      // Делаем элемент полностью видимым
+      scrollTrigger: scrollCfg
+    });
+    gsap/* default */.ZP.set(e.querySelector('img'), {
+      scale: 1.5
+    });
+    gsap/* default */.ZP.to(e.querySelector('img'), {
+      scale: 1,
+      // Увеличиваем масштаб элемента на 20%
+      scrollTrigger: scrollCfg
+    });
+  });
+
+  /*---------------animate__heading--------------  */
+
+  /*---------------animate__fadeInUp--------------  */
+  /*  document.querySelectorAll('.animate__fadeInUp')
+       .forEach((el) => {
+           const tl = gsap.timeline()
+           gsap.set(el, {
+               opacity: 0,
+               transform: 'translateY: 105%'
+           });
+              ScrollTrigger.create({
+               trigger: el,
+               ...scrollCfg,
+               onEnter: () => {
+                   tl.clear();
+                   tl.fromTo(
+                       el,
+                       { translateY: '110%' },
+                       {
+                           translateY: '0%',
+                           duration: 1.5,
+                           ease: 'power1.inOut'
+                       } // Указывает, что эта анимация должна начаться одновременно с предыдущей
+                   );
+                   tl.fromTo(
+                       el,
+                       { opacity: 0 },
+                       {
+                           opacity: 1,
+                           duration: 1,
+                           ease: 'power1.inOut'
+                       },
+                       '<'
+                   ).play();
+               },
+               onEnterBack: () => {
+                   tl.clear();
+                   tl.fromTo(el, {
+                       opacity: 0,
+                       translateY: '-105%',
+                   }, {
+                       opacity: 1,
+                       translateY: '0%',
+                       duration: 0.5,
+                   }).play();
+               },
+               onLeave: () => {
+                   tl.clear();
+                   tl.fromTo(el, {
+                       opacity: 1,
+                       translateY: '0%',
+                   }, {
+                       opacity: 0,
+                       translateY: '-105%',
+                       duration: 0.5,
+                   }).play();
+               },
+               onLeaveBack: () => {
+                   tl.clear();
+                   tl.fromTo(el, {
+                       opacity: 1,
+                       translateY: '0%',
+                   }, {
+                       opacity: 0,
+                       translateY: '105%',
+                       duration: 0.5,
+                   }).play();
+  
+               },
+               //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+           });
+       }) */
+
+  /*---------------animate__fadeInUp--------------  */
+}
+
 function initSwipers() {
   const catalogDetail_Top = document.querySelector('.catalogDetailTop');
   if (catalogDetail_Top) {
@@ -637,7 +791,7 @@ function initSwipers() {
       modules: [modules/* Navigation */.W_, modules/* Pagination */.tl, modules/* EffectFade */.xW],
       effect: 'fade',
       fadeEffect: {
-        crossFade: false
+        crossFade: true
       },
       followFinger: false,
       simulateTouch: false,
@@ -972,7 +1126,7 @@ function header() {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [390,90,371,729,522,877], () => (__webpack_require__(906)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [390,775,90,371,729,522,877], () => (__webpack_require__(906)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

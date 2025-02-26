@@ -25,7 +25,7 @@
         }
     </style>
     <title>catalog.html</title>
-<script defer src="js/swiper.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/jquery.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
+<script defer src="js/swiper.js"></script><script defer src="js/gsap.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/jquery.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
 
 <body>
     <div class="wrapper">
@@ -232,11 +232,173 @@
                 </div>
             </section>
             <!--  -->
-            <section class="catalogFilter">
-                <div class="container">
-                    <p class="tl1">filter</p>
+            <section class="catalogFilters">
+                <button class="catalogFilters__opener filter-opener mobile"></button>
+                <div class="catalogFilters__top container desktop">
+                    <p class="tl1">Выбрать недвижимость</p>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox" checked>
+                        <span class="form-input-container__text">
+                            Первичная
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox">
+                        <span class="form-input-container__text">
+                            Вторичная
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox">
+                        <span class="form-input-container__text">
+                            Загородная
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox">
+                        <span class="form-input-container__text">
+                            Коммерческая
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
                 </div>
             </section>
+            <div class="filters">
+    <div class="container">
+        <div class="filters__top">
+
+            <button class="filters__top-close mobile tl2 filter-opener">
+                    закрыть
+            </button>
+        </div>
+        <ul class="filters__c">
+            <li class="filters__c-el">
+                <span class="txt13 col-grey200 txt-up filters__c-el-name">название</span>
+                <div class="dd-container dd-absolute">
+                  
+                        <label class="dd-absolute__target dd-target">
+                            <input class=" select-input dd-absolute__target" type="text" readonly="" value="default value">
+                        </label>
+
+                        <div class="dd-absolute__wrp">
+                            <div class="dd-absolute__wrp-list">
+                                <button class="dd-absolute__wrp-list-el select-value _checked">
+                                    val-1
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-3
+                                </button>
+                            </div>
+                        </div>
+                   
+                </div>
+            </li>
+            <li class="filters__c-el">
+                <span class="txt13 col-grey200 txt-up filters__c-el-name">название</span>
+                <div class="dd-container dd-absolute">
+                  
+                        <label class="dd-absolute__target dd-target">
+                            <input class=" select-input dd-absolute__target" type="text" readonly="" value="default value">
+                        </label>
+
+                        <div class="dd-absolute__wrp">
+                            <div class="dd-absolute__wrp-list">
+                                <button class="dd-absolute__wrp-list-el select-value _checked">
+                                    val-1
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-2
+                                </button>
+                                <button class="dd-absolute__wrp-list-el select-value">
+                                    val-3
+                                </button>
+                            </div>
+                        </div>
+                   
+                </div>
+            </li>
+
+            <li class="filters__c-el">
+                <div class="nouislider _black">
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">от</p>
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">до</p>
+                    <input class="nouislider__min" type="text" min="200" value="200" readonly="">
+                    <input class="nouislider__max" type="text" max="200000" value="200000" readonly="">
+                    <div class="nouislider__place">
+
+                    </div>
+                </div>
+            </li>
+            <li class="filters__c-el">
+                <div class="nouislider ">
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">такой же</p>
+                    <p class="txt13 col-grey200 txt-up filters__c-el-name">но не черный</p>
+                    <input class="nouislider__min" type="text" min="200" value="200" readonly="">
+                    <input class="nouislider__max" type="text" max="200000" value="200000" readonly="">
+                    <div class="nouislider__place">
+
+                    </div>
+                </div>
+            </li>
+            <li class="filters__c-el">
+                <span class="txt13 col-grey200 txt-up filters__c-el-name">количество комнат</span>
+                <div class="filters__c-el-list txt-up txt16">
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">c</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">1</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" checked="" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">2</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">3</span>
+                    </label>
+                    <label class="filters__c-el-list-radio">
+                        <input value="any-val" type="radio" name="filterRoom">
+                        <span class="filters__c-el-list-radio-btn">4+</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        <div class="filters__footer">
+
+            <button class="btn-primary  filter-opener">
+                <span class="btn-primary__text">
+                    показать
+                </span>
+                <span class="btn-primary__text">
+                    варианты
+                </span>
+                <span class="btn-primary__icon _down">
+                </span>
+            </button>
+
+        </div>
+    </div>
+</div>
             <!--  -->
             <section class="catalogItems">
                 <div class="container catalogItems__c">
@@ -630,9 +792,9 @@
         </div>
     </div>
 </li>
-                    
 
-                       
+
+
                     </ul>
                     <div class="catalogItems__c-map desktop " id="map">
 
@@ -832,7 +994,7 @@
                         .add(myPlacemark)
             }
 
-            window.addEventListener('scroll',(e)=>{
+            window.addEventListener('scroll', (e) => {
                 console.log(1);
             })
         }
