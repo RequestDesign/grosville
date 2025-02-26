@@ -7,8 +7,8 @@ import Inputmask from 'inputmask'
 import { Fancybox } from "@fancyapps/ui";
 import noUiSlider from 'nouislider'
 //import WOW from 'wow.js';
-//import gsap from 'gsap';
-//import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
 //import CSSRulePlugin from 'gsap/all';
 /* node_modules */
 
@@ -31,6 +31,7 @@ $(function () {
     initFancybox()
     initSwipers()
     initAboutVidos()
+    initScroll()
 
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
 
@@ -94,12 +95,155 @@ $(function () {
             }
             ev.target.classList.add('_checked')
         } else if (classList.contains('filter-opener')) {
-            document.querySelector('.filters').classList.toggle('_opened')
+            const t = document.querySelector('.filters')
+            if (t.classList.contains('_opened')) {
+                t.classList.remove('_opened')
+                HTML.classList.remove(HTML_LOCK_SELECTOR)
+            } else {
+                t.classList.add('_opened')
+                HTML.classList.add(HTML_LOCK_SELECTOR)
+
+            }
+
 
         }
     })
 
 })
+
+function initScroll() {
+    if (!document.querySelector('.mainBanner__big-img')) return
+    const scrollCfg = {
+        start: 'top 90%',
+        end: 'bottom 10%',
+        toggleActions: 'play none none reverse',
+        once: false,
+    }
+    gsap.defaults({ duration: .5, ease: 'none' });
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.querySelectorAll('.mainBanner__big-img')
+        .forEach((e) => {
+            const scrollCfg = {
+                trigger: e,
+                start: 'top 95%', // Начинаем анимацию, когда элемент появляется сверху
+                end: 'bottom -30%', // Заканчиваем анимацию, когда элемент уходит вниз
+                scrub: true, // Для плавной синхронизации с прокруткой
+                markers: true // Показываем маркеры для отладки (можно убрать)
+            };
+
+            // Анимация, которая двигает элемент снизу вверх и делает его видимым
+            gsap.to(e, {
+                yPercent: -80, // Передвигаем элемент на 80% вверх относительно контейнера
+                opacity: 1, // Делаем элемент полностью видимым
+                scale: 1.2, // Увеличиваем масштаб элемента на 20%
+                scrollTrigger: scrollCfg
+            });
+        })
+    document.querySelectorAll('.mainBanner__small-img')
+        .forEach((e) => {
+            const scrollCfg = {
+                trigger: e,
+                start: 'top 95%', // Начинаем анимацию, когда элемент появляется сверху
+                end: 'bottom -30%', // Заканчиваем анимацию, когда элемент уходит вниз
+                scrub: true, // Для плавной синхронизации с прокруткой
+                markers: true // Показываем маркеры для отладки (можно убрать)
+            };
+
+            // Анимация, которая двигает элемент снизу вверх и делает его видимым
+            gsap.to(e, {
+                yPercent: -5, // Передвигаем элемент на 80% вверх относительно контейнера
+                opacity: 1, // Делаем элемент полностью видимым
+                scrollTrigger: scrollCfg
+            });
+            gsap.set(e.querySelector('img'), {
+                scale: 1.5
+            })
+            gsap.to(e.querySelector('img'), {
+                scale: 1, // Увеличиваем масштаб элемента на 20%
+                scrollTrigger: scrollCfg
+            });
+        })
+
+
+    /*---------------animate__heading--------------  */
+
+    /*---------------animate__fadeInUp--------------  */
+    /*  document.querySelectorAll('.animate__fadeInUp')
+         .forEach((el) => {
+             const tl = gsap.timeline()
+             gsap.set(el, {
+                 opacity: 0,
+                 transform: 'translateY: 105%'
+             });
+ 
+             ScrollTrigger.create({
+                 trigger: el,
+                 ...scrollCfg,
+                 onEnter: () => {
+                     tl.clear();
+                     tl.fromTo(
+                         el,
+                         { translateY: '110%' },
+                         {
+                             translateY: '0%',
+                             duration: 1.5,
+                             ease: 'power1.inOut'
+                         } // Указывает, что эта анимация должна начаться одновременно с предыдущей
+                     );
+                     tl.fromTo(
+                         el,
+                         { opacity: 0 },
+                         {
+                             opacity: 1,
+                             duration: 1,
+                             ease: 'power1.inOut'
+                         },
+                         '<'
+                     ).play();
+                 },
+                 onEnterBack: () => {
+                     tl.clear();
+                     tl.fromTo(el, {
+                         opacity: 0,
+                         translateY: '-105%',
+                     }, {
+                         opacity: 1,
+                         translateY: '0%',
+                         duration: 0.5,
+                     }).play();
+                 },
+                 onLeave: () => {
+                     tl.clear();
+                     tl.fromTo(el, {
+                         opacity: 1,
+                         translateY: '0%',
+                     }, {
+                         opacity: 0,
+                         translateY: '-105%',
+                         duration: 0.5,
+                     }).play();
+                 },
+                 onLeaveBack: () => {
+                     tl.clear();
+                     tl.fromTo(el, {
+                         opacity: 1,
+                         translateY: '0%',
+                     }, {
+                         opacity: 0,
+                         translateY: '105%',
+                         duration: 0.5,
+                     }).play();
+ 
+ 
+                 },
+                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+             });
+         }) */
+
+    /*---------------animate__fadeInUp--------------  */
+
+}
 
 function initSwipers() {
     const catalogDetail_Top = document.querySelector('.catalogDetailTop')
@@ -152,7 +296,7 @@ function initSwipers() {
                 on: {
                     init: (s) => {
                         if (window.innerWidth < 768 && el.classList.contains('_second')) {
-                     
+
                             const slide = s.slides[1];  // Берём второй слайд
                             const newHome = el.closest('.catalogDetailBody__c')
                             const img = slide.querySelector('img') // Новый родительский контейнер
@@ -160,7 +304,7 @@ function initSwipers() {
                             newHome.querySelector('.catalogDetailBody__c-subheading-img').appendChild(img);
                             slide.remove()
                             // Обновляем структуру Swiper
-                            s.update();  
+                            s.update();
                         }
                     }
                 }
@@ -355,18 +499,18 @@ function initSwipers() {
             spaceBetween: 14,
             centeredSlides: true,
             initialSlide: window.innerWidth > 768 ? 3 : 0,
-          /*   loop: true, */
+            /*   loop: true, */
             followFinger: true,
             simulateTouch: false,
             slideToClickedSlide: true,
             on: {
-                  init:(s)=>{
-                      s.slides.forEach((e, i)=>{
-                          e.addEventListener('click', (e)=>{
+                init: (s) => {
+                    s.slides.forEach((e, i) => {
+                        e.addEventListener('click', (e) => {
                             s.slideTo(i)
-                          })
-                      })
-                  }
+                        })
+                    })
+                }
             },
             breakpoints: {
                 768: {
@@ -489,7 +633,7 @@ function initSwipers() {
             modules: [Navigation, Pagination, EffectFade],
             effect: 'fade',
             fadeEffect: {
-                crossFade: false
+                crossFade: true
             },
             followFinger: false,
             simulateTouch: false,

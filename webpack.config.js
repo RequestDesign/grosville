@@ -62,6 +62,7 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
 
           if (elements.length > 0) {
             elements.forEach((element) => {
+          
               if (elementData.text) {
                 element.textContent = elementData.text;
               }
@@ -70,6 +71,11 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
               }
               if (elementData.class) {
                 element.classList.add(elementData.class);
+              } 
+              if(elementData.attr){
+                Object.entries(elementData.attr).forEach(([key, value]) => {
+                  element.setAttribute(key, value);
+                });
               }
             });
           } else {

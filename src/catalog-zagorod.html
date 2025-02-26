@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: local('Montserrat'),
+                url('./assets/fonts/Montserrat.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'),
+                url('./assets/fonts/Inter.woff2') format('woff2');
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <title>само напишется</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <include src="./components/_header.html"></include>
+        <main>
+            <section class="catalogBanner">
+                <div class="container catalogBanner__c">
+                    <div class="catalogBanner__c-left">
+                        <div class="catalogBanner__c-left-top">
+                            <p class="tl2">20+</p>
+                            <p class="txt13 txt-up col-grey200">объектов</p>
+                        </div>
+                        <ul class="catalogBanner__c-left-circle">
+                            <li class="catalogBanner__c-left-circle-el">
+                                <img src="./assets/images/catalogBanner-circle-1.png" alt="">
+                            </li>
+                            <li class="catalogBanner__c-left-circle-el">
+                                <img src="./assets/images/catalogBanner-circle-2.png" alt="">
+                            </li>
+                            <li class="catalogBanner__c-left-circle-el">
+                                <img src="./assets/images/catalogBanner-circle-3.png" alt="">
+                            </li>
+                        </ul>
+                        <p class="tl3">
+                            Лучшие возможности <br />
+                            и эксклюзивные предложения <br />
+                            в своем классе
+                        </p>
+                    </div>
+
+                    <div class=" catalogBanner__c-right swiper headingSlider">
+                        <div class="swiper-nav _square">
+                            <button class="swiper-btn swiper-btn-prev"></button>
+                            <button class="swiper-btn swiper-btn-next"></button>
+                        </div>
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide catalogBanner__c-right-slide">
+                                <div class="catalogBanner__c-right-slide-img">
+                                    <img src="./assets/images/catalog-detail-1.png" alt="">
+                                </div>
+                                <div class="catalogBanner__c-right-slide-right">
+
+                                    <p class="tl1">Старт продаж</p>
+                                    <p class="tl3">Новый элитный проект ГК «Еврострой» в центре Санкт-Петербурга</p>
+                                    <p class="col-grey200 txt11">набережная реки Фонтанки, 130А</p>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            Узнать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            подробнее
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </li>
+                            <li class="swiper-slide catalogBanner__c-right-slide">
+                                <div class="catalogBanner__c-right-slide-img">
+                                    <img src="./assets/images/aboutBanner.png" alt="">
+                                </div>
+                                <div class="catalogBanner__c-right-slide-right">
+
+                                    <p class="tl1">Lorem ipsum dolor sit amet, </p>
+                                    <p class="tl3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+                                        odio
+                                        saepe quisquam eveniet nemo, pariatur eius velit consequuntur facere nostrum
+                                        sequi
+                                        numquam, nam quae vitae, sunt natus alias. Tenetur, ipsum.</p>
+                                    <p class="col-grey200 txt11">Lorem ipsum dolor sit amet consectetur adipisicing eli
+                                    </p>
+
+                                    <button class="btn-primary ">
+                                        <span class="btn-primary__text">
+                                            Узнать
+                                        </span>
+                                        <span class="btn-primary__text">
+                                            подробнее
+                                        </span>
+                                        <span class="btn-primary__icon _arrow">
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <section class="catalogFilters">
+                <button class="catalogFilters__opener filter-opener mobile"></button>
+                <div class="catalogFilters__top container desktop">
+                    <p class="tl1">Выбрать недвижимость</p>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox" checked>
+                        <span class="form-input-container__text">
+                            Первичная
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox">
+                        <span class="form-input-container__text">
+                            Вторичная
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox">
+                        <span class="form-input-container__text">
+                            Загородная
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                    <label class="form-input-container">
+                        <input type="checkbox" name="checkbox">
+                        <span class="form-input-container__text">
+                            Коммерческая
+                        </span>
+                        <span class="form-input-error"></span>
+                    </label>
+
+                </div>
+            </section>
+            <include src="./components/_filters.html"></include>
+            <!--  -->
+            <section class="catalogItems">
+                <div class="container catalogItems__c">
+                    <ul class="catalogItems__c-list">
+                     
+                        <include src="./components/_catalogitem.html" data-props='{".catalogItem":{"attr": {"data-lat":"59.940360", "data-lng":"30.312540"}}}'></include>
+                        <include src="./components/_catalogitem.html" data-props='{".catalogItem":{"attr": {"data-lat":"59.934460", "data-lng":"30.304690"}}}'></include>
+                        <include src="./components/_catalogitem.html" data-props='{".catalogItem":{"attr": {"data-lat":"59.950300", "data-lng":"30.315020"}}}'></include>
+                        <include src="./components/_catalogitem.html" data-props='{".catalogItem":{"attr": {"data-lat":"59.940360", "data-lng":"30.312540"}}}'></include>
+                        <include src="./components/_catalogitem.html" data-props='{".catalogItem":{"attr": {"data-lat":"59.934460", "data-lng":"30.304690"}}}'></include>
+                        <include src="./components/_catalogitem.html" data-props='{".catalogItem":{"attr": {"data-lat":"59.950300", "data-lng":"30.315020"}}}'></include>
+                       
+                    </ul>
+                    <div class="catalogItems__c-map desktop ui-map-grey" id="map">
+
+                    </div>
+
+                    <!--  <div class="catalogItems__c-loadMore">
+                        <button class="btn-primary ">
+                            <span class="btn-primary__text">
+                                загрузить еще
+                            </span>
+                            <span class="btn-primary__text">
+                                если нужна будет
+                            </span>
+                            <span class="btn-primary__icon _down">
+                            </span>
+                        </button>
+
+                    </div> -->
+                </div>
+            </section>
+
+        </main>
+        <include src="./components/_footer.html"></include>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(function () {
+    // Создаем карту
+    const myMap = new ymaps.Map('map', {
+        center: [59.939095, 30.315868], // Центр карты - центр Санкт-Петербурга
+        zoom: 16,
+        controls: []
+    });
+    
+    myMap.options.set({
+        suppressMapOpenBlock: true, // Убираем панель "Как добраться"
+        suppressZoomOnDoubleClick: true, // Отключаем масштабирование двойным кликом
+        suppressPinchToZoom: true, // Отключаем увеличение жестом
+        taxiButtonShown: false, // Скрываем кнопку вызова такси
+        routePanelEnabled: false, // Отключаем панель маршрутов
+        geolocationControlSize: 'small' // Можно также уменьшить размер геолокационного контроля
+    });
+
+    // Функция для центрирования карты на указанных координатах
+    function centerOnMarker(lat, lng) {
+        myMap.panTo( [lat, lng]);
+    }
+
+    // Обработчик событий для элементов каталога (предполагается, что элементы содержат данные о координатах)
+    document.querySelectorAll('.catalogItem, .catalogItemFirst').forEach((e) => {
+        e.addEventListener('mouseenter', (ev) => {
+            centerOnMarker(Number(ev.currentTarget.dataset.lat), Number(ev.currentTarget.dataset.lng));
+        });
+    });
+});
+    </script>
+</body>
+
+</html>

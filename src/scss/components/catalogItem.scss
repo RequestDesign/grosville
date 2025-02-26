@@ -11,14 +11,33 @@
         background-color: var(--col-white);
     }
 
+    @include hover {
+        & .catalogItem__img {
+            border-color: var(--col-orange);
+        }
+
+        & .catalogItem__data {
+            border-color: var(--col-orange);
+
+        }
+    }
+
     &__img {
         height: 35rem;
         width: 100%;
-        border: 1.6rem solid var(--col-white);
+        padding: 1.6rem;
+        background-color: var(--col-white);
+        border: 1px solid transparent;
+        transition: border-color .1s ease-in-out;
+
+        @include desktop {
+            position: relative;
+            z-index: 4;
+        }
 
         @include mobile {
             height: 100%;
-            border: none;
+            padding: 0;
         }
 
         & .swiper-pag {
@@ -47,6 +66,15 @@
         display: grid;
         grid-template-columns: auto auto;
         gap: 4.6rem 3rem;
+
+        @include desktop {
+            border: 1px solid transparent;
+            transition: border-color .1s ease-in-out;
+            border-left: none;
+            transform: translateX(-1px);
+            position: relative;
+            z-index: 5;
+        }
 
         @include mobile {
             display: flex;
@@ -167,7 +195,7 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto auto;
-  
+
 
 
     @include mobile {
@@ -175,8 +203,22 @@
         grid-template-rows: min-content 8rem 0fr;
         transition: grid .5s ease-in-out;
         padding-bottom: 4rem;
+
         &._opened {
             grid-template-rows: min-content 0rem 1fr;
+        }
+    }
+
+    @include hover {
+        & .catalogItemFirst__top-data {
+            border-color: var(--col-orange);
+        }
+
+        & .catalogItemFirst__top-img {
+            border-color: var(--col-orange);
+        }
+        & .catalogItemFirst__list{
+            border-color: var(--col-orange);
         }
     }
 
@@ -186,23 +228,31 @@
         grid-template-columns: 23.2rem auto;
         grid-template-rows: 100%;
         gap: 0;
+      
 
         @include mobile {
+       
             grid-template-columns: 100%;
             grid-template-rows: 46rem auto;
             gap: 3.2rem;
             padding: 4.8rem 3.2rem 4.8rem;
         }
 
+
         &-img {
-            border: 1.6rem solid var(--col-white);
+            border: 1px solid transparent;
+            transition: border-color .1s ease-in-out;
+            border-bottom: none;
             height: 25rem;
             width: 100%;
             position: relative;
+            z-index: 4;
+            padding: 1.6rem;
+            background-color: var(--col-white);
 
             @include mobile {
                 height: 100%;
-                border: none;
+                padding: 0;
             }
 
             & .swiper-pag {
@@ -215,6 +265,7 @@
         }
 
         &-data {
+          
             background-color: var(--col-white);
             align-self: flex-end;
             min-height: 20rem;
@@ -222,8 +273,18 @@
             flex-direction: column;
             padding: 3.2rem 3.2rem 0 1.6rem;
             gap: 1rem;
+            @include desktop{
+                border: 1px solid transparent;
+                transition: border-color .1s ease-in-out;
+                border-bottom: none;
+                border-left: none;
+                transform: translateX(-1px);
+                position: relative;
+                z-index: 5;
+            }
 
             @include mobile {
+               
                 padding: 0;
                 gap: 12px;
             }
@@ -267,8 +328,14 @@
     &__list {
         background-color: var(--col-white);
         overflow: hidden;
-        @include desktop{
+
+
+        @include desktop {
+            border: 1px solid transparent;
+            transition: border-color .1s ease-in-out;
+            border-top: none;
             padding-top: 6.8rem;
+            width: calc(100% - 1px);
         }
 
         &-sort {
@@ -312,51 +379,55 @@
         }
 
         &-ctrls {
-          
-                padding: 2rem 2rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                @include mobile{
-                    padding: 4rem 2.4rem;
-                }
 
-                &-loadmore {
-                    padding-left: 2.5rem;
-                    position: relative;
-                    @include mobile{
+            padding: 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include mobile {
+                padding: 4rem 2.4rem;
+            }
+
+            &-loadmore {
+                padding-left: 2.5rem;
+                position: relative;
+
+                @include mobile {
                     padding-left: 5rem;
 
-                    }
+                }
 
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        top: calc(50% - 1px);
-                        left: 0;
-                        width: 1.5rem;
-                        height: 1px;
-                        background-color: var(--col-orange);
-                        transform: rotate(90deg);
-                        @include mobile{
-                            width: 3rem;  
-                        }
-                    }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: calc(50% - 1px);
+                    left: 0;
+                    width: 1.5rem;
+                    height: 1px;
+                    background-color: var(--col-orange);
+                    transform: rotate(90deg);
 
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: calc(50% - 1px);
-                        left: 0;
-                        width: 1.5rem;
-                        height: 1px;
-                        background-color: var(--col-orange);
-                        @include mobile{
-                            width: 3rem;  
-                        }
+                    @include mobile {
+                        width: 3rem;
                     }
                 }
-            
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: calc(50% - 1px);
+                    left: 0;
+                    width: 1.5rem;
+                    height: 1px;
+                    background-color: var(--col-orange);
+
+                    @include mobile {
+                        width: 3rem;
+                    }
+                }
+            }
+
         }
     }
 }
@@ -387,6 +458,8 @@
             'link link';
 
     }
+
+    @include hover {}
 
     &::after {
         content: '';
@@ -419,6 +492,10 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
+
+        &>a:hover {
+            color: var(--col-orange);
+        }
 
         &-list {
             display: flex;
