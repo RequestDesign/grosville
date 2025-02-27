@@ -100,7 +100,7 @@
 
             &-el {
                 width: 100%;
-                padding: 1.2rem 0;
+                padding: 1.2rem 1.2rem;
                 border-bottom: 1px solid var(--col-white);
 
                 &._checked {
@@ -169,7 +169,7 @@
         display: block;
         width: 2rem;
         height: 2rem;
-        background-image: url(../assets/images/icons/sorting.svg);
+        background-image: url(../assets/images/icons/sprites.svg#sorting);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 100%;

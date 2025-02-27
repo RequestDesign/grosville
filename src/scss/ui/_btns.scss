@@ -41,7 +41,7 @@
 
         &._download {
             &:after {
-                background-image: url(../assets/images/icons/download.svg);
+                background-image: url(../assets/images/icons/sprites.svg#arrow-right);
             }
         }
 
@@ -52,7 +52,7 @@
             left: 0;
             width: 3.6rem;
             height: 3.6rem;
-            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -86,8 +86,7 @@
         color: var(--col-black);
 
         &._arrow::after {
-            background-image: url(../assets/images/icons/arrow-black-right.svg);
-
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right-black);
         }
     }
 
@@ -112,7 +111,7 @@
             right: 0;
             width: 2rem;
             height: 100%;
-            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -131,32 +130,97 @@
 
 
     &._arrow {
-        --btn-icon: url(../assets/images/icons/arrow-orange-right.svg)
+       @include desktop{
+        & .btn-trans__bottom::after{
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+        }
+       }
+       @include mobile{
+           &::before{
+               background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+            }
+        }
+
     }
 
     &._filter {
-        --btn-icon: url(../assets/images/icons/filter.svg);
+       @include desktop{
+        & .btn-trans__bottom::after{
+            background-image: url(../assets/images/icons/sprites.svg#filter);
+        }
+       }
+       @include mobile{
+           &::before{
+               background-image: url(../assets/images/icons/sprites.svg#filter);
+            }
+        }
+
     }
 
     &._mail {
-        --btn-icon: url(../assets/images/icons/mail.svg);
+       @include desktop{
+        & .btn-trans__bottom::after{
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+        }
+       }
+       @include mobile{
+           &::before{
+               background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+            }
+        }
+
     }
 
     &._call {
-        --btn-icon: url(../assets/images/icons/call-orange.svg);
+       @include desktop{
+        & .btn-trans__bottom::after{
+            background-image: url(../assets/images/icons/sprites.svg#phone);
+        }
+       }
+       @include mobile{
+           &::before{
+               background-image: url(../assets/images/icons/sprites.svg#phone);
+            }
+        }
     }
 
     &._down {
-        --btn-icon: url(../assets/images/icons/arrow-orange-down.svg);
+       @include desktop{
+        & .btn-trans__bottom::after{
+            background-image: url(../assets/images/icons/sprites.svg#arrow-down);
+        }
+       }
+       @include mobile{
+           &::before{
+               background-image: url(../assets/images/icons/sprites.svg#arrow-down);
+            }
+        }
     }
 
     &._download {
-        --btn-icon: url(../assets/images/icons/download.svg)
+       @include desktop{
+        & .btn-trans__bottom::after{
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+        }
+       }
+       @include mobile{
+           &::before{
+               background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+            }
+        }
     }
-
     &._play {
-        --btn-icon: url(../assets/images/icons/play.svg)
-    }
+        @include desktop{
+         & .btn-trans__bottom::after{
+             background-image: url(../assets/images/icons/sprites.svg#play);
+         }
+        }
+        @include mobile{
+            &::before{
+                background-image: url(../assets/images/icons/sprites.svg#play);
+             }
+         }
+     }
 
 
     & svg {
@@ -219,7 +283,7 @@
                 left: 0;
                 width: 3.6rem;
                 height: 3.6rem;
-                background-image: var(--btn-icon);
+             
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -410,30 +474,30 @@
         background-size: 2.4rem;
 
         &._arrow {
-            background-image: url(../assets/images/icons/arrow-orange-right.svg);
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
 
         }
 
         &._filter {
-            background-image: url(../assets/images/icons/filter.svg);
+            background-image: url(../assets/images/icons/sprites.svg#filter);
 
         }
 
         &._mail {
-            background-image: url(../assets/images/icons/mail.svg);
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
 
         }
 
         &._call {
-            background-image: url(../assets/images/icons/call-orange.svg);
+            background-image: url(../assets/images/icons/sprites.svg#phone);
         }
 
         &._down {
-            background-image: url(../assets/images/icons/arrow-orange-down.svg);
+            background-image: url(../assets/images/icons/sprites.svg#arrow-down);
         }
 
         &._download {
-            background-image: url(../assets/images/icons/download.svg);
+            background-image: url(../assets/images/icons/sprites.svg#arrow-right);
         }
 
         @include mobile {

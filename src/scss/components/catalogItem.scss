@@ -144,10 +144,14 @@
                 }
 
 
-                & img {
+                & img , & svg {
                     width: 2.4rem;
                     height: 2.4rem;
                     margin-right: 8px;
+                   
+                    /* @include desktop{
+                        filter: grayscale(1);
+                    } */
 
                     @include mobile {
                         width: 4.8rem;
@@ -200,6 +204,7 @@
 
     @include mobile {
         background-color: var(--col-white);
+        background-image: $bg;
         grid-template-rows: min-content 8rem 0fr;
         transition: grid .5s ease-in-out;
         padding-bottom: 4rem;
@@ -217,7 +222,8 @@
         & .catalogItemFirst__top-img {
             border-color: var(--col-orange);
         }
-        & .catalogItemFirst__list{
+
+        & .catalogItemFirst__list {
             border-color: var(--col-orange);
         }
     }
@@ -228,10 +234,10 @@
         grid-template-columns: 23.2rem auto;
         grid-template-rows: 100%;
         gap: 0;
-      
+
 
         @include mobile {
-       
+
             grid-template-columns: 100%;
             grid-template-rows: 46rem auto;
             gap: 3.2rem;
@@ -248,7 +254,10 @@
             position: relative;
             z-index: 4;
             padding: 1.6rem;
-            background-color: var(--col-white);
+            @include desktop{
+                background-color: var(--col-white);
+                background-image: $bg;
+            }
 
             @include mobile {
                 height: 100%;
@@ -265,15 +274,18 @@
         }
 
         &-data {
-          
-            background-color: var(--col-white);
+            @include desktop{
+                background-color: var(--col-white);
+                background-image: $bg;
+            }
             align-self: flex-end;
             min-height: 20rem;
             display: flex;
             flex-direction: column;
             padding: 3.2rem 3.2rem 0 1.6rem;
             gap: 1rem;
-            @include desktop{
+
+            @include desktop {
                 border: 1px solid transparent;
                 transition: border-color .1s ease-in-out;
                 border-bottom: none;
@@ -284,7 +296,7 @@
             }
 
             @include mobile {
-               
+
                 padding: 0;
                 gap: 12px;
             }
@@ -326,7 +338,10 @@
     }
 
     &__list {
-        background-color: var(--col-white);
+        @include desktop{
+            background-color: var(--col-white);
+            background-image: $bg;
+        }
         overflow: hidden;
 
 
@@ -348,30 +363,176 @@
             position: relative;
             z-index: 5;
 
-
-            &-list {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                gap: 2rem;
-                justify-content: space-between;
-                padding: 1.5rem 0;
-                border-top: 1px solid var(--col-grey200);
-                border-bottom: 1px solid var(--col-grey200);
-
+            &-dd {
                 @include mobile {
-                    border: none;
-                    justify-content: flex-end;
+                    position: relative;
+                    width: fit-content;
                     justify-self: flex-end;
-                    display: flex;
-                    width: 24rem;
+                    min-width: 28rem;
+
+                    &._opened {
+                        & .catalogItemFirst__list-sort-dd-t::before {
+                            transform: rotate(225deg) ;
+                        }
+
+                        & .catalogItemFirst__list-sort-dd-l {
+                            visibility: visible;
+                            display: block;
+
+                        }
+                    }
+
+
+                    &-t {
+
+                        width: 100%;
+                        display: flex;
+                        gap: 4px;
+                        align-items: center;
+                        filter: grayscale(1);
+                        flex-shrink: 0;
+                        white-space: nowrap;
+                        cursor: pointer;
+                        user-select: none;
+                        position: relative;
+                        color: var(--col-grey200);
+                        padding: 1.6rem 3rem 1.6rem 1.6rem;
+                        justify-content: center;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 5;
+                        }
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 8px;
+                            height: 8px;
+                            top: 35%;
+                            right: 0;
+                            border-right: 1px solid var(--col-black);
+                            border-bottom: 1px solid var(--col-black);
+                            transform: rotate(45deg) ;
+                        }
+
+                        &._active {
+                            filter: grayscale(0);
+                            color: var(--col-black);
+                        }
+
+                        &._fromMin {
+                            &>.catalogItemFirst__list-sort-dd-list-e-icon {
+                                transform: scale(1, -1);
+                            }
+                        }
+
+                        &-icon {
+                            width: 16px;
+                            height: 16px;
+                            background-image: url(../assets/images/icons/sprites.svg#sorting);
+                            background-size: contain;
+                            background-position: 50% 3px;
+                            background-repeat: no-repeat;
+
+                        }
+                    }
+
+
                 }
 
-                @include desktop {
-                    & .dd-filter::after {
+
+                &-l {
+                    overflow: hidden;
+
+                    @include mobile {
+
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
                         display: none;
+                        visibility: hidden;
+                        width: 100%;
+
+
+                    }
+
+                    &ist {
+                        display: grid;
+                        grid-template-rows: 100%;
+                        grid-template-columns: repeat(5, min-content);
+                        gap: 2rem;
+                        justify-content: space-between;
+                        padding: 1.2rem 0;
+                        border-top: 1px solid var(--col-grey200);
+                        border-bottom: 1px solid var(--col-grey200);
+
+                        @include mobile {
+                            grid-template-columns: 100%;
+                            grid-template-rows: unset;
+                            background-color: rgba(227, 226, 226, 1);
+                            border: none;
+                            padding: 1.6rem;
+                            gap: 2rem;
+                            width: 100%;
+                        }
+
+                        &-e {
+                            width: fit-content;
+                            display: flex;
+                            gap: 4px;
+                            align-items: center;
+                            filter: grayscale(1);
+                            flex-shrink: 0;
+                            white-space: nowrap;
+                            cursor: pointer;
+                            user-select: none;
+                            position: relative;
+                            color: var(--col-grey200);
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 5;
+                            }
+
+                            &._active {
+                                filter: grayscale(0);
+                                color: var(--col-black);
+                            }
+
+                            &._fromMin {
+                                &>.catalogItemFirst__list-sort-dd-list-e-icon {
+                                    transform: scale(1, -1);
+                                }
+                            }
+
+                            &-icon {
+                                width: 16px;
+                                height: 16px;
+                                background-image: url(../assets/images/icons/sprites.svg#sorting);
+                                background-size: contain;
+                                background-position: 50% 3px;
+                                background-repeat: no-repeat;
+
+                            }
+                        }
                     }
                 }
+
+
+
             }
+
         }
 
         &-items {

@@ -38,30 +38,32 @@ $(function () {
 
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
-
-        if (classList.contains('dd-target')) {
-            /**
-             * дроп даун
-             * переключает ._opened на своем родительском .dd-container
-             * если есть data-dd_html_lock='y' то еще и залочит html
-             */
+        if (classList.contains('catalogItemFirst__list-sort-dd-list-e')) {
             ev.preventDefault()
-            const prev = document.querySelector('.dd-container._opened')
-            const parent = ev.target.closest('.dd-container')
-            if (prev && prev !== parent) {
-                prev.classList.remove('_opened')
+
+
+            if (!classList.contains('_active')) {
+                const prev = ev.target.closest('.catalogItemFirst__list-sort-dd-list')
+                    .querySelector('.catalogItemFirst__list-sort-dd-list-e._active')
+                console.log(prev);
+                if (prev) {
+                    prev.classList.remove('_active')
+                }
+                ev.target.classList.add('_active')
+            } else {
+                ev.target.classList.toggle('_fromMin')
             }
 
-            if (parent.classList.contains('_opened')) {
-                parent.classList.remove('_opened')
-                if (ev.target.dataset.dd_html_lock) {
-                    HTML.classList.remove(HTML_LOCK_SELECTOR)
-                }
-            } else {
-                parent.classList.add('_opened')
-                if (ev.target.dataset.dd_html_lock) {
-                    HTML.classList.add(HTML_LOCK_SELECTOR)
-                }
+            const mob = ev.target.closest('.catalogItemFirst__list-sort-dd')
+                .querySelector('.catalogItemFirst__list-sort-dd-t')
+
+            mob.querySelector('.catalogItemFirst__list-sort-dd-list-e-text')
+                .textContent = ev.target.querySelector('.catalogItemFirst__list-sort-dd-list-e-text').textContent
+            if (ev.target.classList.contains('_fromMin')){
+                mob.classList.add('_fromMin')
+            }else{
+                mob.classList.remove('_fromMin')
+
             }
 
         } else if (classList.contains('select-value')) {
@@ -105,6 +107,33 @@ $(function () {
 
             }
 
+
+        } else if (classList.contains('dd-target')) {
+            /**
+             * дроп даун
+             * переключает ._opened на своем родительском .dd-container
+             * если есть data-dd_html_lock='y' то еще и залочит html
+             */
+            ev.preventDefault()
+            ev.stopPropagation()
+            const prev = document.querySelector('.dd-container._opened')
+            const parent = ev.target.closest('.dd-container')
+
+            if (prev && prev !== parent && !prev.classList.contains('catalogItemFirst')) {
+                prev.classList.remove('_opened')
+            }
+
+            if (parent.classList.contains('_opened')) {
+                parent.classList.remove('_opened')
+                if (ev.target.dataset.dd_html_lock) {
+                    HTML.classList.remove(HTML_LOCK_SELECTOR)
+                }
+            } else {
+                parent.classList.add('_opened')
+                if (ev.target.dataset.dd_html_lock) {
+                    HTML.classList.add(HTML_LOCK_SELECTOR)
+                }
+            }
 
         }
     })

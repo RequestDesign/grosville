@@ -9,14 +9,7 @@
     width: 24px;
     height: 24px;
 
-    &._arrow {
-        background-image: url(../assets/images/icons/sprites.svg#one);
-
-    }
-
-    &._phone {
-        background-image: url(../assets/images/icons/sprites.svg#two);
-    }
+ 
 }
 
 .ui-link {
@@ -26,7 +19,7 @@
 }
 
 .ui-x {
-    background-image: url(../assets/images/icons/x.svg);
+    background-image: url(../assets/images/icons/sprites.svg#x);
     filter: grayscale(1);
     background-position: center;
     background-repeat: no-repeat;
@@ -72,11 +65,11 @@
     }
 
     &._tg {
-        background-image: url(../assets/images/icons/tg.svg);
+        background-image: url(../assets/images/icons/sprites.svg#tg);
     }
 
     &._wa {
-        background-image: url(../assets/images/icons/wa.svg);
+        background-image: url(../assets/images/icons/sprites.svg#wa);
     }
 }
 

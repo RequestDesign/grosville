@@ -44,7 +44,7 @@
                     position: absolute;
                     top: 62rem;
                     left: -19rem;
-                    mask-image: url(../assets/images/gr.svg);
+                    mask-image: url(../assets/images/icons/sprites.svg#gr);
                     mask-size: contain;
                     mask-repeat: no-repeat;
                     mask-position: center;
@@ -463,7 +463,7 @@
                         flex-wrap: nowrap;
                     }
 
-                    & img {
+                    & img, & svg {
                         width: 6rem;
                         height: 6rem;
                         object-fit: contain;
