@@ -59,9 +59,9 @@ $(function () {
 
             mob.querySelector('.catalogItemFirst__list-sort-dd-list-e-text')
                 .textContent = ev.target.querySelector('.catalogItemFirst__list-sort-dd-list-e-text').textContent
-            if (ev.target.classList.contains('_fromMin')){
+            if (ev.target.classList.contains('_fromMin')) {
                 mob.classList.add('_fromMin')
-            }else{
+            } else {
                 mob.classList.remove('_fromMin')
 
             }
@@ -115,7 +115,6 @@ $(function () {
              * если есть data-dd_html_lock='y' то еще и залочит html
              */
             ev.preventDefault()
-            ev.stopPropagation()
             const prev = document.querySelector('.dd-container._opened')
             const parent = ev.target.closest('.dd-container')
 
@@ -142,135 +141,94 @@ $(function () {
 
 function initScroll() {
     if (!document.querySelector('.mainBanner__big-img')) return
-    const scrollCfg = {
-        start: 'top 90%',
-        end: 'bottom 10%',
-        toggleActions: 'play none none reverse',
-        once: false,
-    }
+    /*  const scrollCfg = {
+         start: 'top 90%',
+         end: 'bottom 10%',
+         toggleActions: 'play none none reverse',
+         once: false,
+     } */
     gsap.defaults({ duration: .5, ease: 'none' });
     gsap.registerPlugin(ScrollTrigger);
 
+
+    /*  const scrollCfg = {
+         trigger: e,
+         start: 'top 95%', // Начинаем анимацию, когда элемент появляется сверху
+         end: 'bottom -30%', // Заканчиваем анимацию, когда элемент уходит вниз
+         scrub: true, // Для плавной синхронизации с прокруткой
+         markers: true // Показываем маркеры для отладки (можно убрать)
+     }; */
+
+    // Анимация, которая двигает элемент снизу вверх и делает его видимым
     document.querySelectorAll('.mainBanner__big-img')
         .forEach((e) => {
-            const scrollCfg = {
-                trigger: e,
-                start: 'top 95%', // Начинаем анимацию, когда элемент появляется сверху
-                end: 'bottom -30%', // Заканчиваем анимацию, когда элемент уходит вниз
-                scrub: true, // Для плавной синхронизации с прокруткой
-                markers: true // Показываем маркеры для отладки (можно убрать)
-            };
-
-            // Анимация, которая двигает элемент снизу вверх и делает его видимым
-            gsap.to(e, {
-                yPercent: -80, // Передвигаем элемент на 80% вверх относительно контейнера
-                opacity: 1, // Делаем элемент полностью видимым
-                scale: 1.2, // Увеличиваем масштаб элемента на 20%
-                scrollTrigger: scrollCfg
-            });
-        })
-    document.querySelectorAll('.mainBanner__small-img')
-        .forEach((e) => {
-            const scrollCfg = {
-                trigger: e,
-                start: 'top 95%', // Начинаем анимацию, когда элемент появляется сверху
-                end: 'bottom -30%', // Заканчиваем анимацию, когда элемент уходит вниз
-                scrub: true, // Для плавной синхронизации с прокруткой
-                markers: true // Показываем маркеры для отладки (можно убрать)
-            };
-
-            // Анимация, которая двигает элемент снизу вверх и делает его видимым
-            gsap.to(e, {
-                yPercent: -5, // Передвигаем элемент на 80% вверх относительно контейнера
-                opacity: 1, // Делаем элемент полностью видимым
-                scrollTrigger: scrollCfg
-            });
+            // первичное состояние
             gsap.set(e.querySelector('img'), {
-                scale: 1.5
-            })
-            gsap.to(e.querySelector('img'), {
-                scale: 1, // Увеличиваем масштаб элемента на 20%
-                scrollTrigger: scrollCfg
+                opacity: 0,
+                clipPath: 'inset(100% 0 0% 0)',
             });
+            gsap.set(e, {
+
+                yPercent: 0
+            });
+            //таймлайн (контейнер для упарвления временем и направлением (как пульт от телевизора) )
+            const tl = gsap.timeline()
+
+            //сама анимация, помещается в контейнер
+            tl.fromTo(e.querySelector('img'), {
+                opacity: 1,
+                clipPath: 'inset(0% 0 0% 0)'
+            }, {
+                opacity: 1,
+                clipPath: 'inset(10% 0 0% 0)'
+            },)
+
+
+
+            gsap.to(e, {
+                scrollTrigger: {
+                    trigger: e,
+                    start: 'center center',
+                    end: 'center 20%',
+                    scrub: true, // Для плавной синхронизации с прокруткой
+                    markers: true,
+                    onEnter: () => {
+                        // scroll start + start
+                        console.log('enter');
+
+                        tl.reverse()
+                    },
+                    onEnterBack: () => {
+                        // scroll end + end
+                        console.log('enter back');
+
+                        tl.reverse()
+                    },
+                    onLeave: () => {
+                        // scroll end + start
+                        console.log('leave');
+
+                        tl.play()
+                    },
+                    onLeaveBack: () => {
+                        // scroll start + end
+                        console.log('leave back');
+                        tl.play()
+                    },
+                  
+                },
+                yPercent: -100, // Смещение вверх на 100%
+                duration: 1,
+                ease: 'power1.inOut'
+            });
+
         })
 
 
-    /*---------------animate__heading--------------  */
+  
 
-    /*---------------animate__fadeInUp--------------  */
-    /*  document.querySelectorAll('.animate__fadeInUp')
-         .forEach((el) => {
-             const tl = gsap.timeline()
-             gsap.set(el, {
-                 opacity: 0,
-                 transform: 'translateY: 105%'
-             });
- 
-             ScrollTrigger.create({
-                 trigger: el,
-                 ...scrollCfg,
-                 onEnter: () => {
-                     tl.clear();
-                     tl.fromTo(
-                         el,
-                         { translateY: '110%' },
-                         {
-                             translateY: '0%',
-                             duration: 1.5,
-                             ease: 'power1.inOut'
-                         } // Указывает, что эта анимация должна начаться одновременно с предыдущей
-                     );
-                     tl.fromTo(
-                         el,
-                         { opacity: 0 },
-                         {
-                             opacity: 1,
-                             duration: 1,
-                             ease: 'power1.inOut'
-                         },
-                         '<'
-                     ).play();
-                 },
-                 onEnterBack: () => {
-                     tl.clear();
-                     tl.fromTo(el, {
-                         opacity: 0,
-                         translateY: '-105%',
-                     }, {
-                         opacity: 1,
-                         translateY: '0%',
-                         duration: 0.5,
-                     }).play();
-                 },
-                 onLeave: () => {
-                     tl.clear();
-                     tl.fromTo(el, {
-                         opacity: 1,
-                         translateY: '0%',
-                     }, {
-                         opacity: 0,
-                         translateY: '-105%',
-                         duration: 0.5,
-                     }).play();
-                 },
-                 onLeaveBack: () => {
-                     tl.clear();
-                     tl.fromTo(el, {
-                         opacity: 1,
-                         translateY: '0%',
-                     }, {
-                         opacity: 0,
-                         translateY: '105%',
-                         duration: 0.5,
-                     }).play();
- 
- 
-                 },
-                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
-             });
-         }) */
 
-    /*---------------animate__fadeInUp--------------  */
+
 
 }
 

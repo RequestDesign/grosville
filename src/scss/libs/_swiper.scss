@@ -63,7 +63,24 @@
         }
 
         &-prev {
-            background-image: url(../assets/images/icons/sprites.svg#arrow-left);
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url(../assets/images/icons/sprites.svg#arrow-right);
+                background-position: center;
+                background-size: 3rem;
+                background-repeat: no-repeat;
+                transform: rotate(180deg);
+        
+                @include mobile {
+                    background-size: 6rem;
+                }
+            }
         }
 
 
