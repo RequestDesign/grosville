@@ -37,7 +37,7 @@
                 @include mobile {
                     margin-top: 0;
                     height: 10rem;
-                    transform: translateX(33%);
+                  
                 }
 
                 &-el {
@@ -50,20 +50,24 @@
                         height: 10rem;
                     }
 
-                    &+* {
-                        transform: translateX(-2rem);
-
+                    @include desktop{
                         &+* {
-                            transform: translateX(-4rem);
+                            transform: translateX(-2rem);
+    
+                            &+* {
+                                transform: translateX(-4rem);
+                            }
                         }
                     }
+                 
 
                     @include mobile {
+                        transform: translateX(11rem);
                         &+* {
-                            transform: translateX(-4rem);
+                            transform: translateX(8rem);
 
                             &+* {
-                                transform: translateX(-8rem);
+                                transform: translateX(5rem);
                             }
                         }
                     }

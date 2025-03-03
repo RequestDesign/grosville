@@ -1,0 +1,7 @@
+.gsap-bg-orange-text {
+    background: linear-gradient(90deg, var(--col-orange) 50%, var(--col-black) 50%);
+    background-size: 200%;
+    background-position: 100% 50%;
+    background-clip: text;
+    color: transparent;
+}

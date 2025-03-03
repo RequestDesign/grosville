@@ -97,7 +97,11 @@
             }
 
             & .btn-circle {
-                transform: translate(35rem, 3rem);
+               
+                @include desktop{
+                    margin-top: 3rem;
+                    margin-left: 35rem;
+                }
             }
         }
 

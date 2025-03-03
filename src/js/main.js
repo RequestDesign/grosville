@@ -6,10 +6,8 @@ import { Navigation, Pagination, Grid, Autoplay, Thumbs, EffectFade } from 'swip
 import Inputmask from 'inputmask'
 import { Fancybox } from "@fancyapps/ui";
 import noUiSlider from 'nouislider'
-//import WOW from 'wow.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
-//import CSSRulePlugin from 'gsap/all';
 /* node_modules */
 
 /* local */
@@ -39,7 +37,7 @@ $(function () {
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
         if (classList.contains('catalogItemFirst__list-sort-dd-list-e')) {
-            ev.preventDefault()
+            ev.stopPropagation()
 
 
             if (!classList.contains('_active')) {
@@ -147,85 +145,383 @@ function initScroll() {
          toggleActions: 'play none none reverse',
          once: false,
      } */
-    gsap.defaults({ duration: .5, ease: 'none' });
+    gsap.defaults({ duration: 1, ease: 'power1.inOut' });
     gsap.registerPlugin(ScrollTrigger);
 
 
-    /*  const scrollCfg = {
-         trigger: e,
-         start: 'top 95%', // Начинаем анимацию, когда элемент появляется сверху
-         end: 'bottom -30%', // Заканчиваем анимацию, когда элемент уходит вниз
-         scrub: true, // Для плавной синхронизации с прокруткой
-         markers: true // Показываем маркеры для отладки (можно убрать)
-     }; */
+    const scrollCfg = {
+        start: 'top 90%', // Начинаем анимацию, когда элемент появляется сверху
+        end: 'bottom -10%', // Заканчиваем анимацию, когда элемент уходит вниз
+        markers: false, // Показываем маркеры для отладки (можно убрать)
+        toggleActions: "play none none none",
+    };
+    if (window.innerWidth > 768) {
 
-    // Анимация, которая двигает элемент снизу вверх и делает его видимым
-    document.querySelectorAll('.mainBanner__big-img')
-        .forEach((e) => {
-            // первичное состояние
-            gsap.set(e.querySelector('img'), {
-                opacity: 0,
-                clipPath: 'inset(100% 0 0% 0)',
-            });
-            gsap.set(e, {
+        /////////////////TRANSLATE///////////////////
+        document.querySelectorAll('.gsap-translate-y')
+            .forEach((e) => {
+                gsap.set(e, {
+                    opacity: 0,
+                    transform: 'translateY(50%)'
+                })
 
-                yPercent: 0
-            });
-            //таймлайн (контейнер для упарвления временем и направлением (как пульт от телевизора) )
-            const tl = gsap.timeline()
+                const tl = gsap.timeline()
+                tl.fromTo(e, {
+                    opacity: 0,
+                    transform: 'translateY(50%)'
+                }, {
+                    opacity: 1,
+                    transform: 'translateY(0)'
+                })
 
-            //сама анимация, помещается в контейнер
-            tl.fromTo(e.querySelector('img'), {
-                opacity: 1,
-                clipPath: 'inset(0% 0 0% 0)'
-            }, {
-                opacity: 1,
-                clipPath: 'inset(10% 0 0% 0)'
-            },)
+                tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0)
 
-
-
-            gsap.to(e, {
-                scrollTrigger: {
+                ScrollTrigger.create({
                     trigger: e,
-                    start: 'center center',
-                    end: 'center 20%',
-                    scrub: true, // Для плавной синхронизации с прокруткой
-                    markers: true,
+                    ...scrollCfg,
+                    animation: tl,
                     onEnter: () => {
                         // scroll start + start
-                        console.log('enter');
 
-                        tl.reverse()
+                        tl.play()
                     },
                     onEnterBack: () => {
                         // scroll end + end
-                        console.log('enter back');
 
-                        tl.reverse()
+                        tl.play()
                     },
                     onLeave: () => {
                         // scroll end + start
-                        console.log('leave');
 
                         tl.play()
                     },
                     onLeaveBack: () => {
                         // scroll start + end
-                        console.log('leave back');
+
                         tl.play()
                     },
-                  
-                },
-                yPercent: -100, // Смещение вверх на 100%
-                duration: 1,
-                ease: 'power1.inOut'
-            });
+                })
 
+            })
+        /////////////////TRANSLATE///////////////////
+        /////////////////TEXT///////////////////
+        document.querySelectorAll('.gsap-bg-orange-text')
+            .forEach((e) => {
+
+                const tl = gsap.timeline()
+                tl.fromTo(e, {
+                    backgroundPosition: '100% 50%'
+                }, {
+                    backgroundPosition: '0% 50%'
+                })
+
+                tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0)
+
+                ScrollTrigger.create({
+                    trigger: e,
+                    ...scrollCfg,
+                    animation: tl,
+                    onEnter: () => {
+                        // scroll start + start
+
+                        tl.play()
+                    },
+                    onEnterBack: () => {
+                        // scroll end + end
+                        tl.play()
+                    },
+                    onLeave: () => {
+                        // scroll end + start
+                        tl.play()
+                    },
+                    onLeaveBack: () => {
+                        // scroll start + end
+                        tl.play()
+                    },
+                })
+
+            })
+        /////////////////TEXT///////////////////
+        /////////////////OPACITY///////////////////
+        document.querySelectorAll('.gsap-opacity')
+            .forEach((e) => {
+                gsap.set(e, {
+                    opacity: 0,
+                })
+
+                const tl = gsap.timeline()
+                tl.fromTo(e, {
+                    opacity: 0,
+                }, {
+                    opacity: 1,
+                })
+
+                tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0)
+
+                ScrollTrigger.create({
+                    trigger: e,
+                    ...scrollCfg,
+                    animation: tl,
+                    onEnter: () => {
+                        // scroll start + start
+
+                        tl.play()
+                    },
+                    onEnterBack: () => {
+                        // scroll end + end
+
+                        tl.play()
+                    },
+                    onLeave: () => {
+                        // scroll end + start
+
+                        tl.play()
+                    },
+                    onLeaveBack: () => {
+                        // scroll start + end
+
+                        tl.play()
+                    },
+                })
+
+            })
+        /////////////////OPACITY///////////////////
+        /////////////////IMG///////////////////
+        document.querySelectorAll('.gsap-img')
+            .forEach((e) => {
+                const img = e.querySelector('img')
+                gsap.set(e, {
+                    clipPath: 'inset(100% 0 0% 0)'
+                })
+                gsap.set(img, {
+                    transform: 'scale(1.2)'
+                })
+
+                const tl = gsap.timeline()
+
+                tl.add([
+                    gsap.fromTo(e, {
+                        clipPath: 'inset(100% 0 0% 0)'
+                    }, {
+                        clipPath: 'inset(0% 0 0% 0)'
+                    }),
+
+                    gsap.fromTo(img, {
+                        transform: 'scale(1.2)'
+                    }, {
+                        transform: 'scale(1)'
+                    })
+                ])
+
+
+
+                tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0)
+
+                ScrollTrigger.create({
+                    trigger: e,
+                    ...scrollCfg,
+                    animation: tl,
+                    onEnter: () => {
+                        // scroll start + start
+
+                        tl.play()
+                    },
+                    onEnterBack: () => {
+                        // scroll end + end
+
+                        tl.play()
+                    },
+                    onLeave: () => {
+                        // scroll end + start
+
+                        tl.play()
+                    },
+                    onLeaveBack: () => {
+                        // scroll start + end
+
+                        tl.play()
+                    },
+                })
+
+            })
+        /////////////////IMG///////////////////
+    }
+
+    document.querySelectorAll('.mainBanner__big-img')
+        .forEach((e) => {
+            /*   gsap.set(e, {
+                  
+              })
+          
+              const tl = gsap.timeline()
+              tl.fromTo(e, {
+                
+              }, {
+                
+              })
+          
+          
+              ScrollTrigger.create({
+                  trigger: e,
+                  ...scrollCfg,
+                  animation: tl,
+                  onEnter: () => {
+                      // scroll start + start
+          
+                      tl.play()
+                  },
+                  onEnterBack: () => {
+                      // scroll end + end
+          
+                      tl.play()
+                  },
+                  onLeave: () => {
+                      // scroll end + start
+          
+                      tl.play()
+                  },
+                  onLeaveBack: () => {
+                      // scroll start + end
+          
+                      tl.play()
+                  },
+              })
+           */
+        })
+    if (window.innerWidth < 768) {
+        const main = document.querySelector('.mainBanner__small'),
+            t = main.querySelectorAll('.mainBanner__small-img-self'),
+            h = t[0].offsetHeight,
+            text = document.querySelector('.mainBanner__c')
+
+        ScrollTrigger.create({
+            trigger: main,
+         
+            start: 'top 50%',
+            end: 'bottom 90%',
+            scrub: 0,
+            ease: 'none',
+            onUpdate: self => {
+                if (window.innerWidth < 768) {
+                    const progress = self.progress,
+                        v = (main.offsetHeight - (h * 0.9) ) * progress
+                    gsap.set(t, {
+                        //yPercent: 100,
+                        top: v, // Динамическое изменение позиции
+                        
+                    })
+                    gsap.set(text,{
+                        top: (main.offsetHeight * 0.75) * progress, 
+                    })
+                }
+            },
+        })
+    }
+    document.querySelectorAll('.mainBanner__small-img')
+        .forEach((e, i) => {
+            const list = document.querySelector('.mainBanner__c-text-words-list'),
+                big = document.querySelectorAll('.mainBanner__big-img')[i],
+                img = e.querySelector('img'),
+                imgSelf = img.closest('.mainBanner__small-img-self')
+
+            gsap.set(img, {
+                transform: 'scale(1.2)'
+            })
+            gsap.set(big, {
+                transform: '50%',
+                opacity: 0
+            })
+
+            if (window.innerWidth < 768) {
+                gsap.set(imgSelf, {
+                    clipPath: 'inset(100% 0 0% 0)'
+                })
+            }
+
+            const tl = gsap.timeline()
+            tl.fromTo(img, {
+                transform: 'scale(1.2)'
+
+            }, {
+                transform: 'scale(1)'
+
+            })
+
+
+            ScrollTrigger.create({
+                trigger: e,
+                start: 'top 40%', // Начинаем анимацию, когда элемент появляется сверху
+                end: i == 3 ? 'bottom -10%' : 'bottom 20%', // Заканчиваем анимацию, когда элемент уходит вниз
+                onEnter: () => {
+                    // scroll start + start
+
+                    list.style.transform = `translateY(-${7 * i}rem)`
+                    tl.play()
+                    gsap.to(big, {
+                        transform: 'translateY(0%)',
+                        opacity: 1,
+                        duration: .8
+                    })
+
+                    if (window.innerWidth < 768) {
+                        gsap.to(imgSelf, {
+                            clipPath: 'inset(0% 0 0% 0)'
+                        })
+                    }
+
+                },
+                onEnterBack: () => {
+                    // scroll end + end
+                    tl.play()
+                    list.style.transform = `translateY(-${7 * i}rem)`
+                    gsap.to(big, {
+                        transform: 'translateY(0%)',
+                        opacity: 1,
+                        duration: .8
+                    })
+
+                    if (window.innerWidth < 768) {
+                        gsap.to(imgSelf, {
+                            clipPath: 'inset(0% 0 0% 0)'
+                        })
+                    }
+                },
+                onLeave: () => {
+                    // scroll end + start
+                    tl.reverse()
+                    gsap.to(big, {
+                        transform: 'translateY(-50%)',
+                        opacity: 0,
+                        duration: .8
+                    })
+                    if (window.innerWidth < 768) {
+                        gsap.to(imgSelf, {
+                            clipPath: 'inset(0% 0 100% 0)'
+                        })
+                    }
+                    /*   list.style.transform = `translateY(-${7 * i}rem)` */
+                },
+                onLeaveBack: () => {
+                    // scroll start + end
+                    tl.reverse()
+                    gsap.to(big, {
+                        transform: 'translateY(50%)',
+                        opacity: 0,
+                        duration: .8
+                    })
+                    if (window.innerWidth < 768) {
+                        gsap.to(imgSelf, {
+                            clipPath: 'inset(100% 0 0% 0)'
+                        })
+                    }
+                    /*   list.style.transform = `translateY(-${7 * i}rem)` */
+                },
+            })
         })
 
 
-  
+
+
 
 
 

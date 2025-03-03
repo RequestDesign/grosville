@@ -36,24 +36,24 @@
       <section class="mainHeading">
         <div class="container mainHeading__c">
           <div class="mainHeading__c-main">
-            <h1 class="tl1">
+            <h1 class="tl1 gsap-translate-y" data-gsap-delay="0.2">
               Бутик-агентство <br />
               премиальной <br />
               недвижимости
             </h1>
-            <p class="txt20 desktop">
+            <p class="txt20 desktop gsap-translate-y" data-gsap-delay="0.4">
               Мы предоставляем лучшие <br />
               возможности и эксклюзивные <br />
               предложения в своем классе
             </p>
 
-            <a href="" class="btn-trans _arrow">
+            <a href="" class="btn-trans _arrow gsap-translate-y" data-gsap-delay="0.6">
               <span class="btn-trans__top">выбрать</span>
               <span class="btn-trans__bottom">недвижимость</span>
             </a>
 
           </div>
-          <div class="desktop swiper mainHeading__c-slider">
+          <div class="desktop swiper mainHeading__c-slider gsap-translate-y">
             <div class="swiper-nav">
               <span></span>
               <button class="swiper-btn swiper-btn-next"></button>
@@ -80,8 +80,7 @@
               </li>
             </ul>
           </div>
-          <div class="mainHeading__c-img">
-
+          <div class="mainHeading__c-img gsap-img">
             <img src="./assets/images/headingMain.png" alt="">
           </div>
         </div>
@@ -98,17 +97,20 @@
 
       <section class="mainProjects">
         <div class="container mainProjects__c">
-          <div class="mainProjects__c-img">
+          <div class="mainProjects__c-img gsap-img">
             <img src="./assets/images/main-projects.png" alt="">
           </div>
-          <div class="mainProjects__c-main">
-            <p class="tl1">
+          <div class="mainProjects__c-main ">
+            <p class="tl1 gsap-translate-y">
               Ознакомьтесь <br />
-              со всеми <span class="col-orange">нашими <br />
-                проектами</span>
+              со всеми <span class="col-orange">
+                <span class="gsap-bg-orange-text" data-gsap-delay="1">нашими</span>
+                <br />
+                <span class="gsap-bg-orange-text" data-gsap-delay="1.1">проектами</span>
+              </span>
             </p>
 
-            <div class="mainProjects__c-main-text">
+            <div class="mainProjects__c-main-text gsap-translate-y gsap-img">
               <img class="desktop" src="./assets/images/mainProjectsSmall.png" alt="">
               <span class="tl1">20+ <span class="col-grey200 txt11">объектов</span></span>
               <p class="txt11 txt-up desktop">
@@ -117,11 +119,10 @@
               </p>
             </div>
 
-            <a href="#" class="btn-trans _arrow">
+            <a href="#" class="btn-trans _arrow gsap-opacity" data-gsap-delay="1">
               <span class="btn-trans__top">смотреть</span>
               <span class="btn-trans__bottom">все проекты</span>
             </a>
-
 
 
           </div>
@@ -146,20 +147,28 @@
         <div class="container ">
           <ul class="mainBanner__small">
             <li class="mainBanner__small-img">
-              <img src="./assets/images/aboutGrid-1.png" alt="">
+              <div class="mainBanner__small-img-self">
+                <img src="./assets/images/aboutGrid-1.png" alt="">
+              </div>
             </li>
             <li class="mainBanner__small-img">
-              <img src="./assets/images/aboutGrid-2.png" alt="">
+              <div class="mainBanner__small-img-self">
+                <img src="./assets/images/aboutGrid-2.png" alt="">
+              </div>
             </li>
             <li class="mainBanner__small-img">
-              <img src="./assets/images/aboutGrid-3.png" alt="">
+              <div class="mainBanner__small-img-self">
+                <img src="./assets/images/aboutGrid-3.png" alt="">
+              </div>
             </li>
             <li class="mainBanner__small-img">
-              <img src="./assets/images/aboutGrid-4.png" alt="">
+              <div class="mainBanner__small-img-self">
+                <img src="./assets/images/aboutGrid-4.png" alt="">
+              </div>
             </li>
           </ul>
           <div class="mainBanner__c">
-           
+
             <div class="mainBanner__c-text">
               <p class="tl1 col-grey200">Мы создаем</p>
               <p class="tl1 col-grey200">ценность через</p>
@@ -178,10 +187,10 @@
       <!--  -->
       <section class="mainSpecial">
         <div class="container">
-          <p class="tl1">Уникальное предложение</p>
+          <p class="tl1 gsap-translate-y">Уникальное предложение</p>
           <div class="swiper">
 
-            <div class="mainSpecial__ctrl">
+            <div class="mainSpecial__ctrl gsap-opacity">
               <div class="swiper-pag _fraction"></div>
               <div class="swiper-nav">
                 <button class="swiper-btn swiper-btn-prev"></button>
@@ -192,45 +201,46 @@
             <ul class="swiper-wrapper">
               <li class="swiper-slide mainSpecial__slide">
                 <div class="mainSpecial__slide-left">
-                  <div class="mainSpecial__slide-left-img" data-fancybox href="./assets/images/aboutHeading.png">
+                  <div class="mainSpecial__slide-left-img gsap-translate-y" data-fancybox
+                    href="./assets/images/aboutHeading.png">
                     <img src="./assets/images/aboutHeading.png" alt="">
                   </div>
-                  <ul class="mainSpecial__slide-left-adv ">
+                  <ul class="mainSpecial__slide-left-adv gsap-translate-y">
                     <li class="mainSpecial__slide-left-adv-e ">
                       <svg>
-                        <use xlink:href="assets/images/icons/sprites.svg#bed"/>
-                    </svg>
+                        <use xlink:href="assets/images/icons/sprites.svg#bed" />
+                      </svg>
                       <span class="tl3">top text</span>
                       <span class="txt11 col-grey200">bottom text</span>
                     </li>
 
                     <li class="mainSpecial__slide-left-adv-e ">
                       <svg>
-                        <use xlink:href="assets/images/icons/sprites.svg#bed"/>
-                    </svg>
+                        <use xlink:href="assets/images/icons/sprites.svg#bed" />
+                      </svg>
                       <span class="tl3">top text</span>
                       <span class="txt11 col-grey200">bottom text</span>
                     </li>
 
                     <li class="mainSpecial__slide-left-adv-e ">
                       <svg>
-                        <use xlink:href="assets/images/icons/sprites.svg#bed"/>
-                    </svg>
+                        <use xlink:href="assets/images/icons/sprites.svg#bed" />
+                      </svg>
                       <span class="tl3">top text</span>
                       <span class="txt11 col-grey200">bottom text</span>
                     </li>
                   </ul>
 
-                  <button class="btn-trans _arrow mobile">
+                  <button class="btn-trans _arrow mobile gsap-opacity">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>
 
                 </div>
-                <div class="mainSpecial__slide-middle" data-fancybox href="./assets/images/aboutBanner.png">
+                <div class="mainSpecial__slide-middle gsap-img" data-fancybox href="./assets/images/aboutBanner.png">
                   <img src="./assets/images/aboutBanner.png" alt="">
-                </div>]
-                <div class="mainSpecial__slide-right">
+                </div>
+                <div class="mainSpecial__slide-right gsap-translate-y">
                   <p class="tl3 col-orange">ЖК Литера</p>
                   <p class="txt20 ">Большой Смоленский пр, 6</p>
                   <span class="mainSpecial__slide-right-adv tl2">
@@ -240,7 +250,7 @@
                     one <br />
                   </span>
 
-                  <button class="btn-trans _arrow desktop">
+                  <button class="btn-trans _arrow desktop gsap-opacity" data-gsap-delay="1">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>
@@ -255,24 +265,24 @@
                   <ul class="mainSpecial__slide-left-adv ">
                     <li class="mainSpecial__slide-left-adv-e ">
                       <svg>
-                        <use xlink:href="assets/images/icons/sprites.svg#bed"/>
-                    </svg>
+                        <use xlink:href="assets/images/icons/sprites.svg#bed" />
+                      </svg>
                       <span class="tl3">top text</span>
                       <span class="txt11 col-grey200">bottom text</span>
                     </li>
 
                     <li class="mainSpecial__slide-left-adv-e ">
                       <svg>
-                        <use xlink:href="assets/images/icons/sprites.svg#bed"/>
-                    </svg>
+                        <use xlink:href="assets/images/icons/sprites.svg#bed" />
+                      </svg>
                       <span class="tl3">top text</span>
                       <span class="txt11 col-grey200">bottom text</span>
                     </li>
 
                     <li class="mainSpecial__slide-left-adv-e ">
                       <svg>
-                        <use xlink:href="assets/images/icons/sprites.svg#bed"/>
-                    </svg>
+                        <use xlink:href="assets/images/icons/sprites.svg#bed" />
+                      </svg>
                       <span class="tl3">top text</span>
                       <span class="txt11 col-grey200">bottom text</span>
                     </li>
@@ -305,20 +315,20 @@
       <!--  -->
       <section class="mainMsg">
         <div class="container mainMsg__c">
-          <p class="txt11 txt-up col-orange mainMsg__c-h">слово руководителей</p>
-          <p class="tl1 mainMsg__c-h1">
-            Мы предоставляем <span class="col-orange">уникальные</span> возможности и <span
-              class="col-orange">эксклюзивные предложения</span> в северной столице
+          <p class="txt11 txt-up col-orange mainMsg__c-h gsap-translate-y">слово руководителей</p>
+          <p class="tl1 mainMsg__c-h1 gsap-translate-y">
+            Мы предоставляем <span class="gsap-bg-orange-text">уникальные</span> возможности и <span
+              class="gsap-bg-orange-text">эксклюзивные предложения</span> в северной столице
           </p>
-          <p class="tl3 mainMsg__c-h2">
+          <p class="tl3 mainMsg__c-h2 gsap-translate-y">
             Меняем привычное представление о повседневном комфорте и создавая уникальные сценарии жизни
           </p>
-          <div class="mainMsg__c-line">
+          <div class="mainMsg__c-line gsap-opacity" data-gsap-delay="1">
             <span></span>
             <span></span>
           </div>
 
-          <div class="mainMsg__c-text-one">
+          <div class="mainMsg__c-text-one gsap-translate-y" data-gsap-delay="0.5">
             <p class="tl2 desktop">
               Эффективность <br />
               инвестиций
@@ -333,11 +343,11 @@
             </p>
           </div>
 
-          <div class="desktop mainMsg__c-img">
+          <div class="desktop mainMsg__c-img gsap-img">
             <img src="./assets/images/msg-1.png" alt="">
           </div>
 
-          <div class="mainMsg__c-text-two">
+          <div class="mainMsg__c-text-two gsap-translate-y" data-gsap-delay="0.5">
             <p class="tl2 desktop">
               Бескомпромиссный <br />
               подход
@@ -356,7 +366,7 @@
           </div>
 
 
-          <picture class="mainMsg__c-img">
+          <picture class="mainMsg__c-img gsap-img">
             <source media="(min-width: 768px)" srcset="./assets/images/msg-2.png">
             <img src="./assets/images/msg-3.png" alt="">
           </picture>
