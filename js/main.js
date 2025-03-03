@@ -208,10 +208,8 @@ const rem = function (rem) {
 
 
 
-//import WOW from 'wow.js';
 
 
-//import CSSRulePlugin from 'gsap/all';
 /* node_modules */
 
 /* local */
@@ -241,7 +239,7 @@ jquery_default()(function () {
       classList
     } = ev.target;
     if (classList.contains('catalogItemFirst__list-sort-dd-list-e')) {
-      ev.preventDefault();
+      ev.stopPropagation();
       if (!classList.contains('_active')) {
         const prev = ev.target.closest('.catalogItemFirst__list-sort-dd-list').querySelector('.catalogItemFirst__list-sort-dd-list-e._active');
         console.log(prev);
@@ -297,7 +295,6 @@ jquery_default()(function () {
        * если есть data-dd_html_lock='y' то еще и залочит html
        */
       ev.preventDefault();
-      ev.stopPropagation();
       const prev = document.querySelector('.dd-container._opened');
       const parent = ev.target.closest('.dd-container');
       if (prev && prev !== parent && !prev.classList.contains('catalogItemFirst')) {
@@ -319,144 +316,344 @@ jquery_default()(function () {
 });
 function initScroll() {
   if (!document.querySelector('.mainBanner__big-img')) return;
-  const scrollCfg = {
-    start: 'top 90%',
-    end: 'bottom 10%',
-    toggleActions: 'play none none reverse',
-    once: false
-  };
+  /*  const scrollCfg = {
+       start: 'top 90%',
+       end: 'bottom 10%',
+       toggleActions: 'play none none reverse',
+       once: false,
+   } */
   gsap/* default */.ZP.defaults({
-    duration: .5,
-    ease: 'none'
+    duration: 1,
+    ease: 'power1.inOut'
   });
   gsap/* default */.ZP.registerPlugin(ScrollTrigger/* ScrollTrigger */.i);
+  const scrollCfg = {
+    start: 'top 90%',
+    // Начинаем анимацию, когда элемент появляется сверху
+    end: 'bottom -10%',
+    // Заканчиваем анимацию, когда элемент уходит вниз
+    markers: false,
+    // Показываем маркеры для отладки (можно убрать)
+    toggleActions: "play none none none"
+  };
+  if (window.innerWidth > 768) {
+    /////////////////TRANSLATE///////////////////
+    document.querySelectorAll('.gsap-translate-y').forEach(e => {
+      gsap/* default */.ZP.set(e, {
+        opacity: 0,
+        transform: 'translateY(50%)'
+      });
+      const tl = gsap/* default */.ZP.timeline();
+      tl.fromTo(e, {
+        opacity: 0,
+        transform: 'translateY(50%)'
+      }, {
+        opacity: 1,
+        transform: 'translateY(0)'
+      });
+      tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0);
+      ScrollTrigger/* ScrollTrigger */.i.create({
+        trigger: e,
+        ...scrollCfg,
+        animation: tl,
+        onEnter: () => {
+          // scroll start + start
+
+          tl.play();
+        },
+        onEnterBack: () => {
+          // scroll end + end
+
+          tl.play();
+        },
+        onLeave: () => {
+          // scroll end + start
+
+          tl.play();
+        },
+        onLeaveBack: () => {
+          // scroll start + end
+
+          tl.play();
+        }
+      });
+    });
+    /////////////////TRANSLATE///////////////////
+    /////////////////TEXT///////////////////
+    document.querySelectorAll('.gsap-bg-orange-text').forEach(e => {
+      const tl = gsap/* default */.ZP.timeline();
+      tl.fromTo(e, {
+        backgroundPosition: '100% 50%'
+      }, {
+        backgroundPosition: '0% 50%'
+      });
+      tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0);
+      ScrollTrigger/* ScrollTrigger */.i.create({
+        trigger: e,
+        ...scrollCfg,
+        animation: tl,
+        onEnter: () => {
+          // scroll start + start
+
+          tl.play();
+        },
+        onEnterBack: () => {
+          // scroll end + end
+          tl.play();
+        },
+        onLeave: () => {
+          // scroll end + start
+          tl.play();
+        },
+        onLeaveBack: () => {
+          // scroll start + end
+          tl.play();
+        }
+      });
+    });
+    /////////////////TEXT///////////////////
+    /////////////////OPACITY///////////////////
+    document.querySelectorAll('.gsap-opacity').forEach(e => {
+      gsap/* default */.ZP.set(e, {
+        opacity: 0
+      });
+      const tl = gsap/* default */.ZP.timeline();
+      tl.fromTo(e, {
+        opacity: 0
+      }, {
+        opacity: 1
+      });
+      tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0);
+      ScrollTrigger/* ScrollTrigger */.i.create({
+        trigger: e,
+        ...scrollCfg,
+        animation: tl,
+        onEnter: () => {
+          // scroll start + start
+
+          tl.play();
+        },
+        onEnterBack: () => {
+          // scroll end + end
+
+          tl.play();
+        },
+        onLeave: () => {
+          // scroll end + start
+
+          tl.play();
+        },
+        onLeaveBack: () => {
+          // scroll start + end
+
+          tl.play();
+        }
+      });
+    });
+    /////////////////OPACITY///////////////////
+    /////////////////IMG///////////////////
+    document.querySelectorAll('.gsap-img').forEach(e => {
+      const img = e.querySelector('img');
+      gsap/* default */.ZP.set(e, {
+        clipPath: 'inset(100% 0 0% 0)'
+      });
+      gsap/* default */.ZP.set(img, {
+        transform: 'scale(1.2)'
+      });
+      const tl = gsap/* default */.ZP.timeline();
+      tl.add([gsap/* default */.ZP.fromTo(e, {
+        clipPath: 'inset(100% 0 0% 0)'
+      }, {
+        clipPath: 'inset(0% 0 0% 0)'
+      }), gsap/* default */.ZP.fromTo(img, {
+        transform: 'scale(1.2)'
+      }, {
+        transform: 'scale(1)'
+      })]);
+      tl.delay(e.dataset.gsapDelay ? Number(e.dataset.gsapDelay) : 0);
+      ScrollTrigger/* ScrollTrigger */.i.create({
+        trigger: e,
+        ...scrollCfg,
+        animation: tl,
+        onEnter: () => {
+          // scroll start + start
+
+          tl.play();
+        },
+        onEnterBack: () => {
+          // scroll end + end
+
+          tl.play();
+        },
+        onLeave: () => {
+          // scroll end + start
+
+          tl.play();
+        },
+        onLeaveBack: () => {
+          // scroll start + end
+
+          tl.play();
+        }
+      });
+    });
+    /////////////////IMG///////////////////
+  }
+
   document.querySelectorAll('.mainBanner__big-img').forEach(e => {
-    const scrollCfg = {
-      trigger: e,
-      start: 'top 95%',
-      // Начинаем анимацию, когда элемент появляется сверху
-      end: 'bottom -30%',
-      // Заканчиваем анимацию, когда элемент уходит вниз
-      scrub: true,
-      // Для плавной синхронизации с прокруткой
-      markers: true // Показываем маркеры для отладки (можно убрать)
-    };
+    /*   gsap.set(e, {
+          
+      })
+                  const tl = gsap.timeline()
+      tl.fromTo(e, {
+        
+      }, {
+        
+      })
+              
+      ScrollTrigger.create({
+          trigger: e,
+          ...scrollCfg,
+          animation: tl,
+          onEnter: () => {
+              // scroll start + start
+                          tl.play()
+          },
+          onEnterBack: () => {
+              // scroll end + end
+                          tl.play()
+          },
+          onLeave: () => {
+              // scroll end + start
+                          tl.play()
+          },
+          onLeaveBack: () => {
+              // scroll start + end
+                          tl.play()
+          },
+      })
+    */
+  });
+  if (window.innerWidth < 768) {
+    const main = document.querySelector('.mainBanner__small'),
+      t = main.querySelectorAll('.mainBanner__small-img-self'),
+      h = t[0].offsetHeight,
+      text = document.querySelector('.mainBanner__c');
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: main,
+      start: 'top 50%',
+      end: 'bottom 90%',
+      scrub: 0,
+      ease: 'none',
+      onUpdate: self => {
+        if (window.innerWidth < 768) {
+          const progress = self.progress,
+            v = (main.offsetHeight - h * 0.9) * progress;
+          gsap/* default */.ZP.set(t, {
+            //yPercent: 100,
+            top: v // Динамическое изменение позиции
+          });
 
-    // Анимация, которая двигает элемент снизу вверх и делает его видимым
-    gsap/* default */.ZP.to(e, {
-      yPercent: -80,
-      // Передвигаем элемент на 80% вверх относительно контейнера
-      opacity: 1,
-      // Делаем элемент полностью видимым
-      scale: 1.2,
-      // Увеличиваем масштаб элемента на 20%
-      scrollTrigger: scrollCfg
+          gsap/* default */.ZP.set(text, {
+            top: main.offsetHeight * 0.75 * progress
+          });
+        }
+      }
+    });
+  }
+  document.querySelectorAll('.mainBanner__small-img').forEach((e, i) => {
+    const list = document.querySelector('.mainBanner__c-text-words-list'),
+      big = document.querySelectorAll('.mainBanner__big-img')[i],
+      img = e.querySelector('img'),
+      imgSelf = img.closest('.mainBanner__small-img-self');
+    gsap/* default */.ZP.set(img, {
+      transform: 'scale(1.2)'
+    });
+    gsap/* default */.ZP.set(big, {
+      transform: '50%',
+      opacity: 0
+    });
+    if (window.innerWidth < 768) {
+      gsap/* default */.ZP.set(imgSelf, {
+        clipPath: 'inset(100% 0 0% 0)'
+      });
+    }
+    const tl = gsap/* default */.ZP.timeline();
+    tl.fromTo(img, {
+      transform: 'scale(1.2)'
+    }, {
+      transform: 'scale(1)'
+    });
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: e,
+      start: 'top 40%',
+      // Начинаем анимацию, когда элемент появляется сверху
+      end: i == 3 ? 'bottom -10%' : 'bottom 20%',
+      // Заканчиваем анимацию, когда элемент уходит вниз
+      onEnter: () => {
+        // scroll start + start
+
+        list.style.transform = `translateY(-${7 * i}rem)`;
+        tl.play();
+        gsap/* default */.ZP.to(big, {
+          transform: 'translateY(0%)',
+          opacity: 1,
+          duration: .8
+        });
+        if (window.innerWidth < 768) {
+          gsap/* default */.ZP.to(imgSelf, {
+            clipPath: 'inset(0% 0 0% 0)'
+          });
+        }
+      },
+      onEnterBack: () => {
+        // scroll end + end
+        tl.play();
+        list.style.transform = `translateY(-${7 * i}rem)`;
+        gsap/* default */.ZP.to(big, {
+          transform: 'translateY(0%)',
+          opacity: 1,
+          duration: .8
+        });
+        if (window.innerWidth < 768) {
+          gsap/* default */.ZP.to(imgSelf, {
+            clipPath: 'inset(0% 0 0% 0)'
+          });
+        }
+      },
+      onLeave: () => {
+        // scroll end + start
+        tl.reverse();
+        gsap/* default */.ZP.to(big, {
+          transform: 'translateY(-50%)',
+          opacity: 0,
+          duration: .8
+        });
+        if (window.innerWidth < 768) {
+          gsap/* default */.ZP.to(imgSelf, {
+            clipPath: 'inset(0% 0 100% 0)'
+          });
+        }
+        /*   list.style.transform = `translateY(-${7 * i}rem)` */
+      },
+
+      onLeaveBack: () => {
+        // scroll start + end
+        tl.reverse();
+        gsap/* default */.ZP.to(big, {
+          transform: 'translateY(50%)',
+          opacity: 0,
+          duration: .8
+        });
+        if (window.innerWidth < 768) {
+          gsap/* default */.ZP.to(imgSelf, {
+            clipPath: 'inset(100% 0 0% 0)'
+          });
+        }
+        /*   list.style.transform = `translateY(-${7 * i}rem)` */
+      }
     });
   });
-  document.querySelectorAll('.mainBanner__small-img').forEach(e => {
-    const scrollCfg = {
-      trigger: e,
-      start: 'top 95%',
-      // Начинаем анимацию, когда элемент появляется сверху
-      end: 'bottom -30%',
-      // Заканчиваем анимацию, когда элемент уходит вниз
-      scrub: true,
-      // Для плавной синхронизации с прокруткой
-      markers: true // Показываем маркеры для отладки (можно убрать)
-    };
-
-    // Анимация, которая двигает элемент снизу вверх и делает его видимым
-    gsap/* default */.ZP.to(e, {
-      yPercent: -5,
-      // Передвигаем элемент на 80% вверх относительно контейнера
-      opacity: 1,
-      // Делаем элемент полностью видимым
-      scrollTrigger: scrollCfg
-    });
-    gsap/* default */.ZP.set(e.querySelector('img'), {
-      scale: 1.5
-    });
-    gsap/* default */.ZP.to(e.querySelector('img'), {
-      scale: 1,
-      // Увеличиваем масштаб элемента на 20%
-      scrollTrigger: scrollCfg
-    });
-  });
-
-  /*---------------animate__heading--------------  */
-
-  /*---------------animate__fadeInUp--------------  */
-  /*  document.querySelectorAll('.animate__fadeInUp')
-       .forEach((el) => {
-           const tl = gsap.timeline()
-           gsap.set(el, {
-               opacity: 0,
-               transform: 'translateY: 105%'
-           });
-              ScrollTrigger.create({
-               trigger: el,
-               ...scrollCfg,
-               onEnter: () => {
-                   tl.clear();
-                   tl.fromTo(
-                       el,
-                       { translateY: '110%' },
-                       {
-                           translateY: '0%',
-                           duration: 1.5,
-                           ease: 'power1.inOut'
-                       } // Указывает, что эта анимация должна начаться одновременно с предыдущей
-                   );
-                   tl.fromTo(
-                       el,
-                       { opacity: 0 },
-                       {
-                           opacity: 1,
-                           duration: 1,
-                           ease: 'power1.inOut'
-                       },
-                       '<'
-                   ).play();
-               },
-               onEnterBack: () => {
-                   tl.clear();
-                   tl.fromTo(el, {
-                       opacity: 0,
-                       translateY: '-105%',
-                   }, {
-                       opacity: 1,
-                       translateY: '0%',
-                       duration: 0.5,
-                   }).play();
-               },
-               onLeave: () => {
-                   tl.clear();
-                   tl.fromTo(el, {
-                       opacity: 1,
-                       translateY: '0%',
-                   }, {
-                       opacity: 0,
-                       translateY: '-105%',
-                       duration: 0.5,
-                   }).play();
-               },
-               onLeaveBack: () => {
-                   tl.clear();
-                   tl.fromTo(el, {
-                       opacity: 1,
-                       translateY: '0%',
-                   }, {
-                       opacity: 0,
-                       translateY: '105%',
-                       duration: 0.5,
-                   }).play();
-  
-               },
-               //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
-           });
-       }) */
-
-  /*---------------animate__fadeInUp--------------  */
 }
 
 function initSwipers() {
