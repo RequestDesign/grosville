@@ -136,8 +136,8 @@
                     width: 56rem;
                     height: 36.7rem;
                     z-index: 3;
-                    mask-image: url(../assets/images/icons/sprites.svg#gr);
-                    mask-size: cover;
+                    mask-image: url(../assets/images/icons/gr.svg);
+                    mask-size: contain;
                     mask-repeat: no-repeat;
                     mask-position: center;
                     background-color: #333333;

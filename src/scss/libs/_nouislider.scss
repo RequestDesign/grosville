@@ -3,7 +3,7 @@
     //styleName: Desktop/Body/sm montserrat 0%;
     font-family: Montserrat;
     font-size: 1.6rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 115%;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -102,7 +102,7 @@
         right: -.75rem;
 
         @include mobile {
-            right: -2.5rem;
+            right: -2.1rem;
         }
     }
 }

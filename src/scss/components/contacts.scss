@@ -48,7 +48,7 @@
             &-list {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 6.8rem 10rem;
+                gap: 6.8rem 4rem;
                
 
                 @include mobile {}

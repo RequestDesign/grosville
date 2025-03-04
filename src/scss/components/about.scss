@@ -59,7 +59,7 @@
                 left: 17%;
                 width: 62rem;
                 height: 40rem;
-                mask-image: url(../assets/images/icons.sprites.svg#gr);
+                mask-image:  url(../assets/images/icons/gr.svg);
                 mask-size: 100%;
                 mask-position: center;
                 mask-repeat: no-repeat;
@@ -207,7 +207,7 @@
             @include mobile {
                 @include mobPad;
                 display: flex;
-                justify-content: flex-end;
+                justify-content: flex-start;
                 padding-right: 15rem;
             }
 
@@ -367,6 +367,9 @@
 
         &>.tl1 {
             @include mobPad;
+        }
+        & video{
+            width: 100%;
         }
     }
 

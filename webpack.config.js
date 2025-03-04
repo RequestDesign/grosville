@@ -136,7 +136,7 @@ module.exports = {
     open: true,
     hot: true,
     port: "8080",
-    host: "local-ip",
+    host: "localhost",
     static: path.resolve(__dirname, "dist"),
     watchFiles: path.join(__dirname, "src"),
   },

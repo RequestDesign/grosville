@@ -44,7 +44,7 @@
                     position: absolute;
                     top: 62rem;
                     left: -19rem;
-                    mask-image: url(../assets/images/icons/sprites.svg#gr);
+                    mask-image:  url(../assets/images/icons/gr.svg);
                     mask-size: contain;
                     mask-repeat: no-repeat;
                     mask-position: center;
@@ -180,6 +180,10 @@
 
             & .btn-trans {
                 transform: translate(9rem, -17rem);
+                @include mobile{
+                transform: translate(0, 0);
+
+                }
             }
 
             &-text {

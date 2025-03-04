@@ -11,7 +11,6 @@
             font-family: 'Montserrat';
             src: local('Montserrat'),
                 url('./assets/fonts/Montserrat.woff2') format('woff2');
-            /*   font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
@@ -22,20 +21,11 @@
             src: local('Inter'),
                 url('./assets/fonts/Inter.woff2') format('woff2');
 
-            /*     font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
 
-        /*   @font-face {
-      font-family: 'Inter';
-      src: local('Inter'),
-        url('./assets/fonts/Inter.woff2') format('woff2');
-
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    } */
+ 
     </style>
     <title>само напишется</title>
 </head>
@@ -91,19 +81,31 @@
                         <ul class=" contacts-info__c-right-list">
                             <li class="contacts-info__c-right-list-el">
                                 <p class="txt-up txt15 col-grey200">адрес</p>
-                                <p class="tl3">adres suda</p>
+                                <p class="tl3" itemprop="address" itemscope=""
+                                    itemtype="http://schema.org/PostalAddress">
+                                    <span itemprop="addressLocality">
+                                        г. Санкт-Петербург
+                                    </span>, <br />
+                                    <span itemprop="streetAddress">
+                                        пр-кт Лиговский, д. 50
+                                    </span>
+                                </p>
                             </li>
                             <li class="contacts-info__c-right-list-el">
                                 <p class="txt-up txt15 col-grey200">Время работы</p>
-                                <p class="tl3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium, commodi? Voluptate illo ducimus eligendi cumque.</p>
+                                <p class="tl3">
+                                    ПН - ПТ<span itemprop="openingHours" datetime="Mo-Fr 09:00-20:00">9:00 -
+                                        20:00</span> <br />
+                                    СБ - ВС по договоренности
+                                </p>
                             </li>
                             <li class="contacts-info__c-right-list-el">
                                 <p class="txt-up txt15 col-grey200">Телефон</p>
-                                <p class="tl3">adres suda</p>
+                                <p class="tl3" itemprop="telephone">+7 812 270 7652</p>
                             </li>
                             <li class="contacts-info__c-right-list-el">
                                 <p class="txt-up txt15 col-grey200">Email</p>
-                                <p class="tl3">adres suda</p>
+                                <a href="emailto:loh@mail.ru" class="tl3" itemprop="email">info@grosville.ru</a>
                             </li>
                             <li>
 
@@ -154,39 +156,39 @@
         ymaps.ready(init);
         function init() {
             ymaps.ready(init);
-        function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [47.204572074287015, 39.67028549999995],
-                zoom: 16,
-                behaviors: ['drag', 'dblClickZoom'],
-                controls: []
-            });
+            function init() {
+                var myMap = new ymaps.Map("map", {
+                    center: [47.204572074287015, 39.67028549999995],
+                    zoom: 16,
+                    behaviors: ['drag', 'dblClickZoom'],
+                    controls: []
+                });
 
-            myMap.geoObjects
-                .add(new ymaps.Placemark(myMap.getCenter(), {
-                    hintContent: 'напиши сюда название товара со страницы'
-                }, {
-                    iconLayout: 'default#image',
-                    iconImageHref: './assets/images/map-marker-contacts.webp',
-                    iconImageSize: [220, 70],
+                myMap.geoObjects
+                    .add(new ymaps.Placemark(myMap.getCenter(), {
+                        hintContent: 'напиши сюда название товара со страницы'
+                    }, {
+                        iconLayout: 'default#image',
+                        iconImageHref: './assets/images/map-marker-contacts.webp',
+                        iconImageSize: [220, 70],
 
-                }))
+                    }))
 
-           
-            myMap.controls.add('zoomControl', {
-                // Расположим поисковую строку справа.
-                float: 'right',
-                position: { right: 10, top: 100 }
-            });
-            myMap.options.set({
-                suppressMapOpenBlock: true, // Убираем панель "Как добраться"
-                suppressZoomOnDoubleClick: true, // Отключаем масштабирование двойным кликом
-                suppressPinchToZoom: true, // Отключаем увеличение жестом
-                taxiButtonShown: false, // Скрываем кнопку вызова такси
-                routePanelEnabled: false, // Отключаем панель маршрутов
-                geolocationControlSize: 'small' // Можно также уменьшить размер геолокационного контроля
-            });
-        }
+
+                myMap.controls.add('zoomControl', {
+                    // Расположим поисковую строку справа.
+                    float: 'right',
+                    position: { right: 10, top: 100 }
+                });
+                myMap.options.set({
+                    suppressMapOpenBlock: true, // Убираем панель "Как добраться"
+                    suppressZoomOnDoubleClick: true, // Отключаем масштабирование двойным кликом
+                    suppressPinchToZoom: true, // Отключаем увеличение жестом
+                    taxiButtonShown: false, // Скрываем кнопку вызова такси
+                    routePanelEnabled: false, // Отключаем панель маршрутов
+                    geolocationControlSize: 'small' // Можно также уменьшить размер геолокационного контроля
+                });
+            }
         }
     </script>
 </body>

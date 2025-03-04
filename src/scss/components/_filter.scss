@@ -58,7 +58,7 @@
                 left: 0;
                 transform: rotate(314deg);
                 @include mobile{
-                    top: 6px;
+                    top: 1.5rem;
                     width: 10px;
                     height: 10px;
                 }
@@ -91,10 +91,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            &>*{
-                @include desktop{
-                    height: 100%;
-                }
+            @include desktop{
+                height: 100%;
             }
 
             @include mobile {

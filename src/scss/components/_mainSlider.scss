@@ -88,8 +88,6 @@
                 @include hover {
                     background-position: 0% 92%;
                     background-size: 120%;
-                    border-color: var(--col-grey);
-
                     &::after {
                         transform: translate(3rem, 0rem) scale(.9);
                     }

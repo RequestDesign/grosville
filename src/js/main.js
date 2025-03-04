@@ -22,6 +22,7 @@ const HTML = document.querySelector('html'),
 
 
 $(function () {
+
     initForms()
     nouislider()
     header()
@@ -30,9 +31,14 @@ $(function () {
     initSwipers()
     initAboutVidos()
     initScroll()
-
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
+    window.scrollTo(0, 0)
+    initCard(document.querySelectorAll('.catalogItemSwiper') || null)
+    try {
+        logoAnime()
+    } catch (error) {
 
+    }
 
     document.addEventListener('click', (ev) => {
         const { classList } = ev.target
@@ -137,14 +143,115 @@ $(function () {
 
 })
 
+function logoAnime() {
+
+    const t = document.querySelector('.logoAnime'),
+        c = t.querySelector('.logoAnime__wrp-c'),
+        top = c.querySelector('.logoAnime__wrp-c-top'),
+        bottom = c.querySelector('.logoAnime__wrp-c-bottom'),
+        tl = gsap.timeline(),
+        main = document.querySelector('main')
+    let isMob = window.innerWidth < 768
+
+
+    gsap.set(HTML, {
+        overflow: 'hidden',
+        touchAction: 'none'
+    })
+    if (!isMob) {
+        gsap.set(main, {
+            paddingTop: '100dvh'
+        })
+    }
+
+
+    top.querySelectorAll('path')
+        .forEach((e, i) => {
+            tl.fromTo(e, {
+                clipPath: 'inset(0% 100% 0% 0)'
+            }, {
+                clipPath: 'inset(0% 0% 0% 0)',
+                duration: .5,
+                delay: -0.3,
+                ease: 'power1.inOut'
+            })
+
+        })
+
+    tl.add([
+        gsap.to(c, {
+
+            top: 0,
+            left: 0,
+            transform: 'translate(0%, 0%)',
+            delay: .5,
+            duration: .8
+        }),
+        gsap.to(top, {
+            width: isMob ? '30rem' : '21.6rem',
+            height: isMob ? '6rem' : '3rem',
+            delay: .5,
+            duration: .8
+        }, '-=1.3'),
+
+        gsap.to(t, {
+            clipPath: 'inset(0% 0% 100% 0)',
+            duration: .5,
+            delay: 1
+
+        }),
+        gsap.to(t, {
+            display: 'none',
+            delay: .5
+        }),
+        gsap.to(HTML, {
+            overflow: 'auto',
+            touchAction: 'auto',
+            duration: 0,
+            delay: 1.5
+        }),
+        gsap.to(main, {
+            paddingTop: '0',
+            duration: .8,
+            delay: 1
+        })
+    ])
+
+    tl.play()
+}
+
+function initCard(dom) {
+
+    if (dom.length && dom[0]) {
+        dom.forEach((e) => {
+            crt(e)
+        })
+    } else if (dom instanceof HTMLElement) {
+        crt(dom)
+    }
+
+    function crt(e) {
+        new Swiper(e, {
+            modules: [EffectFade, Pagination],
+            slidesPerView: 1,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            pagination: {
+                el: e.querySelector('.swiper-pag'),
+                type: 'bullets',
+                clickable: true
+            }
+
+        })
+    }
+
+}
+
 function initScroll() {
     if (!document.querySelector('.mainBanner__big-img')) return
-    /*  const scrollCfg = {
-         start: 'top 90%',
-         end: 'bottom 10%',
-         toggleActions: 'play none none reverse',
-         once: false,
-     } */
+
     gsap.defaults({ duration: 1, ease: 'power1.inOut' });
     gsap.registerPlugin(ScrollTrigger);
 
@@ -155,6 +262,7 @@ function initScroll() {
         markers: false, // Показываем маркеры для отладки (можно убрать)
         toggleActions: "play none none none",
     };
+
     if (window.innerWidth > 768) {
 
         /////////////////TRANSLATE///////////////////
@@ -347,48 +455,8 @@ function initScroll() {
         /////////////////IMG///////////////////
     }
 
-    document.querySelectorAll('.mainBanner__big-img')
-        .forEach((e) => {
-            /*   gsap.set(e, {
-                  
-              })
-          
-              const tl = gsap.timeline()
-              tl.fromTo(e, {
-                
-              }, {
-                
-              })
-          
-          
-              ScrollTrigger.create({
-                  trigger: e,
-                  ...scrollCfg,
-                  animation: tl,
-                  onEnter: () => {
-                      // scroll start + start
-          
-                      tl.play()
-                  },
-                  onEnterBack: () => {
-                      // scroll end + end
-          
-                      tl.play()
-                  },
-                  onLeave: () => {
-                      // scroll end + start
-          
-                      tl.play()
-                  },
-                  onLeaveBack: () => {
-                      // scroll start + end
-          
-                      tl.play()
-                  },
-              })
-           */
-        })
     if (window.innerWidth < 768) {
+
         const main = document.querySelector('.mainBanner__small'),
             t = main.querySelectorAll('.mainBanner__small-img-self'),
             h = t[0].offsetHeight,
@@ -396,7 +464,7 @@ function initScroll() {
 
         ScrollTrigger.create({
             trigger: main,
-         
+
             start: 'top 50%',
             end: 'bottom 90%',
             scrub: 0,
@@ -404,14 +472,14 @@ function initScroll() {
             onUpdate: self => {
                 if (window.innerWidth < 768) {
                     const progress = self.progress,
-                        v = (main.offsetHeight - (h * 0.9) ) * progress
+                        v = (main.offsetHeight - (h * 0.9)) * progress
                     gsap.set(t, {
                         //yPercent: 100,
                         top: v, // Динамическое изменение позиции
-                        
+
                     })
-                    gsap.set(text,{
-                        top: (main.offsetHeight * 0.75) * progress, 
+                    gsap.set(text, {
+                        top: (main.offsetHeight * 0.75) * progress,
                     })
                 }
             },
@@ -518,15 +586,9 @@ function initScroll() {
                 },
             })
         })
-
-
-
-
-
-
-
-
 }
+
+
 
 function initSwipers() {
     const catalogDetail_Top = document.querySelector('.catalogDetailTop')
@@ -818,25 +880,7 @@ function initSwipers() {
         })
     }
 
-    const catalogItem = document.querySelectorAll('.catalogItemSwiper')
-    if (catalogItem) {
-        catalogItem.forEach((e) => {
-            new Swiper(e, {
-                modules: [EffectFade, Pagination],
-                slidesPerView: 1,
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                pagination: {
-                    el: e.querySelector('.swiper-pag'),
-                    type: 'bullets',
-                    clickable: true
-                }
 
-            })
-        })
-    }
 
     const headingMain = document.querySelector('.mainHeading__c-slider')
     if (headingMain) {
@@ -1004,22 +1048,15 @@ function modalsHandler() {
 
     if (!modalOpeners || !modalClosers) return
 
-    modalOpeners.on('click', (ev) => {
-        const { modal, submit_type } = ev.currentTarget.dataset
-
-        $(`.modal-${modal}`)
-            .fadeIn()
-            .addClass('_opened')
-            .attr('data-submit_type', submit_type)
-        html.addClass('_lock')
-        if (modal == 'map') {
-            ymaps.ready(init);
-            function init() {
-                var myMap = new ymaps.Map("modalMap", {
-                    center: [ev.currentTarget.dataset.mapx, ev.currentTarget.dataset.mapy],
+    let myMap
+    try {
+        if (document.querySelector('#modalMap') && ymaps) {
+            ymaps.ready(() => {
+                myMap = new ymaps.Map("modalMap", {
+                    center: [47.204572074287015, 39.67028549999995],
                     zoom: 16,
                     controls: ['fullscreenControl',]
-                });
+                })
 
                 myMap.geoObjects
                     .add(new ymaps.Placemark(myMap.getCenter(), {
@@ -1031,6 +1068,25 @@ function modalsHandler() {
 
                     }))
             }
+            );
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    modalOpeners.on('click', (ev) => {
+        const { modal, submit_type } = ev.currentTarget.dataset
+
+
+        $(`.modal-${modal}`)
+            .fadeIn()
+            .addClass('_opened')
+            .attr('data-submit_type', submit_type)
+        html.addClass('_lock')
+        if (modal == 'map') {
+            myMap.panTo([Number(ev.currentTarget.dataset.mapx), Number(ev.currentTarget.dataset.mapy)])
+
             $(`.modal-${modal}`).find('.modal-map__ttl').text(ev.currentTarget.dataset.mapTtl)
             $(`.modal-${modal}`).find('.modal-map__adr').text(ev.currentTarget.dataset.mapAdr)
         }
@@ -1099,6 +1155,7 @@ function header() {
     const header = document.querySelector('.header'),
         modal = $('.header__modal')
 
+
     if (!header) return
 
     document.addEventListener('scroll', (ev) => {
@@ -1110,6 +1167,7 @@ function header() {
 
         prevY = window.scrollY
     })
+
     header.querySelectorAll('.header-modal-opener')
         .forEach((el) => {
             el.addEventListener('click', (ev) => {
@@ -1127,4 +1185,3 @@ function header() {
             })
         })
 }
-

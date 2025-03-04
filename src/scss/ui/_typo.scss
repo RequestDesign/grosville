@@ -19,7 +19,7 @@
   //styleName: Desktop/Title/lg;
   font-family: Montserrat;
   font-size: 3rem; /* 30px */
-  font-weight: 600;
+  font-weight: 500;
   line-height: 110%;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
@@ -37,7 +37,7 @@
   //styleName: Desktop/Body/lg;
   font-family: Montserrat;
   font-size: 2.2rem; /* 22px */
-  font-weight: 600;
+  font-weight: 500;
   line-height: 120%;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
@@ -82,7 +82,7 @@
     //styleName: Desktop/Body/sm montserrat 0%;
     font-family: Montserrat;
     font-size: 1.6rem; /* 16px */
-    font-weight: 600;
+    font-weight: 500;
     line-height: 120%;
 
     text-underline-position: from-font;
@@ -95,7 +95,7 @@
     //styleName: Desktop/Body/sm montserrat 12%;
     font-family: Montserrat;
     font-size: 1.6rem; /* 16px */
-    font-weight: 600;
+    font-weight: 500;
     line-height: 110%;
     letter-spacing: 0.12em;
 
@@ -123,7 +123,7 @@
     //styleName: Desktop/Body/xs montserrat;
     font-family: Montserrat;
     font-size: 1.3rem; /* 13px */
-    font-weight: 600;
+    font-weight: 500;
     line-height: 110%;
 
     text-underline-position: from-font;
@@ -131,8 +131,8 @@
 
   }
 
-  &._600 {
-    font-weight: 600;
+  &._500 {
+    font-weight: 500;
   }
 }
 
@@ -140,7 +140,7 @@
   //styleName: Desktop/Label/lg;
   font-family: Inter;
   font-size: 1.5rem; /* 15px */
-  font-weight: 600;
+  font-weight: 500;
   line-height: 120%;
   letter-spacing: 0.12em;
 
@@ -156,7 +156,7 @@
   //styleName: Desktop/Label/sm;
   font-family: Inter;
   font-size: 1.1rem; /* 11px */
-  font-weight: 600;
+  font-weight: 500;
   line-height: 120%;
   letter-spacing: 0.12em;
 
@@ -173,7 +173,7 @@
   //styleName: Desktop/Slider num/lg;
   font-family: Montserrat;
   font-size: 4rem; /* 40px */
-  font-weight: 600;
+  font-weight: 500;
   line-height: 100%;
   letter-spacing: 0.01em;
 
