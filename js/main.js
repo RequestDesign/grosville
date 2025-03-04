@@ -1051,7 +1051,7 @@ function modalsHandler() {
     html = jquery_default()('html');
   if (!modalOpeners || !modalClosers) return;
   let myMap;
-  if (document.querySelector('#modalMap')) {
+  if (document.querySelector('#modalMap') && ymaps) {
     ymaps.ready(() => {
       myMap = new ymaps.Map("modalMap", {
         center: [47.204572074287015, 39.67028549999995],
