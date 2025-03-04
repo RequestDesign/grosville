@@ -70,35 +70,53 @@
     <div class="header__modal  header-modal-opener">
         <nav class="header__modal-nav">
             <button class="header__modal-nav-closer ui-x  desktop header-modal-opener"></button>
-            <ul class="header__modal-nav-list">
-                <li class="header__modal-nav-list-el txt-up">
-                    <a class="header__modal-nav-list-el-link " href="#">недвижимость</a>
+            <ul class="header__modal-nav-list" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+                <meta itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">
+                <li class="header__modal-nav-list-el txt-up" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" class="header__modal-nav-list-el-link " href="#">недвижимость</a>
+                    <meta itemprop="name" content="недвижимость">
                     <ul>
                         <li>
-                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">Первичная</a>
+                            <a itemprop="url" href="#" class="tl3 header__modal-nav-list-el-link _small">
+                                Первичная
+                            </a>
+                            <meta itemprop="name" content="недвижимость первичная">
                         </li>
                         <li>
-                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">Вторичная</a>
+                            <a itemprop="url" href="#" class="tl3 header__modal-nav-list-el-link _small">
+                                Вторичная
+                            </a>
+                            <meta itemprop="name" content="недвижимость вторичная">
                         </li>
                         <li>
-                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">загородная</a>
+                            <a itemprop="url" href="#" class="tl3 header__modal-nav-list-el-link _small">
+                                загородная
+                            </a>
+                            <meta itemprop="name" content="недвижимость загородняя">
                         </li>
                         <li>
-                            <a href="#" class="tl3 header__modal-nav-list-el-link _small">коммерческая</a>
+                            <a itemprop="url" href="#" class="tl3 header__modal-nav-list-el-link _small">
+                                коммерческая
+                            </a>
+                            <meta itemprop="name" content="недвижимость коммерческая">
                         </li>
                     </ul>
                 </li>
-                <li class="header__modal-nav-list-el txt-up">
-                    <a class="header__modal-nav-list-el-link " href="#">О нас</a>
+                <li class="header__modal-nav-list-el txt-up" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" class="header__modal-nav-list-el-link " href="#">О нас</a>
+                    <meta itemprop="name" content="о нас">
                 </li>
-                <li class="header__modal-nav-list-el txt-up">
-                    <a class="header__modal-nav-list-el-link " href="#">новости</a>
+                <li class="header__modal-nav-list-el txt-up" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" class="header__modal-nav-list-el-link " href="#">новости</a>
+                    <meta itemprop="name" content="новости">
                 </li>
-                <li class="header__modal-nav-list-el txt-up">
-                    <a class="header__modal-nav-list-el-link " href="#">сми о нас</a>
+                <li class="header__modal-nav-list-el txt-up" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" class="header__modal-nav-list-el-link " href="#">сми о нас</a>
+                    <meta itemprop="name" content="сми о нас">
                 </li>
-                <li class="header__modal-nav-list-el txt-up">
-                    <a class="header__modal-nav-list-el-link " href="#">контакты</a>
+                <li class="header__modal-nav-list-el txt-up" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                    <a itemprop="url" class="header__modal-nav-list-el-link " href="#">контакты</a>
+                    <meta itemprop="name" content="контакты">
                 </li>
             </ul>
             <div class="mobile header__modal-nav-contacts">
@@ -129,21 +147,6 @@
 
 
 
-<!-- 
- <nav>
-            <ul itemscope="" itemtype="https://schema.org/SiteNavigationElement">
-                <meta itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
-                    <a itemprop="url" href="#">новинки</a>
-                    <meta itemprop="name" content="новинки">
-                </li>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
-                    <a itemprop="url" href="#">каталог</a>
-                    <meta itemprop="name" content="каталог">
-                </li>
-            </ul>
-        </nav>
--->
         <main>
             <section class="catalogBanner">
                 <div class="container catalogBanner__c">
@@ -236,7 +239,7 @@
             <section class="catalogFilters">
                 <button class="catalogFilters__opener filter-opener mobile"></button>
                 <div class="catalogFilters__top container desktop">
-                    <p class="tl1">Выбрать недвижимость</p>
+                    <h1 class="tl1">Выбрать недвижимость</h1>
 
                     <label class="form-input-container">
                         <input type="checkbox" name="checkbox" checked>

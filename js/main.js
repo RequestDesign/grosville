@@ -1050,6 +1050,21 @@ function modalsHandler() {
     modalClosers = jquery_default()('.modal-closer'),
     html = jquery_default()('html');
   if (!modalOpeners || !modalClosers) return;
+  let myMap;
+  ymaps.ready(() => {
+    myMap = new ymaps.Map("modalMap", {
+      center: [47.204572074287015, 39.67028549999995],
+      zoom: 16,
+      controls: ['fullscreenControl']
+    });
+    myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
+      hintContent: 'q'
+    }, {
+      iconLayout: 'default#image',
+      iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
+      iconImageSize: [111, 135]
+    }));
+  });
   modalOpeners.on('click', ev => {
     const {
       modal,
@@ -1058,21 +1073,7 @@ function modalsHandler() {
     jquery_default()(`.modal-${modal}`).fadeIn().addClass('_opened').attr('data-submit_type', submit_type);
     html.addClass('_lock');
     if (modal == 'map') {
-      ymaps.ready(init);
-      function init() {
-        var myMap = new ymaps.Map("modalMap", {
-          center: [ev.currentTarget.dataset.mapx, ev.currentTarget.dataset.mapy],
-          zoom: 16,
-          controls: ['fullscreenControl']
-        });
-        myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
-          hintContent: 'q'
-        }, {
-          iconLayout: 'default#image',
-          iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
-          iconImageSize: [111, 135]
-        }));
-      }
+      myMap.panTo([Number(ev.currentTarget.dataset.mapx), Number(ev.currentTarget.dataset.mapy)]);
       jquery_default()(`.modal-${modal}`).find('.modal-map__ttl').text(ev.currentTarget.dataset.mapTtl);
       jquery_default()(`.modal-${modal}`).find('.modal-map__adr').text(ev.currentTarget.dataset.mapAdr);
     }
