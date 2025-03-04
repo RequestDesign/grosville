@@ -1051,20 +1051,22 @@ function modalsHandler() {
     html = jquery_default()('html');
   if (!modalOpeners || !modalClosers) return;
   let myMap;
-  ymaps.ready(() => {
-    myMap = new ymaps.Map("modalMap", {
-      center: [47.204572074287015, 39.67028549999995],
-      zoom: 16,
-      controls: ['fullscreenControl']
+  if (document.querySelector('#modalMap')) {
+    ymaps.ready(() => {
+      myMap = new ymaps.Map("modalMap", {
+        center: [47.204572074287015, 39.67028549999995],
+        zoom: 16,
+        controls: ['fullscreenControl']
+      });
+      myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
+        hintContent: 'q'
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
+        iconImageSize: [111, 135]
+      }));
     });
-    myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
-      hintContent: 'q'
-    }, {
-      iconLayout: 'default#image',
-      iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
-      iconImageSize: [111, 135]
-    }));
-  });
+  }
   modalOpeners.on('click', ev => {
     const {
       modal,
