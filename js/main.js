@@ -234,7 +234,11 @@ jquery_default()(function () {
   initAboutVidos();
   initScroll();
   HTML.classList.add(HTML_PAGELOAD_SELECTOR);
+  window.scrollTo(0, 0);
   initCard(document.querySelectorAll('.catalogItemSwiper') || null);
+  try {
+    logoAnime();
+  } catch (error) {}
   document.addEventListener('click', ev => {
     const {
       classList
@@ -315,6 +319,63 @@ jquery_default()(function () {
     }
   });
 });
+function logoAnime() {
+  const t = document.querySelector('.logoAnime'),
+    c = t.querySelector('.logoAnime__wrp-c'),
+    top = c.querySelector('.logoAnime__wrp-c-top'),
+    bottom = c.querySelector('.logoAnime__wrp-c-bottom'),
+    tl = gsap/* default */.ZP.timeline(),
+    main = document.querySelector('main');
+  let isMob = window.innerWidth < 768;
+  gsap/* default */.ZP.set(HTML, {
+    overflow: 'hidden',
+    touchAction: 'none'
+  });
+  if (!isMob) {
+    gsap/* default */.ZP.set(main, {
+      paddingTop: '100dvh'
+    });
+  }
+  top.querySelectorAll('path').forEach((e, i) => {
+    tl.fromTo(e, {
+      clipPath: 'inset(0% 100% 0% 0)'
+    }, {
+      clipPath: 'inset(0% 0% 0% 0)',
+      duration: .5,
+      delay: -0.3,
+      ease: 'power1.inOut'
+    });
+  });
+  tl.add([gsap/* default */.ZP.to(c, {
+    top: 0,
+    left: 0,
+    transform: 'translate(0%, 0%)',
+    delay: .5,
+    duration: .8
+  }), gsap/* default */.ZP.to(top, {
+    width: isMob ? '30rem' : '21.6rem',
+    height: isMob ? '6rem' : '3rem',
+    delay: .5,
+    duration: .8
+  }, '-=1.3'), gsap/* default */.ZP.to(t, {
+    clipPath: 'inset(0% 0% 100% 0)',
+    duration: .5,
+    delay: 1
+  }), gsap/* default */.ZP.to(t, {
+    display: 'none',
+    delay: .5
+  }), gsap/* default */.ZP.to(HTML, {
+    overflow: 'auto',
+    touchAction: 'auto',
+    duration: 0,
+    delay: 1.5
+  }), gsap/* default */.ZP.to(main, {
+    paddingTop: '0',
+    duration: .8,
+    delay: 1
+  })]);
+  tl.play();
+}
 function initCard(dom) {
   if (dom.length && dom[0]) {
     dom.forEach(e => {
