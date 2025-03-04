@@ -234,6 +234,7 @@ jquery_default()(function () {
   initAboutVidos();
   initScroll();
   HTML.classList.add(HTML_PAGELOAD_SELECTOR);
+  initCard(document.querySelectorAll('.catalogItemSwiper') || null);
   document.addEventListener('click', ev => {
     const {
       classList
@@ -314,14 +315,32 @@ jquery_default()(function () {
     }
   });
 });
+function initCard(dom) {
+  if (dom.length && dom[0]) {
+    dom.forEach(e => {
+      crt(e);
+    });
+  } else if (dom instanceof HTMLElement) {
+    crt(dom);
+  }
+  function crt(e) {
+    new swiper/* default */.Z(e, {
+      modules: [modules/* EffectFade */.xW, modules/* Pagination */.tl],
+      slidesPerView: 1,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      pagination: {
+        el: e.querySelector('.swiper-pag'),
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
+}
 function initScroll() {
   if (!document.querySelector('.mainBanner__big-img')) return;
-  /*  const scrollCfg = {
-       start: 'top 90%',
-       end: 'bottom 10%',
-       toggleActions: 'play none none reverse',
-       once: false,
-   } */
   gsap/* default */.ZP.defaults({
     duration: 1,
     ease: 'power1.inOut'
@@ -500,40 +519,6 @@ function initScroll() {
     /////////////////IMG///////////////////
   }
 
-  document.querySelectorAll('.mainBanner__big-img').forEach(e => {
-    /*   gsap.set(e, {
-          
-      })
-                  const tl = gsap.timeline()
-      tl.fromTo(e, {
-        
-      }, {
-        
-      })
-              
-      ScrollTrigger.create({
-          trigger: e,
-          ...scrollCfg,
-          animation: tl,
-          onEnter: () => {
-              // scroll start + start
-                          tl.play()
-          },
-          onEnterBack: () => {
-              // scroll end + end
-                          tl.play()
-          },
-          onLeave: () => {
-              // scroll end + start
-                          tl.play()
-          },
-          onLeaveBack: () => {
-              // scroll start + end
-                          tl.play()
-          },
-      })
-    */
-  });
   if (window.innerWidth < 768) {
     const main = document.querySelector('.mainBanner__small'),
       t = main.querySelectorAll('.mainBanner__small-img-self'),
@@ -920,24 +905,6 @@ function initSwipers() {
         prevEl: aboutSpec.querySelector('.swiper-btn-prev'),
         nextEl: aboutSpec.querySelector('.swiper-btn-next')
       }
-    });
-  }
-  const catalogItem = document.querySelectorAll('.catalogItemSwiper');
-  if (catalogItem) {
-    catalogItem.forEach(e => {
-      new swiper/* default */.Z(e, {
-        modules: [modules/* EffectFade */.xW, modules/* Pagination */.tl],
-        slidesPerView: 1,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        },
-        pagination: {
-          el: e.querySelector('.swiper-pag'),
-          type: 'bullets',
-          clickable: true
-        }
-      });
     });
   }
   const headingMain = document.querySelector('.mainHeading__c-slider');
