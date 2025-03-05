@@ -584,13 +584,16 @@ function initScroll() {
         if (window.innerWidth < 768) {
           const progress = self.progress,
             v = (main.offsetHeight - h * 0.9) * progress;
-          gsap/* default */.ZP.set(t, {
+          gsap/* default */.ZP.to(t, {
             //yPercent: 100,
-            top: v // Динамическое изменение позиции
-          });
+            top: v,
+            // Динамическое изменение позиции
 
-          gsap/* default */.ZP.set(text, {
-            top: main.offsetHeight * 0.75 * progress
+            ease: 'power1.inOut'
+          });
+          gsap/* default */.ZP.to(text, {
+            top: main.offsetHeight * 0.75 * progress,
+            ease: 'power1.inOut'
           });
         }
       }
