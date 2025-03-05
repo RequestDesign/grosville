@@ -1,6 +1,6 @@
 
 /* node_modules */
-import $ from 'jquery'
+
 import Swiper from 'swiper';
 import { Navigation, Pagination, Grid, Autoplay, Thumbs, EffectFade } from 'swiper/modules';
 import Inputmask from 'inputmask'
@@ -32,7 +32,6 @@ $(function () {
     initAboutVidos()
     initScroll()
     HTML.classList.add(HTML_PAGELOAD_SELECTOR)
-    window.scrollTo(0, 0)
     initCard(document.querySelectorAll('.catalogItemSwiper') || null)
     try {
         logoAnime()
@@ -158,21 +157,18 @@ function logoAnime() {
         overflow: 'hidden',
         touchAction: 'none'
     })
-    if (!isMob) {
-        gsap.set(main, {
-            paddingTop: '100dvh'
-        })
-    }
 
+    tl.delay(1)
 
     top.querySelectorAll('path')
         .forEach((e, i) => {
-            tl.fromTo(e, {
+            gsap.set(e, {
                 clipPath: 'inset(0% 100% 0% 0)'
-            }, {
+            })
+            tl.to(e, {
                 clipPath: 'inset(0% 0% 0% 0)',
                 duration: .5,
-                delay: -0.3,
+                delay: -0.2,
                 ease: 'power1.inOut'
             })
 
@@ -210,11 +206,7 @@ function logoAnime() {
             duration: 0,
             delay: 1.5
         }),
-        gsap.to(main, {
-            paddingTop: '0',
-            duration: .8,
-            delay: 1
-        })
+
     ])
 
     tl.play()
@@ -255,7 +247,6 @@ function initScroll() {
     gsap.defaults({ duration: 1, ease: 'power1.inOut' });
     gsap.registerPlugin(ScrollTrigger);
 
-
     const scrollCfg = {
         start: 'top 90%', // Начинаем анимацию, когда элемент появляется сверху
         end: 'bottom -10%', // Заканчиваем анимацию, когда элемент уходит вниз
@@ -263,7 +254,7 @@ function initScroll() {
         toggleActions: "play none none none",
     };
 
-    if (window.innerWidth > 768) {
+    if (true) {
 
         /////////////////TRANSLATE///////////////////
         document.querySelectorAll('.gsap-translate-y')
@@ -458,31 +449,38 @@ function initScroll() {
     if (window.innerWidth < 768) {
 
         const main = document.querySelector('.mainBanner__small'),
-            t = main.querySelectorAll('.mainBanner__small-img-self'),
-            h = t[0].offsetHeight,
+            pic = main.querySelectorAll('.mainBanner__small-img-self'),
+            h = pic[0].offsetHeight,
             text = document.querySelector('.mainBanner__c')
 
         ScrollTrigger.create({
             trigger: main,
 
             start: 'top 50%',
-            end: 'bottom 90%',
-            scrub: 0,
-            ease: 'none',
+            end: 'bottom 90%',    
             onUpdate: self => {
                 if (window.innerWidth < 768) {
                     const progress = self.progress,
                         v = (main.offsetHeight - (h * 0.9)) * progress
-                    gsap.set(t, {
+                    gsap.to(pic, {
                         //yPercent: 100,
                         top: v, // Динамическое изменение позиции
-
+                        duration: .2,
+                        delay: .1,
+                        ease: 'none'
                     })
                     gsap.set(text, {
-                        top: (main.offsetHeight * 0.75) * progress,
+                        top: Number(Number((main.offsetHeight * 0.75) * progress).toFixed(0) ),
+                        ease: 'none'
                     })
                 }
             },
+            onEnter:()=>{
+                console.log('e');
+            },
+            onLeave: ()=>{
+                console.log('l');
+            }
         })
     }
     document.querySelectorAll('.mainBanner__small-img')
@@ -497,7 +495,8 @@ function initScroll() {
             })
             gsap.set(big, {
                 transform: '50%',
-                opacity: 0
+                opacity: 0,
+                ease: 'power1.inOut'
             })
 
             if (window.innerWidth < 768) {
@@ -511,8 +510,8 @@ function initScroll() {
                 transform: 'scale(1.2)'
 
             }, {
-                transform: 'scale(1)'
-
+                transform: 'scale(1)',
+                ease: 'power1.inOut'
             })
 
 
@@ -528,12 +527,14 @@ function initScroll() {
                     gsap.to(big, {
                         transform: 'translateY(0%)',
                         opacity: 1,
-                        duration: .8
+                        duration: .8,
+                        ease: 'power1.inOut'
                     })
 
                     if (window.innerWidth < 768) {
                         gsap.to(imgSelf, {
-                            clipPath: 'inset(0% 0 0% 0)'
+                            clipPath: 'inset(0% 0 0% 0)',
+                            ease: 'power1.inOut'
                         })
                     }
 
@@ -545,12 +546,14 @@ function initScroll() {
                     gsap.to(big, {
                         transform: 'translateY(0%)',
                         opacity: 1,
-                        duration: .8
+                        duration: .8,
+                        ease: 'power1.inOut'
                     })
 
                     if (window.innerWidth < 768) {
                         gsap.to(imgSelf, {
-                            clipPath: 'inset(0% 0 0% 0)'
+                            clipPath: 'inset(0% 0 0% 0)',
+                            ease: 'power1.inOut'
                         })
                     }
                 },
@@ -560,11 +563,13 @@ function initScroll() {
                     gsap.to(big, {
                         transform: 'translateY(-50%)',
                         opacity: 0,
-                        duration: .8
+                        duration: .8,
+                        ease: 'power1.inOut'
                     })
                     if (window.innerWidth < 768) {
                         gsap.to(imgSelf, {
-                            clipPath: 'inset(0% 0 100% 0)'
+                            clipPath: 'inset(0% 0 100% 0)',
+                            ease: 'power1.inOut'
                         })
                     }
                     /*   list.style.transform = `translateY(-${7 * i}rem)` */
@@ -575,11 +580,13 @@ function initScroll() {
                     gsap.to(big, {
                         transform: 'translateY(50%)',
                         opacity: 0,
-                        duration: .8
+                        duration: .8,
+                        ease: 'power1.inOut'
                     })
                     if (window.innerWidth < 768) {
                         gsap.to(imgSelf, {
-                            clipPath: 'inset(100% 0 0% 0)'
+                            clipPath: 'inset(100% 0 0% 0)',
+                            ease: 'power1.inOut'
                         })
                     }
                     /*   list.style.transform = `translateY(-${7 * i}rem)` */
@@ -587,8 +594,6 @@ function initScroll() {
             })
         })
 }
-
-
 
 function initSwipers() {
     const catalogDetail_Top = document.querySelector('.catalogDetailTop')
@@ -1050,28 +1055,28 @@ function modalsHandler() {
 
     let myMap
     try {
-        if (document.querySelector('#modalMap') && ymaps) {
-            ymaps.ready(() => {
-                myMap = new ymaps.Map("modalMap", {
-                    center: [47.204572074287015, 39.67028549999995],
-                    zoom: 16,
-                    controls: ['fullscreenControl',]
-                })
 
-                myMap.geoObjects
-                    .add(new ymaps.Placemark(myMap.getCenter(), {
-                        hintContent: 'q'
-                    }, {
-                        iconLayout: 'default#image',
-                        iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
-                        iconImageSize: [111, 135],
+        ymaps.ready(() => {
+            myMap = new ymaps.Map("modalMap", {
+                center: [47.204572074287015, 39.67028549999995],
+                zoom: 16,
+                controls: ['fullscreenControl',]
+            })
 
-                    }))
-            }
-            );
+            myMap.geoObjects
+                .add(new ymaps.Placemark(myMap.getCenter(), {
+                    hintContent: 'q'
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
+                    iconImageSize: [111, 135],
+
+                }))
         }
+        );
+
     } catch (error) {
-        console.log(error);
+
     }
 
 

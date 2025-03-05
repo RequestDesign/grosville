@@ -62,7 +62,7 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
 
           if (elements.length > 0) {
             elements.forEach((element) => {
-          
+
               if (elementData.text) {
                 element.textContent = elementData.text;
               }
@@ -71,8 +71,8 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
               }
               if (elementData.class) {
                 element.classList.add(elementData.class);
-              } 
-              if(elementData.attr){
+              }
+              if (elementData.attr) {
                 Object.entries(elementData.attr).forEach(([key, value]) => {
                   element.setAttribute(key, value);
                 });
@@ -133,10 +133,11 @@ module.exports = {
   devtool: devMode ? "inline-source-map" : false, //сорс мапа
   devServer: {
     historyApiFallback: true,
+    allowedHosts: "all",
     open: true,
     hot: true,
     port: "8080",
-    host: "localhost",
+    host: "local-ip",
     static: path.resolve(__dirname, "dist"),
     watchFiles: path.join(__dirname, "src"),
   },

@@ -7,7 +7,7 @@
     overflow: hidden;
 
     background-color: var(--col-black);
-  
+
     z-index: 101;
 
     &__wrp {
@@ -17,7 +17,7 @@
         height: 100%;
 
         @include mobile {
-            width:  calc(100% - 6rem);
+            width: calc(100% - 6rem);
             margin-top: 3.2rem;
             margin-left: 3rem;
             margin-right: 3rem;
@@ -48,13 +48,15 @@
                 & path {
                     fill: var(--col-white);
                     overflow: hidden;
+                    clip-path: inset(0% 100% 0% 0);
                 }
             }
+
             &-bottom {
                 width: 16rem;
                 height: 1.1rem;
                 overflow: hidden;
-               clip-path: inset(0% 0% 100% 0);
+                clip-path: inset(0% 0% 100% 0);
 
                 & path {
                     fill: var(--col-white);

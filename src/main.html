@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
-  <style>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <style>
     @font-face {
       font-family: 'Montserrat';
       src: local('Montserrat'),
@@ -35,7 +37,7 @@
     <main>
       <!-- если эта анимация не нужна
        просто удали эту хуйню -->
-      <div class="logoAnime">
+   <!--    <div class="logoAnime">
         <div class="logoAnime__wrp container">
           <div class="logoAnime__wrp-c">
             
@@ -127,7 +129,7 @@
             </svg>
           </div>
         </div>
-      </div>
+      </div> -->
       <section class="mainHeading">
         <div class="container mainHeading__c">
           <div class="mainHeading__c-main">
@@ -326,7 +328,7 @@
                     </li>
                   </ul>
 
-                  <button class="btn-trans _arrow mobile gsap-opacity">
+                  <button class="btn-trans _arrow mobile gsap-opacity" data-modal="request" data-submit_type="offer">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>
@@ -346,7 +348,7 @@
                     one <br />
                   </span>
 
-                  <button class="btn-trans _arrow desktop gsap-opacity" data-gsap-delay="1">
+                  <button class="btn-trans _arrow desktop gsap-opacity" data-gsap-delay="1"  data-modal="request" data-submit_type="offer">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>
@@ -397,7 +399,7 @@
                     one <br />
                   </span>
 
-                  <button class="btn-trans _arrow">
+                  <button class="btn-trans _arrow"  data-modal="request" data-submit_type="offer">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>

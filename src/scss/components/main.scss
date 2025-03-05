@@ -318,6 +318,7 @@
         flex-direction: column;
         justify-content: space-between;
         margin-top: 72rem;
+       
 
         @include mobile {
             margin-top: $headerMargin;
@@ -373,6 +374,7 @@
         grid-column: 2;
         width: 100%;
         height: fit-content;
+      
 
 
         @include mobile {
@@ -384,7 +386,7 @@
             grid-row: 1;
             grid-column: 1;
             top: calc($headerMargin + 5rem);
-
+            transition: top .2s linear;
             position: relative;
             top: 0;
         }
@@ -634,6 +636,11 @@
 }
 
 .mainMsg {
+    @include mobile{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
     &__c {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;

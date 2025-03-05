@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         @font-face {
             font-family: 'Montserrat';
@@ -24,8 +25,6 @@
             font-style: normal;
             font-display: swap;
         }
-
- 
     </style>
     <title>само напишется</title>
 </head>
@@ -109,7 +108,7 @@
                             </li>
                             <li>
 
-                                <button class="btn-primary ">
+                                <button class="btn-primary " data-modal="request" data-submit_type="call">
                                     <span class="btn-primary__text">
                                         Оставить
                                     </span>
@@ -122,14 +121,18 @@
 
                             </li>
                             <li class="contacts-info__c-right-list-el _social">
-                                <a href="#" class="ui-social _tg"></a>
-                                <a href="#" class="ui-social _wa"></a>
+                                <!--noindex-->
+                                <a href="#" target="_blank" rel="nofollow noopener noreferrer"
+                                    class="ui-social _tg"></a>
+                                <a href="#" target="_blank" rel="nofollow noopener noreferrer"
+                                    class="ui-social _wa"></a>
+                                <!--/noindex-->
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
-            <!--  -->
+
             <section class="contacts-map">
                 <div class="container">
                     <div class="contacts-map__top">
