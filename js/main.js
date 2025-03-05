@@ -405,7 +405,7 @@ function initScroll() {
     // Показываем маркеры для отладки (можно убрать)
     toggleActions: "play none none none"
   };
-  if (window.innerWidth > 768) {
+  if (true) {
     /////////////////TRANSLATE///////////////////
     document.querySelectorAll('.gsap-translate-y').forEach(e => {
       gsap/* default */.ZP.set(e, {
@@ -571,31 +571,36 @@ function initScroll() {
 
   if (window.innerWidth < 768) {
     const main = document.querySelector('.mainBanner__small'),
-      t = main.querySelectorAll('.mainBanner__small-img-self'),
-      h = t[0].offsetHeight,
+      pic = main.querySelectorAll('.mainBanner__small-img-self'),
+      h = pic[0].offsetHeight,
       text = document.querySelector('.mainBanner__c');
     ScrollTrigger/* ScrollTrigger */.i.create({
       trigger: main,
       start: 'top 50%',
       end: 'bottom 90%',
-      scrub: 0,
-      ease: 'none',
       onUpdate: self => {
         if (window.innerWidth < 768) {
           const progress = self.progress,
             v = (main.offsetHeight - h * 0.9) * progress;
-          gsap/* default */.ZP.to(t, {
+          gsap/* default */.ZP.to(pic, {
             //yPercent: 100,
             top: v,
             // Динамическое изменение позиции
-
-            ease: 'power1.inOut'
+            duration: .2,
+            delay: .1,
+            ease: 'none'
           });
-          gsap/* default */.ZP.to(text, {
-            top: main.offsetHeight * 0.75 * progress,
-            ease: 'power1.inOut'
+          gsap/* default */.ZP.set(text, {
+            top: Number(Number(main.offsetHeight * 0.75 * progress).toFixed(0)),
+            ease: 'none'
           });
         }
+      },
+      onEnter: () => {
+        console.log('e');
+      },
+      onLeave: () => {
+        console.log('l');
       }
     });
   }
