@@ -6,9 +6,6 @@
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 
-// EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
-var jquery = __webpack_require__(755);
-var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 // EXTERNAL MODULE: ./node_modules/swiper/swiper.mjs + 1 modules
 var swiper = __webpack_require__(652);
 // EXTERNAL MODULE: ./node_modules/swiper/modules/index.mjs + 28 modules
@@ -224,7 +221,7 @@ const HTML = document.querySelector('html'),
   EV_CLICK = new Event('click', {
     bubbles: true
   });
-jquery_default()(function () {
+$(function () {
   initForms();
   main_nouislider();
   header();
@@ -234,7 +231,6 @@ jquery_default()(function () {
   initAboutVidos();
   initScroll();
   HTML.classList.add(HTML_PAGELOAD_SELECTOR);
-  window.scrollTo(0, 0);
   initCard(document.querySelectorAll('.catalogItemSwiper') || null);
   try {
     logoAnime();
@@ -331,18 +327,15 @@ function logoAnime() {
     overflow: 'hidden',
     touchAction: 'none'
   });
-  if (!isMob) {
-    gsap/* default */.ZP.set(main, {
-      paddingTop: '100dvh'
-    });
-  }
+  tl.delay(1);
   top.querySelectorAll('path').forEach((e, i) => {
-    tl.fromTo(e, {
+    gsap/* default */.ZP.set(e, {
       clipPath: 'inset(0% 100% 0% 0)'
-    }, {
+    });
+    tl.to(e, {
       clipPath: 'inset(0% 0% 0% 0)',
       duration: .5,
-      delay: -0.3,
+      delay: -0.2,
       ease: 'power1.inOut'
     });
   });
@@ -369,10 +362,6 @@ function logoAnime() {
     touchAction: 'auto',
     duration: 0,
     delay: 1.5
-  }), gsap/* default */.ZP.to(main, {
-    paddingTop: '0',
-    duration: .8,
-    delay: 1
   })]);
   tl.play();
 }
@@ -617,7 +606,8 @@ function initScroll() {
     });
     gsap/* default */.ZP.set(big, {
       transform: '50%',
-      opacity: 0
+      opacity: 0,
+      ease: 'power1.inOut'
     });
     if (window.innerWidth < 768) {
       gsap/* default */.ZP.set(imgSelf, {
@@ -628,7 +618,8 @@ function initScroll() {
     tl.fromTo(img, {
       transform: 'scale(1.2)'
     }, {
-      transform: 'scale(1)'
+      transform: 'scale(1)',
+      ease: 'power1.inOut'
     });
     ScrollTrigger/* ScrollTrigger */.i.create({
       trigger: e,
@@ -644,11 +635,13 @@ function initScroll() {
         gsap/* default */.ZP.to(big, {
           transform: 'translateY(0%)',
           opacity: 1,
-          duration: .8
+          duration: .8,
+          ease: 'power1.inOut'
         });
         if (window.innerWidth < 768) {
           gsap/* default */.ZP.to(imgSelf, {
-            clipPath: 'inset(0% 0 0% 0)'
+            clipPath: 'inset(0% 0 0% 0)',
+            ease: 'power1.inOut'
           });
         }
       },
@@ -659,11 +652,13 @@ function initScroll() {
         gsap/* default */.ZP.to(big, {
           transform: 'translateY(0%)',
           opacity: 1,
-          duration: .8
+          duration: .8,
+          ease: 'power1.inOut'
         });
         if (window.innerWidth < 768) {
           gsap/* default */.ZP.to(imgSelf, {
-            clipPath: 'inset(0% 0 0% 0)'
+            clipPath: 'inset(0% 0 0% 0)',
+            ease: 'power1.inOut'
           });
         }
       },
@@ -673,11 +668,13 @@ function initScroll() {
         gsap/* default */.ZP.to(big, {
           transform: 'translateY(-50%)',
           opacity: 0,
-          duration: .8
+          duration: .8,
+          ease: 'power1.inOut'
         });
         if (window.innerWidth < 768) {
           gsap/* default */.ZP.to(imgSelf, {
-            clipPath: 'inset(0% 0 100% 0)'
+            clipPath: 'inset(0% 0 100% 0)',
+            ease: 'power1.inOut'
           });
         }
         /*   list.style.transform = `translateY(-${7 * i}rem)` */
@@ -689,11 +686,13 @@ function initScroll() {
         gsap/* default */.ZP.to(big, {
           transform: 'translateY(50%)',
           opacity: 0,
-          duration: .8
+          duration: .8,
+          ease: 'power1.inOut'
         });
         if (window.innerWidth < 768) {
           gsap/* default */.ZP.to(imgSelf, {
-            clipPath: 'inset(100% 0 0% 0)'
+            clipPath: 'inset(100% 0 0% 0)',
+            ease: 'power1.inOut'
           });
         }
         /*   list.style.transform = `translateY(-${7 * i}rem)` */
@@ -1099,7 +1098,7 @@ function initForms() {
   if (forms) {
     forms.forEach(e => {
       new Form(e);
-      const phone = jquery_default()(e).find('input[name="phone"]');
+      const phone = $(e).find('input[name="phone"]');
       if (phone) {
         new (inputmask_default())('+7 (999) 999-99-99').mask(phone);
       }
@@ -1107,42 +1106,38 @@ function initForms() {
   }
 }
 function modalsHandler() {
-  const modalOpeners = jquery_default()('[data-modal]'),
-    modalClosers = jquery_default()('.modal-closer'),
-    html = jquery_default()('html');
+  const modalOpeners = $('[data-modal]'),
+    modalClosers = $('.modal-closer'),
+    html = $('html');
   if (!modalOpeners || !modalClosers) return;
   let myMap;
   try {
-    if (document.querySelector('#modalMap') && ymaps) {
-      ymaps.ready(() => {
-        myMap = new ymaps.Map("modalMap", {
-          center: [47.204572074287015, 39.67028549999995],
-          zoom: 16,
-          controls: ['fullscreenControl']
-        });
-        myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
-          hintContent: 'q'
-        }, {
-          iconLayout: 'default#image',
-          iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
-          iconImageSize: [111, 135]
-        }));
+    ymaps.ready(() => {
+      myMap = new ymaps.Map("modalMap", {
+        center: [47.204572074287015, 39.67028549999995],
+        zoom: 16,
+        controls: ['fullscreenControl']
       });
-    }
-  } catch (error) {
-    console.log(error);
-  }
+      myMap.geoObjects.add(new ymaps.Placemark(myMap.getCenter(), {
+        hintContent: 'q'
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: '../assets/images/icons/mapMarkerSmall.svg',
+        iconImageSize: [111, 135]
+      }));
+    });
+  } catch (error) {}
   modalOpeners.on('click', ev => {
     const {
       modal,
       submit_type
     } = ev.currentTarget.dataset;
-    jquery_default()(`.modal-${modal}`).fadeIn().addClass('_opened').attr('data-submit_type', submit_type);
+    $(`.modal-${modal}`).fadeIn().addClass('_opened').attr('data-submit_type', submit_type);
     html.addClass('_lock');
     if (modal == 'map') {
       myMap.panTo([Number(ev.currentTarget.dataset.mapx), Number(ev.currentTarget.dataset.mapy)]);
-      jquery_default()(`.modal-${modal}`).find('.modal-map__ttl').text(ev.currentTarget.dataset.mapTtl);
-      jquery_default()(`.modal-${modal}`).find('.modal-map__adr').text(ev.currentTarget.dataset.mapAdr);
+      $(`.modal-${modal}`).find('.modal-map__ttl').text(ev.currentTarget.dataset.mapTtl);
+      $(`.modal-${modal}`).find('.modal-map__adr').text(ev.currentTarget.dataset.mapAdr);
     }
   });
   modalClosers.on('click', ev => {
@@ -1151,9 +1146,9 @@ function modalsHandler() {
     } = ev.target;
     if (!classList.contains('modal-closer')) return;
     if (classList.contains('modal')) {
-      jquery_default()(ev.target).fadeOut().removeClass('_opened');
+      $(ev.target).fadeOut().removeClass('_opened');
     } else {
-      jquery_default()(ev.target.closest('.modal')).fadeOut().removeClass('_opened');
+      $(ev.target.closest('.modal')).fadeOut().removeClass('_opened');
     }
     html.removeClass('_lock');
   });
@@ -1192,7 +1187,7 @@ function main_nouislider() {
 function header() {
   let prevY = 0;
   const header = document.querySelector('.header'),
-    modal = jquery_default()('.header__modal');
+    modal = $('.header__modal');
   if (!header) return;
   document.addEventListener('scroll', ev => {
     if (prevY > window.scrollY && window.scrollY > 500) {
@@ -1378,7 +1373,7 @@ function header() {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [390,775,90,371,729,522,877], () => (__webpack_require__(906)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [390,775,90,371,522,877], () => (__webpack_require__(906)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

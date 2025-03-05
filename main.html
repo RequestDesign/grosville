@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
-  <style>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <style>
     @font-face {
       font-family: 'Montserrat';
       src: local('Montserrat'),
@@ -27,7 +29,7 @@
   <script src="https://api-maps.yandex.ru/2.1/?apikey=baf2c816-f3bd-4189-98d8-72b7e716c191&lang=ru_RU"
     type="text/javascript"></script>
   <title>main.html</title>
-<script defer src="js/swiper.js"></script><script defer src="js/gsap.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/jquery.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
+<script defer src="js/swiper.js"></script><script defer src="js/gsap.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
 
 <body>
   <div class="wrapper">
@@ -303,9 +305,9 @@
             <p class="tl1">ttl</p>
             <p class="txt20">place</p>
         </div>
-        <button class="btn-circle desktop gsap-translate-y">
+        <a href="#" class="btn-circle desktop gsap-translate-y">
             <span class="btn-circle__text _arrow">о проекте</span>
-        </button>
+        </a>
 
         <button class="mainSlider__c-left-map desktop gsap-translate-y" data-modal="map" data-mapx="47.204572074287015" data-mapy="39.67028549999995" data-map-ttl="это тайтл для модалки" data-map-adr="а это адрес">
         </button>
@@ -369,7 +371,7 @@
             </ul>
             <p class="tl3">Lorem ipsum dolor sit amet.</p>
 
-            <a class="btn-link _arrow mobile">
+            <a href="#" class="btn-link _arrow mobile">
                 <span>
                     btn-link
                 </span>
@@ -397,9 +399,9 @@
             <p class="tl1">ttl</p>
             <p class="txt20">place</p>
         </div>
-        <button class="btn-circle desktop gsap-translate-y">
+        <a href="#" class="btn-circle desktop gsap-translate-y">
             <span class="btn-circle__text _arrow">о проекте</span>
-        </button>
+        </a>
 
         <button class="mainSlider__c-left-map desktop gsap-translate-y" data-modal="map" data-mapx="47.204572074287015" data-mapy="39.67028549999995" data-map-ttl="это тайтл для модалки" data-map-adr="а это адрес">
         </button>
@@ -463,7 +465,7 @@
             </ul>
             <p class="tl3">Lorem ipsum dolor sit amet.</p>
 
-            <a class="btn-link _arrow mobile">
+            <a href="#" class="btn-link _arrow mobile">
                 <span>
                     btn-link
                 </span>
@@ -491,9 +493,9 @@
             <p class="tl1">ttl</p>
             <p class="txt20">place</p>
         </div>
-        <button class="btn-circle desktop gsap-translate-y">
+        <a href="#" class="btn-circle desktop gsap-translate-y">
             <span class="btn-circle__text _arrow">о проекте</span>
-        </button>
+        </a>
 
         <button class="mainSlider__c-left-map desktop gsap-translate-y" data-modal="map" data-mapx="47.204572074287015" data-mapy="39.67028549999995" data-map-ttl="это тайтл для модалки" data-map-adr="а это адрес">
         </button>
@@ -557,7 +559,7 @@
             </ul>
             <p class="tl3">Lorem ipsum dolor sit amet.</p>
 
-            <a class="btn-link _arrow mobile">
+            <a href="#" class="btn-link _arrow mobile">
                 <span>
                     btn-link
                 </span>
@@ -715,7 +717,7 @@
                     </li>
                   </ul>
 
-                  <button class="btn-trans _arrow mobile gsap-opacity">
+                  <button class="btn-trans _arrow mobile gsap-opacity" data-modal="request" data-submit_type="offer">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>
@@ -735,7 +737,7 @@
                     one <br />
                   </span>
 
-                  <button class="btn-trans _arrow desktop gsap-opacity" data-gsap-delay="1">
+                  <button class="btn-trans _arrow desktop gsap-opacity" data-gsap-delay="1"  data-modal="request" data-submit_type="offer">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>
@@ -786,7 +788,7 @@
                     one <br />
                   </span>
 
-                  <button class="btn-trans _arrow">
+                  <button class="btn-trans _arrow"  data-modal="request" data-submit_type="offer">
                     <span class="btn-trans__top">получить</span>
                     <span class="btn-trans__bottom">предложение</span>
                   </button>

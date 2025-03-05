@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" href="./assets/fonts/Montserrat.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="preload" href="./assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin="">
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         @font-face {
             font-family: 'Montserrat';
             src: local('Montserrat'),
                 url('./assets/fonts/Montserrat.woff2') format('woff2');
-            /*   font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
@@ -22,23 +23,13 @@
             src: local('Inter'),
                 url('./assets/fonts/Inter.woff2') format('woff2');
 
-            /*     font-weight: 400; */
             font-style: normal;
             font-display: swap;
         }
 
-        /*   @font-face {
-      font-family: 'Inter';
-      src: local('Inter'),
-        url('./assets/fonts/Inter.woff2') format('woff2');
-
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    } */
     </style>
     <title>404.html</title>
-<script defer src="js/swiper.js"></script><script defer src="js/gsap.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/jquery.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
+<script defer src="js/swiper.js"></script><script defer src="js/gsap.js"></script><script defer src="js/nouislider.js"></script><script defer src="js/inputmask.js"></script><script defer src="js/fancyapps.js"></script><script defer src="js/main.js"></script><link href="css/90.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head>
 
 <body>
     <div class="wrapper">
@@ -169,7 +160,7 @@
                     </div>
                     <p class="txt11 txt-up">страница не найдена</p>
 
-                    <button class="btn-primary ">
+                    <a href="/" class="btn-primary ">
                         <span class="btn-primary__text">
                             вернуться
                         </span>
@@ -178,7 +169,7 @@
                         </span>
                         <span class="btn-primary__icon _arrow">
                         </span>
-                    </button>
+                    </a>
 
                 </div>
             </section>
